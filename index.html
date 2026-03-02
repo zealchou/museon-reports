@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MUSEON 台股戰爭衝擊分析報告 | 2026.03.02</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #0a0e17;
+  --bg-card: #111827;
+  --bg-card-hover: #1a2332;
+  --bg-accent: #1e293b;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --red: #ef4444;
+  --red-dark: #dc2626;
+  --red-glow: rgba(239,68,68,0.15);
+  --orange: #f97316;
+  --orange-glow: rgba(249,115,22,0.12);
+  --amber: #f59e0b;
+  --amber-glow: rgba(245,158,11,0.1);
+  --green: #22c55e;
+  --green-glow: rgba(34,197,94,0.1);
+  --blue: #3b82f6;
+  --blue-glow: rgba(59,130,246,0.1);
+  --cyan: #06b6d4;
+  --gold: #eab308;
+  --border: rgba(255,255,255,0.06);
+  --border-accent: rgba(255,255,255,0.1);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 920px; margin: 0 auto; padding: 0 24px; }
+
+/* ALERT */
+.alert-bar {
+  background: linear-gradient(90deg, var(--red-dark), #991b1b, var(--red-dark));
+  padding: 10px 0;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  animation: pulse-bg 3s ease-in-out infinite;
+  position: sticky; top: 0; z-index: 100;
+}
+@keyframes pulse-bg { 0%,100%{opacity:1} 50%{opacity:0.85} }
+
+/* HERO */
+.hero { padding: 60px 0 40px; text-align: center; position: relative; }
+.hero::after {
+  content:''; position:absolute; bottom:0; left:50%;
+  transform:translateX(-50%); width:120px; height:1px;
+  background:linear-gradient(90deg,transparent,var(--text-muted),transparent);
+}
+.hero-label {
+  font-size:11px; text-transform:uppercase; letter-spacing:4px;
+  color:var(--red); font-weight:700; margin-bottom:16px;
+}
+.hero h1 {
+  font-family:'Noto Serif TC',serif; font-size:clamp(28px,5vw,42px);
+  font-weight:900; line-height:1.3; margin-bottom:12px;
+  background:linear-gradient(135deg,var(--text-primary),var(--amber));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+}
+.hero-date {
+  font-family:'JetBrains Mono',monospace; font-size:13px;
+  color:var(--text-muted); letter-spacing:1px;
+}
+
+/* VERDICT */
+.verdict {
+  margin:40px 0; background:linear-gradient(135deg,rgba(239,68,68,0.08),rgba(249,115,22,0.06));
+  border:1px solid rgba(239,68,68,0.2); border-radius:16px; padding:32px;
+}
+.verdict-title { font-size:12px; text-transform:uppercase; letter-spacing:3px; color:var(--red); font-weight:700; margin-bottom:16px; }
+.verdict-text { font-family:'Noto Serif TC',serif; font-size:20px; font-weight:700; line-height:1.6; margin-bottom:24px; }
+.verdict-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:16px; }
+.verdict-stat { background:rgba(0,0,0,0.3); border-radius:10px; padding:16px; text-align:center; }
+.verdict-stat .num { font-family:'JetBrains Mono',monospace; font-size:24px; font-weight:700; display:block; }
+.verdict-stat .num.red { color:var(--red); }
+.verdict-stat .num.orange { color:var(--orange); }
+.verdict-stat .num.amber { color:var(--amber); }
+.verdict-stat .num.green { color:var(--green); }
+.verdict-stat .label { font-size:12px; color:var(--text-muted); margin-top:4px; }
+
+/* SECTIONS */
+.section { margin:48px 0; }
+.section-header { display:flex; align-items:center; gap:12px; margin-bottom:24px; padding-bottom:12px; border-bottom:1px solid var(--border); }
+.section-num { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-muted); background:var(--bg-accent); padding:4px 10px; border-radius:4px; letter-spacing:1px; }
+.section-title { font-family:'Noto Serif TC',serif; font-size:22px; font-weight:700; }
+
+/* CARDS */
+.card { background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:24px; margin-bottom:16px; }
+.card:hover { border-color:var(--border-accent); }
+.card h3 { font-size:16px; font-weight:700; margin-bottom:8px; }
+.card p { font-size:14px; color:var(--text-secondary); line-height:1.8; }
+
+/* SCENARIOS */
+.scenario { border-radius:14px; padding:28px; margin-bottom:20px; position:relative; overflow:hidden; }
+.scenario::before { content:''; position:absolute; top:0; left:0; width:4px; height:100%; }
+.scenario.green-s { background:var(--green-glow); border:1px solid rgba(34,197,94,0.2); }
+.scenario.green-s::before { background:var(--green); }
+.scenario.orange-s { background:var(--orange-glow); border:1px solid rgba(249,115,22,0.2); }
+.scenario.orange-s::before { background:var(--orange); }
+.scenario.red-s { background:var(--red-glow); border:1px solid rgba(239,68,68,0.2); }
+.scenario.red-s::before { background:var(--red); }
+.scenario-head { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px; flex-wrap:wrap; gap:8px; }
+.scenario-name { font-family:'Noto Serif TC',serif; font-size:18px; font-weight:700; }
+.scenario-prob { font-family:'JetBrains Mono',monospace; font-size:14px; padding:4px 12px; border-radius:20px; font-weight:700; }
+.scenario.green-s .scenario-prob { background:rgba(34,197,94,0.2); color:var(--green); }
+.scenario.orange-s .scenario-prob { background:rgba(249,115,22,0.2); color:var(--orange); }
+.scenario.red-s .scenario-prob { background:rgba(239,68,68,0.2); color:var(--red); }
+.scenario-body { font-size:14px; color:var(--text-secondary); line-height:1.8; }
+.scenario-body strong { color:var(--text-primary); }
+.scenario-row { display:grid; grid-template-columns:100px 1fr; gap:8px; margin:6px 0; }
+.scenario-label { font-size:12px; color:var(--text-muted); font-weight:500; padding-top:2px; }
+.scenario-val { font-size:14px; }
+.plain-box { background:rgba(0,0,0,0.25); border-radius:8px; padding:14px 16px; margin-top:12px; font-size:13px; color:var(--amber); line-height:1.7; }
+.plain-box::before { content:'💬 白話翻譯：'; font-weight:700; display:block; margin-bottom:4px; }
+
+/* TIMELINE */
+.timeline { position:relative; padding-left:28px; }
+.timeline::before { content:''; position:absolute; left:8px; top:0; bottom:0; width:2px; background:linear-gradient(to bottom,var(--red),var(--orange),var(--amber),var(--green),var(--blue)); }
+.tl-item { position:relative; margin-bottom:28px; }
+.tl-item::before { content:''; position:absolute; left:-24px; top:6px; width:12px; height:12px; border-radius:50%; border:2px solid var(--text-muted); background:var(--bg-primary); }
+.tl-item:nth-child(1)::before { border-color:var(--red); }
+.tl-item:nth-child(2)::before { border-color:var(--orange); }
+.tl-item:nth-child(3)::before { border-color:var(--amber); }
+.tl-item:nth-child(4)::before { border-color:var(--green); }
+.tl-item:nth-child(5)::before { border-color:var(--blue); }
+.tl-date { font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-muted); letter-spacing:1px; }
+.tl-title { font-size:16px; font-weight:700; margin:4px 0 8px; }
+.tl-body { font-size:14px; color:var(--text-secondary); line-height:1.8; }
+.tl-watch { margin-top:8px; font-size:13px; color:var(--cyan); }
+.tl-watch::before { content:'🔍 觀察指標：'; font-weight:700; }
+
+/* TABLE */
+.data-table { width:100%; border-collapse:collapse; font-size:13px; margin:16px 0; }
+.data-table th { text-align:left; padding:10px 12px; background:var(--bg-accent); color:var(--text-muted); font-size:11px; text-transform:uppercase; letter-spacing:1px; border-bottom:1px solid var(--border); }
+.data-table td { padding:10px 12px; border-bottom:1px solid var(--border); color:var(--text-secondary); }
+.data-table tr:hover td { background:rgba(255,255,255,0.02); }
+.tag { display:inline-block; padding:2px 8px; border-radius:4px; font-size:11px; font-weight:600; }
+.tag-red { background:rgba(239,68,68,0.15); color:var(--red); }
+.tag-green { background:rgba(34,197,94,0.15); color:var(--green); }
+
+/* SECTORS */
+.sector-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+@media(max-width:640px){ .sector-grid{grid-template-columns:1fr;} }
+.sector-card { border-radius:12px; padding:20px; }
+.sector-card.hurt { background:var(--red-glow); border:1px solid rgba(239,68,68,0.15); }
+.sector-card.benefit { background:var(--green-glow); border:1px solid rgba(34,197,94,0.15); }
+.sector-card h4 { font-size:14px; font-weight:700; margin-bottom:12px; }
+.sector-card.hurt h4 { color:var(--red); }
+.sector-card.benefit h4 { color:var(--green); }
+.sector-item { font-size:13px; color:var(--text-secondary); padding:4px 0; line-height:1.6; }
+
+/* ADVICE */
+.advice-list { counter-reset:advice; }
+.advice-item { background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:20px 20px 20px 56px; margin-bottom:12px; position:relative; }
+.advice-item::before { counter-increment:advice; content:counter(advice); position:absolute; left:20px; top:20px; width:28px; height:28px; background:var(--bg-accent); border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; color:var(--amber); }
+.advice-item h4 { font-size:15px; font-weight:700; margin-bottom:6px; }
+.advice-item p { font-size:13px; color:var(--text-secondary); line-height:1.7; }
+
+/* RISK */
+.risk-row { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:8px; padding:12px 0; border-bottom:1px solid var(--border); font-size:13px; align-items:center; }
+.risk-row.header { font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); font-weight:600; }
+.risk-name { color:var(--text-primary); font-weight:500; }
+.risk-type { color:var(--text-muted); font-size:12px; }
+.risk-badge { text-align:center; padding:3px 8px; border-radius:4px; font-size:11px; font-weight:600; }
+.risk-high { background:rgba(239,68,68,0.15); color:var(--red); }
+.risk-med { background:rgba(249,115,22,0.15); color:var(--orange); }
+.risk-low { background:rgba(34,197,94,0.15); color:var(--green); }
+.risk-pos { background:rgba(59,130,246,0.15); color:var(--blue); }
+
+/* MARKET GRID */
+.market-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px; }
+.market-item { background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px; }
+.market-item .mi-label { font-size:11px; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px; }
+.market-item .mi-val { font-family:'JetBrains Mono',monospace; font-size:20px; font-weight:700; margin:6px 0; }
+.market-item .mi-change { font-size:12px; font-weight:600; }
+.mi-red { color:var(--red); }
+.mi-green { color:var(--green); }
+.mi-amber { color:var(--amber); }
+
+/* FOOTER */
+.footer { margin-top:60px; padding:32px 0; border-top:1px solid var(--border); text-align:center; }
+.footer p { font-size:11px; color:var(--text-muted); line-height:1.8; max-width:600px; margin:0 auto; }
+.footer .brand { font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:3px; color:var(--text-muted); margin-bottom:12px; }
+
+@media(max-width:640px){
+  .verdict-grid{grid-template-columns:1fr 1fr;}
+  .risk-row{grid-template-columns:1fr 1fr;gap:4px;font-size:12px;}
+  .scenario-row{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="alert-bar">
+  <span>⚠️ 緊急戰爭衝擊分析 ─ 美以聯軍攻擊伊朗・哈梅內伊身亡・荷姆茲海峽封鎖</span>
+</div>
+
+<div class="container">
+
+<div class="hero">
+  <div class="hero-label">MUSEON Market Intelligence</div>
+  <h1>台股戰爭衝擊分析<br>未來五日推演報告</h1>
+  <div class="hero-date">2026.03.02 MON ─ 分析基準日</div>
+</div>
+
+<div class="verdict">
+  <div class="verdict-title">⚡ 一句話結論</div>
+  <div class="verdict-text">
+    歷史規律說「砲聲響起時買入」，但這次多了一個變數：<strong style="color:var(--red)">荷姆茲海峽</strong>。<br>
+    海峽一週內恢復通航 → 台股 3~5 天觸底反彈；<br>
+    封鎖超過一週、油價破百 → 恢復時間拉長到 1~3 個月。
+  </div>
+  <div class="verdict-grid">
+    <div class="verdict-stat"><span class="num red">-809</span><span class="label">盤中最大跌點</span></div>
+    <div class="verdict-stat"><span class="num orange">34,605</span><span class="label">盤中最低點</span></div>
+    <div class="verdict-stat"><span class="num amber">80 美元</span><span class="label">Brent 原油（+10%）</span></div>
+    <div class="verdict-stat"><span class="num green">5,350+</span><span class="label">黃金（美元/盎司）</span></div>
+  </div>
+</div>
+
+<!-- 01 現況 -->
+<div class="section">
+  <div class="section-header"><span class="section-num">01</span><span class="section-title">發生了什麼事？</span></div>
+  <div class="card">
+    <h3>🔥 事件時間線</h3>
+    <p>
+      <strong>2/28（五）</strong> 美以發動代號「Epic Fury」聯合軍事行動，從海空攻擊伊朗軍事設施與核設施。3 名美軍陣亡。<br>
+      <strong>3/1（六）</strong> 伊朗證實最高領袖哈梅內伊遇襲身亡。革命衛隊宣布關閉荷姆茲海峽，並對 27 個美軍基地發動報復，首次使用「法塔赫-2」高超音速巡航導彈。宣布 40 天全國哀悼。<br>
+      <strong>3/2（一）</strong> 台股開盤重挫，盤中最深跌 809 點至 34,605。隨後強力買盤進場，走出大 V 轉，跌幅收斂至約 -437 點（-1.24%）。台積電最低 1,940 元（-2.76%）。
+    </p>
+  </div>
+  <div class="card">
+    <h3>💡 小白版解釋</h3>
+    <p>
+      荷姆茲海峽就像全世界最忙的高速公路，全球每 5 桶石油就有 1 桶從這裡經過。現在路被封了。<br><br>
+      石油運不出來 → 油價飆漲 → 企業成本上升 → 可能引發通膨 → 央行可能不敢降息甚至升息 → 股市資金壓力變大。<br><br>
+      不是台灣被打了，是全球經濟的血管被掐住了。
+    </p>
+  </div>
+</div>
+
+<!-- 02 國際連動 -->
+<div class="section">
+  <div class="section-header"><span class="section-num">02</span><span class="section-title">全球市場即時連動</span></div>
+  <div class="market-grid">
+    <div class="market-item"><div class="mi-label">Brent 原油</div><div class="mi-val mi-red">$80</div><div class="mi-change mi-red">▲ +10%（72→80）</div></div>
+    <div class="market-item"><div class="mi-label">黃金現貨</div><div class="mi-val mi-amber">$5,350+</div><div class="mi-change mi-amber">▲ 歷史新高</div></div>
+    <div class="market-item"><div class="mi-label">道瓊期貨</div><div class="mi-val mi-red">-375</div><div class="mi-change mi-red">▼ -0.77%</div></div>
+    <div class="market-item"><div class="mi-label">Nasdaq 期貨</div><div class="mi-val mi-red">-1.23%</div><div class="mi-change mi-red">▼ 跌破100日均線</div></div>
+    <div class="market-item"><div class="mi-label">日經 225</div><div class="mi-val mi-red">-2.37%</div><div class="mi-change mi-red">▼ 盤中最深</div></div>
+    <div class="market-item"><div class="mi-label">台指期</div><div class="mi-val mi-red">34,722</div><div class="mi-change mi-red">▼ -889 點</div></div>
+    <div class="market-item"><div class="mi-label">沙烏地股市</div><div class="mi-val mi-red">-4.6%</div><div class="mi-change mi-red">▼ 中東直接衝擊</div></div>
+    <div class="market-item"><div class="mi-label">比特幣</div><div class="mi-val mi-amber">~66,800</div><div class="mi-change mi-amber">↕ 劇烈波動</div></div>
+  </div>
+</div>
+
+<!-- 03 三大情境 -->
+<div class="section">
+  <div class="section-header"><span class="section-num">03</span><span class="section-title">三大情境推演</span></div>
+
+  <div class="scenario green-s">
+    <div class="scenario-head">
+      <div class="scenario-name">🕊️ 情境 A：閃電結束型</div>
+      <div class="scenario-prob">機率 30-35%</div>
+    </div>
+    <div class="scenario-body">
+      <div class="scenario-row"><div class="scenario-label">劇本</div><div class="scenario-val">本週內停火談判信號，海峽恢復通航，油價回落 75-80 美元</div></div>
+      <div class="scenario-row"><div class="scenario-label">台股走勢</div><div class="scenario-val"><strong>週二三觸底 34,000-34,500</strong>，週四五反彈回 35,000 以上</div></div>
+      <div class="scenario-row"><div class="scenario-label">週漲跌</div><div class="scenario-val" style="color:var(--green)">-200 至 +300 點</div></div>
+      <div class="scenario-row"><div class="scenario-label">歷史參照</div><div class="scenario-val">2025 以伊 12 天戰爭（停火後油價暴跌、股市暴漲）</div></div>
+      <div class="plain-box">就像去年六月那次，打了 12 天就停火。停火那天黃金石油通通暴跌，股市反彈更凶。如果川普快速談判成功，可能一週內就收尾。</div>
+    </div>
+  </div>
+
+  <div class="scenario orange-s">
+    <div class="scenario-head">
+      <div class="scenario-name">⚔️ 情境 B：持續轟炸但可控（基準劇本）</div>
+      <div class="scenario-prob">機率 40-45%</div>
+    </div>
+    <div class="scenario-body">
+      <div class="scenario-row"><div class="scenario-label">劇本</div><div class="scenario-val">轟炸持續整週，海峽部分恢復通航，油價維持 80-90 美元</div></div>
+      <div class="scenario-row"><div class="scenario-label">台股走勢</div><div class="scenario-val"><strong>全週震盪 33,800-34,800</strong>，無法有效反彈</div></div>
+      <div class="scenario-row"><div class="scenario-label">週跌幅</div><div class="scenario-val" style="color:var(--orange)">400-800 點</div></div>
+      <div class="scenario-row"><div class="scenario-label">歷史參照</div><div class="scenario-val">1991 波灣戰爭、2022 俄烏戰爭開戰首週</div></div>
+      <div class="plain-box">炸歸炸，但沒有擴大到不可收拾。像俄烏開戰時台股跌 461 點，但一個月後就收復了。不需恐慌，但也別急著抄底，等週三海峽明朗再說。</div>
+    </div>
+  </div>
+
+  <div class="scenario red-s">
+    <div class="scenario-head">
+      <div class="scenario-name">🌋 情境 C：海峽全面封鎖 + 戰爭擴大</div>
+      <div class="scenario-prob">機率 15-25%</div>
+    </div>
+    <div class="scenario-body">
+      <div class="scenario-row"><div class="scenario-label">劇本</div><div class="scenario-val">海峽封鎖超一週，油價衝破 100-120 美元，真主黨/胡塞加入戰局</div></div>
+      <div class="scenario-row"><div class="scenario-label">台股走勢</div><div class="scenario-val"><strong>下探 32,500-33,000</strong>（跌幅 7-8%），國安基金可能啟動</div></div>
+      <div class="scenario-row"><div class="scenario-label">台積電</div><div class="scenario-val" style="color:var(--red)">可能跌破 1,900 元</div></div>
+      <div class="scenario-row"><div class="scenario-label">歷史參照</div><div class="scenario-val">1970 年代石油禁運（嚴重程度可能 3 倍）</div></div>
+      <div class="plain-box">最糟劇本：海峽封了、油價飆破一百、全球供應鏈卡住。但歷史上從沒真正長期封鎖荷姆茲海峽——伊朗自己也需要出口石油。機率最低，殺傷力最大。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 04 逐日推演 -->
+<div class="section">
+  <div class="section-header"><span class="section-num">04</span><span class="section-title">逐日觀察指南（3/2 - 3/6）</span></div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-date">3/2（一）</div>
+      <div class="tl-title">恐慌宣洩日 ✅ 已發生</div>
+      <div class="tl-body">台股盤中重挫 809 點後走出大 V 轉，跌幅收斂至 -1.24%。台積電從 1,940 反彈。航運（長榮 +14）、軍工（神基漲停）、太空通訊（兆赫、耀登漲停）逆勢上攻。</div>
+      <div class="tl-watch">今晚美股跌幅（>2% 為警戒）、油價是否突破 85、台指期夜盤</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">3/3（二）</div>
+      <div class="tl-title">美股定調日</div>
+      <div class="tl-body">看美股跌幅與台股已反映幅度的差距。如果美股跌幅 < 台股，有機會收斂。外資期貨淨部位是重點——大幅放空代表他們看更多跌幅。</div>
+      <div class="tl-watch">外資期貨淨部位、美國 10 年期公債殖利率、融資維持率</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">3/4（三）</div>
+      <div class="tl-title">分水嶺——海峽通航是關鍵</div>
+      <div class="tl-body">到週三海峽如果有部分恢復通航跡象，油價可能開始回落，台股有望止穩。如果仍完全封鎖，恐慌可能加劇。這天決定走情境 A 還是 B/C。</div>
+      <div class="tl-watch">油輪追蹤數據（MarineTraffic）、OPEC+ 增產幅度、美國戰略石油儲備</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">3/5（四）</div>
+      <div class="tl-title">談判信號窗口</div>
+      <div class="tl-body">川普已暗示伊朗新領導層「想談判」。中國兩會 3/5 召開，政策面可能提供支撐信號。任何斡旋國家（土耳其、卡達、中國）的調停消息都可能觸發反彈。</div>
+      <div class="tl-watch">斡旋國家外交動作、伊朗臨時領導委員會聲明、中國兩會政策</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">3/6（五）</div>
+      <div class="tl-title">方向確認日</div>
+      <div class="tl-body">下週三（3/11）台指期選擇權結算，週五走勢決定結算前多空方向。海峽無解 → 空方絕對優勢；明確降溫 → 結算前軋空行情。</div>
+      <div class="tl-watch">Put/Call ratio、VIX 恐慌指數、週線收盤位置</div>
+    </div>
+  </div>
+</div>
+
+<!-- 05 歷史 -->
+<div class="section">
+  <div class="section-header"><span class="section-num">05</span><span class="section-title">過去 30 年戰爭 vs 股市</span></div>
+  <table class="data-table">
+    <thead><tr><th>事件</th><th>首日跌幅</th><th>觸底天數</th><th>恢復天數</th><th>結論</th></tr></thead>
+    <tbody>
+      <tr><td>1991 波灣戰爭</td><td style="color:var(--red)">-3%</td><td>2-3 天</td><td>2-3 週</td><td><span class="tag tag-green">開打後反彈</span></td></tr>
+      <tr><td>2001 阿富汗戰爭</td><td style="color:var(--red)">-5%</td><td>1 週</td><td>1 個月</td><td><span class="tag tag-green">恢復</span></td></tr>
+      <tr><td>2003 伊拉克戰爭</td><td style="color:var(--red)">開戰日觸底</td><td>1 天</td><td>即刻反彈</td><td><span class="tag tag-green">經典砲聲買入</span></td></tr>
+      <tr><td>2014 克里米亞</td><td style="color:var(--red)">-2%</td><td>2-3 天</td><td>2 週</td><td><span class="tag tag-green">快速恢復</span></td></tr>
+      <tr><td>2022 俄烏戰爭</td><td style="color:var(--red)">台股 -461</td><td>3-5 天</td><td>1 個月</td><td><span class="tag tag-green">恢復</span></td></tr>
+      <tr><td>2025 以伊 12 天戰爭</td><td style="color:var(--red)">-3%</td><td>3 天</td><td>停火後即漲</td><td><span class="tag tag-green">停火→暴漲</span></td></tr>
+      <tr><td style="color:var(--amber)">2026 美以伊（本次）</td><td style="color:var(--red)">-809 點</td><td>?</td><td>?</td><td><span class="tag tag-red">看海峽</span></td></tr>
+    </tbody>
+  </table>
+  <div class="card">
+    <h3>📊 歷史規律</h3>
+    <p>過去 30 年，<strong>每次戰爭後的股市跌幅都在 1 個月內完全收復</strong>。但本次差異在「荷姆茲海峽封鎖」——全球 1/5 石油運輸通道首次被完全封鎖。封鎖超過一週，歷史參照有效性將大幅下降。</p>
+  </div>
+</div>
+
+<!-- 06 板塊 -->
+<div class="section">
+  <div class="section-header"><span class="section-num">06</span><span class="section-title">板塊影響地圖</span></div>
+  <div class="sector-grid">
+    <div class="sector-card hurt">
+      <h4>📉 承壓族群</h4>
+      <div class="sector-item"><strong>半導體權值</strong>：台積電（-2.76%）、聯發科。單檔貢獻大盤近 500 點跌幅</div>
+      <div class="sector-item"><strong>航空股</strong>：燃油成本飆升直接壓縮利潤</div>
+      <div class="sector-item"><strong>塑化/運輸</strong>：原物料成本全面上升</div>
+      <div class="sector-item"><strong>電子代工</strong>：物流成本增加、供應鏈中斷風險</div>
+    </div>
+    <div class="sector-card benefit">
+      <h4>📈 受惠族群</h4>
+      <div class="sector-item"><strong>航運股</strong>：長榮 +14 元至 211 元，海峽封鎖推升運費</div>
+      <div class="sector-item"><strong>軍工/國防</strong>：神基漲停（EPS 8.43 元），戰爭直接需求</div>
+      <div class="sector-item"><strong>太空通訊/低軌衛星</strong>：兆赫、耀登、燿華漲停</div>
+      <div class="sector-item"><strong>黃金 ETF / 避險資產</strong>：金價歷史新高 $5,350+</div>
+    </div>
+  </div>
+</div>
+
+<!-- 07 建議 -->
+<div class="section">
+  <div class="section-header"><span class="section-num">07</span><span class="section-title">務實建議（風險框架，非買賣建議）</span></div>
+  <div class="advice-list">
+    <div class="advice-item">
+      <h4>有融資的人最危險</h4>
+      <p>立刻確認融資維持率。台股再跌 5-8%（到 33,000 以下）你能撐住嗎？不確定就先減碼保命。融資餘額偏高，散戶槓桿是最大未爆彈。</p>
+    </div>
+    <div class="advice-item">
+      <h4>沒有槓桿可以等</h4>
+      <p>歷史告訴我們：每次戰爭後的跌幅都在 1-4 週內恢復。長期投資人最好的策略是——什麼都不做。AI 和半導體基本面沒有改變。</p>
+    </div>
+    <div class="advice-item">
+      <h4>想進場不要急</h4>
+      <p>最快觀察窗口是週三（3/4），等海峽通航明朗化再決定。「砲聲買入」策略前提是確認戰爭不擴大。荷姆茲變數，值得多等 48 小時。</p>
+    </div>
+    <div class="advice-item">
+      <h4>核心觀察只有一件事</h4>
+      <p><strong style="color:var(--amber)">荷姆茲海峽通航狀況決定一切。</strong>海峽通 → 油價落 → 恐慌退 → 反彈。海峽封 → 油價破百 → 通膨升 → 跌勢延長。其他都是次要。</p>
+    </div>
+    <div class="advice-item">
+      <h4>多頭基礎沒有改變</h4>
+      <p>這不是基本面崩壞，是地緣政治外部衝擊。台積電訂單沒消失，AI 趨勢沒停止，半導體供需沒逆轉。戰爭打斷的是漲勢節奏，不是漲勢基礎。</p>
+    </div>
+  </div>
+</div>
+
+<!-- 08 風險 -->
+<div class="section">
+  <div class="section-header"><span class="section-num">08</span><span class="section-title">風險矩陣</span></div>
+  <div class="risk-row header"><div>風險項目</div><div>類型</div><div>機率</div><div>衝擊</div></div>
+  <div class="risk-row"><div class="risk-name">荷姆茲海峽長期封鎖（>1週）</div><div class="risk-type">灰犀牛</div><div><span class="risk-badge risk-med">25-40%</span></div><div><span class="risk-badge risk-high">極高</span></div></div>
+  <div class="risk-row"><div class="risk-name">戰爭擴大至地面戰</div><div class="risk-type">灰色地帶</div><div><span class="risk-badge risk-low">10-15%</span></div><div><span class="risk-badge risk-high">極高</span></div></div>
+  <div class="risk-row"><div class="risk-name">伊朗持續報復攻擊升級</div><div class="risk-type">可預見</div><div><span class="risk-badge risk-high">60-70%</span></div><div><span class="risk-badge risk-med">中高</span></div></div>
+  <div class="risk-row"><div class="risk-name">油價引發通膨連鎖反應</div><div class="risk-type">灰犀牛</div><div><span class="risk-badge risk-med">30-40%</span></div><div><span class="risk-badge risk-high">高</span></div></div>
+  <div class="risk-row"><div class="risk-name">川普宣布停火／啟動談判</div><div class="risk-type">正面黑天鵝</div><div><span class="risk-badge risk-pos">20-30%</span></div><div><span class="risk-badge risk-pos">正面・高</span></div></div>
+  <div class="risk-row"><div class="risk-name">國安基金啟動護盤</div><div class="risk-type">可預見</div><div><span class="risk-badge risk-pos">跌破33K</span></div><div><span class="risk-badge risk-pos">正面・中</span></div></div>
+</div>
+
+<div class="footer">
+  <div class="brand">MUSEON MARKET INTELLIGENCE</div>
+  <p>⚠️ 免責聲明：本報告為 MUSEON 系統基於公開資訊生成的研究分析，不構成任何投資建議。所有機率估算均為模型推測，實際走勢可能與預測有重大差異。投資人應獨立判斷、審慎評估風險，自負盈虧。</p>
+  <p style="margin-top:12px;font-size:10px;">資料來源：證交所、期交所、Bloomberg、Reuters、各大券商研究報告<br>分析時間：2026.03.02 ─ 報告版本 v1.0</p>
+</div>
+
+</div>
+</body>
+</html>
