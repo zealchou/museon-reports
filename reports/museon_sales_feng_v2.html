@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MUSEON — Feng，你需要的不是另一個 AI 工具</title>
+<title>MUSEON — Feng，你需要的不是快，是深</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,600&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600;700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
@@ -532,6 +532,47 @@ p { margin-bottom: 1.25em; }
 .claude-aside h4 { font-size: 15px; margin-bottom: 8px; color: var(--teal); }
 .claude-aside p { font-size: 14px; color: var(--slate); margin-bottom: 0; }
 
+/* ---------- ACCUMULATION SECTION ---------- */
+.accumulation-section {
+  background: var(--snow);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 40px;
+  margin: 40px 0;
+}
+
+.accumulation-section h3 {
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+
+.accumulation-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ink);
+}
+
+.accumulation-item:last-child { margin-bottom: 0; }
+
+.acc-icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: rgba(196,80,42,0.1);
+  color: var(--ember);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
 /* ---------- CTA ---------- */
 .cta-section {
   background: var(--deep-ink);
@@ -578,15 +619,15 @@ p { margin-bottom: 1.25em; }
     </div>
     <h1 class="fade-in delay-1">
       你今天下午用了 20 輪對話<br>
-      完成了整套<span class="text-ember">定價架構設計</span>
+      把定價問題<span class="text-ember">拆到最底層</span>
     </h1>
     <p class="hero-sub fade-in delay-2">
-      從「月費 6,000 夠不夠」到「信任點計費模型 + API Spec + 資料庫 Schema」——<br>
-      全程沒有一次要你重複解釋你的產品。
+      「SDK 拿掉子體還能跑嗎？」「用戶要付兩次錢你知道嗎？」「什麼算一次任務？」——<br>
+      每一個追問都直指本質。你需要的從來不是快，是有東西能跟上你的拆解深度。
     </p>
     <div class="fade-in delay-3" style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
       <a href="#pricing" class="btn-primary">看方案與定價</a>
-      <a href="#proof" class="btn-ghost">先看今天發生了什麼</a>
+      <a href="#proof" class="btn-ghost">先看今天怎麼拆的</a>
     </div>
   </section>
 </div>
@@ -596,16 +637,19 @@ p { margin-bottom: 1.25em; }
   <section class="section" style="padding-top: 0;">
     <div class="story-block observe">
       <p>
-        你的公司做 SaaS 平台——Server 端架構、License 管理、SDK 授權、後台系統。
-        你同時是工程師也是產品負責人。你懂怎麼寫程式，但不一定每次都能立刻判斷：
-        這個商業決策翻譯成技術架構，到底長什麼樣？
+        你做 Server 端開發。你碰到一個定價問題，但你不會只問「定價怎麼定」。
+        你會問「SDK 拿掉子體還能跑嗎」——因為你想搞清楚計費的邊界到底在哪一層。
+        你會問「用戶要付兩次錢你知道嗎」——因為你在替客戶想他們還沒想到的事。
+        你會問「什麼算一次任務」——因為你知道定義不清楚，後面的 Schema 全部會歪。
       </p>
       <p class="highlight-line">
-        你需要的不是「AI 助手」。你需要一個懂你產品的技術共事者。
+        你需要的不是一個快速回答的工具。你需要一個能跟你一起拆到底的技術夥伴。
       </p>
       <p>
-        一個記得你的 Server 架構是怎麼分層的、記得你老闆說「公正公平，不做 token 經銷商」、
-        記得你問過「SDK 拿掉子體還能跑嗎」——然後在下次對話時，<strong>直接從這個脈絡繼續</strong>的角色。
+        今天下午你花了 20 輪，從「月費 6,000 夠不夠」開始追問，一路拆到信任點計費模型、
+        TaskSession 資料庫 Schema、check_before_job API 規格。
+        不是 MUSEON 幫你省了時間——是它<strong>跟得上你追根問底的節奏</strong>，
+        每一層都接住你的問題，再往下挖一層給你看。
       </p>
     </div>
   </section>
@@ -616,8 +660,8 @@ p { margin-bottom: 1.25em; }
   <div class="container">
     <div class="observe" style="text-align: center;">
       <span class="badge-gold badge" style="background: rgba(184,146,58,0.15); color: var(--gold);">2026.03.18 LIVE SESSION</span>
-      <h2>今天下午，真實發生的事</h2>
-      <p style="color: var(--mist); max-width: 520px; margin: 0 auto 8px;">不是 Demo。是你親手打出來的每一句話。</p>
+      <h2>今天下午，一層一層拆開的過程</h2>
+      <p style="color: var(--mist); max-width: 520px; margin: 0 auto 8px;">不是 Demo。是你親手打出的每一個追問。</p>
     </div>
 
     <div class="chat-log">
@@ -628,7 +672,7 @@ p { margin-bottom: 1.25em; }
 
       <div class="chat-bubble chat-museon observe">
         <span class="chat-label chat-label-museon">MUSEON</span>
-        <span class="chat-text">確實看到問題。方案 A 全包、方案 B 拆帳、方案 C 代管——三條路的毛利結構和客戶體驗全部攤開比較。</span>
+        <span class="chat-text">確實看到問題。方案 A 全包、方案 B 拆帳、方案 C 代管——三條路的毛利結構和客戶體驗全部攤開比較。每條路的邊界在哪，能做什麼不能做什麼，直接講清楚。</span>
       </div>
 
       <div class="chat-bubble chat-feng observe">
@@ -638,7 +682,7 @@ p { margin-bottom: 1.25em; }
 
       <div class="chat-bubble chat-museon observe">
         <span class="chat-label chat-label-museon">MUSEON</span>
-        <span class="chat-text">大概 18-20 輪。如果 1,000 次按「對話輪」算——一個下午就用掉 20 次，根本不夠用。你在用真實數據打我的臉。</span>
+        <span class="chat-text">大概 18-20 輪。如果 1,000 次按「對話輪」算——一個下午就用掉 20 次，根本不夠用。你在用真實數據打我的臉，這才是正確的驗證方式。</span>
       </div>
 
       <div class="chat-bubble chat-feng observe">
@@ -648,11 +692,11 @@ p { margin-bottom: 1.25em; }
 
       <div class="chat-bubble chat-museon observe">
         <span class="chat-label chat-label-museon">MUSEON</span>
-        <span class="chat-text">直接給你完整架構——TaskSession 資料模型、check_before_job 流程、LicenseCredit 月度額度、close_task_session 結算邏輯，加上 Server 端的 API Endpoint 規格。拿去問你老闆。</span>
+        <span class="chat-text">直接給你完整架構——TaskSession 資料模型、check_before_job 流程、LicenseCredit 月度額度、close_task_session 結算邏輯，加上 Server 端的 API Endpoint 規格。每一層的邊界和責任歸屬都標清楚。</span>
       </div>
 
       <div class="chat-insight observe">
-        <p>20 輪對話。從<strong>商業問題</strong>推進到<strong>技術架構</strong>。<br>全程零次重複解釋。最後產出可直接實作的 API Spec。</p>
+        <p>20 輪對話。不是快速產出答案，是<strong>逐層拆解到可實作的深度</strong>。<br>每一個追問都被接住，每一層都有明確的邊界定義。</p>
       </div>
     </div>
   </div>
@@ -670,19 +714,19 @@ p { margin-bottom: 1.25em; }
       <div class="card contrast-card old observe">
         <div class="contrast-header">一般 GPT</div>
         <div class="contrast-item"><span class="x-mark">&#10005;</span><span>每次新 Session，重新解釋你的產品架構</span></div>
-        <div class="contrast-item"><span class="x-mark">&#10005;</span><span>給你「教科書答案」——建議微服務、建議 RESTful</span></div>
-        <div class="contrast-item"><span class="x-mark">&#10005;</span><span>商業問題歸商業，技術問題歸技術，中間斷層你自己橋</span></div>
+        <div class="contrast-item"><span class="x-mark">&#10005;</span><span>給你「教科書答案」——問定價就回 SaaS 定價理論</span></div>
+        <div class="contrast-item"><span class="x-mark">&#10005;</span><span>你追問底層邏輯，它繞回泛泛的框架，接不住</span></div>
         <div class="contrast-item"><span class="x-mark">&#10005;</span><span>不會質疑你的假設——你說什麼它都「好的」</span></div>
-        <div class="contrast-item"><span class="x-mark">&#10005;</span><span>無法記住老闆的決策、團隊的限制、產品的演化方向</span></div>
+        <div class="contrast-item"><span class="x-mark">&#10005;</span><span>問什麼都說可以，從不告訴你什麼不能做</span></div>
       </div>
 
       <div class="card contrast-card new observe">
         <div class="contrast-header">MUSEON</div>
         <div class="contrast-item"><span class="check-mark">&#10003;</span><span>記住你的 Server 架構、License 模型、SDK 設計</span></div>
-        <div class="contrast-item"><span class="check-mark">&#10003;</span><span>根據你的團隊規模和技術棧，給落地建議</span></div>
-        <div class="contrast-item"><span class="check-mark">&#10003;</span><span>把「月薪制」翻譯成 DB Schema + API Spec</span></div>
-        <div class="contrast-item"><span class="check-mark">&#10003;</span><span>用你自己的數據挑戰不合理假設</span></div>
-        <div class="contrast-item"><span class="check-mark">&#10003;</span><span>記得老闆說「公正公平」，下次不會再提代管制</span></div>
+        <div class="contrast-item"><span class="check-mark">&#10003;</span><span>跟你一起拆：從商業問題拆到資料模型再拆到 API 規格</span></div>
+        <div class="contrast-item"><span class="check-mark">&#10003;</span><span>用你自己的數據挑戰不合理假設——不是討好你</span></div>
+        <div class="contrast-item"><span class="check-mark">&#10003;</span><span>明確告訴你邊界在哪：什麼能做、什麼不能做、為什麼</span></div>
+        <div class="contrast-item"><span class="check-mark">&#10003;</span><span>記得老闆說「公正公平」，下次不會再提違反原則的方案</span></div>
       </div>
     </div>
   </section>
@@ -693,19 +737,19 @@ p { margin-bottom: 1.25em; }
   <section class="flow-section">
     <div class="observe" style="text-align: center;">
       <span class="badge-teal badge">HOW IT WORKS</span>
-      <h2>一個數位員工的工作方式</h2>
-      <p class="text-slate" style="max-width: 520px; margin: 0 auto;">不是聊天機器人。是能理解脈絡、執行任務、產出交付物的共事者。</p>
+      <h2>一個你問不倒的技術夥伴</h2>
+      <p class="text-slate" style="max-width: 520px; margin: 0 auto;">不是聊天機器人。是能跟你一起拆解問題、追到底層、產出可實作架構的共事者。</p>
     </div>
 
     <div style="margin-top: 48px;">
       <div class="flow-step observe">
         <div class="flow-number">1</div>
         <div class="flow-content">
-          <h3>你丟問題，它先確認需求</h3>
-          <p>不會急著給答案。先判斷你的需求是否清晰——不清楚就用教練式提問幫你釐清，直到問題可以被真正解決。</p>
+          <h3>你追問，它不閃躲</h3>
+          <p>你問「SDK 拿掉子體還能跑嗎」，它不會給你「這取決於你的需求」。它會拆開 SDK 的依賴鏈，告訴你哪些模組可以獨立運作、哪些必須綁定、邊界在哪裡。</p>
           <div class="flow-example">
-            Feng: "定價怎麼定？"<br>
-            MUSEON: "先確認——你問的是終端客戶定價、還是跟 Server 授權商的拆帳比例？"
+            Feng: "什麼算一次任務？"<br>
+            MUSEON: "問題不在定義，在追蹤粒度。按 Session 追蹤——開始、執行、結算三段，每段的計費責任歸屬不同。"
           </div>
         </div>
       </div>
@@ -713,11 +757,11 @@ p { margin-bottom: 1.25em; }
       <div class="flow-step observe">
         <div class="flow-number">2</div>
         <div class="flow-content">
-          <h3>調動技能組合，深度分析</h3>
-          <p>內建 40+ 個專業技能模組。商業診斷、市場分析、技術可行性驗證、策略推演——根據你的問題自動組合最適合的技能。</p>
+          <h3>從你的問題出發，不是從理論出發</h3>
+          <p>你問的是「用戶要付兩次錢」這個具體矛盾，不是「請幫我設計定價」。MUSEON 從你的具體矛盾開始拆，不是從 SaaS 定價理論開始講。</p>
           <div class="flow-example">
-            定價策略 → business-12（商業診斷）+ dse（技術驗證）+ ssa-consultant（銷售策略）<br>
-            = 三個專業模組同時分析，一次給你完整圖景
+            你的問題：用戶要付兩次錢<br>
+            MUSEON 的回應：三條路的毛利結構、客戶體驗、技術可行性——全部攤開比較，每條路的邊界標清楚
           </div>
         </div>
       </div>
@@ -725,10 +769,10 @@ p { margin-bottom: 1.25em; }
       <div class="flow-step observe">
         <div class="flow-number">3</div>
         <div class="flow-content">
-          <h3>產出可直接用的東西</h3>
-          <p>不只給建議。給你架構圖、API Spec、資料模型、文案初稿、成本試算表——拿回去就能動手做。</p>
+          <h3>拆到可以直接寫程式的深度</h3>
+          <p>不是停在「建議你用 Session 計費」這種層次。是直接給你 TaskSession 資料模型、API Endpoint 規格、結算邏輯——拿回去就能開工。</p>
           <div class="flow-example">
-            今天的成果：信任點計費模型 + TaskSession 資料庫 Schema + check_before_job API 規格 + 定價頁文案建議
+            今天的成果：信任點計費模型 + TaskSession 資料庫 Schema + check_before_job API 規格 + close_task_session 結算邏輯
           </div>
         </div>
       </div>
@@ -736,15 +780,50 @@ p { margin-bottom: 1.25em; }
       <div class="flow-step observe">
         <div class="flow-number">4</div>
         <div class="flow-content">
-          <h3>記住一切，下次繼續</h3>
-          <p>你的產品架構、老闆的判斷標準、之前討論的所有決策——全部在。不用重新解釋。</p>
+          <h3>脈絡不斷，下次從上次的結論繼續</h3>
+          <p>你的產品架構、老闆的決策原則、之前拆過的每一層邏輯——全部在。下次追問直接從上次的結論往下挖，不用重新解釋。</p>
           <div class="flow-example">
             下次你說 "超額計費要不要加封頂？"<br>
-            MUSEON 已經知道：300 點 / 0.1 USD / 後付制 / 拆帳透明
+            MUSEON 已經知道：300 點 / 0.1 USD / 後付制 / 拆帳透明 / 老闆要求公正公平
           </div>
         </div>
       </div>
     </div>
+  </section>
+</div>
+
+<!-- ==================== ACCUMULATION — 積累補強 ==================== -->
+<div class="container">
+  <section class="section" style="padding-top: 0; padding-bottom: 32px;">
+    <div class="observe" style="text-align: center;">
+      <span class="badge-gold badge">KNOWLEDGE ACCUMULATION</span>
+      <h2>把散落的決策收成可查詢的知識庫</h2>
+      <p class="text-slate" style="max-width: 560px; margin: 0 auto;">你做了很多深度的技術判斷，但它們散落在不同的對話、不同的時間點。MUSEON 的記憶系統幫你把這些沉澱下來。</p>
+    </div>
+
+    <div class="accumulation-section observe">
+      <h3>你的技術決策，不再問完就散</h3>
+      <div class="accumulation-item">
+        <span class="acc-icon">1</span>
+        <span><strong>架構演化軌跡</strong>——從最早的「月費 + 超量計費」到「信任點計費模型」，每一次轉彎的原因和取捨都被記錄。三個月後你回頭看，不用猜「當初為什麼選這條路」。</span>
+      </div>
+      <div class="accumulation-item">
+        <span class="acc-icon">2</span>
+        <span><strong>老闆的決策原則</strong>——「公正公平，不做 token 經銷商」、「拆帳透明」。這些分散在不同對話裡的指令，MUSEON 全部記住，每次給建議都會自動對齊，不用你反覆提醒。</span>
+      </div>
+      <div class="accumulation-item">
+        <span class="acc-icon">3</span>
+        <span><strong>技術邊界備忘</strong>——「SDK 拿掉子體不能獨立跑」、「Session 計費要追蹤三段」——這些你拆出來的結論，變成可搜尋的知識節點。下次碰到相關問題，直接調出來用。</span>
+      </div>
+      <div class="accumulation-item">
+        <span class="acc-icon">4</span>
+        <span><strong>跨時間的脈絡連結</strong>——上週討論的 License 模型和今天的計費架構之間的關聯，不需要你自己串。MUSEON 的知識晶格自動建立連結，讓每次新的追問都站在之前所有結論的肩膀上。</span>
+      </div>
+    </div>
+
+    <p class="text-slate observe" style="text-align: center; font-size: 15px; max-width: 520px; margin: 16px auto 0;">
+      你擅長拆解問題。MUSEON 擅長把你拆出來的結論積累起來，讓它們不會散掉。
+    </p>
   </section>
 </div>
 
@@ -753,21 +832,21 @@ p { margin-bottom: 1.25em; }
   <section class="section" style="padding-top: 0;">
     <div class="observe" style="text-align: center;">
       <span class="badge">REAL MATH</span>
-      <h2>算一筆帳</h2>
+      <h2>一個下午的收斂密度</h2>
     </div>
 
     <div class="math-section observe">
       <div class="math-row">
-        <span class="math-label">今天下午完成的工作</span>
-        <span class="math-value">定價模型 + 計費架構 + API Spec</span>
+        <span class="math-label">開始時的狀態</span>
+        <span class="math-value">散落的定價疑問、未驗證的假設</span>
       </div>
       <div class="math-row">
-        <span class="math-label">如果自己研究 + 找顧問</span>
-        <span class="math-value">2-3 天 + NT$ 15,000-30,000</span>
+        <span class="math-label">結束時的狀態</span>
+        <span class="math-value">完整計費模型 + API Spec + DB Schema</span>
       </div>
       <div class="math-row">
-        <span class="math-label">用 MUSEON 花的時間</span>
-        <span class="math-value teal">3 小時</span>
+        <span class="math-label">收斂過程</span>
+        <span class="math-value teal">20 輪追問，逐層拆解</span>
       </div>
       <div class="math-row">
         <span class="math-label">消耗信任點</span>
@@ -779,8 +858,8 @@ p { margin-bottom: 1.25em; }
       </div>
     </div>
 
-    <p class="text-slate observe" style="text-align: center; font-size: 15px; max-width: 480px; margin: 24px auto 0;">
-      一個下午的深度策略討論只用了 7 點。每月 300 點，你可以做 40+ 次這種等級的工作。
+    <p class="text-slate observe" style="text-align: center; font-size: 15px; max-width: 520px; margin: 24px auto 0;">
+      一個下午，把散落在腦中的十幾個判斷收斂成一套可執行的架構。每月 300 點，你可以做 40+ 次這種深度的拆解。
     </p>
   </section>
 </div>
@@ -823,7 +902,7 @@ p { margin-bottom: 1.25em; }
         </li>
         <li>
           <span class="check">&#10003;</span>
-          <span><strong>跨 Session 長期記憶</strong>——記住你的產品、決策、偏好</span>
+          <span><strong>跨 Session 長期記憶</strong>——記住你的架構決策、老闆指令、技術邊界</span>
         </li>
         <li>
           <span class="check">&#10003;</span>
@@ -835,7 +914,7 @@ p { margin-bottom: 1.25em; }
         </li>
         <li>
           <span class="check">&#10003;</span>
-          <span><strong>商業 ↔ 技術橋接</strong>——策略直接翻譯成 API Spec</span>
+          <span><strong>商業問題拆到技術架構</strong>——策略直接翻譯成 API Spec</span>
         </li>
         <li>
           <span class="check">&#10003;</span>
@@ -888,11 +967,11 @@ p { margin-bottom: 1.25em; }
 <div class="cta-section" id="cta">
   <div class="container">
     <div class="observe">
-      <h2>Feng，你已經體驗過了</h2>
+      <h2>Feng，你已經問了對的問題</h2>
       <p>
-        問題不是「AI 能不能幫上忙」——你今天下午已經證明了。<br>
-        問題是：你要繼續每次從零解釋，<br>
-        還是讓它<strong style="color: var(--ember-light);">記住你說過的每一句話</strong>？
+        「SDK 拿掉子體還能跑嗎」「用戶要付兩次錢你知道嗎」「什麼算一次任務」——<br>
+        這些追問證明你知道怎麼拆解問題。<br>
+        現在你需要的是<strong style="color: var(--ember-light);">一個能跟上你拆解深度的工具</strong>，陪你一起找到答案。
       </p>
       <div class="cta-buttons">
         <a href="https://t.me/ZealChou" class="btn-primary" style="padding: 16px 40px; font-size: 17px;">
