@@ -4,322 +4,545 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>自媒體個人品牌：從內容變現到高價顧問 | MUSEON 晨報</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #f5e6d3 0%, #f9f4f0 100%);
-            color: #2c2c2c;
-            line-height: 1.7;
+            font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+            background: #F7F5F0;
+            color: #12121A;
+            line-height: 1.75;
             min-height: 100vh;
-            padding: 40px 20px;
+            padding: 40px 16px;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 820px;
             margin: 0 auto;
-            background: #faf8f5;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-            border-radius: 12px;
+            background: #FDFCFA;
+            box-shadow: 0 1px 3px rgba(18,18,26,0.06), 0 4px 12px rgba(18,18,26,0.04);
+            border-radius: 10px;
             overflow: hidden;
         }
 
+        /* Header */
         .header {
-            background: linear-gradient(135deg, #C4502A 0%, #8B3A1F 100%);
-            color: white;
-            padding: 60px 40px;
+            background: linear-gradient(135deg, #C4502A 0%, #9A3A1C 100%);
+            color: #fff;
+            padding: 64px 40px;
             text-align: center;
-            border-bottom: 4px solid #6B2A15;
         }
-
         .header h1 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2.8em;
+            font-size: 2.5em;
             font-weight: 700;
             margin-bottom: 12px;
-            letter-spacing: 0.5px;
+            line-height: 1.2;
         }
-
+        .header .subtitle {
+            font-size: 1.05em;
+            opacity: 0.92;
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
         .header .date {
-            font-size: 0.95em;
-            opacity: 0.95;
-            font-weight: 500;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.8em;
+            opacity: 0.75;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
         }
 
-        .content {
-            padding: 50px 40px;
-        }
+        /* Content */
+        .content { padding: 48px 40px; }
 
-        .section {
-            margin-bottom: 50px;
-        }
+        .section { margin-bottom: 48px; }
 
         .section-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2em;
+            font-size: 1.75em;
+            font-weight: 600;
             color: #C4502A;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             padding-bottom: 12px;
-            border-bottom: 2px solid #E8D5C4;
+            border-bottom: 2px solid #E2E0DA;
+            line-height: 1.3;
         }
 
         .subsection-title {
-            font-size: 1.3em;
-            color: #8B3A1F;
+            font-size: 1.15em;
+            color: #9A3A1C;
             margin-top: 28px;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
             font-weight: 600;
         }
 
-        p {
-            margin-bottom: 16px;
-            text-align: justify;
-            letter-spacing: 0.3px;
-        }
+        p { margin-bottom: 16px; font-size: 16px; line-height: 1.75; color: #12121A; }
 
-        .insight-box {
-            background: #fff5f0;
-            border-left: 4px solid #C4502A;
-            padding: 20px;
-            margin: 24px 0;
-            border-radius: 4px;
-        }
-
-        .insight-box strong {
-            color: #8B3A1F;
-        }
-
-        .success-case {
-            background: #f0f8f4;
-            border-left: 4px solid #2d7a5c;
-            padding: 24px;
-            margin: 24px 0;
-            border-radius: 4px;
-        }
-
-        .failure-case {
-            background: #fef3f0;
-            border-left: 4px solid #c85a3a;
-            padding: 24px;
-            margin: 24px 0;
-            border-radius: 4px;
-        }
-
-        .case-title {
-            font-weight: 600;
-            color: #2c2c2c;
-            margin-bottom: 12px;
+        .opening {
             font-size: 1.1em;
+            font-style: italic;
+            color: #5A5A6E;
+            margin-bottom: 32px;
+            line-height: 1.85;
+            border-left: 3px solid #C4502A;
+            padding-left: 20px;
         }
 
-        .funnel {
-            background: white;
-            padding: 30px;
+        /* Insight Box */
+        .insight-box {
+            background: rgba(196,80,42,0.06);
+            border-left: 4px solid #C4502A;
+            padding: 20px 24px;
             margin: 24px 0;
-            border-radius: 8px;
-            border: 1px solid #E8D5C4;
+            border-radius: 0 6px 6px 0;
         }
+        .insight-box strong { color: #9A3A1C; }
+        .insight-box p:last-child { margin-bottom: 0; }
 
-        .funnel-stage {
+        /* Case Cards */
+        .case-card {
+            padding: 24px;
+            margin: 24px 0;
+            border-radius: 10px;
+            border: 1px solid #E2E0DA;
+        }
+        .case-card.success {
+            background: linear-gradient(135deg, #f0f8f4 0%, #e8f5ee 100%);
+            border-left: 4px solid #2D8A6E;
+        }
+        .case-card.failure {
+            background: linear-gradient(135deg, #fef5f2 0%, #fceee8 100%);
+            border-left: 4px solid #C4402A;
+        }
+        .case-header {
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
-            margin: 16px 0;
-            min-height: 60px;
+            gap: 8px;
+            margin-bottom: 16px;
         }
-
-        .funnel-stage::before {
-            content: '';
-            display: inline-block;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, #C4502A, #E8D5C4);
-            position: relative;
-            margin-right: 20px;
-        }
-
-        .funnel-label {
-            min-width: 200px;
+        .case-name {
             font-weight: 600;
-            color: #8B3A1F;
+            font-size: 1.1em;
+            color: #12121A;
+        }
+        .case-tag {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 100px;
+        }
+        .case-tag.success-tag { background: rgba(45,138,110,0.12); color: #2D8A6E; }
+        .case-tag.failure-tag { background: rgba(196,64,42,0.12); color: #C4402A; }
+
+        .case-metrics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+        .case-metric {
+            display: flex;
+            flex-direction: column;
+        }
+        .case-metric-value {
+            font-weight: 600;
+            font-size: 1.2em;
+            color: #12121A;
+        }
+        .case-metric-label {
+            font-size: 0.8em;
+            color: #5A5A6E;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
         }
 
+        /* Funnel — Mobile-first 垂直堆疊 */
+        .funnel-wrapper {
+            background: #FDFCFA;
+            border: 1px solid #E2E0DA;
+            border-radius: 10px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+        .funnel-stage {
+            position: relative;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            border-left: 4px solid;
+        }
+        .funnel-stage:last-child { margin-bottom: 0; }
+
+        .funnel-stage.l1 {
+            background: rgba(196,80,42,0.06);
+            border-left-color: #E0714D;
+        }
+        .funnel-stage.l2 {
+            background: rgba(196,80,42,0.10);
+            border-left-color: #C4502A;
+        }
+        .funnel-stage.l3 {
+            background: rgba(196,80,42,0.15);
+            border-left-color: #9A3A1C;
+        }
+        .funnel-stage.l4 {
+            background: rgba(154,58,28,0.18);
+            border-left-color: #6B2A15;
+        }
+
+        .funnel-number {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75em;
+            font-weight: 600;
+            color: #9A3A1C;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        .funnel-label {
+            font-weight: 600;
+            font-size: 1.05em;
+            color: #12121A;
+            margin-bottom: 6px;
+        }
         .funnel-desc {
-            flex: 1;
-            font-size: 0.95em;
-            color: #666;
+            font-size: 0.9em;
+            color: #5A5A6E;
+            line-height: 1.6;
         }
 
+        /* Connector arrows between stages */
+        .funnel-connector {
+            display: flex;
+            justify-content: center;
+            margin: -4px 0;
+            color: #C4502A;
+            font-size: 1.2em;
+            opacity: 0.4;
+        }
+
+        /* Highlight */
         .highlight {
-            background: linear-gradient(120deg, #ffe4d4 0%, #ffd9c4 100%);
+            background: linear-gradient(120deg, rgba(196,80,42,0.12) 0%, rgba(196,80,42,0.08) 100%);
             padding: 2px 6px;
             border-radius: 3px;
             font-weight: 500;
         }
 
-        .key-metrics {
+        /* Lists */
+        .item-list {
+            list-style: none;
+            margin: 16px 0;
+        }
+        .item-list li {
+            padding: 10px 0 10px 24px;
+            position: relative;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+        .item-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 18px;
+            width: 8px;
+            height: 8px;
+            background: #C4502A;
+            border-radius: 50%;
+        }
+        .item-list li + li { border-top: 1px solid rgba(0,0,0,0.04); }
+        .item-list li strong { color: #9A3A1C; }
+
+        /* Key Metrics Grid */
+        .metrics-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
             margin: 24px 0;
         }
-
         .metric-card {
-            background: white;
+            background: #FDFCFA;
+            border: 1px solid #E2E0DA;
+            border-radius: 10px;
             padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #E8D5C4;
             text-align: center;
         }
-
         .metric-value {
+            font-family: 'Cormorant Garamond', serif;
             font-size: 2em;
             font-weight: 700;
             color: #C4502A;
-            margin-bottom: 8px;
+            line-height: 1.2;
+            margin-bottom: 6px;
         }
-
         .metric-label {
-            font-size: 0.9em;
-            color: #666;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            font-size: 0.8em;
+            color: #5A5A6E;
+            letter-spacing: 0.04em;
         }
 
-        .principle-list {
-            list-style: none;
-            margin: 20px 0;
-        }
-
-        .principle-list li {
-            padding: 12px 0 12px 30px;
+        /* Phase Timeline */
+        .timeline {
             position: relative;
+            padding-left: 32px;
+            margin: 24px 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 11px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: linear-gradient(to bottom, #C4502A, #E2E0DA);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 24px;
+            padding: 16px 20px;
+            background: #FDFCFA;
+            border: 1px solid #E2E0DA;
+            border-radius: 8px;
+        }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -27px;
+            top: 20px;
+            width: 12px;
+            height: 12px;
+            background: #C4502A;
+            border-radius: 50%;
+            border: 2px solid #FDFCFA;
+        }
+        .timeline-phase {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75em;
+            font-weight: 600;
+            color: #C4502A;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        .timeline-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #12121A;
+        }
+        .timeline-desc {
+            font-size: 0.9em;
+            color: #5A5A6E;
+            line-height: 1.65;
+        }
+
+        /* 90-Day Plan */
+        .plan-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 24px 0;
+        }
+        .plan-card {
+            background: #FDFCFA;
+            border: 1px solid #E2E0DA;
+            border-radius: 10px;
+            padding: 24px 20px;
+        }
+        .plan-month {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75em;
+            font-weight: 600;
+            color: #C4502A;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        .plan-title {
+            font-weight: 600;
+            font-size: 1.05em;
+            color: #12121A;
             margin-bottom: 12px;
         }
+        .plan-card .item-list li { padding: 6px 0 6px 20px; font-size: 0.88em; }
+        .plan-card .item-list li::before { top: 13px; width: 6px; height: 6px; }
 
-        .principle-list li::before {
-            content: '●';
-            position: absolute;
-            left: 0;
-            color: #C4502A;
-            font-size: 1.2em;
-        }
-
-        .footer {
-            background: #f5e6d3;
-            padding: 30px 40px;
-            text-align: center;
-            font-size: 0.9em;
-            color: #666;
-            border-top: 1px solid #E8D5C4;
-        }
-
-        .divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #E8D5C4, transparent);
-            margin: 40px 0;
-        }
-
-        .opening {
-            font-size: 1.1em;
-            font-style: italic;
-            color: #8B3A1F;
-            margin-bottom: 24px;
-            line-height: 1.8;
-        }
-
+        /* Closing */
         .closing {
-            background: #fff5f0;
-            padding: 30px;
-            border-radius: 8px;
+            background: rgba(196,80,42,0.06);
+            padding: 32px;
+            border-radius: 10px;
             margin-top: 40px;
-            border: 2px solid #C4502A;
+            border: 1px solid rgba(196,80,42,0.15);
         }
-
         .closing-title {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.4em;
+            font-weight: 600;
             color: #C4502A;
             margin-bottom: 16px;
         }
+        .closing .takeaway {
+            font-size: 1.05em;
+            font-weight: 600;
+            color: #9A3A1C;
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(196,80,42,0.15);
+        }
 
+        /* Divider */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #E2E0DA, transparent);
+            margin: 40px 0;
+        }
+
+        /* Footer */
+        .footer {
+            background: #F7F5F0;
+            padding: 24px 40px;
+            text-align: center;
+            font-size: 0.85em;
+            color: #5A5A6E;
+            border-top: 1px solid #E2E0DA;
+        }
+        .footer .brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 1.1em;
+            color: #C4502A;
+            margin-bottom: 4px;
+        }
+
+        /* ===== RWD ===== */
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2em;
-            }
+            body { padding: 16px 8px; }
+            .header { padding: 40px 24px; }
+            .header h1 { font-size: 1.75em; }
+            .content { padding: 32px 20px; }
+            .section-title { font-size: 1.4em; }
 
-            .key-metrics {
-                grid-template-columns: 1fr;
-            }
+            .metrics-grid { grid-template-columns: 1fr; gap: 12px; }
+            .plan-grid { grid-template-columns: 1fr; gap: 12px; }
 
-            .content {
-                padding: 30px 20px;
+            .case-metrics { flex-direction: column; gap: 8px; }
+
+            .footer { padding: 20px 24px; }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 { font-size: 1.5em; }
+            .header { padding: 32px 16px; }
+            .content { padding: 24px 16px; }
+            .section-title { font-size: 1.25em; }
+
+            .funnel-wrapper { padding: 16px; }
+            .funnel-stage { padding: 12px 16px; }
+
+            .closing { padding: 24px 16px; }
+            .timeline { padding-left: 28px; }
+            .timeline-item { padding: 12px 16px; }
+        }
+
+        /* Animation */
+        @media (prefers-reduced-motion: no-preference) {
+            .section { animation: fadeUp 400ms ease-out both; }
+            .section:nth-child(2) { animation-delay: 80ms; }
+            .section:nth-child(3) { animation-delay: 160ms; }
+            .section:nth-child(4) { animation-delay: 240ms; }
+            .section:nth-child(5) { animation-delay: 320ms; }
+            .section:nth-child(6) { animation-delay: 400ms; }
+            @keyframes fadeUp {
+                from { opacity: 0; transform: translateY(12px); }
+                to { opacity: 1; transform: translateY(0); }
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
         <div class="header">
             <h1>自媒體個人品牌的高價商業模式</h1>
-            <div class="date">MUSEON 晨報 | 2026 年 3 月 19 日</div>
+            <div class="subtitle">從內容變現到高價顧問與陪跑</div>
+            <div class="date">MUSEON Morning Brief · 2026-03-19</div>
         </div>
 
-        <!-- Content -->
         <div class="content">
-            <!-- Opening -->
             <p class="opening">
-                流量≠變現，粉絲數≠高價顧問合約。一個 8,400 粉絲的創作者月收 45 萬，一個 32 萬粉絲的卻零合約。差別在哪？不是內容好不好，而是你有沒有走完從「信任者」到「付費客」的四層漏斗。
+                流量≠變現，粉絲數≠高價顧問合約。一個 8,400 粉絲的創作者月收 45 萬，一個 32 萬粉絲的卻零合約。差別不在內容好壞，而在你有沒有走完從「信任者」到「付費客」的四層漏斗。
             </p>
 
-            <!-- Section 1: The Funnel -->
+            <!-- Section 1: Funnel -->
             <div class="section">
                 <h2 class="section-title">一、核心漏斗：四層結構</h2>
-
                 <p>所有自媒體變現失敗，都卡在這四層中的某一層。視覺化你的當前位置是第一步。</p>
 
-                <div class="funnel">
-                    <div class="funnel-stage">
-                        <div class="funnel-label">第 1 層：觸及</div>
+                <div class="funnel-wrapper">
+                    <div class="funnel-stage l1">
+                        <div class="funnel-number">Layer 01</div>
+                        <div class="funnel-label">觸及</div>
                         <div class="funnel-desc">粉絲量。大部分人停在這裡，以為粉絲多就能變現。</div>
                     </div>
-
-                    <div class="funnel-stage">
-                        <div class="funnel-label">第 2 層：情感信任</div>
-                        <div class="funnel-desc">粉絲喜歡你、追蹤你、看你的內容。但「喜歡」≠「相信能解決我的問題」。</div>
+                    <div class="funnel-connector">↓</div>
+                    <div class="funnel-stage l2">
+                        <div class="funnel-number">Layer 02</div>
+                        <div class="funnel-label">情感信任</div>
+                        <div class="funnel-desc">粉絲喜歡你、追蹤你、看你的內容。但「喜歡」≠「相信你能解決我的問題」。</div>
                     </div>
-
-                    <div class="funnel-stage">
-                        <div class="funnel-label">第 3 層：可驗證成果</div>
-                        <div class="funnel-desc">粉絲看到你幫客戶解決了實際問題。這是從情感信任升級為「購買信任」的唯一橋樑。</div>
+                    <div class="funnel-connector">↓</div>
+                    <div class="funnel-stage l3">
+                        <div class="funnel-number">Layer 03</div>
+                        <div class="funnel-label">可驗證成果</div>
+                        <div class="funnel-desc">粉絲看到你幫客戶解決了實際問題。從情感信任升級為「購買信任」的唯一橋樑。</div>
                     </div>
-
-                    <div class="funnel-stage">
-                        <div class="funnel-label">第 4 層：高價顧問</div>
-                        <div class="funnel-desc">有明確成果背書的客戶，願意付出溢價邀請你做陪跑/高價顧問。</div>
+                    <div class="funnel-connector">↓</div>
+                    <div class="funnel-stage l4">
+                        <div class="funnel-number">Layer 04</div>
+                        <div class="funnel-label">高價顧問</div>
+                        <div class="funnel-desc">有明確成果背書的客戶，願意付出溢價邀請你做陪跑與高價顧問。</div>
                     </div>
                 </div>
 
                 <div class="insight-box">
-                    <strong>關鍵發現：</strong>大多數失敗者死在第 3 層。他們有粉絲、有粉絲信任，就是沒有「作品集」——可以秀給潛在客戶看的、被驗證過的成果。
+                    <p><strong>關鍵發現：</strong>大多數失敗者死在第 3 層。他們有粉絲、有情感信任，就是沒有「作品集」——可以秀給潛在客戶看的、被驗證過的成果。</p>
                 </div>
             </div>
 
-            <!-- Section 2: Success Story -->
+            <!-- Section 2: Success -->
             <div class="section">
                 <h2 class="section-title">二、成功案例：洪宇辰的翻轉</h2>
 
-                <div class="success-case">
-                    <div class="case-title">粉絲數：8,400 | 月收：45 萬 | 轉化率：3-5%</div>
+                <div class="case-card success">
+                    <div class="case-header">
+                        <span class="case-name">洪宇辰</span>
+                        <span class="case-tag success-tag">成功</span>
+                    </div>
+                    <div class="case-metrics">
+                        <div class="case-metric">
+                            <span class="case-metric-value">8,400</span>
+                            <span class="case-metric-label">粉絲</span>
+                        </div>
+                        <div class="case-metric">
+                            <span class="case-metric-value">45 萬/月</span>
+                            <span class="case-metric-label">月收</span>
+                        </div>
+                        <div class="case-metric">
+                            <span class="case-metric-value">3-5%</span>
+                            <span class="case-metric-label">轉化率</span>
+                        </div>
+                    </div>
 
                     <p><strong>他怎麼做的：</strong></p>
-                    <ul class="principle-list">
+                    <ul class="item-list">
                         <li>不做產品販售，不做廣告合作——只做「免費診斷」</li>
                         <li>每次診斷深入挖掘客戶的實際業務問題</li>
                         <li>診斷完後產出「3-5 頁的具體改善方案」</li>
@@ -327,124 +550,140 @@
                         <li>自然而然，部分客戶會問「能不能幫我執行這個方案？」</li>
                     </ul>
 
-                    <p><strong>他的護城河：</strong></p>
-                    <p>
-                        粉絲看不到他的日常內容，看到的全是「真實案例的解決過程」。每一個成功案例，都是潛在高價客戶的「信任體驗」。粉絲少，但每一個粉絲都有可能轉化成付費客。
-                    </p>
+                    <p><strong>他的護城河：</strong>粉絲看到的全是「真實案例的解決過程」。每一個成功案例，都是潛在高價客戶的「信任體驗」。粉絲少，但每一個粉絲都有可能轉化成付費客。</p>
 
-                    <p style="margin-top: 16px; color: #2d7a5c; font-weight: 600;">
-                        → 月 45 萬 = 8-10 個高價顧問合約 @ 3-5 萬/月
-                    </p>
+                    <p style="margin-top: 12px; margin-bottom: 0; color: #2D8A6E; font-weight: 600;">→ 月 45 萬 = 8-10 個高價顧問合約 @ 3-5 萬/月</p>
                 </div>
             </div>
 
-            <!-- Section 3: Failure Story -->
+            <!-- Section 3: Failure -->
             <div class="section">
                 <h2 class="section-title">三、失敗案例：林思羽的瓶頸</h2>
 
-                <div class="failure-case">
-                    <div class="case-title">粉絲數：32 萬 | 月收：0 顧問合約 | 轉化率：<0.1%</div>
+                <div class="case-card failure">
+                    <div class="case-header">
+                        <span class="case-name">林思羽</span>
+                        <span class="case-tag failure-tag">瓶頸</span>
+                    </div>
+                    <div class="case-metrics">
+                        <div class="case-metric">
+                            <span class="case-metric-value">32 萬</span>
+                            <span class="case-metric-label">粉絲</span>
+                        </div>
+                        <div class="case-metric">
+                            <span class="case-metric-value">0</span>
+                            <span class="case-metric-label">顧問合約</span>
+                        </div>
+                        <div class="case-metric">
+                            <span class="case-metric-value">&lt;0.1%</span>
+                            <span class="case-metric-label">轉化率</span>
+                        </div>
+                    </div>
 
                     <p><strong>她的困境：</strong></p>
-                    <ul class="principle-list">
+                    <ul class="item-list">
                         <li>內容做得很好，日常、專業、溫暖——粉絲喜歡</li>
                         <li>但粉絲追蹤她是為了「看她的故事」，不是「解決我的問題」</li>
                         <li>32 萬粉絲，但沒有一個「可驗證的案例」能回答「她能幫我什麼」</li>
                         <li>主動說「我做顧問」時，粉絲的第一反應是「你不是內容創作者嗎？」</li>
                     </ul>
 
-                    <p><strong>根本原因：身份錯位</strong></p>
-                    <p>
-                        粉絲信任的是「林思羽的故事」，不是「林思羽的專業」。兩種信任無法互換。她需要「遷移」粉絲到新的身份脈絡，而不是平移。
-                    </p>
+                    <p><strong>根本原因：身份錯位。</strong>粉絲信任的是「林思羽的故事」，不是「林思羽的專業」。兩種信任無法互換。她需要「遷移」粉絲到新的身份脈絡，而不是平移。</p>
 
-                    <p style="margin-top: 16px; color: #c85a3a; font-weight: 600;">
-                        → 32 萬粉絲，零轉化 = 身份發信號失敗
-                    </p>
+                    <p style="margin-top: 12px; margin-bottom: 0; color: #C4402A; font-weight: 600;">→ 32 萬粉絲，零轉化 = 身份信號發送失敗</p>
                 </div>
             </div>
 
-            <!-- Section 4: Key Principles -->
+            <!-- Section 4: Blind Spots -->
             <div class="section">
                 <h2 class="section-title">四、三個失敗者的盲點</h2>
 
                 <div class="insight-box">
                     <p><strong>盲點 1：流量迷思</strong></p>
-                    <p>
-                        他們以為粉絲量決定變現天花板。事實是：<span class="highlight">超過 10 萬粉絲後，變現額度取決於轉化率，不取決於粉絲量。</span>
-                    </p>
-                    <p style="margin-top: 12px;">
-                        洪宇辰 8,400 粉 vs 林思羽 32 萬粉 = 轉化率差 30-50 倍。問題不是粉絲少，是沒有人相信你能解決他的問題。
-                    </p>
+                    <p>以為粉絲量決定變現天花板。事實是：<span class="highlight">超過 10 萬粉絲後，變現額度取決於轉化率，不取決於粉絲量。</span></p>
+                    <p>洪宇辰 8,400 粉 vs 林思羽 32 萬粉 = 轉化率差 30-50 倍。問題不是粉絲少，是沒有人相信你能解決他的問題。</p>
                 </div>
 
                 <div class="insight-box">
-                    <p><strong>盲點 2：情感信任≠購買信任</strong></p>
-                    <p>
-                        粉絲「喜歡」你 ≠ 相信你能幫他賺錢、省錢、解決實際痛點。這是完全不同的信任類型。
-                    </p>
-                    <p style="margin-top: 12px;">
-                        要升級為購買信任，需要「可驗證的成果」。不是你說「我很厲害」，而是粉絲看到「你替別人解決過這個問題」。
-                    </p>
+                    <p><strong>盲點 2：情感信任 ≠ 購買信任</strong></p>
+                    <p>粉絲「喜歡」你 ≠ 相信你能幫他賺錢、省錢、解決實際痛點。這是完全不同的信任類型。</p>
+                    <p>要升級為購買信任，需要「可驗證的成果」。不是你說「我很厲害」，而是粉絲看到「你替別人解決過這個問題」。</p>
                 </div>
 
                 <div class="insight-box">
                     <p><strong>盲點 3：顧問身份是建立的，不是宣布的</strong></p>
-                    <p>
-                        最常見的失敗動作：粉絲追蹤了兩年，你忽然說「我現在做顧問了」。粉絲內心：「？你說什麼呢，你之前是創作者啊。」
-                    </p>
-                    <p style="margin-top: 12px;">
-                        正確做法：在粉絲眼前，逐步展示「深度案例」→ 建立「我懂這個領域」的信號 → 最後自然而然地說「我現在接顧問合約」時，信任已經到位。
-                    </p>
+                    <p>最失敗的動作：粉絲追蹤了兩年，你忽然說「我現在做顧問了」。粉絲內心：「你說什麼呢，你之前是創作者啊。」</p>
+                    <p>正確做法：在粉絲眼前逐步展示深度案例 → 建立「我懂這個領域」的信號 → 最後自然而然說「我接顧問合約」時，信任早已到位。</p>
                 </div>
             </div>
 
-            <!-- Section 5: The Bridge -->
+            <!-- Section 5: Method -->
             <div class="section">
                 <h2 class="section-title">五、第 3 層的威力：案例變現法</h2>
 
-                <p>
-                    如果說前兩層（觸及 + 情感信任）是「吸引力」，那第 3 層（可驗證成果）就是「說服力」。而第 3 層的具體操作，就是「案例變現法」。
-                </p>
+                <p>如果說前兩層（觸及 + 情感信任）是「吸引力」，那第 3 層（可驗證成果）就是「說服力」。而第 3 層的具體操作，就是案例變現法。</p>
 
-                <div class="subsection-title">做法：免費診斷 → 深度方案 → 付費執行</div>
-
-                <ul class="principle-list">
-                    <li><strong>Phase 1：免費診斷</strong> — 挑選粉絲中最適合你幫助的類型，邀請做免費 1-2 小時的深度診斷</li>
-                    <li><strong>Phase 2：產出方案</strong> — 診斷完後，花 2-3 天寫出「5-10 頁的具體改善方案」。這個方案本身就是作品集</li>
-                    <li><strong>Phase 3：案例發佈</strong> — 在社群、網站、簡報中展示這個案例（經客戶同意）。標題：「[真實案例] XX 客戶如何從 Y 升級到 Z」</li>
-                    <li><strong>Phase 4：自然轉化</strong> — 新的潛在客戶看到案例後，會主動問「能不能也幫我做這個？」。此時你再報價</li>
-                </ul>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-phase">Phase 01</div>
+                        <div class="timeline-title">免費診斷</div>
+                        <div class="timeline-desc">挑選粉絲中最適合你幫助的類型，邀請做免費 1-2 小時的深度診斷。</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-phase">Phase 02</div>
+                        <div class="timeline-title">產出方案</div>
+                        <div class="timeline-desc">診斷完後，花 2-3 天寫出「5-10 頁的具體改善方案」。這個方案本身就是作品集。</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-phase">Phase 03</div>
+                        <div class="timeline-title">案例發佈</div>
+                        <div class="timeline-desc">在社群、網站、簡報中展示這個案例（經客戶同意）。標題：「[真實案例] XX 客戶如何從 Y 升級到 Z」</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-phase">Phase 04</div>
+                        <div class="timeline-title">自然轉化</div>
+                        <div class="timeline-desc">新的潛在客戶看到案例後，會主動問「能不能也幫我做這個？」。此時你再報價。</div>
+                    </div>
+                </div>
 
                 <div class="insight-box">
-                    <strong>數學：</strong>1 個深度案例 = 3-5 個付費客戶。因為 1 個案例可能被 200-500 人看到，其中 3-5 人會轉化。
+                    <p><strong>數學：</strong>1 個深度案例 = 3-5 個付費客戶。因為 1 個案例可能被 200-500 人看到，其中 3-5 人會轉化。</p>
                 </div>
             </div>
 
-            <!-- Section 6: Implementation -->
+            <!-- Section 6: 90 Day Plan -->
             <div class="section">
                 <h2 class="section-title">六、你的首個 90 天行動計畫</h2>
 
-                <div class="subsection-title">月 1（啟動）</div>
-                <ul class="principle-list">
-                    <li>定義「你能幫什麼人」。越具體越好（不是「企業主」，而是「月營收 200-500 萬的 B2B SaaS 創始人」）</li>
-                    <li>從粉絲中挑選 3 位最契合的人，邀請「免費深度診斷」</li>
-                    <li>診斷完產出「3-5 頁的改善方案」</li>
-                </ul>
-
-                <div class="subsection-title">月 2（驗證）</div>
-                <ul class="principle-list">
-                    <li>3 個案例全部完成。挑選最亮眼的 1 個，做「案例研究版」發佈（包含背景、問題、解決方案、預期成果）</li>
-                    <li>在社群、部落格、簡報中反覆展示這個案例</li>
-                    <li>記錄有多少人在看到案例後主動詢問</li>
-                </ul>
-
-                <div class="subsection-title">月 3（擴大）</div>
-                <ul class="principle-list">
-                    <li>再做 2-3 個案例，建立「作品集」</li>
-                    <li>開始向有明確需求的潛在客戶報價（此時已有案例背書，轉化率大幅提升）</li>
-                    <li>設定目標：至少簽 1-2 個高價顧問合約</li>
-                </ul>
+                <div class="plan-grid">
+                    <div class="plan-card">
+                        <div class="plan-month">Month 01</div>
+                        <div class="plan-title">啟動</div>
+                        <ul class="item-list">
+                            <li>定義「你能幫什麼人」——越具體越好</li>
+                            <li>從粉絲中挑 3 位最契合的人，邀請免費深度診斷</li>
+                            <li>每次診斷產出 3-5 頁改善方案</li>
+                        </ul>
+                    </div>
+                    <div class="plan-card">
+                        <div class="plan-month">Month 02</div>
+                        <div class="plan-title">驗證</div>
+                        <ul class="item-list">
+                            <li>3 個案例全部完成</li>
+                            <li>挑最亮眼的 1 個做案例研究版發佈</li>
+                            <li>記錄有多少人主動詢問</li>
+                        </ul>
+                    </div>
+                    <div class="plan-card">
+                        <div class="plan-month">Month 03</div>
+                        <div class="plan-title">擴大</div>
+                        <ul class="item-list">
+                            <li>再做 2-3 個案例，建立作品集</li>
+                            <li>向有需求的潛在客戶報價</li>
+                            <li>目標：簽 1-2 個高價顧問合約</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
             <div class="divider"></div>
@@ -452,22 +691,15 @@
             <!-- Closing -->
             <div class="closing">
                 <div class="closing-title">核心洞見</div>
-                <p>
-                    自媒體從內容變現到高價顧問，沒有捷徑。你必須走完從「粉絲」到「付費客」的四層漏斗。而第 3 層（可驗證成果）是唯一的護城河。不是粉絲多的人贏，而是有案例的人贏。
-                </p>
-                <p style="margin-top: 16px;">
-                    問題不是「我該怎麼變現」，而是「我該怎麼建立第一個可驗證的成果」。答案是：<span class="highlight">選一個最合適的客戶，用免費診斷換深度方案，把方案做到值一筆大單的水準。</span>
-                </p>
-                <p style="margin-top: 16px; color: #8B3A1F; font-weight: 600;">
-                    你的第一個案例，是接下來十個案例的階梯。
-                </p>
+                <p>自媒體從內容變現到高價顧問，沒有捷徑。你必須走完從「粉絲」到「付費客」的四層漏斗。而第 3 層（可驗證成果）是唯一的護城河。不是粉絲多的人贏，而是有案例的人贏。</p>
+                <p>問題不是「我該怎麼變現」，而是「我該怎麼建立第一個可驗證的成果」。答案是：<span class="highlight">選一個最合適的客戶，用免費診斷換深度方案，把方案做到值一筆大單的水準。</span></p>
+                <p class="takeaway">你的第一個案例，是接下來十個案例的階梯。</p>
             </div>
         </div>
 
-        <!-- Footer -->
         <div class="footer">
-            <p>MUSEON 晨報 — 每天拆解一個商業卡點的根本動力</p>
-            <p>2026 年 3 月 19 日 | 生成於 MUSEON 探索實驗室</p>
+            <div class="brand">MUSEON</div>
+            <p>每天拆解一個商業卡點的根本動力 · 2026-03-19</p>
         </div>
     </div>
 </body>
