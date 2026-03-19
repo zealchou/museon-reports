@@ -1,1141 +1,777 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MUSEON · 客戶戰略分析——符大哥（Feng）談判策略規劃</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>MUSEON 客戶戰略分析 — Feng（符大哥）| 2026-03-19</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --ember: #C4502A;
-  --ember-dark: #A33D1F;
-  --ember-light: rgba(196, 80, 42, 0.08);
-  --ember-glow: rgba(196, 80, 42, 0.15);
+  --ember-light: #E0714D;
+  --ember-dark: #9A3A1C;
   --teal: #2A7A6E;
-  --teal-light: rgba(42, 122, 110, 0.08);
+  --teal-light: rgba(42,122,110,0.08);
   --gold: #B8923A;
-  --gold-light: rgba(184, 146, 58, 0.08);
+  --gold-light: rgba(184,146,58,0.1);
   --ink: #12121A;
   --slate: #5A5A6E;
+  --mist: #9898A8;
+  --border: #E2E0DA;
   --parchment: #F7F5F0;
   --snow: #FDFCFA;
+  --deep-ink: #0E0E16;
+  --surface: #16161F;
+  --success: #2D8A6E;
+  --warning: #C9943A;
+  --error: #C4402A;
+  --info: #2A6A8A;
   --shadow-sm: 0 1px 3px rgba(18,18,26,0.06), 0 4px 12px rgba(18,18,26,0.04);
-  --shadow-md: 0 2px 8px rgba(18,18,26,0.08), 0 8px 24px rgba(18,18,26,0.06);
-  --shadow-lg: 0 4px 16px rgba(18,18,26,0.1), 0 16px 48px rgba(18,18,26,0.08);
-  --radius: 10px;
-  --max-width: 820px;
+  --shadow-md: 0 4px 16px rgba(18,18,26,0.08), 0 8px 32px rgba(18,18,26,0.06);
+  --shadow-lg: 0 8px 32px rgba(18,18,26,0.12), 0 16px 48px rgba(18,18,26,0.08);
 }
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-  font-family: 'Outfit', 'Noto Sans TC', sans-serif;
-  background: var(--parchment);
-  color: var(--ink);
-  line-height: 1.75;
-  font-size: 16px;
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{
+  font-family:'Outfit','Noto Sans TC',system-ui,sans-serif;
+  background:var(--parchment);color:var(--ink);
+  line-height:1.75;-webkit-font-smoothing:antialiased;
 }
-
-.container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
-
-/* === HERO === */
-.hero {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
-  color: #fff;
-  padding: 80px 0 64px;
-  position: relative;
-  overflow: hidden;
+.hero{
+  background: linear-gradient(135deg, var(--deep-ink) 0%, #1a1a2e 40%, #16213e 100%);
+  color:#fff;padding:96px 40px 80px;text-align:center;
+  position:relative;overflow:hidden;
 }
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -20%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(196,80,42,0.15) 0%, transparent 70%);
-  border-radius: 50%;
+.hero::before{
+  content:'';position:absolute;top:0;left:0;right:0;bottom:0;
+  background:radial-gradient(ellipse at 30% 50%, rgba(196,80,42,0.15) 0%, transparent 60%),
+             radial-gradient(ellipse at 70% 30%, rgba(42,122,110,0.1) 0%, transparent 50%);
 }
-.hero .container { position: relative; z-index: 1; }
-.hero-badge {
-  display: inline-block;
-  background: var(--ember);
-  color: #fff;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  padding: 6px 16px;
-  border-radius: 20px;
-  margin-bottom: 24px;
+.hero-content{position:relative;z-index:1;max-width:820px;margin:0 auto}
+.hero .badge{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;
+  letter-spacing:0.08em;text-transform:uppercase;
+  background:rgba(196,80,42,0.2);color:var(--ember-light);
+  padding:3px 12px;border-radius:100px;display:inline-block;margin-bottom:24px;
 }
-.hero h1 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2.8rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 16px;
+.hero h1{
+  font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,56px);
+  font-weight:600;line-height:1.15;margin-bottom:16px;
 }
-.hero .subtitle {
-  font-size: 1.1rem;
-  color: rgba(255,255,255,0.7);
-  max-width: 600px;
-  line-height: 1.6;
+.hero .subtitle{
+  font-size:18px;color:rgba(255,255,255,0.7);font-weight:300;max-width:600px;margin:0 auto 32px;
 }
-.hero-meta {
-  margin-top: 32px;
-  display: flex;
-  gap: 32px;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
-  color: rgba(255,255,255,0.5);
+.hero .meta-line{
+  font-family:'IBM Plex Mono',monospace;font-size:12px;color:rgba(255,255,255,0.4);
+  letter-spacing:0.05em;
 }
-
-/* === EXECUTIVE VERDICT === */
-.verdict {
-  background: var(--snow);
-  border-left: 4px solid var(--ember);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-md);
-  padding: 32px;
-  margin: -32px 24px 48px;
-  position: relative;
-  z-index: 2;
-  max-width: var(--max-width);
-  margin-left: auto;
-  margin-right: auto;
+.container{max-width:820px;margin:0 auto;padding:0 40px}
+@media(max-width:768px){.container{padding:0 24px}}
+@media(max-width:640px){.container{padding:0 16px}}
+section{padding:64px 0}
+section + section{border-top:1px solid var(--border)}
+.section-label{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;
+  letter-spacing:0.1em;text-transform:uppercase;color:var(--ember);
+  margin-bottom:8px;
 }
-.verdict-label {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--ember);
-  margin-bottom: 12px;
+.section-title{
+  font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;
+  line-height:1.3;color:var(--ink);margin-bottom:24px;
 }
-.verdict-text {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.4rem;
-  font-weight: 600;
-  line-height: 1.5;
-  color: var(--ink);
+p{margin-bottom:1.25em;color:var(--ink)}
+p.secondary{color:var(--slate)}
+.verdict{
+  background:linear-gradient(135deg, var(--deep-ink), #1a1a2e);
+  color:#fff;border-radius:10px;padding:32px;margin:32px 0;
+  box-shadow:var(--shadow-md);
 }
-
-/* === SECTIONS === */
-.section { padding: 56px 0; }
-.section-alt { background: var(--snow); }
-.section-label {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--ember);
-  margin-bottom: 8px;
+.verdict h3{
+  font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;
+  color:var(--ember-light);margin-bottom:16px;
 }
-.section h2 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 24px;
-  color: var(--ink);
+.verdict p{color:rgba(255,255,255,0.85);margin-bottom:0.75em}
+.verdict .verdict-line{
+  font-size:18px;font-weight:500;color:#fff;
+  border-left:3px solid var(--ember);padding-left:16px;margin:16px 0;
 }
-.section h3 {
-  font-family: 'Outfit', 'Noto Sans TC', sans-serif;
-  font-size: 1.15rem;
-  font-weight: 600;
-  margin: 32px 0 12px;
-  color: var(--ink);
+.profile-card{
+  background:var(--snow);border:1px solid var(--border);border-radius:10px;
+  padding:32px;margin:32px 0;box-shadow:var(--shadow-sm);
 }
-
-/* === PROFILE CARD === */
-.profile-card {
-  background: var(--snow);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
-  padding: 32px;
-  margin-bottom: 32px;
+.profile-header{display:flex;align-items:center;gap:16px;margin-bottom:24px}
+.profile-avatar{
+  width:56px;height:56px;border-radius:50%;
+  background:linear-gradient(135deg,var(--ember),var(--ember-dark));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:#fff;
 }
-.profile-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin-top: 20px;
+.profile-name{font-size:22px;font-weight:600}
+.profile-role{font-size:14px;color:var(--slate)}
+.energy-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+@media(max-width:640px){.energy-grid{grid-template-columns:1fr}}
+.energy-item{display:flex;align-items:center;gap:10px}
+.energy-label{
+  font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;
+  color:var(--slate);width:72px;flex-shrink:0;
 }
-.profile-item {
-  padding: 16px;
-  background: var(--parchment);
-  border-radius: 8px;
+.energy-bar-track{flex:1;height:8px;background:var(--border);border-radius:4px;overflow:hidden}
+.energy-bar-fill{height:100%;border-radius:4px;transition:width 0.6s ease}
+.energy-value{
+  font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;
+  color:var(--ink);width:32px;text-align:right;
 }
-.profile-item .label {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  color: var(--slate);
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 4px;
+.framework-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0;
 }
-.profile-item .value {
-  font-size: 1.05rem;
-  font-weight: 500;
+@media(max-width:640px){.framework-grid{grid-template-columns:1fr}}
+.framework-card{
+  background:var(--snow);border:1px solid var(--border);border-radius:10px;
+  padding:24px;box-shadow:var(--shadow-sm);
+  transition:transform 0.2s ease, box-shadow 0.2s ease;
 }
-
-/* === ENERGY BAR === */
-.energy-bars { margin: 24px 0; }
-.energy-row {
-  display: flex;
-  align-items: center;
-  margin-bottom: 12px;
-  gap: 12px;
+.framework-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.framework-card .fw-icon{font-size:24px;margin-bottom:8px;display:block}
+.framework-card h4{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:8px}
+.framework-card p{font-size:14px;color:var(--slate);margin-bottom:0;line-height:1.6}
+.insight{
+  background:var(--snow);border-left:4px solid var(--ember);
+  border-radius:0 10px 10px 0;padding:24px 24px 24px 20px;margin:24px 0;
+  box-shadow:var(--shadow-sm);
 }
-.energy-label {
-  width: 80px;
-  font-size: 13px;
-  font-weight: 500;
-  text-align: right;
-  color: var(--slate);
+.insight h4{font-size:15px;font-weight:600;color:var(--ember-dark);margin-bottom:8px}
+.insight p{font-size:15px;color:var(--ink);margin-bottom:0}
+.pull-quote{
+  font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;
+  font-style:italic;color:var(--ink);text-align:center;
+  padding:32px 48px;margin:32px 0;position:relative;
 }
-.energy-track {
-  flex: 1;
-  height: 8px;
-  background: rgba(0,0,0,0.06);
-  border-radius: 4px;
-  overflow: hidden;
+.pull-quote::before,.pull-quote::after{
+  font-size:48px;color:var(--ember);opacity:0.3;position:absolute;
+  font-family:'Cormorant Garamond',serif;
 }
-.energy-fill {
-  height: 100%;
-  border-radius: 4px;
-  transition: width 0.6s ease;
+.pull-quote::before{content:'\201C';top:8px;left:16px}
+.pull-quote::after{content:'\201D';bottom:-8px;right:16px}
+.strategy-table{width:100%;border-collapse:collapse;margin:24px 0}
+.strategy-table th{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;
+  letter-spacing:0.08em;text-transform:uppercase;color:var(--slate);
+  text-align:left;padding:12px 16px;border-bottom:2px solid var(--border);
 }
-.energy-fill.high { background: var(--ember); }
-.energy-fill.mid { background: var(--gold); }
-.energy-fill.low { background: var(--teal); }
-.energy-val {
-  width: 36px;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
-  color: var(--slate);
+.strategy-table td{
+  padding:14px 16px;border-bottom:1px solid var(--border);
+  font-size:15px;color:var(--ink);vertical-align:top;
 }
-
-/* === STRATEGY CARDS === */
-.strategy-card {
-  background: var(--snow);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
-  padding: 28px;
-  margin-bottom: 20px;
-  border-left: 4px solid var(--teal);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.strategy-table tr:hover td{background:rgba(196,80,42,0.03)}
+.tactic-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin:24px 0}
+@media(max-width:768px){.tactic-grid{grid-template-columns:1fr}}
+.tactic-card{border-radius:10px;padding:24px;box-shadow:var(--shadow-sm)}
+.tactic-card.do{background:#f0faf5;border:1px solid rgba(45,138,110,0.2)}
+.tactic-card.dont{background:#fef5f3;border:1px solid rgba(196,64,42,0.2)}
+.tactic-card.watch{background:#fdf8ee;border:1px solid rgba(184,146,58,0.2)}
+.tactic-card h4{font-size:14px;font-weight:600;margin-bottom:12px}
+.tactic-card.do h4{color:var(--success)}
+.tactic-card.dont h4{color:var(--error)}
+.tactic-card.watch h4{color:var(--warning)}
+.tactic-card ul{list-style:none;padding:0}
+.tactic-card li{
+  font-size:14px;color:var(--ink);padding:6px 0;
+  padding-left:20px;position:relative;line-height:1.6;
 }
-.strategy-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+.tactic-card.do li::before{content:'✓';position:absolute;left:0;color:var(--success);font-weight:700}
+.tactic-card.dont li::before{content:'✕';position:absolute;left:0;color:var(--error);font-weight:700}
+.tactic-card.watch li::before{content:'◉';position:absolute;left:0;color:var(--warning);font-size:12px;top:8px}
+.timeline{margin:32px 0;padding-left:24px;border-left:2px solid var(--border)}
+.timeline-item{position:relative;padding:0 0 32px 24px}
+.timeline-item:last-child{padding-bottom:0}
+.timeline-item::before{
+  content:'';position:absolute;left:-29px;top:6px;
+  width:12px;height:12px;border-radius:50%;
+  background:var(--ember);border:3px solid var(--parchment);
 }
-.strategy-card.warning { border-left-color: var(--gold); }
-.strategy-card.danger { border-left-color: var(--ember); }
-.strategy-card.success { border-left-color: var(--teal); }
-.card-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
+.timeline-item .tl-date{
+  font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;
+  color:var(--ember);margin-bottom:4px;
 }
-.card-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
+.timeline-item h4{font-size:16px;font-weight:600;color:var(--ink);margin-bottom:6px}
+.timeline-item p{font-size:14px;color:var(--slate);margin-bottom:0}
+.playbook-step{
+  background:var(--snow);border:1px solid var(--border);border-radius:10px;
+  padding:24px;margin:16px 0;box-shadow:var(--shadow-sm);
+  display:flex;gap:16px;
 }
-.card-icon.teal { background: var(--teal-light); }
-.card-icon.gold { background: var(--gold-light); }
-.card-icon.ember { background: var(--ember-light); }
-.card-title {
-  font-family: 'Outfit', 'Noto Sans TC', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 600;
+.step-number{
+  width:40px;height:40px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,var(--ember),var(--ember-dark));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:#fff;
 }
-
-/* === PULL QUOTE === */
-.pull-quote {
-  border-left: 3px solid var(--ember);
-  padding: 20px 24px;
-  margin: 28px 0;
-  background: var(--ember-light);
-  border-radius: 0 var(--radius) var(--radius) 0;
+.step-content h4{font-size:16px;font-weight:600;color:var(--ink);margin-bottom:6px}
+.step-content p{font-size:14px;color:var(--slate);margin-bottom:0;line-height:1.65}
+.step-content .script{
+  background:rgba(196,80,42,0.05);border-radius:6px;padding:12px 16px;
+  margin-top:10px;font-size:14px;color:var(--ink);line-height:1.65;
+  border-left:3px solid var(--ember);
 }
-.pull-quote p {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.25rem;
-  font-style: italic;
-  color: var(--ink);
-  line-height: 1.6;
+.shadow-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0;
 }
-.pull-quote .attribution {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
-  color: var(--slate);
-  margin-top: 8px;
-  font-style: normal;
+@media(max-width:640px){.shadow-grid{grid-template-columns:1fr}}
+.shadow-card{
+  background:linear-gradient(135deg,#1a1a2e,var(--deep-ink));
+  border-radius:10px;padding:24px;color:#fff;box-shadow:var(--shadow-md);
 }
-
-/* === FRAMEWORK GRID === */
-.framework-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin: 24px 0;
+.shadow-card .sw-label{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;
+  letter-spacing:0.08em;text-transform:uppercase;color:var(--ember-light);
+  margin-bottom:8px;
 }
-.framework-cell {
-  background: var(--snow);
-  border-radius: var(--radius);
-  padding: 20px;
-  box-shadow: var(--shadow-sm);
+.shadow-card h4{font-size:16px;font-weight:600;margin-bottom:10px}
+.shadow-card p{font-size:14px;color:rgba(255,255,255,0.75);margin-bottom:0;line-height:1.6}
+.perspective-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0;
 }
-.framework-cell .fw-label {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--ember);
-  margin-bottom: 8px;
+@media(max-width:768px){.perspective-grid{grid-template-columns:1fr}}
+.perspective-card{
+  background:var(--snow);border:1px solid var(--border);border-radius:10px;
+  padding:20px;box-shadow:var(--shadow-sm);
 }
-.framework-cell h4 {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 8px;
+.perspective-card .pc-role{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;
+  letter-spacing:0.08em;text-transform:uppercase;color:var(--teal);margin-bottom:8px;
 }
-
-/* === TIMELINE === */
-.timeline { margin: 32px 0; position: relative; }
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 20px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(to bottom, var(--ember), var(--teal));
+.perspective-card h4{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:6px}
+.perspective-card p{font-size:13px;color:var(--slate);margin-bottom:0;line-height:1.6}
+.takeaway{
+  background:linear-gradient(135deg,var(--deep-ink),#1a1a2e);
+  color:#fff;border-radius:10px;padding:32px;margin:32px 0;
+  box-shadow:var(--shadow-lg);
 }
-.timeline-item {
-  display: flex;
-  gap: 24px;
-  margin-bottom: 28px;
-  position: relative;
+.takeaway h3{
+  font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;
+  color:var(--gold);margin-bottom:16px;
 }
-.timeline-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--ember);
-  border: 3px solid var(--parchment);
-  margin-top: 6px;
-  flex-shrink: 0;
-  position: relative;
-  z-index: 1;
-  margin-left: 15px;
+.takeaway p{color:rgba(255,255,255,0.85);line-height:1.75}
+.takeaway .key-number{
+  font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:700;
+  color:var(--ember-light);display:block;margin-bottom:4px;
 }
-.timeline-content {
-  background: var(--snow);
-  border-radius: var(--radius);
-  padding: 20px;
-  box-shadow: var(--shadow-sm);
-  flex: 1;
+.footer{
+  text-align:center;padding:48px 40px;
+  border-top:1px solid var(--border);
 }
-.timeline-date {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
-  color: var(--slate);
-  margin-bottom: 4px;
+.footer p{font-size:13px;color:var(--mist);margin-bottom:4px}
+.footer .brand{
+  font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;
+  color:var(--ember);
 }
-
-/* === NEGOTIATION TABLE === */
-.neg-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  margin: 24px 0;
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-}
-.neg-table thead th {
-  background: #1a1a2e;
-  color: #fff;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  padding: 14px 16px;
-  text-align: left;
-}
-.neg-table tbody td {
-  padding: 14px 16px;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  font-size: 14px;
-  vertical-align: top;
-}
-.neg-table tbody tr:nth-child(even) { background: var(--parchment); }
-.neg-table tbody tr:nth-child(odd) { background: var(--snow); }
-.neg-table .tag {
-  display: inline-block;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  padding: 3px 10px;
-  border-radius: 12px;
-  font-weight: 500;
-}
-.tag-do { background: rgba(42,122,110,0.12); color: var(--teal); }
-.tag-dont { background: rgba(196,80,42,0.12); color: var(--ember); }
-.tag-watch { background: rgba(184,146,58,0.12); color: var(--gold); }
-
-/* === RISK MATRIX === */
-.risk-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin: 24px 0;
-}
-.risk-card {
-  padding: 20px;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
-}
-.risk-card.sweet { background: linear-gradient(135deg, rgba(42,122,110,0.06), rgba(42,122,110,0.02)); border-left: 3px solid var(--teal); }
-.risk-card.cost { background: linear-gradient(135deg, rgba(184,146,58,0.06), rgba(184,146,58,0.02)); border-left: 3px solid var(--gold); }
-.risk-card.risk { background: linear-gradient(135deg, rgba(196,80,42,0.06), rgba(196,80,42,0.02)); border-left: 3px solid var(--ember); }
-.risk-card .rc-label {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-.risk-card.sweet .rc-label { color: var(--teal); }
-.risk-card.cost .rc-label { color: var(--gold); }
-.risk-card.risk .rc-label { color: var(--ember); }
-
-/* === PLAYBOOK === */
-.playbook {
-  background: linear-gradient(135deg, #1a1a2e, #16213e);
-  color: #fff;
-  border-radius: var(--radius);
-  padding: 40px;
-  margin: 32px 0;
-}
-.playbook h3 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.6rem;
-  color: #fff;
-  margin-bottom: 24px;
-}
-.playbook-step {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 24px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-.playbook-step:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-.step-num {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--ember);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 14px;
-  font-weight: 600;
-  flex-shrink: 0;
-}
-.step-content h4 {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: #fff;
-}
-.step-content p { color: rgba(255,255,255,0.75); font-size: 14px; line-height: 1.7; }
-.step-script {
-  background: rgba(255,255,255,0.08);
-  border-radius: 8px;
-  padding: 12px 16px;
-  margin-top: 8px;
-  font-size: 13px;
-  color: rgba(255,255,255,0.85);
-  font-style: italic;
-  border-left: 2px solid var(--ember);
-}
-
-/* === FOOTER === */
-.footer {
-  text-align: center;
-  padding: 48px 0;
-  color: var(--slate);
-  font-size: 13px;
-}
-.footer .brand {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.2rem;
-  color: var(--ember);
-  margin-bottom: 8px;
-}
-
-/* === RESPONSIVE === */
-@media (max-width: 768px) {
-  .hero h1 { font-size: 2rem; }
-  .profile-grid, .framework-grid, .risk-grid { grid-template-columns: 1fr; }
-  .hero-meta { flex-direction: column; gap: 8px; }
-  .playbook { padding: 24px; }
-}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+section{animation:fadeUp 0.4s ease-out both}
 </style>
 </head>
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="container">
-    <span class="hero-badge">Client Strategy Brief</span>
-    <h1>符大哥（Feng）<br>談判策略與合作規劃</h1>
-    <p class="subtitle">基於 79 次互動、32 次深度對話、八原語驅力分析，綜合 Master Strategy × Shadow × SSA × Business-12 四大引擎的完整客戶戰略分析。</p>
-    <div class="hero-meta">
-      <span>2026-03-19</span>
-      <span>MUSEON Strategy Engine</span>
-      <span>Confidential — Internal Use Only</span>
-    </div>
-  </div>
-</section>
-
-<!-- EXECUTIVE VERDICT -->
-<div class="verdict">
-  <div class="verdict-label">Executive Verdict</div>
-  <div class="verdict-text">
-    符大哥不是「客戶」，他是「通路」。他正在替你做旅行社市場的前哨偵察和內部銷售——你的談判目標不是「成交一個人」，而是「武裝一個推銷員」。把他當合作夥伴而非買家，讓他帶著足夠的彈藥去說服他的老闆。
+<div class="hero">
+  <div class="hero-content">
+    <span class="badge">CLIENT STRATEGY BRIEF</span>
+    <h1>符大哥（Feng）<br>談判戰略分析</h1>
+    <p class="subtitle">融合 Shadow 博弈辨識、Master Strategy 戰略研判、SSA 顧問式銷售、Business-12 商模診斷的全面客戶攻略</p>
+    <p class="meta-line">MUSEON Intelligence Report &middot; 2026-03-19 &middot; Confidential</p>
   </div>
 </div>
 
-<!-- SECTION 1: PROFILE -->
-<section class="section">
-  <div class="container">
-    <span class="section-label">Section 01</span>
-    <h2>人物側寫</h2>
+<div class="container">
+  <section>
+    <div class="verdict">
+      <h3>Executive Verdict</h3>
+      <div class="verdict-line">符大哥不是客戶——他是通路先鋒。你不是在「賣」東西給他，你是在「武裝」一個自願幫你打仗的人。</div>
+      <p>過去 79 次互動、32 次深度技術交流的行為數據顯示：他已經完成了能力驗證階段，正在進入「銷售武裝」階段——他需要的是幫他向老闆 Pitch 的彈藥，而不是更多的功能展示。</p>
+      <p>談判的第一性原理：<strong>降低他的推廣風險，比說服他更重要。</strong></p>
+    </div>
+  </section>
+
+  <!-- SECTION 01: PROFILE -->
+  <section>
+    <span class="section-label">SECTION 01</span>
+    <h2 class="section-title">人物側寫 — 數據驅動的行為畫像</h2>
 
     <div class="profile-card">
-      <div class="profile-grid">
-        <div class="profile-item">
-          <div class="label">角色定位</div>
-          <div class="value">旅行社業務 × MUSEON 通路先鋒</div>
+      <div class="profile-header">
+        <div class="profile-avatar">F</div>
+        <div>
+          <div class="profile-name">符大哥（Feng）</div>
+          <div class="profile-role">旅行社業者 &times; MUSEON 通路先鋒候選人</div>
         </div>
-        <div class="profile-item">
-          <div class="label">決策風格</div>
-          <div class="value">追問到底、商業回推技術</div>
+      </div>
+      <p style="font-size:15px;color:var(--slate);margin-bottom:20px">
+        79 次總對話 &middot; 32 次深度技術交流 &middot; 信任階段：已驗證 &rarr; 準備推廣
+      </p>
+      <h4 style="font-size:14px;font-weight:600;margin-bottom:12px">八原語驅力圖譜</h4>
+      <div class="energy-grid">
+        <div class="energy-item">
+          <span class="energy-label">巽 好奇心</span>
+          <div class="energy-bar-track"><div class="energy-bar-fill" style="width:100%;background:var(--ember)"></div></div>
+          <span class="energy-value">100</span>
         </div>
-        <div class="profile-item">
-          <div class="label">互動總量</div>
-          <div class="value">79 次對話 / 32 次深度技術交流</div>
+        <div class="energy-item">
+          <span class="energy-label">艮 邊界</span>
+          <div class="energy-bar-track"><div class="energy-bar-fill" style="width:34%;background:var(--teal)"></div></div>
+          <span class="energy-value">34</span>
         </div>
-        <div class="profile-item">
-          <div class="label">信任階段</div>
-          <div class="value">已驗證 → 準備推廣</div>
+        <div class="energy-item">
+          <span class="energy-label">震 行動力</span>
+          <div class="energy-bar-track"><div class="energy-bar-fill" style="width:25%;background:var(--gold)"></div></div>
+          <span class="energy-value">25</span>
+        </div>
+        <div class="energy-item">
+          <span class="energy-label">乾 志向</span>
+          <div class="energy-bar-track"><div class="energy-bar-fill" style="width:22%;background:var(--info)"></div></div>
+          <span class="energy-value">22</span>
+        </div>
+        <div class="energy-item">
+          <span class="energy-label">坤 積累</span>
+          <div class="energy-bar-track"><div class="energy-bar-fill" style="width:16%;background:var(--slate)"></div></div>
+          <span class="energy-value">16</span>
+        </div>
+        <div class="energy-item">
+          <span class="energy-label">坎 情緒</span>
+          <div class="energy-bar-track"><div class="energy-bar-fill" style="width:16%;background:var(--slate)"></div></div>
+          <span class="energy-value">16</span>
+        </div>
+        <div class="energy-item">
+          <span class="energy-label">兌 連結</span>
+          <div class="energy-bar-track"><div class="energy-bar-fill" style="width:16%;background:var(--slate)"></div></div>
+          <span class="energy-value">16</span>
+        </div>
+        <div class="energy-item">
+          <span class="energy-label">離 覺察</span>
+          <div class="energy-bar-track"><div class="energy-bar-fill" style="width:0%;background:var(--mist)"></div></div>
+          <span class="energy-value">0</span>
         </div>
       </div>
     </div>
 
-    <h3>八原語驅力圖譜</h3>
-    <p style="color: var(--slate); margin-bottom: 16px;">此圖譜揭示符大哥做決策時的底層驅動力分布——好奇心是絕對主導力量，情感連結和長期積累是相對盲區。</p>
-
-    <div class="energy-bars">
-      <div class="energy-row">
-        <span class="energy-label">好奇心</span>
-        <div class="energy-track"><div class="energy-fill high" style="width: 100%"></div></div>
-        <span class="energy-val">100</span>
-      </div>
-      <div class="energy-row">
-        <span class="energy-label">邊界</span>
-        <div class="energy-track"><div class="energy-fill mid" style="width: 34%"></div></div>
-        <span class="energy-val">34</span>
-      </div>
-      <div class="energy-row">
-        <span class="energy-label">行動力</span>
-        <div class="energy-track"><div class="energy-fill mid" style="width: 25%"></div></div>
-        <span class="energy-val">25</span>
-      </div>
-      <div class="energy-row">
-        <span class="energy-label">志向</span>
-        <div class="energy-track"><div class="energy-fill mid" style="width: 22%"></div></div>
-        <span class="energy-val">22</span>
-      </div>
-      <div class="energy-row">
-        <span class="energy-label">積累</span>
-        <div class="energy-track"><div class="energy-fill low" style="width: 16%"></div></div>
-        <span class="energy-val">16</span>
-      </div>
-      <div class="energy-row">
-        <span class="energy-label">情緒</span>
-        <div class="energy-track"><div class="energy-fill low" style="width: 16%"></div></div>
-        <span class="energy-val">16</span>
-      </div>
-      <div class="energy-row">
-        <span class="energy-label">連結</span>
-        <div class="energy-track"><div class="energy-fill low" style="width: 16%"></div></div>
-        <span class="energy-val">16</span>
-      </div>
-      <div class="energy-row">
-        <span class="energy-label">盲點</span>
-        <div class="energy-track"><div class="energy-fill low" style="width: 0%"></div></div>
-        <span class="energy-val">0</span>
-      </div>
+    <div class="insight">
+      <h4>八原語解讀 — 談判意義</h4>
+      <p><strong>好奇心 100</strong> 代表他不需要被「說服」，而是需要被「滿足」。傳統的 Feature-Benefit 銷售話術對他無效——他的腦袋會自動拆解你說的每一句話，直到碰到不合邏輯的地方然後質疑你。正確策略：給他拆解的材料，讓他自己得出結論。</p>
     </div>
+    <div class="insight">
+      <h4>盲點覺察 = 0 的陷阱</h4>
+      <p>自知力極強的人往往有一個隱性盲區：<strong>他不知道「自己不知道」的東西</strong>。因為他習慣自己能看透，所以對「我可能完全沒注意到的維度」缺乏警覺。這是你能提供差異化價值的切入點——不是告訴他答案，而是提出他沒問過的問題。</p>
+    </div>
+  </section>
+
+  <!-- SECTION 02: DSE -->
+  <section>
+    <span class="section-label">SECTION 02</span>
+    <h2 class="section-title">DSE 第一性原理 — 他到底在做什麼？</h2>
+
+    <p>表面上，符大哥在「試用產品、問定價」。但 32 次深度技術交流的行為數據揭示了一條完全不同的敘事線：</p>
 
     <div class="pull-quote">
-      <p>「你在其中看到了什麼資訊？我想知道你看到什麼？我要跟你討論。」</p>
-      <div class="attribution">— 符大哥，2026-03-13，傳來旅行社行程素材時的第一句話</div>
+      他不是在評估產品，他是在建造一條內部銷售管線——自己驗證、自己消化、自己準備 Pitch 材料。
     </div>
 
-    <p>這句話是理解符大哥的鑰匙。他不要答案——他要<strong>對齊認知</strong>。一般客戶問「你能幫我做什麼？」，他問「你看到了什麼？」。前者是消費者心態，後者是合夥人心態。這個人已經不把自己當買家了。</p>
-  </div>
-</section>
-
-<!-- SECTION 2: SHADOW 博弈辨識 -->
-<section class="section section-alt">
-  <div class="container">
-    <span class="section-label">Section 02 — Shadow Engine</span>
-    <h2>博弈態勢辨識</h2>
-
-    <p style="margin-bottom: 24px;">在開始制定談判策略前，先辨識清楚：這場對話的權力結構長什麼樣？有沒有潛在的博弈陷阱？</p>
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;margin-bottom:20px">內部銷售員養成鏈（四階段模型）</h3>
 
     <div class="framework-grid">
-      <div class="framework-cell">
-        <div class="fw-label">權力對等性</div>
-        <h4>✅ 高度對等</h4>
-        <p style="font-size: 14px; color: var(--slate);">他需要 MUSEON 的能力，你需要他的旅行社通路。雙方各有對方想要的東西，沒有一方有絕對優勢。這是最健康的談判起點。</p>
+      <div class="framework-card">
+        <span class="fw-icon">🔬</span>
+        <h4>Phase 1：能力驗證</h4>
+        <p>用真實工作壓測——35 人日本東北行程、7 張行程照片、MST0419-K 選餐檔。不問「你能做什麼」，問「你看到了什麼」。<strong>他在測試 MUSEON 是否理解旅行社的語言。</strong></p>
       </div>
-      <div class="framework-cell">
-        <div class="fw-label">資訊對稱性</div>
-        <h4>⚠️ 他略佔優勢</h4>
-        <p style="font-size: 14px; color: var(--slate);">他知道旅行社老闆的決策標準和痛點，你不知道。他清楚內部預算範圍，你只能從對話推測。但你掌握產品的技術邊界和成本結構。</p>
+      <div class="framework-card">
+        <span class="fw-icon">🫥</span>
+        <h4>Phase 2：信任轉化</h4>
+        <p>五天沉默期。不是冷掉了——是內部消化。API 額度用完時反應：「Okok，我另外弄一個」。<strong>邊界清晰、不黏不鬧，這是有合作經驗者的標誌行為。</strong></p>
       </div>
-      <div class="framework-cell">
-        <div class="fw-label">時間壓力</div>
-        <h4>✅ 你不急</h4>
-        <p style="font-size: 14px; color: var(--slate);">他主動推進節奏（提出 35,000 方案、要求戰略功能說明），你沒有催他。誰先急誰吃虧——目前態勢對你有利。</p>
+      <div class="framework-card">
+        <span class="fw-icon">🎯</span>
+        <h4>Phase 3：銷售武裝</h4>
+        <p>需求從「能不能用」升級到「告訴我戰略層面的功能，1,000 字以內」。1,000 字限制 = <strong>模擬老闆的注意力預算</strong>。他在準備 Pitch 材料。</p>
       </div>
-      <div class="framework-cell">
-        <div class="fw-label">退出成本</div>
-        <h4>⚠️ 雙方都低</h4>
-        <p style="font-size: 14px; color: var(--slate);">目前沒有正式合約，雙方隨時可以退出。這代表你需要在簽約前製造足夠的「沉沒成本」——讓他投入到捨不得離開。</p>
+      <div class="framework-card">
+        <span class="fw-icon">🛡️</span>
+        <h4>Phase 4：風險降低</h4>
+        <p>20 輪對話拆解完整定價架構——月費、SDK、Session 計費、API Endpoint。不是砍價，是<strong>確認推薦給老闆後不會被打臉</strong>。</p>
       </div>
     </div>
 
-    <h3>潛在博弈模式掃描</h3>
+    <div class="verdict">
+      <h3>第一性原理結論</h3>
+      <p>他已經是你的盟友。談判的目標不是「讓他買」，而是<strong>「讓他推得動」</strong>。他推不動，你就失去旅行社這條垂直市場線的入口。</p>
+      <div class="verdict-line">Question：你要怎麼武裝一個已經站在你這邊的人？</div>
+    </div>
+  </section>
 
-    <div class="strategy-card success">
-      <div class="card-header">
-        <div class="card-icon teal">🟢</div>
-        <div class="card-title">低風險：非對抗型合作者</div>
+  <!-- SECTION 03: SHADOW -->
+  <section>
+    <span class="section-label">SECTION 03</span>
+    <h2 class="section-title">Shadow 博弈辨識 — 人際結構解碼</h2>
+
+    <p>Shadow 引擎掃描了符大哥在群組中的 79 次互動模式，偵測到以下博弈結構：</p>
+
+    <div class="shadow-grid">
+      <div class="shadow-card">
+        <div class="sw-label">DETECTED PATTERN</div>
+        <h4>精算型談判者</h4>
+        <p>不打情感牌，用數據挑戰假設。「用戶要付兩次錢你知道嗎？」——直接用邏輯破綻試探你的底線。<strong>防禦策略</strong>：不迴避，用更深的數據回應。他尊重的是準備度，不是讓步。</p>
       </div>
-      <p style="font-size: 14px; color: var(--slate);">從 79 次互動中，符大哥沒有展現任何操控型行為（推拉震盪、親密轟炸、現實扭曲）。他的行為模式一致性極高：提問 → 驗證 → 推進。邊界清晰（API 用完說「我另外弄」，不糾纏）。這不是需要「防禦」的對手，而是需要「武裝」的盟友。</p>
+      <div class="shadow-card">
+        <div class="sw-label">DETECTED PATTERN</div>
+        <h4>獨狼型聯盟</h4>
+        <p>連結分數 16——不依賴人脈，但會策略性地使用人脈。他選擇推薦 MUSEON 不是因為關係好，是因為<strong>他判斷這個工具能幫他在老闆面前建立功績</strong>。這是理性聯盟，不是情感聯盟。</p>
+      </div>
+      <div class="shadow-card">
+        <div class="sw-label">DETECTED PATTERN</div>
+        <h4>沉默期 ≠ 冷淡</h4>
+        <p>五天沉默後主動升級需求。這是典型的「內部消化者」——他不需要你追蹤、不需要你催，他在自己的節奏裡完成判斷。<strong>追得太緊 = 不信任他的判斷力 = 踩他的邊界</strong>。</p>
+      </div>
+      <div class="shadow-card">
+        <div class="sw-label">DETECTED PATTERN</div>
+        <h4>Server 端思維</h4>
+        <p>從技術邊界反推商業邏輯——「SDK 拿掉子體還能跑嗎？」這是開發者的本能反應。<strong>跟他溝通時，技術架構圖比商業簡報有效</strong>。</p>
+      </div>
     </div>
 
-    <div class="strategy-card warning">
-      <div class="card-header">
-        <div class="card-icon gold">⚠️</div>
-        <div class="card-title">中度注意：務實型砍價者</div>
-      </div>
-      <p style="font-size: 14px; color: var(--slate);">他提出「35,000 含前兩個月月費」——這是典型的<strong>錨定策略</strong>（把首次出價設在自己舒適區）。不代表惡意，但代表他會精算。你的回應策略不是「讓步」，而是「重新定義交換的是什麼」。</p>
+    <div class="insight">
+      <h4>Shadow 總判定：低威脅、高價值盟友</h4>
+      <p>在 27 類人際對抗型態中，符大哥不屬於任何對抗型——他是「理性互利型」。唯一需要警惕的是：<strong>如果你讓他失望（承諾做不到的事），他的撤退會非常乾脆，沒有第二次機會</strong>。</p>
     </div>
+  </section>
 
-    <div class="strategy-card success">
-      <div class="card-header">
-        <div class="card-icon teal">🔑</div>
-        <div class="card-title">關鍵洞見：他的真實角色是「內部銷售員」</div>
-      </div>
-      <p style="font-size: 14px; color: var(--slate);">符大哥不是最終決策者。他在做的是：用自己的時間和信譽替 MUSEON 做市場驗證，準備向旅行社老闆 Pitch。這意味著——<strong>你跟他談的價格，不只是他付的價格，更是他拿去說服老闆時的「定價故事」。</strong>如果你給他的價格太低，他反而沒辦法讓老闆重視；太高，他推不動。</p>
-    </div>
-  </div>
-</section>
+  <!-- SECTION 04: MASTER STRATEGY -->
+  <section>
+    <span class="section-label">SECTION 04</span>
+    <h2 class="section-title">Master Strategy — 五事評估與局勢研判</h2>
 
-<!-- SECTION 3: SSA 顧問式銷售分析 -->
-<section class="section">
-  <div class="container">
-    <span class="section-label">Section 03 — SSA Engine</span>
-    <h2>顧問式銷售定位</h2>
+    <p>孫子兵法「五事」框架（道、天、地、將、法）用於評估這場談判的全局態勢：</p>
 
-    <p style="margin-bottom: 24px;">用顧問式銷售 12 步驟框架，定位符大哥目前在哪個階段，以及下一步該推進到哪裡。</p>
-
-    <h3>銷售階段定位</h3>
-
-    <table class="neg-table">
+    <table class="strategy-table">
       <thead>
         <tr>
-          <th>階段</th>
-          <th>狀態</th>
-          <th>判斷依據</th>
+          <th style="width:80px">五事</th>
+          <th style="width:120px">維度</th>
+          <th>評估</th>
+          <th style="width:80px">有利度</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><strong>建立關係</strong></td>
-          <td><span class="tag tag-do">✅ 完成</span></td>
-          <td>79 次對話、主動傳工作素材、願意花時間深度交流</td>
+          <td style="font-weight:600;color:var(--ember)">道</td>
+          <td>共同目標</td>
+          <td>雙方都希望旅行社導入 AI 能成功。他推動是為了功績，你推動是為了市場入口。<strong>目標一致。</strong></td>
+          <td style="color:var(--success);font-weight:600">★★★</td>
         </tr>
         <tr>
-          <td><strong>尋找主因</strong></td>
-          <td><span class="tag tag-do">✅ 完成</span></td>
-          <td>痛點明確：旅行社需要 AI 提升效率，但不知道從何開始</td>
+          <td style="font-weight:600;color:var(--ember)">天</td>
+          <td>時機</td>
+          <td>他已完成驗證、正在準備向老闆 Pitch。窗口期約 2-3 週——過了這個時間，熱度會自然衰減。</td>
+          <td style="color:var(--warning);font-weight:600">★★☆</td>
         </tr>
         <tr>
-          <td><strong>深入了解</strong></td>
-          <td><span class="tag tag-do">✅ 完成</span></td>
-          <td>傳來真實行程、選餐檔、照片——已用真實工作驗證能力</td>
+          <td style="font-weight:600;color:var(--ember)">地</td>
+          <td>戰場條件</td>
+          <td>旅行社產業 AI 導入率極低，競品少。但老闆可能不懂 AI，需要「翻譯」。</td>
+          <td style="color:var(--success);font-weight:600">★★★</td>
         </tr>
         <tr>
-          <td><strong>找到痛點</strong></td>
-          <td><span class="tag tag-do">✅ 完成</span></td>
-          <td>「旅行社 85% 時間花在文件來回」——他已經有具體的痛點數據</td>
+          <td style="font-weight:600;color:var(--ember)">將</td>
+          <td>推手能力</td>
+          <td>符大哥技術強、好奇心驅動、已驗證產品。但行動力 25——從想到做需要推力。</td>
+          <td style="color:var(--warning);font-weight:600">★★☆</td>
         </tr>
         <tr>
-          <td><strong>追問擊穿</strong></td>
-          <td><span class="tag tag-do">✅ 完成</span></td>
-          <td>20 輪對話從月費拆到 API schema——已穿透到最底層</td>
-        </tr>
-        <tr>
-          <td><strong>共情同理</strong></td>
-          <td><span class="tag tag-watch">🟡 進行中</span></td>
-          <td>他理解痛點但尚未「感受到」不做的代價——需要激發</td>
-        </tr>
-        <tr>
-          <td><strong>落差萃取</strong></td>
-          <td><span class="tag tag-watch">🟡 關鍵下一步</span></td>
-          <td>需要讓他清楚看見：「有 MUSEON」vs「沒有 MUSEON」的旅行社差異</td>
-        </tr>
-        <tr>
-          <td><strong>點燃決心</strong></td>
-          <td><span class="tag tag-dont">🔴 未到</span></td>
-          <td>他在理性層已認可，但情緒層的「非做不可」尚未被點燃</td>
-        </tr>
-        <tr>
-          <td><strong>方案呈現</strong></td>
-          <td><span class="tag tag-dont">🔴 太早</span></td>
-          <td>定價方案已初步討論，但他需要的不是「方案」而是「武器」</td>
+          <td style="font-weight:600;color:var(--ember)">法</td>
+          <td>制度框架</td>
+          <td>月薪制已定方向。尚需定義試點範圍、成功指標、退出條款。</td>
+          <td style="color:var(--warning);font-weight:600">★★☆</td>
         </tr>
       </tbody>
     </table>
+
+    <div class="insight">
+      <h4>鬼谷子「捭闔」策略建議</h4>
+      <p>「捭」（張開）：給他充足的 Pitch 材料——戰略價值清單、ROI 試算表、30 天試點方案。讓他有信心開口。<br>
+      「闔」（合攏）：不主動接觸老闆、不催進度、不降價。<strong>保持距離感 = 保持價值感。</strong>他會在準備好的時候主動推進。</p>
+    </div>
+  </section>
+
+  <!-- SECTION 05: SSA -->
+  <section>
+    <span class="section-label">SECTION 05</span>
+    <h2 class="section-title">SSA 顧問式銷售 — 十二步驟定位</h2>
+
+    <p>顧問式銷售 12 步驟中，符大哥目前的位置：</p>
+
+    <div style="background:var(--snow);border:1px solid var(--border);border-radius:10px;padding:24px;margin:24px 0;overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:14px">
+        <tr>
+          <td style="padding:8px 12px;border-bottom:1px solid var(--border);color:var(--mist);text-decoration:line-through">① 建立連結</td>
+          <td style="padding:8px 12px;border-bottom:1px solid var(--border);color:var(--mist)">已完成</td>
+        </tr>
+        <tr>
+          <td style="padding:8px 12px;border-bottom:1px solid var(--border);color:var(--mist);text-decoration:line-through">② 需求探詢</td>
+          <td style="padding:8px 12px;border-bottom:1px solid var(--border);color:var(--mist)">已完成（他自己探詢了 20 輪）</td>
+        </tr>
+        <tr>
+          <td style="padding:8px 12px;border-bottom:1px solid var(--border);color:var(--mist);text-decoration:line-through">③ 痛點放大</td>
+          <td style="padding:8px 12px;border-bottom:1px solid var(--border);color:var(--mist)">已完成（他自己發現旅行社的手動流程多痛苦）</td>
+        </tr>
+        <tr>
+          <td style="padding:8px 12px;border-bottom:1px solid var(--border);color:var(--mist);text-decoration:line-through">④ 方案呈現</td>
+          <td style="padding:8px 12px;border-bottom:1px solid var(--border);color:var(--mist)">已完成（銷售頁 + 定價架構 + 技術展示）</td>
+        </tr>
+        <tr>
+          <td style="padding:8px 12px;border-bottom:1px solid var(--border);color:var(--mist);text-decoration:line-through">⑤ 異議處理</td>
+          <td style="padding:8px 12px;border-bottom:1px solid var(--border);color:var(--mist)">已完成（20 輪定價拆解就是異議處理的過程）</td>
+        </tr>
+        <tr style="background:rgba(196,80,42,0.06)">
+          <td style="padding:8px 12px;border-bottom:1px solid var(--border);font-weight:600;color:var(--ember)">⑥ 內部推廣武裝 &larr; 你在這裡</td>
+          <td style="padding:8px 12px;border-bottom:1px solid var(--border);font-weight:600;color:var(--ember)">他要的：幫老闆決策用的精簡材料</td>
+        </tr>
+        <tr>
+          <td style="padding:8px 12px;border-bottom:1px solid var(--border);color:var(--slate)">⑦ 試點提案</td>
+          <td style="padding:8px 12px;border-bottom:1px solid var(--border);color:var(--slate)">下一步：30 天試點方案</td>
+        </tr>
+        <tr>
+          <td style="padding:8px 12px;border-bottom:1px solid var(--border);color:var(--slate)">⑧ 決策者接觸</td>
+          <td style="padding:8px 12px;border-bottom:1px solid var(--border);color:var(--slate)">透過他間接觸達老闆</td>
+        </tr>
+        <tr>
+          <td style="padding:8px 12px;border-bottom:1px solid var(--border);color:var(--slate)">⑨ 試點執行</td>
+          <td style="padding:8px 12px;border-bottom:1px solid var(--border);color:var(--slate)">選定一條線路實際運行</td>
+        </tr>
+        <tr>
+          <td style="padding:8px 12px;border-bottom:1px solid var(--border);color:var(--slate)">⑩ 成效驗收</td>
+          <td style="padding:8px 12px;border-bottom:1px solid var(--border);color:var(--slate)">量化節省時間、提升效率</td>
+        </tr>
+        <tr>
+          <td style="padding:8px 12px;border-bottom:1px solid var(--border);color:var(--slate)">⑪ 正式簽約</td>
+          <td style="padding:8px 12px;border-bottom:1px solid var(--border);color:var(--slate)">月薪制簽約</td>
+        </tr>
+        <tr>
+          <td style="padding:8px 12px;color:var(--slate)">⑫ 轉介擴散</td>
+          <td style="padding:8px 12px;color:var(--slate)">旅行社同業口碑</td>
+        </tr>
+      </table>
+    </div>
 
     <div class="pull-quote">
-      <p>他卡在第 6-7 步之間——理性上已認可 MUSEON 的能力，但還沒被「落差」驅動到行動。你的下一步不是給更好的價格，而是讓他看見「不做」的代價有多大。</p>
-      <div class="attribution">— SSA 診斷結論</div>
+      他已經幫你完成了步驟一到五。你唯一要做的，是不要搞砸步驟六。
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- SECTION 4: MASTER STRATEGY -->
-<section class="section section-alt">
-  <div class="container">
-    <span class="section-label">Section 04 — Master Strategy</span>
-    <h2>五事速評與戰略路徑</h2>
+  <!-- SECTION 06: PLAYBOOK -->
+  <section>
+    <span class="section-label">SECTION 06</span>
+    <h2 class="section-title">七步談判劇本</h2>
 
-    <p style="margin-bottom: 24px;">用孫子兵法「五事」框架——道、天、地、將、法——評估這場合作的戰略態勢。</p>
+    <p>以下是針對符大哥的八原語驅力、博弈結構、和當前銷售階段量身設計的談判劇本：</p>
 
-    <div class="framework-grid">
-      <div class="framework-cell">
-        <div class="fw-label">道（共同目標）</div>
-        <h4>高度一致</h4>
-        <p style="font-size: 14px; color: var(--slate);">他想讓旅行社用 AI 提升競爭力，你想讓 MUSEON 進入旅行社市場。目標方向完全同向，只是各自的利益分配點不同。</p>
-      </div>
-      <div class="framework-cell">
-        <div class="fw-label">天（時機）</div>
-        <h4>窗口正開</h4>
-        <p style="font-size: 14px; color: var(--slate);">他剛完成能力驗證、主動要求銷售素材，正處於「準備推動」的高動能狀態。這個窗口不會永遠開著——熱度會遞減。</p>
-      </div>
-      <div class="framework-cell">
-        <div class="fw-label">地（戰場條件）</div>
-        <h4>你選的地形</h4>
-        <p style="font-size: 14px; color: var(--slate);">對話發生在你的 Telegram 群組裡，用你的產品做驗證。他在你熟悉的環境中操作，這是有利地形。</p>
-      </div>
-      <div class="framework-cell">
-        <div class="fw-label">將（核心人物）</div>
-        <h4>需要觀察老闆</h4>
-        <p style="font-size: 14px; color: var(--slate);">符大哥是先鋒但不是最終決策者。你還沒見過旅行社老闆——這是最大的未知變數。需要透過符大哥「間接偵察」老闆的決策風格。</p>
+    <div class="playbook-step">
+      <div class="step-number">1</div>
+      <div class="step-content">
+        <h4>武裝盟友，而非說服客戶</h4>
+        <p>主動幫他製作老闆提案——不是你的銷售簡報，而是<strong>他能用的內部提案</strong>。格式：一頁式 ROI 試算 + 30 天試點方案 + 三個成功場景。</p>
+        <div class="script">
+          <strong>話術：</strong>「我做了一份你可以直接拿去跟老闆報告的材料，不用你自己整理。你看看有沒有要調整的——畢竟你最了解老闆的風格。」
+        </div>
       </div>
     </div>
 
-    <div class="framework-cell" style="margin-top: 16px;">
-      <div class="fw-label">法（遊戲規則）</div>
-      <h4>尚未建立</h4>
-      <p style="font-size: 14px; color: var(--slate);">目前只有口頭討論，沒有正式合約框架。「法」是誰先制定誰有利——<strong>你應該主動提出合作框架</strong>，而不是等對方開條件。主動出框架的人定義了談判的遊戲場域。</p>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 5: 談判策略 PLAYBOOK -->
-<section class="section">
-  <div class="container">
-    <span class="section-label">Section 05 — Negotiation Playbook</span>
-    <h2>談判策略劇本</h2>
-
-    <h3>核心策略：武裝盟友，而非說服客戶</h3>
-    <p style="margin-bottom: 32px;">傳統銷售思維是「如何讓他掏錢」。但符大哥的情境不同——他已經決定推薦 MUSEON，缺的是「說服老闆的武器」。你的談判策略應該從「成交他」轉為「幫他成交老闆」。</p>
-
-    <div class="playbook">
-      <h3>七步談判劇本</h3>
-
-      <div class="playbook-step">
-        <div class="step-num">1</div>
-        <div class="step-content">
-          <h4>重新定義交易標的——你賣的不是「月費」</h4>
-          <p>他在意的不是每月付多少錢，而是「這筆投資能不能在旅行社內部被合理化」。你賣的是「旅行社老闆願意買單的故事」——包括 ROI 試算、競品比較、風險控制框架。</p>
-          <div class="step-script">
-            「大哥，你需要的不只是 MUSEON 的月費方案，你需要的是一份讓老闆 3 分鐘內點頭的提案。我幫你做這份提案——包含 ROI 數字、導入時間表、風險控制。你拿去談。」
-          </div>
-        </div>
-      </div>
-
-      <div class="playbook-step">
-        <div class="step-num">2</div>
-        <div class="step-content">
-          <h4>落差激發——讓他「看見」不做的代價</h4>
-          <p>好奇心型的人不會被「效率提升 30%」打動，會被「你的競爭對手已經在做了」打動。用旅行社產業報告中的數據做落差激發。</p>
-          <div class="step-script">
-            「你知道目前台灣已經有幾家旅行社開始用 AI 做行程規劃了嗎？不是大型的，是跟你們同規模的。他們的轉換率比傳統做法高了多少？我這邊有數據。」
-          </div>
-        </div>
-      </div>
-
-      <div class="playbook-step">
-        <div class="step-num">3</div>
-        <div class="step-content">
-          <h4>價格錨定——先給高價值，再談價格</h4>
-          <p>他已經出了 35,000 的錨點。不要直接接受或反駁。先展示「完整服務的市場價值」，讓他理解你的定價邏輯，再回到他的數字。</p>
-          <div class="step-script">
-            「如果找 AI 顧問公司做同樣的事，市場行情是月費 3-5 萬、另加導入費。我們的方案是 24,000 簽約金 + 月費 6,000，等於你用六分之一的成本拿到同等服務。這不是便宜，是策略。」
-          </div>
-        </div>
-      </div>
-
-      <div class="playbook-step">
-        <div class="step-num">4</div>
-        <div class="step-content">
-          <h4>試點框架——降低老闆的決策門檻</h4>
-          <p>旅行社老闆最怕的不是「花錢」，是「花錢沒效果又要解釋」。設計一個 30 天試點框架，讓老闆可以「先試再決定」。</p>
-          <div class="step-script">
-            「建議第一個月做試點——選一條固定線路（比如你們最熟的日本東北線），讓 MUSEON 跑完整流程。30 天後拿數據給老闆看：省了多少工時、錯誤率降了多少、客戶滿意度有沒有變化。數字會說話。」
-          </div>
-        </div>
-      </div>
-
-      <div class="playbook-step">
-        <div class="step-num">5</div>
-        <div class="step-content">
-          <h4>通路分潤——把他從「客戶」升級為「合作夥伴」</h4>
-          <p>符大哥花了大量時間驗證和推廣 MUSEON。如果旅行社老闆買單，他是有功勞的。設計一個讓他受益的分潤機制，他的推廣動力會完全不同。</p>
-          <div class="step-script">
-            「大哥，你幫我做了很多前期驗證，這是有價值的。如果老闆決定導入，我想跟你談一個長期合作：你在旅行社圈推廣 MUSEON，我給你推薦分潤。這不是佣金，是合作夥伴關係。」
-          </div>
-        </div>
-      </div>
-
-      <div class="playbook-step">
-        <div class="step-num">6</div>
-        <div class="step-content">
-          <h4>邊界設定——明確「不做什麼」反而增加信任</h4>
-          <p>符大哥的「邊界」驅力 34 分——他尊重邊界，也期望對方有邊界。主動說清楚 MUSEON 不做什麼，反而比「什麼都能做」更有說服力。</p>
-          <div class="step-script">
-            「先講清楚我們不做什麼：不做即時訂房系統整合（那是另一個層次的工程）、不做旅客個資管理（責任太大）、不做 24 小時客服（那需要另一套架構）。我們專注在行程規劃、文件產出、內部效率這三塊。做得深，不做得廣。」
-          </div>
-        </div>
-      </div>
-
-      <div class="playbook-step">
-        <div class="step-num">7</div>
-        <div class="step-content">
-          <h4>承諾收尾——用他的語言做 CTA</h4>
-          <p>好奇心型的人不是被「現在決定」逼的——是被「下一個問題」吸引的。收尾不用壓力，用下一步的吸引力。</p>
-          <div class="step-script">
-            「這樣吧，我先把旅行社導入提案做出來，你看看哪些數字需要調整。下禮拜我們花一個小時，把老闆可能會問的問題全部先跑一遍。你覺得呢？」
-          </div>
+    <div class="playbook-step">
+      <div class="step-number">2</div>
+      <div class="step-content">
+        <h4>設計 30 天試點，降低決策門檻</h4>
+        <p>老闆不需要理解 AI，只需要理解「風險多低」。方案：選定一條即將出團的線路，MUSEON 處理行程分析 + 選餐比較 + 客服 FAQ，30 天後用數據說話。</p>
+        <div class="script">
+          <strong>關鍵設計：</strong>試點免費或低成本（第一個月折扣），但明確定義成功指標——例如「節省 XX 小時人工、客戶滿意度提升」。<strong>沒有退出成本 = 老闆沒有理由說不。</strong>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- SECTION 6: Business-12 -->
-<section class="section section-alt">
-  <div class="container">
-    <span class="section-label">Section 06 — Business-12 Engine</span>
-    <h2>商模槓桿分析</h2>
-
-    <p style="margin-bottom: 24px;">從 MUSEON 進入旅行社市場的角度，哪些「力」是關鍵槓桿，哪些是現有弱項？</p>
-
-    <table class="neg-table">
-      <thead>
-        <tr>
-          <th>商模力</th>
-          <th>強度</th>
-          <th>此案例的意義</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>BF01 產品力</strong></td>
-          <td><span class="tag tag-do">強</span></td>
-          <td>符大哥用真實行程驗證過，能力已獲認可。這是基礎。</td>
-        </tr>
-        <tr>
-          <td><strong>BF02 累積力</strong></td>
-          <td><span class="tag tag-dont">弱</span></td>
-          <td>目前沒有旅行社客戶案例。符大哥如果成功，就是第一個可引用的案例——這就是他的戰略價值。</td>
-        </tr>
-        <tr>
-          <td><strong>BF03 整合力</strong></td>
-          <td><span class="tag tag-watch">中</span></td>
-          <td>符大哥本身就是異業整合的節點（旅行社圈人脈）。善用他的連結力。</td>
-        </tr>
-        <tr>
-          <td><strong>BF04 共享力</strong></td>
-          <td><span class="tag tag-dont">弱</span></td>
-          <td>尚未建立推薦/分潤機制。這是應該在這次合作中設計的。</td>
-        </tr>
-        <tr>
-          <td><strong>BF06 感召力</strong></td>
-          <td><span class="tag tag-watch">中</span></td>
-          <td>有旅行社報告做為品牌故事素材，但還沒有「改變了某家旅行社」的故事。</td>
-        </tr>
-        <tr>
-          <td><strong>BF11 談判力</strong></td>
-          <td><span class="tag tag-watch">關鍵</span></td>
-          <td>這次合作的成敗就在這裡。談判力不是「殺價」，是「定義價值」。</td>
-        </tr>
-        <tr>
-          <td><strong>BF12 轉換力</strong></td>
-          <td><span class="tag tag-do">強</span></td>
-          <td>銷售頁已做（v2 依據八原語個人化）、旅行社報告已做。轉換素材齊全。</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="pull-quote">
-      <p>符大哥是 BF02（累積力）的破口——他如果成功導入，就是 MUSEON 在旅行社垂直市場的第一個參考案例。這個案例的價值遠大於月費收入。</p>
-      <div class="attribution">— Business-12 診斷結論</div>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 7: 定價方案推演 -->
-<section class="section">
-  <div class="container">
-    <span class="section-label">Section 07</span>
-    <h2>定價方案推演</h2>
-
-    <h3>目前雙方出價對照</h3>
-
-    <table class="neg-table">
-      <thead>
-        <tr>
-          <th>項目</th>
-          <th>符大哥提案</th>
-          <th>Zeal 回應</th>
-          <th>策略建議</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>設定費 / 簽約金</td>
-          <td>35,000（含前兩月月費）</td>
-          <td>24,000 簽約金 + 12,000 押金</td>
-          <td>接受 Zeal 版本。押金機制保護雙方。</td>
-        </tr>
-        <tr>
-          <td>月費</td>
-          <td>隱含在 35,000 中</td>
-          <td>6,000/月</td>
-          <td>維持不變。用「月薪」語言包裝。</td>
-        </tr>
-        <tr>
-          <td>約期</td>
-          <td>未明確</td>
-          <td>12 個月</td>
-          <td>建議改為「3 個月試點 + 9 個月正式」——降低他說服老闆的門檻。</td>
-        </tr>
-        <tr>
-          <td>工作流鍛造</td>
-          <td>未討論</td>
-          <td>前 3 條免費</td>
-          <td>明確定義「免費 3 條」的範圍——即答型不算、工單型算。</td>
-        </tr>
-        <tr>
-          <td>通路分潤</td>
-          <td>未討論</td>
-          <td>未提</td>
-          <td><strong>新增：推薦成交一家，退還當月月費。</strong></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h3>甜頭 × 代價 × 風險</h3>
-
-    <div class="risk-grid">
-      <div class="risk-card sweet">
-        <div class="rc-label">甜頭</div>
-        <p style="font-size: 14px;"><strong>首個垂直市場參考案例</strong>——旅行社老闆的認可 = MUSEON 在旅行社圈的敲門磚。一個成功案例可以撬動 5-10 家同業。</p>
-      </div>
-      <div class="risk-card sweet">
-        <div class="rc-label">甜頭</div>
-        <p style="font-size: 14px;"><strong>通路夥伴而非單一客戶</strong>——符大哥的好奇心和行動力意味著他會自己探索 MUSEON 的邊界，變成免費的 QA + 銷售員。</p>
-      </div>
-      <div class="risk-card cost">
-        <div class="rc-label">代價</div>
-        <p style="font-size: 14px;"><strong>前期投入大</strong>——幫他做旅行社提案、產業報告、ROI 試算，這些工時在月費 6,000 裡是虧的。但這是「累積力」投資。</p>
-      </div>
-      <div class="risk-card cost">
-        <div class="rc-label">代價</div>
-        <p style="font-size: 14px;"><strong>定價先例</strong>——第一個客戶的價格會成為市場參考點。太低就回不去了。</p>
-      </div>
-      <div class="risk-card risk">
-        <div class="rc-label">風險</div>
-        <p style="font-size: 14px;"><strong>老闆不買單</strong>——符大哥認可不等於老闆認可。如果老闆否決，你的前期投入全部沉沒。止損點：在老闆做決定前，控制投入在「可展示的素材」上（報告、銷售頁），不做深度客製。</p>
-      </div>
-      <div class="risk-card risk">
-        <div class="rc-label">風險</div>
-        <p style="font-size: 14px;"><strong>期望管理失控</strong>——好奇心 100 的人會不斷探索邊界。如果不主動設邊界，他會把 MUSEON 當成全能工具，最後失望。</p>
+    <div class="playbook-step">
+      <div class="step-number">3</div>
+      <div class="step-content">
+        <h4>主動說「不能做什麼」</h4>
+        <p>邊界分數 34 的人尊重有邊界的人。主動告知 MUSEON 的能力邊界：不能取代導遊、不能處理突發危機、不能做即時翻譯。<strong>說出限制 = 建立信任</strong>。</p>
+        <div class="script">
+          <strong>話術：</strong>「這三件事 MUSEON 做不到——<em>[列出三個]</em>。但這五件事，它可以做到比人更快更準——<em>[列出五個]</em>。你覺得對你們最有價值的是哪個？」
+        </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- SECTION 8: 行動清單 -->
-<section class="section section-alt">
-  <div class="container">
-    <span class="section-label">Section 08</span>
-    <h2>Do / Don't / Watch</h2>
+    <div class="playbook-step">
+      <div class="step-number">4</div>
+      <div class="step-content">
+        <h4>用他的問題打動他（好奇心驅動策略）</h4>
+        <p>好奇心 100 的人不是被答案打動，是被好問題打動。在對話中拋出他沒想過的維度。</p>
+        <div class="script">
+          <strong>提問範例：</strong><br>
+          「你有沒有想過，如果 MUSEON 能分析過去三年所有線路的客訴數據，哪些餐廳其實一直在被投訴但導遊不知道？」<br>
+          「旅行社最大的成本不是人力——是『經驗只存在某個資深員工腦裡』的知識斷層。你們有這個問題嗎？」
+        </div>
+      </div>
+    </div>
 
-    <table class="neg-table">
-      <thead>
-        <tr>
-          <th>行動</th>
-          <th>分類</th>
-          <th>原因</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>主動幫他做旅行社老闆提案</td>
-          <td><span class="tag tag-do">DO</span></td>
-          <td>他需要武器，不是需要說服。你幫他準備彈藥，他就幫你打仗。</td>
-        </tr>
-        <tr>
-          <td>設計 30 天試點方案</td>
-          <td><span class="tag tag-do">DO</span></td>
-          <td>降低老闆決策門檻。「先試一條線路」比「簽 12 個月」容易推。</td>
-        </tr>
-        <tr>
-          <td>談通路分潤</td>
-          <td><span class="tag tag-do">DO</span></td>
-          <td>把他從客戶升級為合作夥伴，推廣動力完全不同。</td>
-        </tr>
-        <tr>
-          <td>主動說「不做什麼」</td>
-          <td><span class="tag tag-do">DO</span></td>
-          <td>邊界 34 分的人尊重有邊界的人。主動設限反而增加信任。</td>
-        </tr>
-        <tr>
-          <td>在月費上讓步</td>
-          <td><span class="tag tag-dont">DON'T</span></td>
-          <td>6,000 已經是策略價。再低會設下不好的市場先例。</td>
-        </tr>
-        <tr>
-          <td>跳過符大哥直接接觸老闆</td>
-          <td><span class="tag tag-dont">DON'T</span></td>
-          <td>會讓他覺得被繞過，破壞信任。永遠透過他，讓他做橋樑。</td>
-        </tr>
-        <tr>
-          <td>承諾「什麼都能做」</td>
-          <td><span class="tag tag-dont">DON'T</span></td>
-          <td>好奇心型的人會真的去測試每一個承諾。做不到的會立刻失去信任。</td>
-        </tr>
-        <tr>
-          <td>老闆的決策風格</td>
-          <td><span class="tag tag-watch">WATCH</span></td>
-          <td>透過符大哥間接偵察：老闆是數字型還是故事型？保守還是進取？</td>
-        </tr>
-        <tr>
-          <td>符大哥的推廣節奏</td>
-          <td><span class="tag tag-watch">WATCH</span></td>
-          <td>如果他突然沉默超過一週，可能是老闆否決了但不好意思說。主動關心。</td>
-        </tr>
-        <tr>
-          <td>同業擴散速度</td>
-          <td><span class="tag tag-watch">WATCH</span></td>
-          <td>如果旅行社導入成功，同業口碑傳播的速度和方向。</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
+    <div class="playbook-step">
+      <div class="step-number">5</div>
+      <div class="step-content">
+        <h4>談通路分潤，把客戶升級為合作夥伴</h4>
+        <p>如果他成功把 MUSEON 導入旅行社，後續同業擴散的業績應該有他的份。這不是讓步——是把他從「客戶」升格為「通路合夥人」。</p>
+        <div class="script">
+          <strong>框架：</strong>月薪制維持不變，但他推薦成功的每一家旅行社，第一年抽 15-20%。<strong>注意：這個提案要在正式簽約後才拿出來，不是現在。</strong>現在提 = 顯得你急。
+        </div>
+      </div>
+    </div>
 
-<!-- SECTION 9: 關鍵時間軸 -->
-<section class="section">
-  <div class="container">
-    <span class="section-label">Section 09</span>
-    <h2>建議推進時間軸</h2>
+    <div class="playbook-step">
+      <div class="step-number">6</div>
+      <div class="step-content">
+        <h4>不跳過他接觸老闆</h4>
+        <p>他花了 32 次深度交流建立對 MUSEON 的理解。你繞過他直接找老闆 = 否定他的判斷力 = 破壞信任。<strong>永遠讓他當中間人</strong>，就算效率看起來比較低。</p>
+        <div class="script">
+          <strong>話術：</strong>「老闆那邊你最懂他的風格，我準備好材料你來決定什麼時候、怎麼切入最好。我在後面支援。」
+        </div>
+      </div>
+    </div>
+
+    <div class="playbook-step">
+      <div class="step-number">7</div>
+      <div class="step-content">
+        <h4>設定沉默期預案</h4>
+        <p>根據他的行為模式，Pitch 後可能有 5-10 天沉默。這是正常的內部消化期。<strong>不要追</strong>——但在第 7 天可以傳一條輕量訊息。</p>
+        <div class="script">
+          <strong>第 7 天話術：</strong>「我這邊有個新的案例研究，跟你們產業很像。需要的話我傳給你看看，不急。」<br>
+          <strong>注意</strong>：不問「老闆怎麼說了」、不催「有進展嗎」。給材料，不給壓力。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 07: DO/DON'T/WATCH -->
+  <section>
+    <span class="section-label">SECTION 07</span>
+    <h2 class="section-title">戰術守則 — DO / DON'T / WATCH</h2>
+
+    <div class="tactic-grid">
+      <div class="tactic-card do">
+        <h4>DO — 要做</h4>
+        <ul>
+          <li>主動幫他做旅行社老闆提案</li>
+          <li>設計 30 天試點方案</li>
+          <li>主動說「MUSEON 不做什麼」</li>
+          <li>拋出他沒想過的問題</li>
+          <li>尊重他的沉默期</li>
+          <li>用技術架構圖溝通</li>
+          <li>準備分潤方案（正式簽約後提）</li>
+        </ul>
+      </div>
+      <div class="tactic-card dont">
+        <h4>DON'T — 不要做</h4>
+        <ul>
+          <li>月費再讓步（6,000 是底線）</li>
+          <li>跳過他直接接觸老闆</li>
+          <li>承諾「什麼都能做」</li>
+          <li>在沉默期追蹤催促</li>
+          <li>用情感話術（他情緒分 16）</li>
+          <li>用 PowerPoint 銷售（他是開發者思維）</li>
+          <li>急著 close deal</li>
+        </ul>
+      </div>
+      <div class="tactic-card watch">
+        <h4>WATCH — 要觀察</h4>
+        <ul>
+          <li>老闆的決策風格（透過他間接偵察）</li>
+          <li>他的推廣節奏（超過 10 天沉默 = 可能被否決）</li>
+          <li>同業擴散訊號（他有沒有提到其他旅行社）</li>
+          <li>他是否開始問「合約條款」（= 準備進入簽約階段）</li>
+          <li>老闆是否直接出現在群組（= 高興趣訊號）</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 08: PERSPECTIVES -->
+  <section>
+    <span class="section-label">SECTION 08</span>
+    <h2 class="section-title">三方視角 — 不同利益方怎麼看這場談判</h2>
+
+    <div class="perspective-grid">
+      <div class="perspective-card">
+        <div class="pc-role">符大哥視角</div>
+        <h4>「我需要確定推薦了不會被打臉」</h4>
+        <p>他的利益：在老闆面前展示判斷力和創新能力。他的風險：如果 MUSEON 掉鏈子，他的專業形象受損。他需要的：充足的 Pitch 材料、低風險試點方案、後續技術支援的承諾。</p>
+      </div>
+      <div class="perspective-card">
+        <div class="pc-role">老闆視角</div>
+        <h4>「這東西真的能幫我省錢嗎？」</h4>
+        <p>老闆可能不懂 AI，但懂成本。他需要的：一頁式 ROI（每月省多少人力小時、金額）、同業有誰在用（社會證明）、退出成本多低（降低風險感知）。</p>
+      </div>
+      <div class="perspective-card">
+        <div class="pc-role">MUSEON 視角</div>
+        <h4>「這是旅行社垂直市場的門票」</h4>
+        <p>第一家旅行社客戶的成敗決定：(1) 是否有可複製的垂直解決方案，(2) 是否有真實案例可以對外展示，(3) 是否建立口碑傳播的起點。這不是一筆月費——是一條市場線的入口。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 09: TIMELINE -->
+  <section>
+    <span class="section-label">SECTION 09</span>
+    <h2 class="section-title">推進時間軸 — 未來 30 天</h2>
 
     <div class="timeline">
       <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <div class="timeline-date">本週（3/19-3/21）</div>
-          <h4 style="font-size: 1rem; font-weight: 600; margin-bottom: 8px;">完成旅行社老闆提案</h4>
-          <p style="font-size: 14px; color: var(--slate);">一頁式提案（非銷售頁）：ROI 試算 + 30 天試點方案 + 風險控制。格式：PDF 或 HTML，老闆能在手機上 3 分鐘讀完。</p>
-        </div>
+        <div class="tl-date">本週 3/19 — 3/21</div>
+        <h4>完成武裝材料</h4>
+        <p>旅行社老闆提案（一頁式 ROI + 30 天試點方案 + 三個成功場景）。讓符大哥審閱並調整。</p>
       </div>
       <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <div class="timeline-date">下週（3/24-3/28）</div>
-          <h4 style="font-size: 1rem; font-weight: 600; margin-bottom: 8px;">與符大哥做 Pitch 預演</h4>
-          <p style="font-size: 14px; color: var(--slate);">花一小時角色扮演：你扮老闆提出各種質疑，符大哥用提案回應。找出漏洞、補強話術。這是「武裝」的關鍵步驟。</p>
-        </div>
+        <div class="tl-date">下週 3/24 — 3/28</div>
+        <h4>Pitch 預演</h4>
+        <p>跟符大哥角色扮演：他當 Pitch 者、你當老闆，測試話術和可能的質疑。準備 FAQ 應對表。</p>
       </div>
       <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <div class="timeline-date">4 月第一週</div>
-          <h4 style="font-size: 1rem; font-weight: 600; margin-bottom: 8px;">符大哥向老闆 Pitch</h4>
-          <p style="font-size: 14px; color: var(--slate);">他帶提案進場。你在後台待命——如果老闆有問題，符大哥可以即時轉問你。準備好「常見問題回覆包」。</p>
-        </div>
+        <div class="tl-date">4 月第一週</div>
+        <h4>符大哥向老闆 Pitch</h4>
+        <p>你在後台待命。如果老闆有問題，透過符大哥即時回覆。不直接出面。</p>
       </div>
       <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <div class="timeline-date">4 月第二週</div>
-          <h4 style="font-size: 1rem; font-weight: 600; margin-bottom: 8px;">30 天試點啟動</h4>
-          <p style="font-size: 14px; color: var(--slate);">選定一條線路，MUSEON 全流程跑一遍。每週出一份效率數據報告給老闆。讓數字建立信任。</p>
-        </div>
+        <div class="tl-date">4 月第二週</div>
+        <h4>30 天試點啟動</h4>
+        <p>選定一條即將出團的線路。MUSEON 負責行程分析 + 選餐比較 + 客服 FAQ。每週出一份進度報告。</p>
       </div>
       <div class="timeline-item">
-        <div class="timeline-dot" style="background: var(--teal);"></div>
-        <div class="timeline-content">
-          <div class="timeline-date">5 月中</div>
-          <h4 style="font-size: 1rem; font-weight: 600; margin-bottom: 8px;">試點結果 → 正式簽約</h4>
-          <p style="font-size: 14px; color: var(--slate);">用試點數據做「續約提案」。如果數據好看，簽約幾乎自動發生。同時談通路分潤條款。</p>
-        </div>
+        <div class="tl-date">5 月中</div>
+        <h4>試點結果 → 正式簽約</h4>
+        <p>用數據說話：節省多少小時、處理多少查詢、客戶滿意度。談月薪制 + 通路分潤條款。</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="brand">MUSEON</div>
-  <p>Client Strategy Brief — Confidential Internal Document</p>
-  <p style="margin-top: 8px;">Generated 2026-03-19 · Master Strategy × Shadow × SSA × Business-12</p>
-</footer>
+  <!-- TAKEAWAY -->
+  <section style="border-top:none;padding-top:0">
+    <div class="takeaway">
+      <h3>最後一句話</h3>
+      <p>這場談判的本質不是「賣東西」。你手上有一個已經驗證了 32 輪的盟友，他的好奇心比你的銷售話術更有力量。</p>
+      <p style="margin-top:16px"><strong>你唯一要做的三件事：</strong></p>
+      <p><span class="key-number">1</span>給他彈藥（提案材料），不給他壓力。</p>
+      <p><span class="key-number">2</span>讓他當主角（Pitch），你當後台。</p>
+      <p><span class="key-number">3</span>用問題打動他（好奇心驅動），不用功能清單。</p>
+      <p style="margin-top:24px;color:rgba(255,255,255,0.5);font-size:14px;font-family:'IBM Plex Mono',monospace">
+        ANALYSIS ENGINES: Shadow + Master Strategy + SSA Consultant + Business-12 + DSE
+      </p>
+    </div>
+  </section>
+</div>
+
+<div class="footer">
+  <p class="brand">MUSEON</p>
+  <p>Client Strategy Brief &middot; Generated 2026-03-19 &middot; Confidential</p>
+  <p style="font-size:11px;color:var(--mist);margin-top:8px">本報告為 MUSEON 內部策略文件，僅供決策參考。</p>
+</div>
 
 </body>
 </html>
