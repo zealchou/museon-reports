@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MUSEON × Claude 75 用例能力圖譜</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ember:#C4502A;--ember-light:#E0714D;--ember-dark:#9A3A1C;
+  --teal:#2A7A6E;--gold:#B8923A;
+  --ink:#12121A;--slate:#5A5A6E;--mist:#9898A8;
+  --border:#E2E0DA;--parchment:#F7F5F0;--snow:#FDFCFA;
+  --success:#2D8A6E;--warning:#C9943A;--error:#C4402A;--info:#2A6A8A;
+  --purple-better:#8B5CF6;
+}
+html{font-size:16px;scroll-behavior:smooth}
+body{
+  font-family:'Outfit','Noto Sans TC',sans-serif;
+  background:var(--parchment);color:var(--ink);
+  line-height:1.75;
+}
+
+/* ── Hero ── */
+.hero{
+  background:linear-gradient(135deg,var(--ink) 0%,#1a1a2e 50%,var(--ember-dark) 100%);
+  color:var(--snow);padding:clamp(3rem,8vw,6rem) 1.5rem 3rem;
+  text-align:center;position:relative;overflow:hidden;
+}
+.hero::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:120px;
+  background:linear-gradient(to top,var(--parchment),transparent);
+}
+.hero h1{
+  font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.5rem);
+  font-weight:600;line-height:1.15;margin-bottom:.75rem;position:relative;z-index:1;
+}
+.hero .subtitle{
+  font-size:clamp(1rem,2.5vw,1.25rem);font-weight:300;opacity:.85;
+  max-width:680px;margin:0 auto;position:relative;z-index:1;
+}
+
+/* ── Layout ── */
+.container{max-width:1100px;margin:0 auto;padding:0 1.25rem}
+
+/* ── Stats Row ── */
+.stats-row{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;
+  margin:-2rem auto 2.5rem;position:relative;z-index:2;max-width:900px;padding:0 1.25rem;
+}
+@media(max-width:640px){.stats-row{grid-template-columns:repeat(2,1fr)}}
+.stat-card{
+  background:var(--snow);border:1px solid var(--border);border-radius:12px;
+  padding:1.25rem;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.06);
+}
+.stat-card .num{font-size:2.25rem;font-weight:700;line-height:1}
+.stat-card .label{font-size:.8rem;color:var(--slate);margin-top:.25rem}
+.stat-card.purple .num{color:var(--purple-better)}
+.stat-card.green .num{color:var(--teal)}
+.stat-card.yellow .num{color:var(--warning)}
+.stat-card.red .num{color:var(--error)}
+
+/* ── Section ── */
+section{margin-bottom:3rem}
+section h2{
+  font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,3.5vw,2rem);
+  font-weight:600;margin-bottom:1rem;padding-bottom:.5rem;
+  border-bottom:2px solid var(--border);
+}
+
+/* ── Filter Bar ── */
+.filter-bar{
+  display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem;
+  position:sticky;top:0;z-index:10;background:var(--parchment);
+  padding:1rem 0;border-bottom:1px solid var(--border);
+}
+.filter-btn{
+  border:1px solid var(--border);border-radius:8px;padding:.4rem 1rem;
+  background:var(--snow);cursor:pointer;font-size:.85rem;
+  font-family:'Outfit','Noto Sans TC',sans-serif;transition:all .2s;
+}
+.filter-btn:hover{border-color:var(--ember)}
+.filter-btn.active{background:var(--ink);color:var(--snow);border-color:var(--ink)}
+.search-input{
+  flex:1;min-width:200px;border:1px solid var(--border);border-radius:8px;
+  padding:.4rem 1rem;font-size:.85rem;background:var(--snow);
+  font-family:'Outfit','Noto Sans TC',sans-serif;
+}
+.search-input:focus{outline:none;border-color:var(--ember)}
+
+/* ── Cards Grid ── */
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1rem}
+@media(max-width:480px){.cards-grid{grid-template-columns:1fr}}
+
+.case-card{
+  background:var(--snow);border:1px solid var(--border);border-radius:12px;
+  padding:1.25rem;transition:transform .15s,box-shadow .15s;
+  display:flex;flex-direction:column;gap:.5rem;
+}
+.case-card:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.08)}
+
+.case-card .card-top{display:flex;align-items:center;gap:.6rem}
+.case-card .card-num{
+  font-family:'IBM Plex Mono',monospace;font-size:.75rem;font-weight:500;
+  background:var(--parchment);border-radius:6px;padding:.15rem .5rem;
+  color:var(--slate);white-space:nowrap;
+}
+.case-card .card-title{font-weight:600;font-size:.95rem;line-height:1.4}
+
+.case-card .card-desc{font-size:.85rem;color:var(--slate);line-height:1.6}
+
+.case-card .card-meta{
+  display:flex;flex-wrap:wrap;gap:.35rem;margin-top:auto;padding-top:.5rem;
+}
+.tag{
+  font-size:.7rem;padding:.15rem .5rem;border-radius:20px;
+  font-weight:500;white-space:nowrap;
+}
+.tag.cat{background:#eef2ff;color:#4338ca}
+.tag.func{background:#f0fdf4;color:#166534}
+.tag.advantage{background:#faf5ff;color:#7c3aed;font-style:italic}
+
+/* ── Level Badge ── */
+.level-badge{
+  display:inline-flex;align-items:center;gap:.3rem;
+  font-size:.7rem;font-weight:600;padding:.2rem .6rem;border-radius:20px;
+  white-space:nowrap;
+}
+.level-badge.better{background:#f3e8ff;color:#7c3aed}
+.level-badge.can{background:#ecfdf5;color:#065f46}
+.level-badge.partial{background:#fefce8;color:#854d0e}
+.level-badge.cannot{background:#fef2f2;color:#991b1b}
+
+/* ── Insight Box ── */
+.insight-box{
+  background:linear-gradient(135deg,#faf5ff 0%,var(--snow) 100%);
+  border:1px solid #e9d5ff;border-radius:12px;padding:1.5rem;margin:2rem 0;
+}
+.insight-box h3{font-size:1.1rem;font-weight:600;margin-bottom:.75rem;color:var(--purple-better)}
+.insight-box p{font-size:.9rem;color:var(--slate);line-height:1.7;margin-bottom:.5rem}
+.insight-box code{
+  font-family:'IBM Plex Mono',monospace;font-size:.8rem;
+  background:rgba(139,92,246,.08);padding:.15rem .4rem;border-radius:4px;
+}
+
+/* ── Summary Table ── */
+.summary-table{
+  width:100%;border-collapse:collapse;margin:1rem 0;font-size:.85rem;
+}
+.summary-table th{
+  background:var(--ink);color:var(--snow);padding:.6rem 1rem;
+  text-align:left;font-weight:500;
+}
+.summary-table th:first-child{border-radius:8px 0 0 0}
+.summary-table th:last-child{border-radius:0 8px 0 0}
+.summary-table td{padding:.6rem 1rem;border-bottom:1px solid var(--border)}
+.summary-table tr:nth-child(even) td{background:var(--parchment)}
+.summary-table tr:last-child td:first-child{border-radius:0 0 0 8px}
+.summary-table tr:last-child td:last-child{border-radius:0 0 8px 0}
+
+/* ── Donut Chart ── */
+.donut-wrap{display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap;margin:2rem 0}
+.donut-chart{width:200px;height:200px;position:relative}
+.donut-chart svg{width:100%;height:100%;transform:rotate(-90deg)}
+.donut-chart .center-text{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  text-align:center;
+}
+.donut-chart .center-text .big{font-size:2rem;font-weight:700;color:var(--ink)}
+.donut-chart .center-text .small{font-size:.75rem;color:var(--slate)}
+.donut-legend{display:flex;flex-direction:column;gap:.6rem}
+.donut-legend .leg-item{display:flex;align-items:center;gap:.5rem;font-size:.85rem}
+.donut-legend .leg-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
+
+/* ── Bottleneck ── */
+.bottleneck-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:1.5rem 0}
+.bottleneck-card{
+  background:var(--snow);border:1px solid var(--border);border-radius:12px;
+  padding:1.25rem;
+}
+.bottleneck-card h4{font-size:.95rem;font-weight:600;margin-bottom:.5rem}
+.bottleneck-card .count{font-size:1.5rem;font-weight:700;color:var(--error)}
+.bottleneck-card p{font-size:.85rem;color:var(--slate);line-height:1.6}
+
+/* ── Footer ── */
+footer{
+  text-align:center;padding:2rem 1.25rem;
+  font-size:.75rem;color:var(--mist);border-top:1px solid var(--border);
+  margin-top:3rem;
+}
+footer a{color:var(--ember);text-decoration:none}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<header class="hero">
+  <h1>MUSEON × Claude 75 用例<br>能力圖譜</h1>
+  <p class="subtitle">Anthropic 官方 75 個真實使用情境 vs. MUSEON 28 個專業 Skill 模組——逐一比對，四級歸類</p>
+</header>
+
+<!-- Stats -->
+<div class="stats-row">
+  <div class="stat-card purple"><div class="num">30</div><div class="label">🟣 能做得更好</div></div>
+  <div class="stat-card green"><div class="num">14</div><div class="label">🟢 可以做到</div></div>
+  <div class="stat-card yellow"><div class="num">22</div><div class="label">🟡 部分做到</div></div>
+  <div class="stat-card red"><div class="num">9</div><div class="label">🔴 完全做不到</div></div>
+</div>
+
+<div class="container">
+
+<!-- Donut Chart -->
+<section>
+  <h2>總覽：能力覆蓋率 88%</h2>
+  <div class="donut-wrap">
+    <div class="donut-chart">
+      <svg viewBox="0 0 36 36">
+        <!-- better 30/75 = 40% → 144deg → stroke-dasharray: 40 60 -->
+        <circle cx="18" cy="18" r="15.9" fill="none" stroke="#8B5CF6" stroke-width="3.5" stroke-dasharray="40 60" stroke-dashoffset="0"/>
+        <!-- can 14/75 = 18.67% -->
+        <circle cx="18" cy="18" r="15.9" fill="none" stroke="#2D8A6E" stroke-width="3.5" stroke-dasharray="18.67 81.33" stroke-dashoffset="-40"/>
+        <!-- partial 22/75 = 29.33% -->
+        <circle cx="18" cy="18" r="15.9" fill="none" stroke="#C9943A" stroke-width="3.5" stroke-dasharray="29.33 70.67" stroke-dashoffset="-58.67"/>
+        <!-- cannot 9/75 = 12% -->
+        <circle cx="18" cy="18" r="15.9" fill="none" stroke="#C4402A" stroke-width="3.5" stroke-dasharray="12 88" stroke-dashoffset="-88"/>
+      </svg>
+      <div class="center-text">
+        <div class="big">88%</div>
+        <div class="small">能力覆蓋</div>
+      </div>
+    </div>
+    <div class="donut-legend">
+      <div class="leg-item"><div class="leg-dot" style="background:#8B5CF6"></div><strong>30 個</strong>能做得更好——MUSEON 專業 Skill 品質超越原生 Claude</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#2D8A6E"></div><strong>14 個</strong>可以做到——與原生 Claude 大致同等</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#C9943A"></div><strong>22 個</strong>部分做到——核心分析有，缺特定工具整合</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#C4402A"></div><strong>9 個</strong>完全做不到——需瀏覽器/桌面控制權</div>
+    </div>
+  </div>
+</section>
+
+<!-- Insight -->
+<div class="insight-box">
+  <h3>核心洞見</h3>
+  <p><strong>MUSEON 的甜蜜點</strong>：商業分析與策略（11 個）、銷售與顧問（3 個）、內容生產與品牌（8 個）——這 22 個場景有 <code>28 個專業 Skill</code> 加持，品質遠超原生 Claude。</p>
+  <p><strong>MUSEON 的瓶頸</strong>：做不到的 9 個全卡在「控制使用者電腦」——不是 AI 能力問題，是架構選擇。部分做到的 22 個中，10+ 個受限於第三方 MCP 整合（Slack、CRM、GA）。</p>
+  <p><strong>一句話</strong>：75 個案例中 66 個能做到，30 個做得比 Claude 更好。缺的不是智慧，是手腳。</p>
+</div>
+
+<!-- Filter + Cards -->
+<section>
+  <h2>75 個用例逐一比對</h2>
+
+  <div class="filter-bar">
+    <input type="text" class="search-input" placeholder="搜尋案例名稱、關鍵字..." id="searchInput">
+    <button class="filter-btn active" data-level="all">全部 (75)</button>
+    <button class="filter-btn" data-level="better">🟣 更好 (30)</button>
+    <button class="filter-btn" data-level="can">🟢 可做 (14)</button>
+    <button class="filter-btn" data-level="partial">🟡 部分 (22)</button>
+    <button class="filter-btn" data-level="cannot">🔴 不能 (9)</button>
+  </div>
+
+  <div class="cards-grid" id="cardsGrid">
+    <!-- Cards injected by JS -->
+  </div>
+</section>
+
+<!-- Bottleneck -->
+<section>
+  <h2>瓶頸分析：為什麼做不到？</h2>
+  <div class="bottleneck-grid">
+    <div class="bottleneck-card">
+      <div class="count">9 個</div>
+      <h4>瀏覽器 / 桌面控制</h4>
+      <p>需要 Chrome 擴充功能或 Computer Use 存取使用者桌面檔案系統。MUSEON 透過 Telegram Bot 運作，無法觸及使用者的瀏覽器和桌面。</p>
+    </div>
+    <div class="bottleneck-card">
+      <div class="count">10+個</div>
+      <h4>第三方 MCP 整合</h4>
+      <p>需要串接 Slack、CRM（Salesforce/HubSpot）、Google Analytics 等第三方工具。目前 MUSEON 的 MCP 生態系統正在擴展中。</p>
+    </div>
+    <div class="bottleneck-card">
+      <div class="count">5 個</div>
+      <h4>Python Sandbox</h4>
+      <p>需要即時執行 Python 程式碼進行統計運算或資料視覺化。MUSEON 可生成程式碼，但缺少沙盒即時執行環境。</p>
+    </div>
+  </div>
+</section>
+
+<!-- Sweet Spot Table -->
+<section>
+  <h2>MUSEON 甜蜜點：30 個超越原生 Claude 的場景</h2>
+  <div style="overflow-x:auto">
+  <table class="summary-table">
+    <thead>
+      <tr><th>#</th><th>用例</th><th>MUSEON 優勢來源</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>查看募款目標的實際需求</td><td>business-12 商模診斷 + market-core 財務建模</td></tr>
+      <tr><td>3</td><td>捐贈者保留價值</td><td>business-12 LTV/CAC 分析框架</td></tr>
+      <tr><td>4</td><td>檢視變革理論</td><td>xmodel 破框引擎 + pdeif 逆熵流設計</td></tr>
+      <tr><td>5</td><td>工作流程改進</td><td>wee 工作流演化 + plan-engine 計畫引擎</td></tr>
+      <tr><td>7</td><td>分析募款績效</td><td>business-12 + eval-engine 效能儀表板</td></tr>
+      <tr><td>8</td><td>撰寫影響力報告</td><td>consultant-communication SCQA 敘事 + HTML 品牌報告</td></tr>
+      <tr><td>12</td><td>整理文獻回顧</td><td>knowledge-lattice 結構化知識累積</td></tr>
+      <tr><td>16</td><td>研究轉化成簡報</td><td>consultant-communication 金字塔原則 + 品牌 HTML</td></tr>
+      <tr><td>18</td><td>建立客製網頁</td><td>HTML 報告引擎 + brand-identity + aesthetic-sense</td></tr>
+      <tr><td>19</td><td>用 Skills 提升設計</td><td>acsf 能力結晶引擎</td></tr>
+      <tr><td>22</td><td>繪製理解地圖</td><td>knowledge-lattice + meta-learning 元學習引擎</td></tr>
+      <tr><td>23</td><td>多情境壓力測試財務計畫</td><td>risk-matrix 風險管理 + market-core 情境推演</td></tr>
+      <tr><td>27</td><td>訊息串轉研究筆記</td><td>knowledge-lattice「對話→結晶」機制</td></tr>
+      <tr><td>28</td><td>製作品牌資產</td><td>brand-identity + aesthetic-sense + 設計規範引擎</td></tr>
+      <tr><td>29</td><td>品牌指南包裝成 Skill</td><td>acsf「把能力/規範鍛造成 Skill」的引擎</td></tr>
+      <tr><td>35</td><td>開發方案工具包</td><td>plan-engine + pdeif 目的導向拆解</td></tr>
+      <tr><td>36</td><td>方案資料視覺化</td><td>HTML 報告 + aesthetic-sense 美感審計</td></tr>
+      <tr><td>37</td><td>生成 AI 政策</td><td>dse AI 技術融合引擎——核心領域</td></tr>
+      <tr><td>41</td><td>比較和分析競爭選項</td><td>roundtable 圓桌詰問 + market-core 多維度比較</td></tr>
+      <tr><td>45</td><td>合約審閱與談判</td><td>master-strategy 戰略引擎 + shadow 博弈辨識</td></tr>
+      <tr><td>51</td><td>全面評估一家公司</td><td>market-core + market-equity + investment-masters</td></tr>
+      <tr><td>52</td><td>建立財務模型</td><td>market-core + risk-matrix 資產配置框架</td></tr>
+      <tr><td>53</td><td>草擬投資備忘錄</td><td>investment-masters + consultant-communication</td></tr>
+      <tr><td>56</td><td>市場規模估算</td><td>market-core + gap 缺口分析 + env-radar + SearXNG</td></tr>
+      <tr><td>59</td><td>規劃文獻回顧</td><td>knowledge-lattice + info-architect 資訊架構</td></tr>
+      <tr><td>60</td><td>建立銷售提案簡報</td><td>ssa-consultant 顧問式銷售 + consultant-communication</td></tr>
+      <tr><td>61</td><td>準備銷售商機</td><td>ssa-consultant 12 步驟 + master-strategy 戰略推演</td></tr>
+      <tr><td>63</td><td>銷售戰情卡庫</td><td>ssa-consultant + shadow 博弈 + c15 敘事張力</td></tr>
+      <tr><td>72</td><td>跨平台調整內容格式</td><td>text-alchemy 風格路由 + c15 語言憲法</td></tr>
+      <tr><td>75</td><td>探索 Claude 能為你做什麼</td><td>核心系統 + 28 個 Skill &gt; 原生 Claude 通用探索</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+</div><!-- /container -->
+
+<footer>
+  <p>MUSEON × Claude 75 Use Cases Capability Map &copy; 2026 MUSEON</p>
+  <p>資料來源：<a href="https://www.anthropic.com/research/claude-use-cases" target="_blank" rel="noopener">Anthropic 官方 75 用例</a> ｜ 分析日期：2026-03-20</p>
+  <p style="margin-top:.5rem">75 用例中 #1-#67 為 Anthropic 官方翻譯，#68-#75 基於官方分類架構延伸整理</p>
+</footer>
+
+<script>
+const cases = [
+  // 🟣 Better (30)
+  {n:1,t:"查看募款目標的實際需求",d:"分析募款目標背後需要的具體資源投入和執行策略",cat:"非營利組織",func:["Analysis tool","Artifacts"],level:"better",adv:"business-12 + market-core"},
+  {n:3,t:"捐贈者保留價值",d:"計算和分析捐贈者生命週期價值，用數字說明保留既有捐贈者的重要性",cat:"非營利組織",func:["Analysis tool","Artifacts"],level:"better",adv:"business-12 LTV/CAC"},
+  {n:4,t:"檢視並完善變革理論",d:"將組織的變革邏輯圖視覺化，檢查推論過程中的假設和薄弱環節",cat:"非營利組織",func:["Artifacts","Projects"],level:"better",adv:"xmodel + pdeif"},
+  {n:5,t:"工作流程改進規劃",d:"識別效率瓶頸和冗餘流程，規劃實際可行的改進方案",cat:"非營利組織",func:["Projects","Analysis tool"],level:"better",adv:"wee + plan-engine"},
+  {n:7,t:"分析募款績效",d:"評估募款活動的成效，找出有效的募款策略和改進空間",cat:"非營利組織",func:["Analysis tool","Projects"],level:"better",adv:"business-12 + eval-engine"},
+  {n:8,t:"撰寫影響力報告",d:"將組織的工作成果整理成有說服力的影響力報告",cat:"非營利組織",func:["Artifacts","Analysis tool"],level:"better",adv:"consultant-communication SCQA"},
+  {n:12,t:"整理文獻回顧",d:"將蒐集的學術文獻分類、標記和視覺化，清晰呈現核心辯論",cat:"教育",func:["Projects","Artifacts"],level:"better",adv:"knowledge-lattice"},
+  {n:16,t:"將研究轉化成簡報",d:"把研究成果組織成邏輯清晰的簡報內容",cat:"教育",func:["Artifacts","Analysis tool"],level:"better",adv:"consultant-communication 金字塔"},
+  {n:18,t:"建立客製網頁",d:"快速建構個人網頁、作品集或專案展示網站",cat:"個人使用",func:["Artifacts","Computer use"],level:"better",adv:"HTML 引擎 + brand-identity"},
+  {n:19,t:"用 Skills 提升設計能力",d:"將設計規範和美學偏好打包成 Skill，確保輸出一致性",cat:"個人使用",func:["Skills","Artifacts"],level:"better",adv:"acsf 能力結晶引擎"},
+  {n:22,t:"繪製理解地圖找學習缺口",d:"視覺化個人知識結構，找出學習缺漏處",cat:"個人使用",func:["Artifacts","Projects"],level:"better",adv:"knowledge-lattice + meta-learning"},
+  {n:23,t:"多情境壓力測試財務計畫",d:"模擬不同經濟情境，評估財務承受能力",cat:"個人使用",func:["Artifacts","Analysis tool"],level:"better",adv:"risk-matrix + market-core"},
+  {n:27,t:"訊息串轉研究筆記",d:"整理非正式溝通為結構化的研究筆記",cat:"個人使用",func:["Projects","MCP"],level:"better",adv:"knowledge-lattice「對話→結晶」"},
+  {n:28,t:"製作品牌資產",d:"根據品牌視覺識別系統快速生成多場景品牌資產",cat:"專業工作",func:["Artifacts","Skills"],level:"better",adv:"brand-identity + aesthetic-sense"},
+  {n:29,t:"將品牌指南包裝成 Skill",d:"將品牌準則轉化為 Claude Skill，確保輸出符合品牌標準",cat:"專業工作",func:["Skills","Projects"],level:"better",adv:"acsf 鍛造引擎"},
+  {n:35,t:"開發方案工具包",d:"製作包含政策、執行步驟、模板和資源的完整方案工具包",cat:"專業工作",func:["Artifacts","Projects"],level:"better",adv:"plan-engine + pdeif"},
+  {n:36,t:"方案資料視覺化",d:"用圖表、儀表板或互動視覺化呈現方案運營資料",cat:"專業工作",func:["Artifacts","Analysis tool"],level:"better",adv:"HTML 報告 + aesthetic-sense"},
+  {n:37,t:"生成 AI 政策",d:"根據組織需求和風險考量快速草擬 AI 使用政策和指南",cat:"專業工作",func:["Artifacts","Projects"],level:"better",adv:"dse AI 技術融合引擎"},
+  {n:41,t:"比較和分析競爭選項",d:"系統性比較多個選項，找出最佳選擇和權衡",cat:"專業工作",func:["Artifacts","Analysis tool"],level:"better",adv:"roundtable + market-core"},
+  {n:45,t:"合約審閱與談判",d:"快速識別合約風險條款，提供修改建議和談判策略",cat:"法律",func:["Projects","Analysis tool"],level:"better",adv:"master-strategy + shadow"},
+  {n:51,t:"全面評估一家公司",d:"結合科技創新、市場競爭力和財務表現進行整體評估",cat:"財務金融",func:["Analysis tool","Projects"],level:"better",adv:"market-core + investment-masters"},
+  {n:52,t:"建立財務模型",d:"建置財務預測模型，支持投資或規劃決策",cat:"財務金融",func:["Artifacts","Analysis tool"],level:"better",adv:"market-core + risk-matrix"},
+  {n:53,t:"草擬投資備忘錄",d:"撰寫結構化的投資分析和建議備忘錄",cat:"財務金融",func:["Artifacts","Analysis tool"],level:"better",adv:"investment-masters + consultant-communication"},
+  {n:56,t:"市場規模估算",d:"蒐集並分析資料，估算目標市場規模和成長潛力",cat:"研究",func:["Analysis tool","Artifacts"],level:"better",adv:"market-core + gap + SearXNG"},
+  {n:59,t:"規劃文獻回顧",d:"規劃文獻回顧的範圍、搜尋策略和評估方法",cat:"研究",func:["Projects","Artifacts"],level:"better",adv:"knowledge-lattice + info-architect"},
+  {n:60,t:"建立銷售提案簡報",d:"快速生成客製化的銷售提案簡報",cat:"業務銷售",func:["Artifacts","MCP"],level:"better",adv:"ssa-consultant + consultant-communication"},
+  {n:61,t:"準備銷售商機",d:"為重要商機準備背景資料和異議處理方案",cat:"業務銷售",func:["Projects","MCP"],level:"better",adv:"ssa-consultant 12 步驟"},
+  {n:63,t:"銷售戰情卡庫",d:"製作異議處理和競爭對手戰情卡庫",cat:"業務銷售",func:["Artifacts","Skills"],level:"better",adv:"ssa-consultant + shadow + c15"},
+  {n:72,t:"跨平台調整內容格式",d:"將內容調整為適合不同平台的格式和風格",cat:"行銷",func:["Artifacts","Skills"],level:"better",adv:"text-alchemy + c15"},
+  {n:75,t:"探索 Claude 能為你做什麼",d:"在開放對話中探索各種能力和應用場景",cat:"通用",func:["Projects","Analysis tool"],level:"better",adv:"核心 + 28 個 Skill 生態系"},
+  // 🟢 Can (14)
+  {n:2,t:"並列比較預算方案",d:"在同一視圖中展示多個預算情境的財務影響",cat:"非營利組織",func:["Artifacts","Analysis tool"],level:"can"},
+  {n:9,t:"規劃課程進度表",d:"識別教學週中的時間壓力點，優化教學節奏",cat:"教育",func:["Artifacts","Analysis tool"],level:"can"},
+  {n:10,t:"比較不同的獎助金選項",d:"評估多個獎助金方案的申請難度和使用限制",cat:"教育",func:["Analysis tool","Artifacts"],level:"can"},
+  {n:11,t:"邊學邊應用公式",d:"學習公式時同步進行實際應用和練習",cat:"教育",func:["Artifacts","Analysis tool"],level:"can"},
+  {n:17,t:"建立客製化課程教材",d:"根據教學目標生成符合特定課程的教材",cat:"教育",func:["Artifacts","Skills"],level:"can"},
+  {n:24,t:"用 Claude 挑選更貼心的禮物",d:"根據收禮者背景和偏好提出有意義的禮物建議",cat:"個人使用",func:["Projects","Analysis tool"],level:"can"},
+  {n:26,t:"設計在地採集指南",d:"製作在地特色食材的蒐集指南",cat:"個人使用",func:["Artifacts"],level:"can"},
+  {n:34,t:"補助金提案組裝流程",d:"系統化整合資訊和文件，批量製作補助金提案",cat:"專業工作",func:["Projects","MCP"],level:"can"},
+  {n:38,t:"生成專案狀態報告",d:"自動彙整專案進度和風險生成定期報告",cat:"專業工作",func:["Artifacts","MCP"],level:"can"},
+  {n:40,t:"快速準備一週工作計畫",d:"根據優先級在週初快速整理工作計畫",cat:"專業工作",func:["Projects","MCP"],level:"can"},
+  {n:43,t:"建立流程圖",d:"視覺化業務流程、決策樹或工作流程",cat:"專業工作",func:["Artifacts"],level:"can"},
+  {n:48,t:"追蹤發現時間軸並分析模式",d:"建立案件重要事項的時間軸，識別因果關係",cat:"法律",func:["Projects","Artifacts"],level:"can"},
+  {n:57,t:"把通勤時間變成研究時間",d:"利用零碎時間進行快速研究和資料蒐集",cat:"研究",func:["Projects","Analysis tool"],level:"can"},
+  {n:74,t:"建立新進人員入職指南",d:"製作系統化的新進人員入職指南",cat:"人力資源",func:["Artifacts","Skills"],level:"can"},
+  // 🟡 Partial (22)
+  {n:6,t:"建立志工管理系統",d:"建置追蹤志工資料、排班和貢獻的管理系統",cat:"非營利組織",func:["Artifacts","Computer use"],level:"partial",gap:"設計架構有，無法部署互動式應用"},
+  {n:13,t:"在選擇讀論文前先圖表化資料",d:"用圖表和統計視覺化原始資料",cat:"教育",func:["Artifacts","Analysis tool"],level:"partial",gap:"HTML 圖表有，無 Python sandbox 即時互動"},
+  {n:14,t:"讓黑板課程活躍起來",d:"將傳統教學轉化為互動式視覺內容",cat:"教育",func:["Artifacts","Computer use"],level:"partial",gap:"HTML 互動有，無 Computer Use"},
+  {n:15,t:"將解釋背後的機制視覺化",d:"用圖表展示科學原理的運作機制",cat:"教育",func:["Artifacts","Computer use"],level:"partial",gap:"HTML 動畫有，複雜模擬受限"},
+  {n:20,t:"建置互動式圖表工具",d:"開發可視化工具自動將資訊轉換成圖表",cat:"個人使用",func:["Artifacts","Computer use"],level:"partial",gap:"HTML/JS 有，無 Artifacts 即時預覽"},
+  {n:25,t:"建立客製的願望清單應用",d:"建置目標追蹤或願望清單工具",cat:"個人使用",func:["Artifacts","Computer use"],level:"partial",gap:"生成 HTML 應用有，無法部署"},
+  {n:31,t:"建立跨工具的每日簡報",d:"自動蒐集多個工具資訊生成每日摘要",cat:"專業工作",func:["MCP","Projects"],level:"partial",gap:"ProactiveBridge 推送有，無 MCP 串 Slack/GA"},
+  {n:33,t:"從多個工具匯聚洞察製作簡報",d:"整合多資料源的洞察製作資料驅動簡報",cat:"專業工作",func:["MCP","Artifacts"],level:"partial",gap:"分析 + HTML 有，無 MCP 串資料源"},
+  {n:39,t:"分析使用者回饋中的模式",d:"整合多來源反饋，識別核心主題和趨勢",cat:"專業工作",func:["MCP","Analysis tool"],level:"partial",gap:"文字分析有，無 MCP 串客服/社群管道"},
+  {n:42,t:"建立互動式 PDF 表單",d:"生成具有邏輯判斷和條件計算的 PDF 表單",cat:"專業工作",func:["Artifacts","Computer use"],level:"partial",gap:"設計邏輯有，無法直接產出互動 PDF"},
+  {n:46,t:"準備文件進行合規稽核",d:"整理和標準化散亂的文件準備稽核",cat:"法律",func:["Cowork","Projects"],level:"partial",gap:"分析有，無 Cowork 存取桌面檔案"},
+  {n:47,t:"用 Projects 整理法律工作流程",d:"組織案件資料和相關文件建立集中工作空間",cat:"法律",func:["Projects","Cowork"],level:"partial",gap:"有專案上下文，無 Projects UI"},
+  {n:49,t:"理解並延伸繼承的試算表",d:"解析複雜試算表的邏輯和公式",cat:"財務金融",func:["Analysis tool","Artifacts"],level:"partial",gap:"上傳後可分析，無 sandbox"},
+  {n:50,t:"跨帳戶對帳",d:"比對多個帳戶的交易紀錄",cat:"財務金融",func:["Analysis tool","Cowork"],level:"partial",gap:"提供資料後可比對，無法自動存取"},
+  {n:54,t:"整理企業財務",d:"組織企業的日常財務資料準備報稅或決策",cat:"財務金融",func:["Cowork","Analysis tool"],level:"partial",gap:"上傳後可分類，無桌面存取"},
+  {n:55,t:"彙整所有回饋管道的主題",d:"整合多來源反饋提取共同主題和洞察",cat:"研究",func:["MCP","Analysis tool"],level:"partial",gap:"NLP 有，無 MCP 串回饋管道"},
+  {n:58,t:"從原始資料驗證統計數據",d:"用實際資料檢驗研究聲稱的統計結論",cat:"研究",func:["Analysis tool","Artifacts"],level:"partial",gap:"邏輯驗證有，無 Python sandbox"},
+  {n:62,t:"建立銷售報告",d:"彙整銷售數據和執行情況生成管理報告",cat:"業務銷售",func:["Artifacts","MCP"],level:"partial",gap:"ssa-consultant + HTML 有，無 CRM 整合"},
+  {n:65,t:"跨網站比較產品",d:"自動提取不同網站的產品資訊整理比較表",cat:"Chrome",func:["Chrome","Artifacts"],level:"partial",gap:"Firecrawl 爬取有，需指定 URL"},
+  {n:70,t:"臨床前研究分析",d:"分析臨床前實驗資料，識別趨勢和統計顯著性",cat:"生命科學",func:["Analysis tool","Artifacts"],level:"partial",gap:"提供資料後可分析，無 sandbox"},
+  {n:71,t:"基因組資料分析",d:"處理和解釋基因組學資料",cat:"生命科學",func:["Analysis tool","Artifacts"],level:"partial",gap:"同上"},
+  {n:73,t:"分析行銷活動績效",d:"評估行銷活動的轉換率和 ROI",cat:"行銷",func:["Analysis tool","MCP"],level:"partial",gap:"分析框架有，無 MCP 串 Analytics"},
+  // 🔴 Cannot (9)
+  {n:21,t:"整理桌面檔案",d:"根據檔案內容智慧分類和整理電腦檔案",cat:"個人使用",func:["Cowork","Computer use"],level:"cannot",why:"需要 Cowork + Computer Use 存取使用者桌面"},
+  {n:30,t:"從瀏覽器圖表和資料夾建立分析",d:"整合網路圖表和本地資料生成分析",cat:"專業工作",func:["Chrome","Cowork"],level:"cannot",why:"需要 Chrome 擴充讀取瀏覽器畫面"},
+  {n:32,t:"用 Cowork 批量處理廠商資料",d:"自動化廠商評估和資訊整理流程",cat:"專業工作",func:["Cowork","Analysis tool"],level:"cannot",why:"需要 Cowork 桌面應用存取本地檔案"},
+  {n:44,t:"將 Email 轉成活動追蹤器",d:"從電郵擷取事項和截止日期建立追蹤清單",cat:"專業工作",func:["Cowork","Computer use"],level:"cannot",why:"需要 Cowork + Computer Use 操作 Email"},
+  {n:64,t:"將銷售通話記錄到 CRM",d:"自動草擬活動記錄並建檔到 CRM",cat:"Chrome",func:["Chrome","MCP"],level:"cannot",why:"需要 Chrome 擴充 + CRM 寫入權限"},
+  {n:66,t:"從日曆準備並規劃行程",d:"從 Google Calendar 讀取日程並準備會議資料",cat:"Chrome",func:["Chrome","Projects"],level:"cannot",why:"需要 Chrome 擴充讀取 Google Calendar"},
+  {n:67,t:"清理行銷郵件",d:"在 Gmail 中批量識別和清理促銷郵件",cat:"Chrome",func:["Chrome","Computer use"],level:"cannot",why:"需要 Chrome + Computer Use 操作 Gmail"},
+  {n:68,t:"從分析儀表板提取指標",d:"從分析平台自動提取關鍵指標整理報告",cat:"Chrome",func:["Chrome","Artifacts"],level:"cannot",why:"需要 Chrome 擴充讀取 Dashboard UI"},
+  {n:69,t:"整理 Google Drive 中的檔案",d:"根據內容自動掃描和整理 Google Drive 檔案",cat:"Chrome",func:["Chrome","Computer use"],level:"cannot",why:"需要 Chrome + Computer Use 操作 Drive"},
+];
+
+const levelMap = {better:"🟣 能做得更好",can:"🟢 可以做到",partial:"🟡 部分做到",cannot:"🔴 完全做不到"};
+const levelClass = {better:"better",can:"can",partial:"partial",cannot:"cannot"};
+
+function renderCards(filtered){
+  const grid = document.getElementById('cardsGrid');
+  grid.innerHTML = filtered.map(c => {
+    let extra = '';
+    if(c.adv) extra = `<span class="tag advantage">⚡ ${c.adv}</span>`;
+    if(c.gap) extra = `<span class="tag advantage">⚠️ ${c.gap}</span>`;
+    if(c.why) extra = `<span class="tag advantage">🚫 ${c.why}</span>`;
+    return `<div class="case-card" data-level="${c.level}">
+      <div class="card-top">
+        <span class="card-num">#${c.n}</span>
+        <span class="level-badge ${levelClass[c.level]}">${levelMap[c.level]}</span>
+      </div>
+      <div class="card-title">${c.t}</div>
+      <div class="card-desc">${c.d}</div>
+      <div class="card-meta">
+        <span class="tag cat">${c.cat}</span>
+        ${c.func.map(f=>`<span class="tag func">${f}</span>`).join('')}
+        ${extra}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// Filter
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const level = btn.dataset.level;
+    const q = document.getElementById('searchInput').value.toLowerCase();
+    let filtered = level === 'all' ? cases : cases.filter(c=>c.level===level);
+    if(q) filtered = filtered.filter(c=>(c.t+c.d+c.cat+(c.adv||'')+(c.gap||'')+(c.why||'')).toLowerCase().includes(q));
+    renderCards(filtered);
+  });
+});
+
+document.getElementById('searchInput').addEventListener('input', e => {
+  const q = e.target.value.toLowerCase();
+  const activeBtn = document.querySelector('.filter-btn.active');
+  const level = activeBtn ? activeBtn.dataset.level : 'all';
+  let filtered = level === 'all' ? cases : cases.filter(c=>c.level===level);
+  if(q) filtered = filtered.filter(c=>(c.t+c.d+c.cat+(c.adv||'')+(c.gap||'')+(c.why||'')).toLowerCase().includes(q));
+  renderCards(filtered);
+});
+
+renderCards(cases);
+</script>
+</body>
+</html>
