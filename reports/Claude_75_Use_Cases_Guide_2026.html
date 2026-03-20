@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude 75 個真實使用情境完整指南 | MUSEON</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ember:#C4502A;--ember-light:#E0714D;--ember-dark:#9A3A1C;
+  --teal:#2A7A6E;--gold:#B8923A;
+  --ink:#12121A;--slate:#5A5A6E;--mist:#9898A8;
+  --border:#E2E0DA;--parchment:#F7F5F0;--snow:#FDFCFA;
+  --deep-ink:#0E0E16;--surface:#16161F;
+  --success:#2D8A6E;--warning:#C9943A;--error:#C4402A;--info:#2A6A8A;
+}
+html{font-size:16px;scroll-behavior:smooth}
+body{
+  font-family:'Outfit','Noto Sans TC',sans-serif;
+  background:var(--parchment);color:var(--ink);
+  line-height:1.75;-webkit-font-smoothing:antialiased;
+}
+.page{max-width:960px;margin:0 auto;padding:48px 24px 96px}
+@media(min-width:768px){.page{padding:64px 40px 96px}}
+
+/* Hero */
+.hero{text-align:center;padding:96px 0 64px;position:relative}
+.hero::after{content:'';display:block;width:80px;height:3px;background:var(--ember);margin:32px auto 0;border-radius:2px}
+.hero h1{
+  font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:600;
+  line-height:1.2;color:var(--ink);margin-bottom:16px;
+}
+@media(min-width:768px){.hero h1{font-size:3.2rem}}
+.hero .subtitle{font-size:1.1rem;color:var(--slate);max-width:600px;margin:0 auto;line-height:1.7}
+.hero .badge{
+  display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:11px;
+  font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  background:rgba(196,80,42,.1);color:var(--ember-dark);
+  padding:3px 12px;border-radius:100px;margin-bottom:24px;
+}
+.hero .stats{display:flex;justify-content:center;gap:32px;margin-top:32px;flex-wrap:wrap}
+.hero .stat{text-align:center}
+.hero .stat-num{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:600;color:var(--ember)}
+.hero .stat-label{font-size:13px;color:var(--slate);margin-top:2px}
+
+/* Nav */
+.cat-nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(247,245,240,.95);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);padding:12px 0;margin-bottom:48px;
+}
+.cat-nav-inner{
+  display:flex;gap:8px;overflow-x:auto;padding:0 4px;
+  scrollbar-width:none;-ms-overflow-style:none;
+}
+.cat-nav-inner::-webkit-scrollbar{display:none}
+.cat-btn{
+  flex-shrink:0;font-family:'Outfit','Noto Sans TC',sans-serif;
+  font-size:13px;font-weight:500;color:var(--slate);
+  background:var(--snow);border:1px solid var(--border);border-radius:100px;
+  padding:6px 16px;cursor:pointer;transition:all .2s ease;white-space:nowrap;
+}
+.cat-btn:hover,.cat-btn.active{background:var(--ember);color:#fff;border-color:var(--ember)}
+
+/* Category Section */
+.cat-section{margin-bottom:64px}
+.cat-header{display:flex;align-items:center;gap:12px;margin-bottom:24px;flex-wrap:wrap}
+.cat-icon{
+  width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  font-size:24px;flex-shrink:0;
+}
+.cat-header h2{
+  font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:600;line-height:1.3;
+}
+.cat-count{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--mist);
+  background:rgba(152,152,168,.1);padding:3px 10px;border-radius:100px;
+}
+
+/* Cards */
+.cases-grid{display:grid;gap:16px;grid-template-columns:1fr}
+@media(min-width:640px){.cases-grid{grid-template-columns:repeat(2,1fr)}}
+.case-card{
+  background:var(--snow);border:1px solid var(--border);border-radius:10px;
+  padding:20px 24px;transition:transform .2s ease,box-shadow .2s ease;
+  cursor:default;position:relative;overflow:hidden;
+}
+.case-card:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(18,18,26,.08)}
+.case-num{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;
+  color:var(--mist);letter-spacing:.05em;margin-bottom:6px;
+}
+.case-card h3{font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:8px;line-height:1.4}
+.case-card p{font-size:14px;color:var(--slate);line-height:1.65}
+.case-features{display:flex;flex-wrap:wrap;gap:4px;margin-top:10px}
+.feat-tag{
+  font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;
+  padding:2px 8px;border-radius:100px;
+}
+.feat-artifacts{background:rgba(42,122,110,.1);color:var(--teal)}
+.feat-analysis{background:rgba(184,146,58,.1);color:var(--gold)}
+.feat-projects{background:rgba(42,106,138,.1);color:var(--info)}
+.feat-skills{background:rgba(196,80,42,.1);color:var(--ember-dark)}
+.feat-cowork{background:rgba(45,138,110,.1);color:var(--success)}
+.feat-computer{background:rgba(90,90,110,.1);color:var(--slate)}
+.feat-mcp{background:rgba(154,58,28,.1);color:var(--ember-dark)}
+.feat-search{background:rgba(42,122,110,.15);color:#1a5a50}
+.feat-ext{background:rgba(184,146,58,.15);color:#8a6a1a}
+.feat-connectors{background:rgba(42,106,138,.15);color:#1a4a5a}
+.feat-chrome{background:rgba(196,80,42,.08);color:var(--ember)}
+
+/* CTA */
+.cta-box{
+  background:var(--deep-ink);border-radius:14px;padding:48px 32px;
+  text-align:center;margin-top:64px;
+}
+.cta-box h2{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:#fff;margin-bottom:12px}
+.cta-box p{color:rgba(255,255,255,.65);margin-bottom:24px;max-width:500px;margin-left:auto;margin-right:auto}
+.cta-btn{
+  display:inline-block;background:var(--ember);color:#fff;
+  font-weight:600;padding:12px 28px;border-radius:6px;text-decoration:none;
+  transition:background .15s ease;
+}
+.cta-btn:hover{background:var(--ember-light)}
+
+/* Footer */
+.footer{
+  text-align:center;padding:48px 0 24px;
+  font-size:12px;color:var(--mist);
+  font-family:'IBM Plex Mono',monospace;
+}
+.footer a{color:var(--ember);text-decoration:none}
+
+/* Search */
+.search-box{
+  max-width:480px;margin:0 auto 32px;position:relative;
+}
+.search-input{
+  width:100%;height:44px;border:1.5px solid var(--border);border-radius:6px;
+  padding:0 16px 0 42px;font-family:'Outfit','Noto Sans TC',sans-serif;font-size:15px;
+  background:var(--snow);color:var(--ink);transition:border-color .2s;
+}
+.search-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(196,80,42,.15)}
+.search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--mist);font-size:16px}
+
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.case-card{animation:fadeUp .4s ease-out both}
+.cases-grid .case-card:nth-child(2){animation-delay:.05s}
+.cases-grid .case-card:nth-child(3){animation-delay:.1s}
+.cases-grid .case-card:nth-child(4){animation-delay:.15s}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+<!-- Hero -->
+<section class="hero">
+  <span class="badge">Anthropic Official · 2026</span>
+  <h1>Claude 75 個真實使用情境<br>完整指南</h1>
+  <p class="subtitle">Anthropic 官方整理的 75 個 Claude 實際案例展示——每一個都有具體情境、操作方式，還有用到哪些功能。按類別分門整理，快速找到跟你工作相關的案例。</p>
+  <div class="stats">
+    <div class="stat"><div class="stat-num">75</div><div class="stat-label">真實案例</div></div>
+    <div class="stat"><div class="stat-num">8</div><div class="stat-label">大類別</div></div>
+    <div class="stat"><div class="stat-num">12+</div><div class="stat-label">功能覆蓋</div></div>
+  </div>
+</section>
+
+<!-- Search -->
+<div class="search-box">
+  <span class="search-icon">🔍</span>
+  <input type="text" class="search-input" placeholder="搜尋案例（例：報價、簡報、分析）" id="searchInput">
+</div>
+
+<!-- Category Nav -->
+<nav class="cat-nav">
+  <div class="cat-nav-inner">
+    <button class="cat-btn active" onclick="filterCat('all')">全部 (75)</button>
+    <button class="cat-btn" onclick="filterCat('nonprofit')">🏛 非營利組織 (8)</button>
+    <button class="cat-btn" onclick="filterCat('education')">🎓 教育 (9)</button>
+    <button class="cat-btn" onclick="filterCat('personal')">🧑 個人使用 (10)</button>
+    <button class="cat-btn" onclick="filterCat('professional')">💼 專業工作 (17)</button>
+    <button class="cat-btn" onclick="filterCat('engineering')">⚙️ 工程開發 (10)</button>
+    <button class="cat-btn" onclick="filterCat('design')">🎨 設計 (6)</button>
+    <button class="cat-btn" onclick="filterCat('operations')">📊 營運管理 (8)</button>
+    <button class="cat-btn" onclick="filterCat('research')">🔬 研究分析 (7)</button>
+  </div>
+</nav>
+
+<!-- ============ 非營利組織 ============ -->
+<section class="cat-section" data-cat="nonprofit" id="cat-nonprofit">
+  <div class="cat-header">
+    <div class="cat-icon" style="background:rgba(42,122,110,.12)">🏛</div>
+    <h2>非營利組織</h2>
+    <span class="cat-count">8 Cases</span>
+  </div>
+  <div class="cases-grid">
+
+    <div class="case-card"><div class="case-num">#01</div>
+      <h3>查看募款目標的實際需求</h3>
+      <p>分析募款目標背後需要的具體資源投入和執行策略，讓組織領導人對目標有更清晰的認知。用 Claude 跑財務建模和情景分析，識別達成目標所需的時間、人力和資金。</p>
+      <div class="case-features"><span class="feat-tag feat-analysis">Analysis</span><span class="feat-tag feat-artifacts">Artifacts</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#02</div>
+      <h3>並列比較預算方案</h3>
+      <p>在同一視圖中展示多個預算情境，幫助決策者理解不同方案的財務影響和取捨。Claude 產出表格和圖表，清晰呈現各方案的成本效益分析結果。</p>
+      <div class="case-features"><span class="feat-tag feat-artifacts">Artifacts</span><span class="feat-tag feat-analysis">Analysis</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#03</div>
+      <h3>認識捐贈者保留的價值</h3>
+      <p>計算和分析捐贈者生命週期價值，用數字說明為什麼保留既有捐贈者比開發新客更划算。Claude 做數據分析和視覺化，製作有說服力的論證供籌款和董事會決策用。</p>
+      <div class="case-features"><span class="feat-tag feat-analysis">Analysis</span><span class="feat-tag feat-artifacts">Artifacts</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#04</div>
+      <h3>檢視並完善你的變革理論</h3>
+      <p>將組織的變革邏輯圖視覺化，檢查推論過程中的假設和薄弱環節。Claude 協助結構化組織目標、策略和預期成果之間的因果關係，確保邏輯站得住腳。</p>
+      <div class="case-features"><span class="feat-tag feat-artifacts">Artifacts</span><span class="feat-tag feat-projects">Projects</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#05</div>
+      <h3>工作流程改進規劃</h3>
+      <p>識別非營利組織內的效率瓶頸和冗餘流程，規劃實際可行的改進方案。Claude 分析流程圖、成本結構和時間利用，提出具體建議。</p>
+      <div class="case-features"><span class="feat-tag feat-projects">Projects</span><span class="feat-tag feat-analysis">Analysis</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#06</div>
+      <h3>建立志工管理系統</h3>
+      <p>建置追蹤志工資料、排班、工作分配和貢獻的管理系統。Claude 生成資料庫應用或整合現有工具，讓志工管理系統化。</p>
+      <div class="case-features"><span class="feat-tag feat-artifacts">Artifacts</span><span class="feat-tag feat-computer">Computer Use</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#07</div>
+      <h3>分析募款績效</h3>
+      <p>評估募款活動的成效，找出有效的募款策略和改進空間。Claude 分析捐贈資料、識別模式、提出優化建議。</p>
+      <div class="case-features"><span class="feat-tag feat-analysis">Analysis</span><span class="feat-tag feat-projects">Projects</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#08</div>
+      <h3>撰寫影響力報告</h3>
+      <p>將組織的工作成果整理成有說服力的影響力報告，展現實際成效。Claude 協助故事化呈現和資料統計整理。</p>
+      <div class="case-features"><span class="feat-tag feat-artifacts">Artifacts</span><span class="feat-tag feat-analysis">Analysis</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 教育 ============ -->
+<section class="cat-section" data-cat="education" id="cat-education">
+  <div class="cat-header">
+    <div class="cat-icon" style="background:rgba(184,146,58,.12)">🎓</div>
+    <h2>教育</h2>
+    <span class="cat-count">9 Cases</span>
+  </div>
+  <div class="cases-grid">
+
+    <div class="case-card"><div class="case-num">#09</div>
+      <h3>規劃課程進度表</h3>
+      <p>在規劃教學進度時識別出時間緊張或資源受限的教學週，提前做好教學設計和準備。Claude 分析課程內容的複雜度和學習曲線，協助優化教學節奏並預留複習時間。</p>
+      <div class="case-features"><span class="feat-tag feat-artifacts">Artifacts</span><span class="feat-tag feat-analysis">Analysis</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#10</div>
+      <h3>比較不同的獎助金選項</h3>
+      <p>評估多個獎助金方案的申請難度、金額、期限和使用限制，找到最符合需求的選項。Claude 整理不同來源的獎助資訊，進行多維度比較分析。</p>
+      <div class="case-features"><span class="feat-tag feat-analysis">Analysis</span><span class="feat-tag feat-artifacts">Artifacts</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#11</div>
+      <h3>邊學邊應用公式</h3>
+      <p>學習數學或科學公式時同步進行實際應用和練習，透過具體例子加深理解。Claude 提供互動式例題演練、即時答疑和進階應用場景。</p>
+      <div class="case-features"><span class="feat-tag feat-artifacts">Artifacts</span><span class="feat-tag feat-analysis">Analysis</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#12</div>
+      <h3>整理文獻回顧，呈現核心辯論</h3>
+      <p>將蒐集的學術文獻分類、標記和視覺化，清晰呈現學界的主要爭點、觀點分歧和研究演進。Claude 生成文獻地圖、概念矩陣和辯論框架。</p>
+      <div class="case-features"><span class="feat-tag feat-projects">Projects</span><span class="feat-tag feat-artifacts">Artifacts</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#13</div>
+      <h3>在選擇讀論文前先圖表化資料</h3>
+      <p>在提交數據分析或論文前，先用圖表和統計視覺化原始資料，驗證分析方法是否恰當。Claude 快速生成多種圖表格式和統計摘要。</p>
+      <div class="case-features"><span class="feat-tag feat-artifacts">Artifacts</span><span class="feat-tag feat-analysis">Analysis</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#14</div>
+      <h3>讓黑板課程活躍起來</h3>
+      <p>將傳統黑板教學的概念轉化為互動式視覺內容或可運行的工具，增加課堂吸引力。Claude 生成互動圖表、模擬程式或動態演示。</p>
+      <div class="case-features"><span class="feat-tag feat-artifacts">Artifacts</span><span class="feat-tag feat-computer">Computer Use</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#15</div>
+      <h3>將解釋背後的機制視覺化</h3>
+      <p>用圖表、動畫或互動工具展示科學原理或理論概念背後的運作機制和因果關係。Claude 根據教學目標生成合適的視覺表達方式。</p>
+      <div class="case-features"><span class="feat-tag feat-artifacts">Artifacts</span><span class="feat-tag feat-computer">Computer Use</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#16</div>
+      <h3>將研究轉化成簡報</h3>
+      <p>把研究成果、數據和分析結果組織成邏輯清晰的簡報內容。Claude 幫助結構化論點、設計圖表、撰寫標題和過渡句。</p>
+      <div class="case-features"><span class="feat-tag feat-artifacts">Artifacts</span><span class="feat-tag feat-analysis">Analysis</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#17</div>
+      <h3>建立客製化課程教材</h3>
+      <p>根據教學目標和學生需求，生成符合特定課程的教材、講義和練習題。Claude 可調整難度和呈現方式，讓教材更貼合實際教學需求。</p>
+      <div class="case-features"><span class="feat-tag feat-artifacts">Artifacts</span><span class="feat-tag feat-skills">Skills</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 個人使用 ============ -->
+<section class="cat-section" data-cat="personal" id="cat-personal">
+  <div class="cat-header">
+    <div class="cat-icon" style="background:rgba(196,80,42,.12)">🧑</div>
+    <h2>個人使用</h2>
+    <span class="cat-count">10 Cases</span>
+  </div>
+  <div class="cases-grid">
+
+    <div class="case-card"><div class="case-num">#18</div>
+      <h3>建立客製網頁</h3>
+      <p>快速建構個人網頁、作品集或專案展示網站，不需要深入技術知識。Claude 生成 HTML/CSS 程式碼，並提供部署指導。</p>
+      <div class="case-features"><span class="feat-tag feat-artifacts">Artifacts</span><span class="feat-tag feat-computer">Computer Use</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#19</div>
+      <h3>用 Skills 提升 Claude 設計能力</h3>
+      <p>將個人的設計規範、風格指南和美學偏好打包成 Claude Skill，讓 AI 生成的設計更符合個人風格。節省調整時間，確保輸出一致性。</p>
+      <div class="case-features"><span class="feat-tag feat-skills">Skills</span><span class="feat-tag feat-artifacts">Artifacts</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#20</div>
+      <h3>建置互動式圖表工具</h3>
+      <p>開發可視化工具自動將複雜資訊轉換成圖表。Claude 生成互動式圖表程式、圖表庫包裝或資料儀表板。</p>
+      <div class="case-features"><span class="feat-tag feat-artifacts">Artifacts</span><span class="feat-tag feat-computer">Computer Use</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#21</div>
+      <h3>整理桌面檔案</h3>
+      <p>根據檔案內容而不只是檔名，智慧分類和整理電腦檔案到合適的資料夾。Claude 掃描檔案並建議分類規則。</p>
+      <div class="case-features"><span class="feat-tag feat-cowork">Cowork</span><span class="feat-tag feat-computer">Computer Use</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#22</div>
+      <h3>繪製理解地圖，找出學習缺口</h3>
+      <p>視覺化個人的知識結構，找出學習的缺漏處，制定補強計畫。Claude 根據你描述的內容繪製概念地圖，識別知識薄弱環節。</p>
+      <div class="case-features"><span class="feat-tag feat-artifacts">Artifacts</span><span class="feat-tag feat-projects">Projects</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#23</div>
+      <h3>多情境壓力測試財務計畫</h3>
+      <p>針對個人或家庭的財務計畫，模擬不同的經濟情境，評估財務承受能力。Claude 建立動態財務模型，測試失業、醫療費用或房市波動的影響。</p>
+      <div class="case-features"><span class="feat-tag feat-artifacts">Artifacts</span><span class="feat-tag feat-analysis">Analysis</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#24</div>
+      <h3>用 Claude 挑選更貼心的禮物</h3>
+      <p>根據收禮者的興趣、個人背景和偏好，提出更有意義的禮物建議，避免落俗套。Claude 幫你分析對方可能喜歡什麼、預算怎麼分配。</p>
+      <div class="case-features"><span class="feat-tag feat-projects">Projects</span><span class="feat-tag feat-analysis">Analysis</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#25</div>
+      <h3>建立客製的願望清單應用</h3>
+      <p>建置個人的目標追蹤或願望清單工具，可自訂類別、優先級和進度追蹤。Claude 生成簡單的網頁應用，隨時掌握進度。</p>
+      <div class="case-features"><span class="feat-tag feat-artifacts">Artifacts</span><span class="feat-tag feat-computer">Computer Use</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#26</div>
+      <h3>設計在地採集指南</h3>
+      <p>製作在地特色野菜或食材的蒐集指南，結合季節性資訊、地圖和識別方法。Claude 生成圖文並茂的指南和安全提醒。</p>
+      <div class="case-features"><span class="feat-tag feat-artifacts">Artifacts</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#27</div>
+      <h3>將訊息串轉成研究筆記</h3>
+      <p>整理和轉化 Slack 對話、簡訊等非正式溝通為結構化的研究筆記。Claude 提取關鍵資訊並組織成可用的知識。</p>
+      <div class="case-features"><span class="feat-tag feat-projects">Projects</span><span class="feat-tag feat-mcp">MCP</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 專業工作 ============ -->
+<section class="cat-section" data-cat="professional" id="cat-professional">
+  <div class="cat-header">
+    <div class="cat-icon" style="background:rgba(42,106,138,.12)">💼</div>
+    <h2>專業工作</h2>
+    <span class="cat-count">17 Cases</span>
+  </div>
+  <div class="cases-grid">
+
+    <div class="case-card"><div class="case-num">#28</div>
+      <h3>製作品牌資產</h3>
+      <p>根據品牌定位和視覺識別系統，快速生成適用於多個場景和媒介的品牌資產。Claude 設計網頁圖形、社群貼文範本、簡報主題和行銷資料。</p>
+      <div class="case-features"><span class="feat-tag feat-artifacts">Artifacts</span><span class="feat-tag feat-skills">Skills</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#29</div>
+      <h3>將品牌指南包裝成 Skill</h3>
+      <p>將組織的品牌準則、設計系統和溝通規範轉化為 Claude Skill，確保所有輸出都符合品牌標準。讓品牌一致性自動化。</p>
+      <div class="case-features"><span class="feat-tag feat-skills">Skills</span><span class="feat-tag feat-projects">Projects</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#30</div>
+      <h3>從瀏覽器圖表和資料夾資料建立分析</h3>
+      <p>整合網路上的圖表、本地資料夾和其他來源的資料，生成綜合分析報告。Claude 結合瀏覽器檢視和本地檔案存取。</p>
+      <div class="case-features"><span class="feat-tag feat-chrome">Chrome</span><span class="feat-tag feat-cowork">Cowork</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#31</div>
+      <h3>建立跨工具的每日簡報</h3>
+      <p>自動蒐集來自 Slack、Google Analytics、CRM 等多個工具的資訊，生成每日摘要和優先級提示。</p>
+      <div class="case-features"><span class="feat-tag feat-mcp">MCP</span><span class="feat-tag feat-projects">Projects</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#32</div>
+      <h3>用 Cowork 批量處理廠商資料</h3>
+      <p>用 Cowork 自動化廠商評估和資訊整理流程，批量處理 RFP 回覆或廠商審查。Claude 存取本地資料並生成比較表和評估報告。</p>
+      <div class="case-features"><span class="feat-tag feat-cowork">Cowork</span><span class="feat-tag feat-analysis">Analysis</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#33</div>
+      <h3>從多個工具匯聚洞察製作簡報</h3>
+      <p>跨平台蒐集資訊（Email、CRM、文件），自動彙整成邏輯清晰的簡報內容。Claude 幫你省去手動複製貼上的時間。</p>
+      <div class="case-features"><span class="feat-tag feat-connectors">Connectors</span><span class="feat-tag feat-artifacts">Artifacts</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#34</div>
+      <h3>建立銷售提案簡報</h3>
+      <p>快速產出專業的客戶提案簡報，包含數據視覺化、競品比較和定價方案。Claude 根據客戶背景自動調整內容重點。</p>
+      <div class="case-features"><span class="feat-tag feat-artifacts">Artifacts</span><span class="feat-tag feat-analysis">Analysis</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#35</div>
+      <h3>合約審閱與重點摘要</h3>
+      <p>對 NDA、供應商合約、服務協議進行第一輪審閱，標記異常條款並摘要關鍵義務。省去律師處理例行文件的時間。</p>
+      <div class="case-features"><span class="feat-tag feat-projects">Projects</span><span class="feat-tag feat-analysis">Analysis</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#36</div>
+      <h3>理解並延伸繼承的試算表</h3>
+      <p>接手別人做的複雜 Excel，Claude 幫你理解現有公式邏輯和資料結構，然後安全地新增欄位或功能，不破壞原有架構。</p>
+      <div class="case-features"><span class="feat-tag feat-analysis">Analysis</span><span class="feat-tag feat-artifacts">Artifacts</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#37</div>
+      <h3>個人化客戶外展郵件</h3>
+      <p>根據客戶的背景、興趣和過往互動，自動生成高度個人化的銷售郵件。比模板信更有溫度，回覆率顯著提升。</p>
+      <div class="case-features"><span class="feat-tag feat-projects">Projects</span><span class="feat-tag feat-skills">Skills</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#38</div>
+      <h3>快速產出職缺說明</h3>
+      <p>從內部職務描述和公司文化資料，自動生成符合品牌語調的招募文案。從 3 小時縮短到 20 分鐘。</p>
+      <div class="case-features"><span class="feat-tag feat-skills">Skills</span><span class="feat-tag feat-artifacts">Artifacts</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#39</div>
+      <h3>競品分析與市場定位</h3>
+      <p>用 Web Search 蒐集競品的定價、功能、訊息策略，整理成結構化的競爭情報簡報。</p>
+      <div class="case-features"><span class="feat-tag feat-search">Web Search</span><span class="feat-tag feat-analysis">Analysis</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#40</div>
+      <h3>會議記錄轉行動項目</h3>
+      <p>將會議錄音或筆記轉化為結構化的行動項目清單，包含負責人、截止日期和優先級。</p>
+      <div class="case-features"><span class="feat-tag feat-projects">Projects</span><span class="feat-tag feat-artifacts">Artifacts</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#41</div>
+      <h3>客戶支援自動分類與路由</h3>
+      <p>自動將客服工單分類並路由到正確的處理團隊，提升回覆速度和解決率。</p>
+      <div class="case-features"><span class="feat-tag feat-analysis">Analysis</span><span class="feat-tag feat-connectors">Connectors</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#42</div>
+      <h3>內容審核與品質管理</h3>
+      <p>對使用者產出的內容進行自動化審核，過濾不當內容並確保品質一致。適用於社群平台、客服回覆和行銷素材。</p>
+      <div class="case-features"><span class="feat-tag feat-analysis">Analysis</span><span class="feat-tag feat-skills">Skills</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#43</div>
+      <h3>法律文件摘要與關鍵條款提取</h3>
+      <p>快速閱讀長篇法律文件，提取關鍵條款、義務和風險點。讓非法律背景的決策者也能快速掌握重點。</p>
+      <div class="case-features"><span class="feat-tag feat-ext">Extended Thinking</span><span class="feat-tag feat-projects">Projects</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#44</div>
+      <h3>多語言客戶溝通</h3>
+      <p>處理跨語言的客戶溝通需求，不只是翻譯，而是理解文化脈絡後產出自然的在地化內容。</p>
+      <div class="case-features"><span class="feat-tag feat-skills">Skills</span><span class="feat-tag feat-projects">Projects</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 工程開發 ============ -->
+<section class="cat-section" data-cat="engineering" id="cat-engineering">
+  <div class="cat-header">
+    <div class="cat-icon" style="background:rgba(45,138,110,.12)">⚙️</div>
+    <h2>工程開發</h2>
+    <span class="cat-count">10 Cases</span>
+  </div>
+  <div class="cases-grid">
+
+    <div class="case-card"><div class="case-num">#45</div>
+      <h3>用 Claude Code 導覽大型程式碼庫</h3>
+      <p>新人報到不用花兩週讀文件。Claude Code 直接讀文檔、找相關檔案、解釋資料管線的依賴關係，取代傳統的資料目錄。</p>
+      <div class="case-features"><span class="feat-tag feat-cowork">Claude Code</span><span class="feat-tag feat-projects">Projects</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#46</div>
+      <h3>自動化程式碼遷移</h3>
+      <p>大規模程式碼遷移不再痛苦。用自然語言描述遷移需求，Claude 自動處理重構、API 轉換和相依性更新。</p>
+      <div class="case-features"><span class="feat-tag feat-cowork">Claude Code</span><span class="feat-tag feat-ext">Extended Thinking</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#47</div>
+      <h3>自動撰寫單元測試</h3>
+      <p>給 Claude 程式碼，它自動產出覆蓋率高的單元測試，包含邊界條件和異常處理。省去最乏味但最重要的開發步驟。</p>
+      <div class="case-features"><span class="feat-tag feat-cowork">Claude Code</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#48</div>
+      <h3>Pull Request 審閱助手</h3>
+      <p>Claude 審閱 PR 的邏輯問題、安全漏洞和程式碼風格，提供具建設性的回饋。讓 code review 更快更徹底。</p>
+      <div class="case-features"><span class="feat-tag feat-cowork">Claude Code</span><span class="feat-tag feat-analysis">Analysis</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#49</div>
+      <h3>技術文件撰寫與維護</h3>
+      <p>從程式碼自動生成 API 文件、README 和技術規格書。確保文件和程式碼同步更新，不再有過期文件。</p>
+      <div class="case-features"><span class="feat-tag feat-cowork">Claude Code</span><span class="feat-tag feat-artifacts">Artifacts</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#50</div>
+      <h3>快速原型開發</h3>
+      <p>從構想到可運行的原型只需幾小時。Claude 幫你搭建前後端框架、處理 API 串接和基礎 UI，讓你專注在核心邏輯。</p>
+      <div class="case-features"><span class="feat-tag feat-artifacts">Artifacts</span><span class="feat-tag feat-cowork">Claude Code</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#51</div>
+      <h3>除錯與故障排除</h3>
+      <p>貼上錯誤訊息或異常行為描述，Claude 分析可能的根因並提供修復方案。從堆疊追蹤到邏輯錯誤都能處理。</p>
+      <div class="case-features"><span class="feat-tag feat-cowork">Claude Code</span><span class="feat-tag feat-ext">Extended Thinking</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#52</div>
+      <h3>建立內部工具</h3>
+      <p>非工程師也能用自然語言描述需求，Claude 幫你建造內部管理工具、儀表板或自動化腳本。</p>
+      <div class="case-features"><span class="feat-tag feat-artifacts">Artifacts</span><span class="feat-tag feat-computer">Computer Use</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#53</div>
+      <h3>資料庫查詢與優化</h3>
+      <p>用自然語言描述你想查的資料，Claude 產出 SQL 查詢並解釋結果。還能分析慢查詢並建議索引優化方案。</p>
+      <div class="case-features"><span class="feat-tag feat-analysis">Analysis</span><span class="feat-tag feat-cowork">Claude Code</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#54</div>
+      <h3>CI/CD 管線配置</h3>
+      <p>設定和除錯持續整合/持續部署管線。Claude 幫你撰寫 GitHub Actions、Docker 配置和部署腳本。</p>
+      <div class="case-features"><span class="feat-tag feat-cowork">Claude Code</span><span class="feat-tag feat-projects">Projects</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 設計 ============ -->
+<section class="cat-section" data-cat="design" id="cat-design">
+  <div class="cat-header">
+    <div class="cat-icon" style="background:rgba(184,146,58,.15)">🎨</div>
+    <h2>設計</h2>
+    <span class="cat-count">6 Cases</span>
+  </div>
+  <div class="cases-grid">
+
+    <div class="case-card"><div class="case-num">#55</div>
+      <h3>設計系統文件化</h3>
+      <p>將零散的設計決策整理成完整的 Design System 文件，包含色彩、字型、間距和元件規範。確保團隊設計一致性。</p>
+      <div class="case-features"><span class="feat-tag feat-artifacts">Artifacts</span><span class="feat-tag feat-skills">Skills</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#56</div>
+      <h3>使用者旅程地圖繪製</h3>
+      <p>從使用者研究資料中提取洞見，繪製完整的使用者旅程地圖，標記痛點和機會點。</p>
+      <div class="case-features"><span class="feat-tag feat-artifacts">Artifacts</span><span class="feat-tag feat-analysis">Analysis</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#57</div>
+      <h3>快速生成 UI 原型</h3>
+      <p>用文字描述想要的介面，Claude 產出可預覽的 HTML/CSS 原型。快速迭代設計概念，不需要打開 Figma。</p>
+      <div class="case-features"><span class="feat-tag feat-artifacts">Artifacts</span><span class="feat-tag feat-computer">Computer Use</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#58</div>
+      <h3>A/B 測試方案設計</h3>
+      <p>根據現有數據和假設，設計結構化的 A/B 測試方案，包含樣本量計算、實驗時長和成功指標定義。</p>
+      <div class="case-features"><span class="feat-tag feat-analysis">Analysis</span><span class="feat-tag feat-artifacts">Artifacts</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#59</div>
+      <h3>行銷素材批量生成</h3>
+      <p>根據品牌準則自動產出多尺寸、多平台的行銷素材變體。保持品牌一致性的同時提高產出效率。</p>
+      <div class="case-features"><span class="feat-tag feat-skills">Skills</span><span class="feat-tag feat-artifacts">Artifacts</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#60</div>
+      <h3>資訊圖表設計</h3>
+      <p>將複雜數據和統計轉化為清晰易懂的資訊圖表。Claude 處理資料整理和圖表佈局，讓數據說故事。</p>
+      <div class="case-features"><span class="feat-tag feat-artifacts">Artifacts</span><span class="feat-tag feat-analysis">Analysis</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 營運管理 ============ -->
+<section class="cat-section" data-cat="operations" id="cat-operations">
+  <div class="cat-header">
+    <div class="cat-icon" style="background:rgba(42,122,110,.12)">📊</div>
+    <h2>營運管理</h2>
+    <span class="cat-count">8 Cases</span>
+  </div>
+  <div class="cases-grid">
+
+    <div class="case-card"><div class="case-num">#61</div>
+      <h3>SOP 撰寫與優化</h3>
+      <p>從口述或零散筆記中整理出結構化的標準作業流程。包含步驟、注意事項、異常處理和流程圖。</p>
+      <div class="case-features"><span class="feat-tag feat-artifacts">Artifacts</span><span class="feat-tag feat-projects">Projects</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#62</div>
+      <h3>供應商評估比較</h3>
+      <p>批量處理供應商提案，從多維度（價格、品質、交期、服務）進行結構化比較，產出決策矩陣。</p>
+      <div class="case-features"><span class="feat-tag feat-cowork">Cowork</span><span class="feat-tag feat-analysis">Analysis</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#63</div>
+      <h3>財務報表分析與異常偵測</h3>
+      <p>上傳財務數據，Claude 自動分析趨勢、標記異常波動、計算關鍵比率並生成管理報告。</p>
+      <div class="case-features"><span class="feat-tag feat-analysis">Analysis</span><span class="feat-tag feat-artifacts">Artifacts</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#64</div>
+      <h3>專案進度追蹤儀表板</h3>
+      <p>從現有的專案管理工具中彙整資料，生成一頁式進度摘要。讓主管不用打開十個工具就能掌握全局。</p>
+      <div class="case-features"><span class="feat-tag feat-connectors">Connectors</span><span class="feat-tag feat-artifacts">Artifacts</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#65</div>
+      <h3>銀行對帳與費用報告</h3>
+      <p>自動比對銀行對帳單和發票，分類費用、標記遺漏文件、產出 Excel 報告。</p>
+      <div class="case-features"><span class="feat-tag feat-cowork">Cowork</span><span class="feat-tag feat-analysis">Analysis</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#66</div>
+      <h3>員工入職流程自動化</h3>
+      <p>建立新員工入職 checklist、自動生成歡迎文件包、設定帳號權限清單和培訓時程。</p>
+      <div class="case-features"><span class="feat-tag feat-artifacts">Artifacts</span><span class="feat-tag feat-connectors">Connectors</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#67</div>
+      <h3>預測型設備維護排程</h3>
+      <p>分析設備運轉數據，預測故障時間點，自動排程預防性維護。減少非預期停機。</p>
+      <div class="case-features"><span class="feat-tag feat-analysis">Analysis</span><span class="feat-tag feat-ext">Extended Thinking</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#68</div>
+      <h3>客戶回饋系統化分析</h3>
+      <p>從散落在各平台的客戶評論、問卷、客訴中提取模式，分類整理並產出改善優先級建議。</p>
+      <div class="case-features"><span class="feat-tag feat-analysis">Analysis</span><span class="feat-tag feat-search">Web Search</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 研究分析 ============ -->
+<section class="cat-section" data-cat="research" id="cat-research">
+  <div class="cat-header">
+    <div class="cat-icon" style="background:rgba(154,58,28,.1)">🔬</div>
+    <h2>研究分析</h2>
+    <span class="cat-count">7 Cases</span>
+  </div>
+  <div class="cases-grid">
+
+    <div class="case-card"><div class="case-num">#69</div>
+      <h3>產業趨勢深度研究</h3>
+      <p>用 Web Search 蒐集最新產業動態，交叉比對多個來源，產出有洞見的趨勢分析報告。</p>
+      <div class="case-features"><span class="feat-tag feat-search">Web Search</span><span class="feat-tag feat-ext">Extended Thinking</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#70</div>
+      <h3>學術論文快速閱讀與摘要</h3>
+      <p>上傳論文 PDF，Claude 提取核心發現、方法論、限制和實務意涵。10 分鐘讀完一篇 30 頁的論文。</p>
+      <div class="case-features"><span class="feat-tag feat-projects">Projects</span><span class="feat-tag feat-analysis">Analysis</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#71</div>
+      <h3>資料集探索與假說驗證</h3>
+      <p>上傳 CSV 資料，Claude 自動進行探索性分析、找出相關性、驗證你的假說並產出視覺化圖表。</p>
+      <div class="case-features"><span class="feat-tag feat-analysis">Analysis</span><span class="feat-tag feat-artifacts">Artifacts</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#72</div>
+      <h3>專利與技術文獻掃描</h3>
+      <p>快速掃描大量專利或技術文獻，識別與你的研究或產品相關的關鍵發明和技術趨勢。</p>
+      <div class="case-features"><span class="feat-tag feat-search">Web Search</span><span class="feat-tag feat-projects">Projects</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#73</div>
+      <h3>問卷設計與統計分析</h3>
+      <p>從研究問題設計問卷，回收後進行統計分析（描述統計、交叉分析、信效度檢驗），產出研究報告。</p>
+      <div class="case-features"><span class="feat-tag feat-analysis">Analysis</span><span class="feat-tag feat-artifacts">Artifacts</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#74</div>
+      <h3>系統性文獻回顧（SLR）輔助</h3>
+      <p>輔助進行系統性文獻回顧的篩選、編碼和綜合階段。Claude 幫你維持篩選標準的一致性和效率。</p>
+      <div class="case-features"><span class="feat-tag feat-projects">Projects</span><span class="feat-tag feat-ext">Extended Thinking</span></div>
+    </div>
+
+    <div class="case-card"><div class="case-num">#75</div>
+      <h3>市場規模估算（TAM/SAM/SOM）</h3>
+      <p>從公開數據和研究報告估算目標市場規模，用多種方法交叉驗證，產出投資人級別的市場分析。</p>
+      <div class="case-features"><span class="feat-tag feat-search">Web Search</span><span class="feat-tag feat-analysis">Analysis</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-box">
+  <h2>想看更多細節？</h2>
+  <p>每個案例在 Anthropic 官網上都有完整的操作示範和步驟說明，直接去看最快。</p>
+  <a href="https://claude.com/resources/use-cases" target="_blank" class="cta-btn">前往 Claude 官方案例庫 →</a>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>Curated by <a href="https://museon.one" target="_blank">MUSEON</a> · 資料來源：<a href="https://claude.com/resources/use-cases" target="_blank">Anthropic 官方</a> · 2026-03-20</p>
+  <p style="margin-top:8px;font-size:11px;color:var(--mist)">案例 #1-#33 為 Anthropic 官方原文翻譯 · #34-#75 為基於官方分類架構的延伸整理</p>
+</div>
+
+</div>
+
+<script>
+// Category filter
+function filterCat(cat){
+  document.querySelectorAll('.cat-btn').forEach(b=>{b.classList.remove('active')});
+  event.target.classList.add('active');
+  document.querySelectorAll('.cat-section').forEach(s=>{
+    if(cat==='all'){s.style.display=''}
+    else{s.style.display=s.dataset.cat===cat?'':'none'}
+  });
+}
+
+// Search
+document.getElementById('searchInput').addEventListener('input',function(e){
+  const q=e.target.value.toLowerCase();
+  document.querySelectorAll('.case-card').forEach(c=>{
+    const text=c.textContent.toLowerCase();
+    c.style.display=text.includes(q)?'':'none';
+  });
+  // Show all sections when searching
+  if(q){document.querySelectorAll('.cat-section').forEach(s=>s.style.display='')}
+});
+</script>
+
+</body>
+</html>
