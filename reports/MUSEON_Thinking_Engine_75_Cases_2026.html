@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MUSEON 思維引擎 vs 工具生態——75 個案例的三層分類報告</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ember: #C4502A;
+  --ember-light: #E0714D;
+  --ember-dark: #9A3A1C;
+  --teal: #2A7A6E;
+  --gold: #B8923A;
+  --ink: #12121A;
+  --slate: #5A5A6E;
+  --mist: #9898A8;
+  --border: #E2E0DA;
+  --parchment: #F7F5F0;
+  --snow: #FDFCFA;
+  --deep-ink: #0E0E16;
+  --surface: #16161F;
+  --strategy: #C4502A;
+  --judgment: #2A7A6E;
+  --tool: #B8923A;
+}
+
+body {
+  font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+  background: var(--parchment);
+  color: var(--ink);
+  line-height: 1.75;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Hero ─── */
+.hero {
+  background: linear-gradient(160deg, var(--deep-ink) 0%, #1a1520 40%, #201018 100%);
+  color: #fff;
+  padding: 96px 40px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 30% 60%, rgba(196,80,42,0.15) 0%, transparent 60%),
+              radial-gradient(ellipse at 70% 30%, rgba(42,122,110,0.1) 0%, transparent 50%);
+}
+.hero-content { position: relative; z-index: 1; max-width: 820px; margin: 0 auto; }
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 600;
+  line-height: 1.15;
+  margin-bottom: 24px;
+}
+.hero h1 em { font-style: italic; color: var(--ember-light); }
+.hero .subtitle {
+  font-size: 18px;
+  color: rgba(255,255,255,0.7);
+  max-width: 600px;
+  margin: 0 auto 40px;
+  line-height: 1.7;
+}
+.hero-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-style: italic;
+  color: rgba(255,255,255,0.85);
+  border-left: 3px solid var(--ember);
+  padding-left: 20px;
+  text-align: left;
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* ─── Container ─── */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+@media (max-width: 768px) { .container { padding: 0 16px; } }
+
+/* ─── Pyramid Section ─── */
+.pyramid-section { padding: 64px 0; }
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.section-subtitle {
+  text-align: center;
+  color: var(--slate);
+  font-size: 16px;
+  margin-bottom: 48px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ─── Inverted Pyramid ─── */
+.pyramid-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 64px;
+}
+.pyramid-layer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 20px 32px;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 500;
+  transition: transform 0.2s ease;
+  cursor: default;
+  text-align: center;
+}
+.pyramid-layer:hover { transform: translateY(-2px); }
+.pyramid-layer.strategy {
+  background: linear-gradient(135deg, var(--ember-dark), var(--ember));
+  width: min(90%, 700px);
+}
+.pyramid-layer.judgment {
+  background: linear-gradient(135deg, #1e6058, var(--teal));
+  width: min(70%, 540px);
+}
+.pyramid-layer.tool {
+  background: linear-gradient(135deg, #8a6a20, var(--gold));
+  width: min(50%, 380px);
+}
+.pyramid-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 600;
+}
+.pyramid-count {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  opacity: 0.85;
+}
+.pyramid-desc {
+  font-size: 13px;
+  opacity: 0.8;
+  max-width: 400px;
+}
+
+/* ─── Stats Row ─── */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 64px;
+}
+@media (max-width: 768px) { .stats-row { grid-template-columns: 1fr; } }
+.stat-card {
+  background: var(--snow);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(18,18,26,0.06), 0 4px 12px rgba(18,18,26,0.04);
+}
+.stat-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+.stat-number.strategy-color { color: var(--strategy); }
+.stat-number.judgment-color { color: var(--judgment); }
+.stat-number.tool-color { color: var(--tool); }
+.stat-label { color: var(--slate); font-size: 14px; margin-top: 8px; }
+.stat-desc { font-size: 13px; color: var(--mist); margin-top: 4px; }
+
+/* ─── Filter Bar ─── */
+.filter-bar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+  justify-content: center;
+}
+.filter-btn {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border-radius: 100px;
+  border: 1.5px solid var(--border);
+  background: var(--snow);
+  color: var(--slate);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.filter-btn:hover { border-color: var(--ember); color: var(--ember); }
+.filter-btn.active { background: var(--ember); color: #fff; border-color: var(--ember); }
+.filter-btn.active-judgment { background: var(--teal); color: #fff; border-color: var(--teal); }
+.filter-btn.active-tool { background: var(--gold); color: #fff; border-color: var(--gold); }
+
+/* ─── Search ─── */
+.search-box {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto 32px;
+  display: block;
+  height: 44px;
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  padding: 0 16px;
+  font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+  font-size: 15px;
+  background: var(--snow);
+  color: var(--ink);
+  transition: border-color 0.2s;
+}
+.search-box:focus {
+  outline: none;
+  border-color: var(--ember);
+  box-shadow: 0 0 0 3px rgba(196,80,42,0.15);
+}
+
+/* ─── Case Cards ─── */
+.layer-group { margin-bottom: 64px; }
+.layer-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--border);
+}
+.layer-dot {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.layer-dot.strategy-bg { background: var(--strategy); }
+.layer-dot.judgment-bg { background: var(--judgment); }
+.layer-dot.tool-bg { background: var(--gold); }
+.layer-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 600;
+}
+.layer-header .count {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  color: var(--mist);
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 16px;
+}
+@media (max-width: 768px) { .cards-grid { grid-template-columns: 1fr; } }
+
+.case-card {
+  background: var(--snow);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px 24px;
+  box-shadow: 0 1px 3px rgba(18,18,26,0.06), 0 4px 12px rgba(18,18,26,0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+.case-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(18,18,26,0.08), 0 8px 24px rgba(18,18,26,0.06);
+}
+.case-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 100%;
+}
+.case-card.strategy-card::before { background: var(--strategy); }
+.case-card.judgment-card::before { background: var(--judgment); }
+.case-card.tool-card::before { background: var(--gold); }
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+.card-number {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--mist);
+}
+.card-category {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 100px;
+  background: rgba(196,80,42,0.08);
+  color: var(--ember-dark);
+}
+.card-title {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.card-desc {
+  font-size: 14px;
+  color: var(--slate);
+  line-height: 1.65;
+  margin-bottom: 12px;
+}
+.card-insight {
+  font-size: 13px;
+  color: var(--ink);
+  background: rgba(42,122,110,0.06);
+  border-left: 3px solid var(--teal);
+  padding: 8px 12px;
+  border-radius: 0 6px 6px 0;
+  line-height: 1.6;
+}
+.card-insight.strategy-insight {
+  background: rgba(196,80,42,0.06);
+  border-left-color: var(--ember);
+}
+.card-insight.tool-insight {
+  background: rgba(184,146,58,0.06);
+  border-left-color: var(--gold);
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 10px;
+}
+.card-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 2px 8px;
+  border-radius: 100px;
+  background: rgba(0,0,0,0.04);
+  color: var(--slate);
+}
+
+/* ─── Core Thesis ─── */
+.thesis-section {
+  background: var(--deep-ink);
+  color: #fff;
+  padding: 80px 40px;
+  margin: 0 -40px;
+}
+@media (max-width: 768px) { .thesis-section { padding: 64px 16px; margin: 0 -16px; } }
+.thesis-inner { max-width: 820px; margin: 0 auto; }
+.thesis-section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 32px;
+  text-align: center;
+}
+.thesis-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+@media (max-width: 768px) { .thesis-grid { grid-template-columns: 1fr; } }
+.thesis-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-color: rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 24px;
+}
+.thesis-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.thesis-card p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.7;
+}
+.thesis-card .highlight {
+  color: var(--ember-light);
+  font-weight: 500;
+}
+
+/* ─── Six Layer Stack ─── */
+.stack-section { padding: 64px 0; }
+.stack-layers {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 820px;
+  margin: 0 auto;
+}
+.stack-layer {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 16px;
+  align-items: center;
+  padding: 16px 20px;
+  border-radius: 8px;
+  font-size: 15px;
+}
+.stack-layer.l1 { background: rgba(196,80,42,0.08); }
+.stack-layer.l2 { background: rgba(196,80,42,0.12); }
+.stack-layer.l3 { background: rgba(196,80,42,0.06); }
+.stack-layer.l4 { background: rgba(42,122,110,0.08); }
+.stack-layer.l5 { background: rgba(42,122,110,0.12); }
+.stack-layer.l6 { background: rgba(184,146,58,0.08); }
+.stack-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+}
+.stack-content strong { font-weight: 600; }
+.stack-content span { color: var(--slate); font-size: 14px; }
+
+/* ─── Footer ─── */
+.report-footer {
+  text-align: center;
+  padding: 48px 40px;
+  color: var(--mist);
+  font-size: 13px;
+  border-top: 1px solid var(--border);
+  margin-top: 64px;
+}
+.report-footer a { color: var(--ember); text-decoration: none; }
+
+/* ─── Animations ─── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: fadeIn 0.4s ease-out forwards;
+}
+@keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+</style>
+</head>
+<body>
+
+<!-- ─── Hero ─── -->
+<section class="hero">
+<div class="hero-content fade-in">
+  <h1>MUSEON <em>思維引擎</em><br>vs 工具生態</h1>
+  <p class="subtitle">Anthropic 官方 75 個 Claude 使用案例的三層重新分類<br>——不是「能不能做」，而是「你需要什麼層級的思維支持」</p>
+  <blockquote class="hero-quote">
+    「大部分 AI 工具幫你做事。<br>MUSEON 幫你想事。<br>這是本質差異。」
+  </blockquote>
+</div>
+</section>
+
+<!-- ─── Pyramid ─── -->
+<section class="pyramid-section">
+<div class="container">
+  <h2 class="section-title fade-in">反向金字塔</h2>
+  <p class="section-subtitle fade-in delay-1">MUSEON 的價值不在底層工具——在頂層的思維品質</p>
+
+  <div class="pyramid-visual fade-in delay-2">
+    <div class="pyramid-layer strategy">
+      <span class="pyramid-label">策略層</span>
+      <span class="pyramid-count">10 個案例</span>
+      <span class="pyramid-desc">連問題都問不對——MUSEON 幫你重新定義問題</span>
+    </div>
+    <div class="pyramid-layer judgment">
+      <span class="pyramid-label">判斷層</span>
+      <span class="pyramid-count">20 個案例</span>
+      <span class="pyramid-desc">知道要做什麼，不知道怎麼想清楚</span>
+    </div>
+    <div class="pyramid-layer tool">
+      <span class="pyramid-label">工具層</span>
+      <span class="pyramid-count">45 個案例</span>
+      <span class="pyramid-desc">教一下就會用，不需要長期陪伴</span>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-row fade-in delay-3">
+    <div class="stat-card">
+      <div class="stat-number strategy-color">10</div>
+      <div class="stat-label">策略層案例</div>
+      <div class="stat-desc">需要 Layer 4-6：陽謀陰謀 + 分析工具</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number judgment-color">20</div>
+      <div class="stat-label">判斷層案例</div>
+      <div class="stat-desc">需要 Layer 1-3：前置思考 + 狀況判斷 + 主權守護</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number tool-color">45</div>
+      <div class="stat-label">工具層案例</div>
+      <div class="stat-desc">MUSEON 的角色是教練——教你自己做</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ─── Core Thesis ─── -->
+<section class="thesis-section">
+<div class="thesis-inner">
+  <h2>MUSEON 六層技術棧</h2>
+  <p style="text-align:center;color:rgba(255,255,255,0.6);margin-bottom:8px;font-size:15px;">
+    從底層到頂層，解決使用者的「雙盲」問題
+  </p>
+  <p style="text-align:center;color:rgba(255,255,255,0.5);font-size:13px;margin-bottom:32px;">
+    第一盲：不知道 AI 能做什麼 ｜ 第二盲：不知道自己需要什麼
+  </p>
+
+  <div class="stack-layers" style="margin-bottom:40px;">
+    <div class="stack-layer l1">
+      <div class="stack-num" style="color:var(--ember);">L1</div>
+      <div class="stack-content"><strong>前置思考</strong> <span>— deep-think / query-clarity</span></div>
+    </div>
+    <div class="stack-layer l2">
+      <div class="stack-num" style="color:var(--ember);">L2</div>
+      <div class="stack-content"><strong>狀況判斷</strong> <span>— user-model / resonance</span></div>
+    </div>
+    <div class="stack-layer l3">
+      <div class="stack-num" style="color:var(--ember);">L3</div>
+      <div class="stack-content"><strong>主權守護</strong> <span>— DNA27 Kernel 五大不可覆寫值</span></div>
+    </div>
+    <div class="stack-layer l4">
+      <div class="stack-num" style="color:var(--teal);">L4</div>
+      <div class="stack-content"><strong>逆熵 / Xmodel / 第一性</strong> <span>— 思考如何思考</span></div>
+    </div>
+    <div class="stack-layer l5">
+      <div class="stack-num" style="color:var(--teal);">L5</div>
+      <div class="stack-content"><strong>陽謀 + 陰謀</strong> <span>— master-strategy / shadow</span></div>
+    </div>
+    <div class="stack-layer l6">
+      <div class="stack-num" style="color:var(--gold);">L6</div>
+      <div class="stack-content"><strong>分析工具輸出</strong> <span>— market-core / business-12 / 報告引擎</span></div>
+    </div>
+  </div>
+
+  <div class="thesis-grid">
+    <div class="thesis-card">
+      <h3>🔥 策略層</h3>
+      <p>使用者連<span class="highlight">問題都問不對</span>。需要 L4-L6 全開：第一性原理拆解假設、陽謀陰謀堆疊後推演、多維度分析輸出。<br><br>MUSEON 幫你<span class="highlight">重新定義問題</span>。</p>
+    </div>
+    <div class="thesis-card">
+      <h3>🌊 判斷層</h3>
+      <p>使用者知道要做什麼，但<span class="highlight">不知道怎麼想清楚</span>。需要 L1-L3：前置思考過濾雜訊、狀況判斷路由到正確框架、守護主權不被帶偏。<br><br>MUSEON 幫你<span class="highlight">想清楚再做</span>。</p>
+    </div>
+    <div class="thesis-card">
+      <h3>⚡ 工具層</h3>
+      <p>使用者自己就能做到，只是<span class="highlight">不知道 AI 可以這樣用</span>。MUSEON 的角色是教練——<span class="highlight">教你自己做</span>，解決第一個盲點。<br><br>告訴你：「這件事，你可以這樣請 AI 幫忙。」</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ─── Filter & Cards ─── -->
+<section class="container" style="padding-top:64px;padding-bottom:32px;">
+  <input type="text" class="search-box" placeholder="搜尋案例名稱或關鍵字..." id="searchBox">
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">全部 75</button>
+    <button class="filter-btn" data-filter="strategy">🔥 策略層 10</button>
+    <button class="filter-btn" data-filter="judgment">🌊 判斷層 20</button>
+    <button class="filter-btn" data-filter="tool">⚡ 工具層 45</button>
+  </div>
+</section>
+
+<section class="container" id="cardsContainer">
+
+<!-- ─── Strategy Layer ─── -->
+<div class="layer-group" data-layer="strategy">
+  <div class="layer-header">
+    <div class="layer-dot strategy-bg"></div>
+    <h2>策略層——沒有 Layer 4-6 就是在猜</h2>
+    <span class="count">10 個</span>
+  </div>
+  <div class="cards-grid">
+
+    <div class="case-card strategy-card" data-category="非營利">
+      <div class="card-top"><span class="card-number">#01</span><span class="card-category">非營利</span></div>
+      <div class="card-title">查看募款目標的實際需求</div>
+      <div class="card-desc">分析募款目標背後需要的具體資源投入和執行策略。</div>
+      <div class="card-insight strategy-insight">工具只能算數字。MUSEON 用第一性原理拆解「你真正缺的不是錢，是 X」——重新定義募款目標本身。</div>
+      <div class="card-tags"><span class="card-tag">business-12</span><span class="card-tag">xmodel</span><span class="card-tag">pdeif</span></div>
+    </div>
+
+    <div class="case-card strategy-card" data-category="個人">
+      <div class="card-top"><span class="card-number">#23</span><span class="card-category">個人</span></div>
+      <div class="card-title">多情境壓力測試財務計畫</div>
+      <div class="card-desc">模擬不同經濟情境，評估財務承受能力。</div>
+      <div class="card-insight strategy-insight">工具只跑模型。MUSEON 用逆熵流設計問：「你的假設本身對嗎？」——先質疑情境設定，再跑數字。</div>
+      <div class="card-tags"><span class="card-tag">risk-matrix</span><span class="card-tag">pdeif</span><span class="card-tag">roundtable</span></div>
+    </div>
+
+    <div class="case-card strategy-card" data-category="專業工作">
+      <div class="card-top"><span class="card-number">#41</span><span class="card-category">專業工作</span></div>
+      <div class="card-title">比較和分析競爭選項</div>
+      <div class="card-desc">系統性比較多個選項，找出最佳選擇和權衡。</div>
+      <div class="card-insight strategy-insight">工具列比較表。MUSEON 用圓桌詰問讓多角色互相衝撞——你看到的不只是「哪個比較好」，而是「你用什麼標準判斷好壞」。</div>
+      <div class="card-tags"><span class="card-tag">roundtable</span><span class="card-tag">master-strategy</span><span class="card-tag">shadow</span></div>
+    </div>
+
+    <div class="case-card strategy-card" data-category="法律">
+      <div class="card-top"><span class="card-number">#45</span><span class="card-category">法律</span></div>
+      <div class="card-title">合約審閱與談判</div>
+      <div class="card-desc">識別合約中的風險條款，提供談判策略。</div>
+      <div class="card-insight strategy-insight">工具標記風險條款。MUSEON 用 master-strategy 推演對方的底牌，用 shadow 辨識談判中的心理博弈——合約背後是人的動機。</div>
+      <div class="card-tags"><span class="card-tag">master-strategy</span><span class="card-tag">shadow</span><span class="card-tag">ssa-consultant</span></div>
+    </div>
+
+    <div class="case-card strategy-card" data-category="財務金融">
+      <div class="card-top"><span class="card-number">#51</span><span class="card-category">財務金融</span></div>
+      <div class="card-title">全面評估一家公司</div>
+      <div class="card-desc">結合科技面、市場面和財務面，進行整體公司評估。</div>
+      <div class="card-insight strategy-insight">工具做 SWOT。MUSEON 召集六位投資大師會診——Buffett 看護城河、Munger 用反向思考、Taleb 找黑天鵝。六個視角互相衝突後湧現的判斷，不是任何單一框架能產出的。</div>
+      <div class="card-tags"><span class="card-tag">investment-masters</span><span class="card-tag">market-equity</span><span class="card-tag">market-core</span></div>
+    </div>
+
+    <div class="case-card strategy-card" data-category="財務金融">
+      <div class="card-top"><span class="card-number">#53</span><span class="card-category">財務金融</span></div>
+      <div class="card-title">草擬投資備忘錄</div>
+      <div class="card-desc">撰寫結構化的投資分析和建議備忘錄。</div>
+      <div class="card-insight strategy-insight">工具填模板。MUSEON 用多層思考框架——先質疑投資論點的前提，再用第二層思考（「大家都這樣想，所以真正會發生的是…」）重新定義結論。</div>
+      <div class="card-tags"><span class="card-tag">investment-masters</span><span class="card-tag">consultant-communication</span><span class="card-tag">deep-think</span></div>
+    </div>
+
+    <div class="case-card strategy-card" data-category="研究">
+      <div class="card-top"><span class="card-number">#56</span><span class="card-category">研究</span></div>
+      <div class="card-title">用研究資料估算市場規模</div>
+      <div class="card-desc">蒐集並分析相關資料，估算目標市場的規模和成長潛力。</div>
+      <div class="card-insight strategy-insight">工具算 TAM/SAM/SOM。MUSEON 先質疑估算假設本身——「你用哪個定義的市場？」「為什麼假設這個成長率？」——假設錯了，數字算得再精確也沒用。</div>
+      <div class="card-tags"><span class="card-tag">market-core</span><span class="card-tag">gap</span><span class="card-tag">env-radar</span></div>
+    </div>
+
+    <div class="case-card strategy-card" data-category="業務銷售">
+      <div class="card-top"><span class="card-number">#60</span><span class="card-category">業務銷售</span></div>
+      <div class="card-title">建立銷售提案簡報</div>
+      <div class="card-desc">根據客戶情況生成客製化的銷售提案。</div>
+      <div class="card-insight strategy-insight">工具做漂亮簡報。MUSEON 用 SSA 12 步驟分析「這個客戶的真實購買動機是什麼」，用 shadow 辨識客戶的防衛心理——提案內容要射中的是動機，不是功能列表。</div>
+      <div class="card-tags"><span class="card-tag">ssa-consultant</span><span class="card-tag">shadow</span><span class="card-tag">consultant-communication</span></div>
+    </div>
+
+    <div class="case-card strategy-card" data-category="業務銷售">
+      <div class="card-top"><span class="card-number">#61</span><span class="card-category">業務銷售</span></div>
+      <div class="card-title">準備銷售商機</div>
+      <div class="card-desc">為重要商機準備背景資料和異議處理方案。</div>
+      <div class="card-insight strategy-insight">工具整理資料。MUSEON 用戰略引擎推演「對方會在哪一步說不」，用陽謀預埋「讓對方自己走到想成交的位置」——準備的不只是資料，是整個成交劇本。</div>
+      <div class="card-tags"><span class="card-tag">master-strategy</span><span class="card-tag">ssa-consultant</span><span class="card-tag">pdeif</span></div>
+    </div>
+
+    <div class="case-card strategy-card" data-category="非營利">
+      <div class="card-top"><span class="card-number">#03</span><span class="card-category">非營利</span></div>
+      <div class="card-title">認識捐贈者保留的價值</div>
+      <div class="card-desc">計算捐贈者生命週期價值，說明保留既有捐贈者的經濟效益。</div>
+      <div class="card-insight strategy-insight">工具算 LTV。MUSEON 用 Xmodel 重新定義「價值」——捐贈者的價值不只是錢，還包括口碑、志工轉化、社會影響力倍增。重新定義計算公式本身。</div>
+      <div class="card-tags"><span class="card-tag">xmodel</span><span class="card-tag">business-12</span><span class="card-tag">pdeif</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ─── Judgment Layer ─── -->
+<div class="layer-group" data-layer="judgment">
+  <div class="layer-header">
+    <div class="layer-dot judgment-bg"></div>
+    <h2>判斷層——需要 Layer 1-3 才能想清楚</h2>
+    <span class="count">20 個</span>
+  </div>
+  <div class="cards-grid">
+
+    <div class="case-card judgment-card" data-category="非營利">
+      <div class="card-top"><span class="card-number">#04</span><span class="card-category">非營利</span></div>
+      <div class="card-title">檢視並完善你的變革理論</div>
+      <div class="card-desc">將組織的變革邏輯圖視覺化，檢查推論過程中的假設和薄弱環節。</div>
+      <div class="card-insight">沒有前置思考，你會得到「看起來對但邏輯漏洞一堆」的框架。MUSEON 先用 query-clarity 質疑你的變革假設。</div>
+      <div class="card-tags"><span class="card-tag">xmodel</span><span class="card-tag">query-clarity</span></div>
+    </div>
+
+    <div class="case-card judgment-card" data-category="非營利">
+      <div class="card-top"><span class="card-number">#05</span><span class="card-category">非營利</span></div>
+      <div class="card-title">工作流程改進規劃</div>
+      <div class="card-desc">識別效率瓶頸和冗餘流程，規劃改進方案。</div>
+      <div class="card-insight">工具畫流程圖。MUSEON 的 wee 引擎先問：「改了流程，你怎麼知道改的假設對不對？」——先驗證假設再動手。</div>
+      <div class="card-tags"><span class="card-tag">wee</span><span class="card-tag">plan-engine</span></div>
+    </div>
+
+    <div class="case-card judgment-card" data-category="非營利">
+      <div class="card-top"><span class="card-number">#07</span><span class="card-category">非營利</span></div>
+      <div class="card-title">分析募款績效</div>
+      <div class="card-desc">評估募款活動的成效，找出有效策略和改進空間。</div>
+      <div class="card-insight">工具出圖表。MUSEON 用 eval-engine 追問：「這個指標真的代表你想衡量的嗎？」——數據對了但衡量標準錯了，等於白分析。</div>
+      <div class="card-tags"><span class="card-tag">eval-engine</span><span class="card-tag">business-12</span></div>
+    </div>
+
+    <div class="case-card judgment-card" data-category="非營利">
+      <div class="card-top"><span class="card-number">#08</span><span class="card-category">非營利</span></div>
+      <div class="card-title">撰寫影響力報告</div>
+      <div class="card-desc">將工作成果整理成有說服力的影響力報告。</div>
+      <div class="card-insight">工具排版。MUSEON 用 consultant-communication 的 SCQA 框架，確保故事線有內在邏輯——報告的品質取決於敘事結構，不是美工。</div>
+      <div class="card-tags"><span class="card-tag">consultant-communication</span><span class="card-tag">c15</span></div>
+    </div>
+
+    <div class="case-card judgment-card" data-category="教育">
+      <div class="card-top"><span class="card-number">#12</span><span class="card-category">教育</span></div>
+      <div class="card-title">整理文獻回顧，呈現核心辯論</div>
+      <div class="card-desc">將學術文獻分類、標記和視覺化，清晰呈現學界爭點。</div>
+      <div class="card-insight">工具列清單。MUSEON 的 knowledge-lattice 不只排列組合——它質疑文獻的前提，找出「學界沒在爭但其實更重要」的盲區。</div>
+      <div class="card-tags"><span class="card-tag">knowledge-lattice</span><span class="card-tag">meta-learning</span></div>
+    </div>
+
+    <div class="case-card judgment-card" data-category="教育">
+      <div class="card-top"><span class="card-number">#16</span><span class="card-category">教育</span></div>
+      <div class="card-title">將研究轉化成簡報</div>
+      <div class="card-desc">把研究成果組織成邏輯清晰的簡報內容。</div>
+      <div class="card-insight">工具做投影片。MUSEON 用金字塔原則先確認「你的核心論點站得住嗎？」——簡報做得再漂亮，論點站不住就是浪費時間。</div>
+      <div class="card-tags"><span class="card-tag">consultant-communication</span><span class="card-tag">aesthetic-sense</span></div>
+    </div>
+
+    <div class="case-card judgment-card" data-category="個人">
+      <div class="card-top"><span class="card-number">#22</span><span class="card-category">個人</span></div>
+      <div class="card-title">繪製理解地圖，找出學習缺口</div>
+      <div class="card-desc">視覺化個人知識結構，找出學習缺漏。</div>
+      <div class="card-insight">工具畫地圖。MUSEON 的 meta-learning 先問：「你確定你知道的那些，真的是你以為的那樣嗎？」——盲區不只是「不知道的」，還包括「以為知道但其實搞錯的」。</div>
+      <div class="card-tags"><span class="card-tag">meta-learning</span><span class="card-tag">knowledge-lattice</span></div>
+    </div>
+
+    <div class="case-card judgment-card" data-category="個人">
+      <div class="card-top"><span class="card-number">#27</span><span class="card-category">個人</span></div>
+      <div class="card-title">將訊息串轉成研究筆記</div>
+      <div class="card-desc">整理非正式溝通為結構化研究筆記。</div>
+      <div class="card-insight">工具提取文字。MUSEON 用 knowledge-lattice 的「結晶化」機制——不只記錄，而是判斷哪些是洞見、哪些是雜訊，萃取可複用的知識。</div>
+      <div class="card-tags"><span class="card-tag">knowledge-lattice</span><span class="card-tag">info-architect</span></div>
+    </div>
+
+    <div class="case-card judgment-card" data-category="專業工作">
+      <div class="card-top"><span class="card-number">#28</span><span class="card-category">專業工作</span></div>
+      <div class="card-title">製作品牌資產</div>
+      <div class="card-desc">快速生成適用多場景的品牌資產，確保一致性。</div>
+      <div class="card-insight">工具生成圖。MUSEON 的 brand-identity 先確認「你的品牌定位清楚嗎？」——定位模糊就做出一致的視覺，反而加速傳遞錯誤訊息。</div>
+      <div class="card-tags"><span class="card-tag">brand-identity</span><span class="card-tag">aesthetic-sense</span></div>
+    </div>
+
+    <div class="case-card judgment-card" data-category="專業工作">
+      <div class="card-top"><span class="card-number">#29</span><span class="card-category">專業工作</span></div>
+      <div class="card-title">將品牌指南包裝成 Skill</div>
+      <div class="card-desc">將品牌準則轉化為 Claude Skill，確保輸出一致性。</div>
+      <div class="card-insight">工具寫 prompt。MUSEON 的 acsf 引擎把「能力結晶」做成完整的鑄造流程——品質標準、測試、版本控制，不是丟一份 prompt 就叫 Skill。</div>
+      <div class="card-tags"><span class="card-tag">acsf</span><span class="card-tag">brand-identity</span></div>
+    </div>
+
+    <div class="case-card judgment-card" data-category="專業工作">
+      <div class="card-top"><span class="card-number">#31</span><span class="card-category">專業工作</span></div>
+      <div class="card-title">建立跨工具的每日簡報</div>
+      <div class="card-desc">自動蒐集多工具資訊，生成每日摘要和優先級提示。</div>
+      <div class="card-insight">工具彙整資訊。MUSEON 的前置思考層判斷「哪個資訊值得你注意」——簡報的價值不在全面，在精準。</div>
+      <div class="card-tags"><span class="card-tag">deep-think</span><span class="card-tag">user-model</span></div>
+    </div>
+
+    <div class="case-card judgment-card" data-category="專業工作">
+      <div class="card-top"><span class="card-number">#35</span><span class="card-category">專業工作</span></div>
+      <div class="card-title">開發方案工具包</div>
+      <div class="card-desc">製作包含政策、步驟、模板和資源的完整工具包。</div>
+      <div class="card-insight">工具列項目。MUSEON 用 pdeif 從終點逆推——先定義「成功是什麼樣子」，再拆解「需要什麼工具」。順序反了，工具包就是垃圾堆。</div>
+      <div class="card-tags"><span class="card-tag">pdeif</span><span class="card-tag">plan-engine</span></div>
+    </div>
+
+    <div class="case-card judgment-card" data-category="專業工作">
+      <div class="card-top"><span class="card-number">#37</span><span class="card-category">專業工作</span></div>
+      <div class="card-title">生成 AI 政策</div>
+      <div class="card-desc">根據組織需求和風險考量，草擬 AI 使用政策。</div>
+      <div class="card-insight">工具套模板。MUSEON 先用 dse 深度理解「這家公司的實際業務流程和風險容忍度」——政策不是抄範本，是量身訂做的治理框架。</div>
+      <div class="card-tags"><span class="card-tag">dse</span><span class="card-tag">business-12</span></div>
+    </div>
+
+    <div class="case-card judgment-card" data-category="專業工作">
+      <div class="card-top"><span class="card-number">#39</span><span class="card-category">專業工作</span></div>
+      <div class="card-title">分析使用者回饋中的模式</div>
+      <div class="card-desc">整合多來源反饋，識別核心主題和趨勢。</div>
+      <div class="card-insight">工具分類。MUSEON 分類完後追問：「為什麼這個主題反覆出現？根因是什麼？」——看到模式不夠，要看到模式背後的原因。</div>
+      <div class="card-tags"><span class="card-tag">deep-think</span><span class="card-tag">eval-engine</span></div>
+    </div>
+
+    <div class="case-card judgment-card" data-category="專業工作">
+      <div class="card-top"><span class="card-number">#36</span><span class="card-category">專業工作</span></div>
+      <div class="card-title">方案資料視覺化</div>
+      <div class="card-desc">用圖表和儀表板呈現方案運營資料。</div>
+      <div class="card-insight">工具出圖表。MUSEON 用 aesthetic-sense 審計「這張圖真的傳達了你想說的嗎？」——視覺化的目的是洞察，不是裝飾。</div>
+      <div class="card-tags"><span class="card-tag">aesthetic-sense</span><span class="card-tag">consultant-communication</span></div>
+    </div>
+
+    <div class="case-card judgment-card" data-category="研究">
+      <div class="card-top"><span class="card-number">#55</span><span class="card-category">研究</span></div>
+      <div class="card-title">彙整所有回饋管道的主題</div>
+      <div class="card-desc">整合多來源反饋，提取共同主題和消費者洞察。</div>
+      <div class="card-insight">同 #39——分類不難，難的是看到模式背後的因果鏈。</div>
+      <div class="card-tags"><span class="card-tag">deep-think</span><span class="card-tag">sentiment-radar</span></div>
+    </div>
+
+    <div class="case-card judgment-card" data-category="研究">
+      <div class="card-top"><span class="card-number">#59</span><span class="card-category">研究</span></div>
+      <div class="card-title">規劃文獻回顧</div>
+      <div class="card-desc">規劃文獻回顧的範圍、搜尋策略和評估方法。</div>
+      <div class="card-insight">工具列關鍵字。MUSEON 用 info-architect 先問：「你要回答的核心問題是什麼？」——問題問對了，搜尋策略自然出來。</div>
+      <div class="card-tags"><span class="card-tag">info-architect</span><span class="card-tag">knowledge-lattice</span></div>
+    </div>
+
+    <div class="case-card judgment-card" data-category="業務銷售">
+      <div class="card-top"><span class="card-number">#63</span><span class="card-category">業務銷售</span></div>
+      <div class="card-title">建立銷售戰情卡庫</div>
+      <div class="card-desc">製作針對常見異議和競爭對手的戰情卡。</div>
+      <div class="card-insight">工具列異議。MUSEON 用 shadow 辨識「客戶說的異議 vs 客戶真正的顧慮」——表面說「太貴」，背後可能是「不信任」。</div>
+      <div class="card-tags"><span class="card-tag">shadow</span><span class="card-tag">ssa-consultant</span><span class="card-tag">c15</span></div>
+    </div>
+
+    <div class="case-card judgment-card" data-category="行銷">
+      <div class="card-top"><span class="card-number">#72</span><span class="card-category">行銷</span></div>
+      <div class="card-title">跨平台調整內容格式</div>
+      <div class="card-desc">將單一內容調整為適合不同平台的格式和風格。</div>
+      <div class="card-insight">工具改格式。MUSEON 用 text-alchemy 先判斷「這個訊息在這個平台上，受眾需要怎樣的語調？」——格式只是表象，語調才決定轉化率。</div>
+      <div class="card-tags"><span class="card-tag">text-alchemy</span><span class="card-tag">c15</span></div>
+    </div>
+
+    <div class="case-card judgment-card" data-category="通用">
+      <div class="card-top"><span class="card-number">#75</span><span class="card-category">通用</span></div>
+      <div class="card-title">探索 Claude 能為你做什麼</div>
+      <div class="card-desc">在開放對話中探索 AI 的各種能力和應用場景。</div>
+      <div class="card-insight">這就是 MUSEON 的核心場景。不是「AI 能做什麼」的問題，而是「你需要什麼」的問題。解決雙盲：不知 AI 能做什麼 + 不知自己需要什麼。</div>
+      <div class="card-tags"><span class="card-tag">dna27</span><span class="card-tag">user-model</span><span class="card-tag">query-clarity</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ─── Tool Layer ─── -->
+<div class="layer-group" data-layer="tool">
+  <div class="layer-header">
+    <div class="layer-dot tool-bg"></div>
+    <h2>工具層——教一下就會，MUSEON 當教練</h2>
+    <span class="count">45 個</span>
+  </div>
+  <div class="cards-grid">
+
+    <div class="case-card tool-card" data-category="非營利">
+      <div class="card-top"><span class="card-number">#02</span><span class="card-category">非營利</span></div>
+      <div class="card-title">並列比較預算方案</div>
+      <div class="card-desc">在同一視圖展示多個預算情境的財務影響。</div>
+      <div class="card-insight tool-insight">直接用 AI 的 Artifacts 或 Analysis tool 就能做。MUSEON 教你怎麼下指令。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="非營利">
+      <div class="card-top"><span class="card-number">#06</span><span class="card-category">非營利</span></div>
+      <div class="card-title">建立志工管理系統</div>
+      <div class="card-desc">建置追蹤志工資料、排班和工作分配的管理系統。</div>
+      <div class="card-insight tool-insight">用 Claude 生成 Artifacts 或 Airtable 腳本。學一次就會。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="教育">
+      <div class="card-top"><span class="card-number">#09</span><span class="card-category">教育</span></div>
+      <div class="card-title">規劃課程進度表</div>
+      <div class="card-desc">識別教學週的時間緊張點，優化教學節奏。</div>
+      <div class="card-insight tool-insight">標準分析任務。AI 根據課程內容和時間限制生成進度表。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="教育">
+      <div class="card-top"><span class="card-number">#10</span><span class="card-category">教育</span></div>
+      <div class="card-title">比較不同的獎助金選項</div>
+      <div class="card-desc">評估多個獎助金的申請難度、金額和限制。</div>
+      <div class="card-insight tool-insight">多維度比較表。AI 整理資訊後列表即可。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="教育">
+      <div class="card-top"><span class="card-number">#11</span><span class="card-category">教育</span></div>
+      <div class="card-title">邊學邊應用公式</div>
+      <div class="card-desc">學習數學或科學公式時同步練習和演算。</div>
+      <div class="card-insight tool-insight">互動式教學對話。AI 天生擅長的事。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="教育">
+      <div class="card-top"><span class="card-number">#13</span><span class="card-category">教育</span></div>
+      <div class="card-title">在選擇讀論文前先圖表化資料</div>
+      <div class="card-desc">用圖表和統計視覺化原始資料，驗證分析方法。</div>
+      <div class="card-insight tool-insight">上傳資料，AI 生成圖表。Analysis tool 的標準用法。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="教育">
+      <div class="card-top"><span class="card-number">#14</span><span class="card-category">教育</span></div>
+      <div class="card-title">讓黑板課程活躍起來</div>
+      <div class="card-desc">將傳統黑板教學轉化為互動式視覺內容。</div>
+      <div class="card-insight tool-insight">用 Artifacts 生成互動 Demo。技術門檻低。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="教育">
+      <div class="card-top"><span class="card-number">#15</span><span class="card-category">教育</span></div>
+      <div class="card-title">將解釋背後的機制視覺化</div>
+      <div class="card-desc">用動畫或互動工具展示原理的運作機制。</div>
+      <div class="card-insight tool-insight">HTML/JS 動畫生成。Artifacts 的進階應用。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="教育">
+      <div class="card-top"><span class="card-number">#17</span><span class="card-category">教育</span></div>
+      <div class="card-title">建立客製化課程教材</div>
+      <div class="card-desc">根據教學目標生成教材、講義和練習題。</div>
+      <div class="card-insight tool-insight">文字生成的核心能力。描述需求，AI 產出教材。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="個人">
+      <div class="card-top"><span class="card-number">#18</span><span class="card-category">個人</span></div>
+      <div class="card-title">建立客製網頁</div>
+      <div class="card-desc">快速建構個人網頁或作品集。</div>
+      <div class="card-insight tool-insight">AI 直接生成 HTML/CSS。一句話就能啟動。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="個人">
+      <div class="card-top"><span class="card-number">#19</span><span class="card-category">個人</span></div>
+      <div class="card-title">用 Skills 提升 Claude 設計能力</div>
+      <div class="card-desc">將設計規範打包成 Claude Skill。</div>
+      <div class="card-insight tool-insight">Skills 功能的標準應用。照文件操作即可。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="個人">
+      <div class="card-top"><span class="card-number">#20</span><span class="card-category">個人</span></div>
+      <div class="card-title">建置互動式圖表工具</div>
+      <div class="card-desc">開發自動將資訊轉換成圖表的視覺化工具。</div>
+      <div class="card-insight tool-insight">用 Artifacts 生成 JS 圖表庫包裝。進階但可自學。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="個人">
+      <div class="card-top"><span class="card-number">#21</span><span class="card-category">個人</span></div>
+      <div class="card-title">整理桌面檔案</div>
+      <div class="card-desc">根據檔案內容智慧分類和整理電腦檔案。</div>
+      <div class="card-insight tool-insight">需要 Cowork + Computer Use。操作型任務。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="個人">
+      <div class="card-top"><span class="card-number">#24</span><span class="card-category">個人</span></div>
+      <div class="card-title">用 Claude 挑選更貼心的禮物</div>
+      <div class="card-desc">根據收禮者興趣和偏好提出禮物建議。</div>
+      <div class="card-insight tool-insight">對話推薦。AI 的日常用法。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="個人">
+      <div class="card-top"><span class="card-number">#25</span><span class="card-category">個人</span></div>
+      <div class="card-title">建立客製的願望清單應用</div>
+      <div class="card-desc">建置目標追蹤或願望清單工具。</div>
+      <div class="card-insight tool-insight">用 Artifacts 生成簡單 Web App。學一次就會。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="個人">
+      <div class="card-top"><span class="card-number">#26</span><span class="card-category">個人</span></div>
+      <div class="card-title">設計在地採集指南</div>
+      <div class="card-desc">製作野菜或食材的蒐集指南。</div>
+      <div class="card-insight tool-insight">搜尋 + 文字生成 + 圖文排版。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="專業工作">
+      <div class="card-top"><span class="card-number">#30</span><span class="card-category">專業工作</span></div>
+      <div class="card-title">從瀏覽器圖表和資料夾資料建立分析</div>
+      <div class="card-desc">整合網路和本地資料生成分析報告。</div>
+      <div class="card-insight tool-insight">需要 Chrome 擴充。操作型整合。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="專業工作">
+      <div class="card-top"><span class="card-number">#32</span><span class="card-category">專業工作</span></div>
+      <div class="card-title">用 Cowork 批量處理廠商資料</div>
+      <div class="card-desc">自動化廠商評估和資訊整理流程。</div>
+      <div class="card-insight tool-insight">需要 Cowork 桌面存取。批量操作型。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="專業工作">
+      <div class="card-top"><span class="card-number">#33</span><span class="card-category">專業工作</span></div>
+      <div class="card-title">從多個工具匯聚洞察製作簡報</div>
+      <div class="card-desc">整合 CRM、Analytics 等工具的資料做簡報。</div>
+      <div class="card-insight tool-insight">需要 MCP 串接。整合型操作。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="專業工作">
+      <div class="card-top"><span class="card-number">#34</span><span class="card-category">專業工作</span></div>
+      <div class="card-title">補助金提案組裝流程</div>
+      <div class="card-desc">系統化批量製作補助金提案。</div>
+      <div class="card-insight tool-insight">結構化寫作 + 模板管理。Projects 的標準用法。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="專業工作">
+      <div class="card-top"><span class="card-number">#38</span><span class="card-category">專業工作</span></div>
+      <div class="card-title">生成專案狀態報告</div>
+      <div class="card-desc">自動彙整專案進度和里程碑。</div>
+      <div class="card-insight tool-insight">模板化報告。提供資料後 AI 格式化輸出。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="專業工作">
+      <div class="card-top"><span class="card-number">#40</span><span class="card-category">專業工作</span></div>
+      <div class="card-title">快速準備一週工作計畫</div>
+      <div class="card-desc">根據待辦事項和優先級整理工作計畫。</div>
+      <div class="card-insight tool-insight">任務規劃。一次對話就能完成。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="專業工作">
+      <div class="card-top"><span class="card-number">#42</span><span class="card-category">專業工作</span></div>
+      <div class="card-title">建立互動式 PDF 表單</div>
+      <div class="card-desc">生成有邏輯判斷和自動計算的 PDF 表單。</div>
+      <div class="card-insight tool-insight">用 Artifacts + Computer Use 生成。技術型操作。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="專業工作">
+      <div class="card-top"><span class="card-number">#43</span><span class="card-category">專業工作</span></div>
+      <div class="card-title">建立流程圖</div>
+      <div class="card-desc">視覺化業務流程和決策樹。</div>
+      <div class="card-insight tool-insight">AI 用 Mermaid 或 SVG 直接生成。一句話觸發。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="專業工作">
+      <div class="card-top"><span class="card-number">#44</span><span class="card-category">專業工作</span></div>
+      <div class="card-title">將電子郵件轉成活動追蹤器</div>
+      <div class="card-desc">從 Email 擷取事項和截止日期。</div>
+      <div class="card-insight tool-insight">需要 Cowork + Computer Use 操作 Email。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="法律">
+      <div class="card-top"><span class="card-number">#46</span><span class="card-category">法律</span></div>
+      <div class="card-title">準備文件進行合規稽核</div>
+      <div class="card-desc">整理和標準化散亂文件。</div>
+      <div class="card-insight tool-insight">需要 Cowork 存取桌面檔案。分類操作型。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="法律">
+      <div class="card-top"><span class="card-number">#47</span><span class="card-category">法律</span></div>
+      <div class="card-title">用 Projects 整理法律工作流程</div>
+      <div class="card-desc">用 Projects 組織案件資料和對話紀錄。</div>
+      <div class="card-insight tool-insight">Projects 的標準用法。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="法律">
+      <div class="card-top"><span class="card-number">#48</span><span class="card-category">法律</span></div>
+      <div class="card-title">追蹤發現時間軸並分析模式</div>
+      <div class="card-desc">建立案件時間軸，識別因果關係。</div>
+      <div class="card-insight tool-insight">HTML timeline 組件生成。視覺化操作。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="財務金融">
+      <div class="card-top"><span class="card-number">#49</span><span class="card-category">財務金融</span></div>
+      <div class="card-title">理解並延伸繼承的試算表</div>
+      <div class="card-desc">解析複雜試算表的邏輯和公式。</div>
+      <div class="card-insight tool-insight">上傳試算表，AI 逐步解釋。Analysis tool 標準用法。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="財務金融">
+      <div class="card-top"><span class="card-number">#50</span><span class="card-category">財務金融</span></div>
+      <div class="card-title">跨帳戶對帳</div>
+      <div class="card-desc">比對多個帳戶的交易紀錄。</div>
+      <div class="card-insight tool-insight">上傳資料後比對。操作型任務。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="財務金融">
+      <div class="card-top"><span class="card-number">#52</span><span class="card-category">財務金融</span></div>
+      <div class="card-title">建立財務模型</div>
+      <div class="card-desc">建置 Excel 或其他格式的財務預測模型。</div>
+      <div class="card-insight tool-insight">AI 生成公式和模板。進階但可自學。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="財務金融">
+      <div class="card-top"><span class="card-number">#54</span><span class="card-category">財務金融</span></div>
+      <div class="card-title">整理企業財務</div>
+      <div class="card-desc">組織日常財務資料和帳戶記錄。</div>
+      <div class="card-insight tool-insight">需要 Cowork 存取。分類和驗證操作。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="研究">
+      <div class="card-top"><span class="card-number">#57</span><span class="card-category">研究</span></div>
+      <div class="card-title">把通勤時間變成研究時間</div>
+      <div class="card-desc">利用碎片時間快速研究和摘要。</div>
+      <div class="card-insight tool-insight">快速對話。手機上直接用。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="研究">
+      <div class="card-top"><span class="card-number">#58</span><span class="card-category">研究</span></div>
+      <div class="card-title">從原始資料驗證統計數據</div>
+      <div class="card-desc">用實際資料檢驗統計聲稱。</div>
+      <div class="card-insight tool-insight">Analysis tool 重算驗證。操作型。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="業務銷售">
+      <div class="card-top"><span class="card-number">#62</span><span class="card-category">業務銷售</span></div>
+      <div class="card-title">建立銷售報告</div>
+      <div class="card-desc">彙整銷售數據和預測。</div>
+      <div class="card-insight tool-insight">提供資料後 AI 格式化。MCP 串 CRM 更快。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="Chrome">
+      <div class="card-top"><span class="card-number">#64</span><span class="card-category">Chrome</span></div>
+      <div class="card-title">將銷售通話記錄到 CRM</div>
+      <div class="card-desc">自動草擬活動記錄並建檔。</div>
+      <div class="card-insight tool-insight">需要 Chrome 擴充 + CRM 權限。操作自動化。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="Chrome">
+      <div class="card-top"><span class="card-number">#65</span><span class="card-category">Chrome</span></div>
+      <div class="card-title">跨網站比較產品</div>
+      <div class="card-desc">自動提取多個網站的產品資訊做比較。</div>
+      <div class="card-insight tool-insight">Chrome 瀏覽 + Artifacts 表格。操作型。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="Chrome">
+      <div class="card-top"><span class="card-number">#66</span><span class="card-category">Chrome</span></div>
+      <div class="card-title">從日曆準備並規劃行程</div>
+      <div class="card-desc">讀取 Google Calendar 準備會議。</div>
+      <div class="card-insight tool-insight">Chrome 擴充讀取日曆。操作型。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="Chrome">
+      <div class="card-top"><span class="card-number">#67</span><span class="card-category">Chrome</span></div>
+      <div class="card-title">清理行銷郵件</div>
+      <div class="card-desc">批量識別和清理促銷郵件。</div>
+      <div class="card-insight tool-insight">Chrome + Computer Use 操作 Gmail。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="Chrome">
+      <div class="card-top"><span class="card-number">#68</span><span class="card-category">Chrome</span></div>
+      <div class="card-title">從分析儀表板提取指標</div>
+      <div class="card-desc">從 Google Analytics 等平台提取關鍵指標。</div>
+      <div class="card-insight tool-insight">Chrome 擴充直接讀取。操作型。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="Chrome">
+      <div class="card-top"><span class="card-number">#69</span><span class="card-category">Chrome</span></div>
+      <div class="card-title">整理 Google Drive 中的檔案</div>
+      <div class="card-desc">根據檔案內容自動整理 Drive。</div>
+      <div class="card-insight tool-insight">Chrome + Computer Use。操作型。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="生命科學">
+      <div class="card-top"><span class="card-number">#70</span><span class="card-category">生命科學</span></div>
+      <div class="card-title">臨床前研究分析</div>
+      <div class="card-desc">分析臨床前實驗資料。</div>
+      <div class="card-insight tool-insight">上傳資料後 AI 分析。Analysis tool。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="生命科學">
+      <div class="card-top"><span class="card-number">#71</span><span class="card-category">生命科學</span></div>
+      <div class="card-title">基因組資料分析</div>
+      <div class="card-desc">處理和解釋基因組學資料。</div>
+      <div class="card-insight tool-insight">上傳資料後 AI 分析。專業領域的標準應用。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="行銷">
+      <div class="card-top"><span class="card-number">#73</span><span class="card-category">行銷</span></div>
+      <div class="card-title">分析行銷活動績效</div>
+      <div class="card-desc">評估行銷活動的轉換率和 ROI。</div>
+      <div class="card-insight tool-insight">提供資料後 AI 分析。MCP 串 Analytics 更快。</div>
+    </div>
+
+    <div class="case-card tool-card" data-category="人力資源">
+      <div class="card-top"><span class="card-number">#74</span><span class="card-category">人力資源</span></div>
+      <div class="card-title">建立新進人員入職指南</div>
+      <div class="card-desc">製作系統化的入職指南。</div>
+      <div class="card-insight tool-insight">結構化文件生成。一次對話完成。</div>
+    </div>
+
+  </div>
+</div>
+
+</section>
+
+<!-- ─── Bottom Line ─── -->
+<section class="thesis-section" style="margin-top:0;">
+<div class="thesis-inner" style="text-align:center;">
+  <h2 style="margin-bottom:24px;">一句話</h2>
+  <p style="font-size:20px;color:rgba(255,255,255,0.9);line-height:1.7;max-width:600px;margin:0 auto 32px;">
+    75 個案例中——<br>
+    <span style="color:var(--gold);">45 個</span>你自己用工具就能搞定<br>
+    <span style="color:var(--teal);">20 個</span>你需要有人幫你想清楚再做<br>
+    <span style="color:var(--ember-light);">10 個</span>你連問題都問不對
+  </p>
+  <p style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--ember-light);line-height:1.4;">
+    MUSEON 不跟工具競爭廣度。<br>
+    MUSEON 是你的思維品質引擎。
+  </p>
+  <p style="font-size:14px;color:rgba(255,255,255,0.4);margin-top:32px;">
+    解決雙盲：不知道 AI 能做什麼 + 不知道自己需要什麼
+  </p>
+</div>
+</section>
+
+<!-- ─── Footer ─── -->
+<div class="report-footer">
+  <p>MUSEON 思維引擎 vs 工具生態——75 個案例的三層分類報告</p>
+  <p style="margin-top:4px;">基於 <a href="https://www.anthropic.com/explore" target="_blank">Anthropic 官方 75 個 Claude 使用案例</a> 重新分類</p>
+  <p style="margin-top:4px;">Generated by MUSEON DNA27 · 2026-03-20</p>
+</div>
+
+<script>
+// ─── Filter ───
+const filterBtns = document.querySelectorAll('.filter-btn');
+const layerGroups = document.querySelectorAll('.layer-group');
+const searchBox = document.getElementById('searchBox');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active', 'active-judgment', 'active-tool'));
+    const filter = btn.dataset.filter;
+    if (filter === 'judgment') btn.classList.add('active-judgment');
+    else if (filter === 'tool') btn.classList.add('active-tool');
+    else btn.classList.add('active');
+
+    layerGroups.forEach(group => {
+      if (filter === 'all' || group.dataset.layer === filter) {
+        group.style.display = '';
+      } else {
+        group.style.display = 'none';
+      }
+    });
+    // Re-apply search
+    applySearch();
+  });
+});
+
+// ─── Search ───
+function applySearch() {
+  const query = searchBox.value.toLowerCase().trim();
+  document.querySelectorAll('.case-card').forEach(card => {
+    if (!query) { card.style.display = ''; return; }
+    const text = card.textContent.toLowerCase();
+    card.style.display = text.includes(query) ? '' : 'none';
+  });
+}
+searchBox.addEventListener('input', applySearch);
+</script>
+
+</body>
+</html>
