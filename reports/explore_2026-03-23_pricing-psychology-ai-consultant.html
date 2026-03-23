@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>探索報告 · AI 顧問的定價心理學 · 2026-03-23 | MUSEON</title>
+<meta name="description" content="當客戶說「太貴了」，他其實在說什麼？DSE 三層深挖定價心理學的第一性原理，給 AI 顧問的實戰框架。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ember: #C4502A;
+  --ember-light: #E0714D;
+  --ember-dark: #9A3A1C;
+  --ember-glow: rgba(196,80,42,0.12);
+  --teal: #2A7A6E;
+  --teal-light: #3A9C8F;
+  --gold: #B8923A;
+  --gold-light: #D4A844;
+  --ink: #12121A;
+  --charcoal: #2A2A32;
+  --slate: #5A5A6E;
+  --stone: #6B6B78;
+  --silver: #9898A8;
+  --mist: #9898A8;
+  --border: #E2E0DA;
+  --parchment: #F7F5F0;
+  --cream: #FAF8F5;
+  --snow: #FDFCFA;
+  --white: #FFFFFF;
+  --deep-ink: #0E0E16;
+  --surface: #16161F;
+  --raised: #1E1E2A;
+  --border-dark: #2A2A38;
+  --success: #2D8A6E;
+  --warning: #C9943A;
+  --error: #C4402A;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Outfit', 'Noto Sans TC', -apple-system, sans-serif;
+  background: var(--parchment);
+  color: var(--charcoal);
+  line-height: 1.75;
+  font-size: 16px;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== NAV ===== */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(14,14,22,0.95);
+  backdrop-filter: blur(16px);
+  padding: 14px 0;
+  border-bottom: 2px solid var(--ember);
+}
+.nav-inner {
+  max-width: 860px; margin: 0 auto; padding: 0 28px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; font-weight: 600; color: var(--ember-light);
+  letter-spacing: 2px; text-decoration: none;
+}
+.nav-meta {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px; color: var(--silver);
+  letter-spacing: 0.08em;
+}
+.nav-type {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 4px 12px; border-radius: 20px;
+  background: rgba(196,80,42,0.2); color: var(--ember-light);
+  border: 1px solid rgba(196,80,42,0.35);
+}
+
+/* ===== HERO ===== */
+.hero {
+  background: linear-gradient(135deg, #12121A 0%, #1E1808 50%, #12121A 100%);
+  padding: 140px 28px 90px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 25% 60%, rgba(196,80,42,0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 75% 25%, rgba(42,122,110,0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 90%, rgba(184,146,58,0.08) 0%, transparent 40%);
+}
+.hero-content { position: relative; z-index: 1; max-width: 740px; margin: 0 auto; }
+.hero-tags {
+  display: flex; justify-content: center; gap: 10px;
+  margin-bottom: 28px; flex-wrap: wrap;
+}
+.tag {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 4px 14px; border-radius: 20px;
+}
+.tag-ember {
+  background: rgba(196,80,42,0.2); color: var(--ember-light);
+  border: 1px solid rgba(196,80,42,0.35);
+}
+.tag-gold {
+  background: rgba(184,146,58,0.2); color: var(--gold-light);
+  border: 1px solid rgba(184,146,58,0.35);
+}
+.tag-teal {
+  background: rgba(42,122,110,0.2); color: var(--teal-light);
+  border: 1px solid rgba(42,122,110,0.35);
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(30px, 5vw, 48px);
+  font-weight: 700; color: var(--cream);
+  line-height: 1.2; margin-bottom: 8px;
+}
+.hero h1 em { color: var(--ember-light); font-style: italic; }
+.hero-sub-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(16px, 2.5vw, 22px);
+  color: var(--gold-light);
+  font-style: italic;
+  margin-bottom: 24px;
+  opacity: 0.85;
+}
+.hero-lead {
+  font-size: 16px; color: rgba(250,248,245,0.7);
+  line-height: 1.8; max-width: 580px; margin: 0 auto 32px;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.hero-meta {
+  display: flex; justify-content: center; gap: 28px; flex-wrap: wrap;
+}
+.hero-meta-item {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px; color: var(--silver);
+  letter-spacing: 0.06em;
+}
+.hero-meta-item span { color: var(--ember-light); margin-right: 6px; }
+
+/* ===== MAIN ===== */
+.main { max-width: 860px; margin: 0 auto; padding: 0 28px 80px; }
+
+/* ===== VERDICT ===== */
+.verdict {
+  background: var(--white);
+  border-left: 4px solid var(--ember);
+  border-radius: 0 16px 16px 0;
+  padding: 40px 44px;
+  margin: -44px 0 56px;
+  position: relative; z-index: 2;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+  animation: fadeUp 0.5s ease-out both;
+}
+.verdict-label {
+  font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--ember); font-weight: 600; margin-bottom: 14px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+.verdict h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px; font-weight: 700; color: var(--ink);
+  line-height: 1.4; margin-bottom: 16px;
+}
+.verdict p {
+  color: var(--slate); font-size: 15px; line-height: 1.85;
+  margin-bottom: 12px;
+}
+.verdict p:last-child { margin-bottom: 0; }
+.highlight {
+  background: linear-gradient(transparent 58%, rgba(196,80,42,0.15) 58%);
+  font-weight: 600; color: var(--ink);
+}
+
+/* ===== SECTION ===== */
+.section { margin-bottom: 72px; animation: fadeUp 0.5s ease-out both; }
+.section:nth-child(2) { animation-delay: 0.05s; }
+.section:nth-child(3) { animation-delay: 0.10s; }
+.section:nth-child(4) { animation-delay: 0.15s; }
+.section:nth-child(5) { animation-delay: 0.20s; }
+
+.section-eyebrow {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 20px;
+}
+.eyebrow-line {
+  flex: 1; height: 1px; background: var(--border);
+}
+.eyebrow-text {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--ember); white-space: nowrap;
+}
+.section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px; font-weight: 700; color: var(--ink);
+  line-height: 1.3; margin-bottom: 20px;
+}
+.section h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 600; color: var(--ink);
+  margin: 36px 0 14px;
+}
+.section p {
+  font-size: 15px; line-height: 1.9; color: var(--charcoal);
+  margin-bottom: 18px;
+}
+
+/* ===== PULL QUOTE ===== */
+.pull-quote {
+  border-left: 3px solid var(--gold);
+  padding: 24px 32px;
+  margin: 32px 0;
+  background: rgba(184,146,58,0.05);
+  border-radius: 0 12px 12px 0;
+}
+.pull-quote p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 21px; font-weight: 600; color: var(--ink);
+  line-height: 1.55; font-style: italic;
+  margin-bottom: 0;
+}
+
+/* ===== DSE LAYERS ===== */
+.dse-stack {
+  display: flex; flex-direction: column; gap: 0;
+  margin: 32px 0;
+  border-radius: 16px; overflow: hidden;
+  border: 1px solid var(--border);
+}
+.dse-layer {
+  padding: 28px 32px;
+  border-bottom: 1px solid var(--border);
+  display: flex; gap: 20px; align-items: flex-start;
+}
+.dse-layer:last-child { border-bottom: none; }
+.dse-layer.l1 { background: var(--snow); }
+.dse-layer.l2 { background: var(--cream); }
+.dse-layer.l3 { background: linear-gradient(135deg, #FFF8F5, var(--cream)); }
+.dse-number {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 1px; text-transform: uppercase;
+  min-width: 80px; padding-top: 2px;
+}
+.dse-number.l1-color { color: var(--slate); }
+.dse-number.l2-color { color: var(--teal); }
+.dse-number.l3-color { color: var(--ember); }
+.dse-content { flex: 1; }
+.dse-content strong {
+  display: block;
+  font-size: 14px; font-weight: 600; color: var(--ink);
+  margin-bottom: 8px;
+}
+.dse-content p {
+  font-size: 14px; color: var(--slate); line-height: 1.75;
+  margin-bottom: 0;
+}
+
+/* ===== THREE MEANINGS CARDS ===== */
+.meaning-cards {
+  display: grid; grid-template-columns: 1fr;
+  gap: 16px; margin: 28px 0;
+}
+.meaning-card {
+  background: var(--white);
+  border-radius: 14px; padding: 28px 32px;
+  border: 1px solid var(--border);
+  position: relative; overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.meaning-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+.meaning-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+}
+.meaning-card.type-a::before { background: var(--ember); }
+.meaning-card.type-b::before { background: var(--teal); }
+.meaning-card.type-c::before { background: var(--gold); }
+.meaning-card-type {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.meaning-card.type-a .meaning-card-type { color: var(--ember); }
+.meaning-card.type-b .meaning-card-type { color: var(--teal); }
+.meaning-card.type-c .meaning-card-type { color: var(--gold); }
+.meaning-card h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; font-weight: 700; color: var(--ink);
+  margin-bottom: 10px; line-height: 1.3;
+}
+.meaning-card p {
+  font-size: 14px; color: var(--slate); line-height: 1.75;
+  margin-bottom: 10px;
+}
+.meaning-card .signal {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px; color: var(--stone);
+  background: var(--parchment);
+  padding: 8px 14px; border-radius: 6px;
+  display: inline-block;
+}
+
+/* ===== FRAMEWORK GRID ===== */
+.framework-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  margin: 28px 0;
+}
+@media (max-width: 600px) {
+  .framework-grid { grid-template-columns: 1fr; }
+}
+.framework-item {
+  padding: 24px 28px;
+  background: var(--white);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  transition: transform 0.2s;
+}
+.framework-item:hover { transform: translateY(-2px); }
+.framework-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px; font-weight: 600; letter-spacing: 2px;
+  text-transform: uppercase; margin-bottom: 10px;
+}
+.framework-label.ember { color: var(--ember); }
+.framework-label.teal { color: var(--teal); }
+.framework-label.gold { color: var(--gold); }
+.framework-label.slate { color: var(--stone); }
+.framework-item p { font-size: 14px; color: var(--charcoal); line-height: 1.75; margin-bottom: 0; }
+
+/* ===== PERSPECTIVE GRID ===== */
+.perspective-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px; margin: 28px 0;
+}
+.perspective {
+  background: var(--white);
+  border-radius: 14px; padding: 28px;
+  border-top: 3px solid var(--ember);
+  transition: transform 0.2s;
+}
+.perspective:hover { transform: translateY(-2px); }
+.perspective.teal { border-top-color: var(--teal); }
+.perspective.gold { border-top-color: var(--gold); }
+.perspective h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; font-weight: 600; color: var(--ink);
+  margin-bottom: 10px;
+}
+.perspective p { font-size: 14px; color: var(--stone); line-height: 1.75; margin-bottom: 0; }
+
+/* ===== PLAYBOOK ===== */
+.playbook {
+  background: var(--white);
+  border-radius: 16px; padding: 36px 40px;
+  margin: 28px 0;
+  border: 1px solid var(--border);
+}
+.playbook-title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--ember); font-weight: 600; margin-bottom: 20px;
+}
+.playbook-step {
+  display: flex; gap: 20px; margin-bottom: 24px; align-items: flex-start;
+}
+.playbook-step:last-child { margin-bottom: 0; }
+.step-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px; font-weight: 700; color: var(--ember);
+  line-height: 1; min-width: 32px;
+}
+.step-content h5 {
+  font-size: 15px; font-weight: 600; color: var(--ink);
+  margin-bottom: 6px;
+}
+.step-content p { font-size: 14px; color: var(--slate); line-height: 1.75; margin-bottom: 0; }
+.step-content .example {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 13px; color: var(--stone);
+  background: var(--parchment);
+  padding: 10px 16px; border-radius: 8px;
+  margin-top: 10px; border-left: 2px solid var(--gold);
+  font-style: italic;
+}
+
+/* ===== TAKEAWAY ===== */
+.takeaway-box {
+  background: linear-gradient(135deg, var(--deep-ink) 0%, #1E1208 100%);
+  border-radius: 18px; padding: 40px 44px;
+  margin: 32px 0; color: var(--cream);
+}
+.takeaway-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--ember-light); font-weight: 600; margin-bottom: 20px;
+}
+.takeaway-box ol { padding-left: 20px; }
+.takeaway-box ol li {
+  margin-bottom: 16px; color: var(--silver);
+  font-size: 15px; line-height: 1.8;
+}
+.takeaway-box ol li strong { color: var(--gold-light); }
+.takeaway-box ol li:last-child { margin-bottom: 0; }
+
+/* ===== OPEN QUESTION ===== */
+.open-question {
+  background: var(--cream);
+  border-radius: 16px; padding: 36px 40px;
+  margin: 32px 0;
+  border: 1px solid var(--border);
+  text-align: center;
+}
+.open-question-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--slate); margin-bottom: 16px;
+}
+.open-question h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px; font-weight: 600; color: var(--ink);
+  line-height: 1.45; font-style: italic;
+  margin-bottom: 0;
+}
+
+/* ===== DIVIDER ===== */
+.section-divider {
+  border: none; border-top: 1px solid var(--border);
+  margin: 60px 0;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  padding: 32px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px; font-weight: 600; color: var(--ember);
+  letter-spacing: 2px; margin-bottom: 8px;
+}
+.footer-meta {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px; color: var(--silver);
+  letter-spacing: 0.06em;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <span class="nav-brand">MUSEON</span>
+    <span class="nav-meta">2026.03.23 &nbsp;·&nbsp; 探索報告</span>
+    <span class="nav-type">Explore</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-content">
+    <div class="hero-tags">
+      <span class="tag tag-ember">定價心理學</span>
+      <span class="tag tag-gold">AI 顧問實戰</span>
+      <span class="tag tag-teal">DSE 深挖</span>
+    </div>
+    <h1>當客戶說「<em>太貴了</em>」<br>他其實在說什麼？</h1>
+    <p class="hero-sub-title">AI 顧問的定價心理學——第一性原理解構</p>
+    <p class="hero-lead">
+      每一個「太貴」背後，都藏著三種不同的真實訊息。
+      顧問聽不懂這三種差異，就只能打折——而打折，往往是把信任問題換成數字問題。
+    </p>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><span>主題</span>AI 顧問銷售</div>
+      <div class="hero-meta-item"><span>方法</span>DSE × 3 迭代</div>
+      <div class="hero-meta-item"><span>深度</span>實戰操作級</div>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- VERDICT -->
+  <div class="verdict">
+    <div class="verdict-label">DSE 核心洞見</div>
+    <h2>「太貴」不是價格問題，是信任缺口的代理信號</h2>
+    <p>
+      當客戶說「太貴了」，他的大腦其實在做一道減法：
+      <span class="highlight">「我看不清楚這件事能帶給我多少改變」</span>——
+      在看不清楚改變的情況下，他唯一能對比的錨點就是數字本身。
+    </p>
+    <p>
+      所以「太貴」從來不是議價的開始，而是一個診斷信號：
+      你的說明，還沒讓他看見自己的損失在哪裡。
+    </p>
+  </div>
+
+  <!-- SECTION 1: 場景導入 -->
+  <section class="section">
+    <div class="section-eyebrow">
+      <div class="eyebrow-line"></div>
+      <div class="eyebrow-text">場景導入</div>
+      <div class="eyebrow-line"></div>
+    </div>
+    <h2>那個讓所有 AI 顧問沉默的句子</h2>
+    <p>
+      會議室裡，氣氛還不錯。你剛結束了四十分鐘的系統演示，
+      對方老闆頻頻點頭，助理在側邊認真抄著筆記。
+      你感覺到節奏在你這裡——直到那句話出現：
+    </p>
+    <div class="pull-quote">
+      <p>「好是好……但這個費用，有點超出我們的預算範圍。」</p>
+    </div>
+    <p>
+      這個場景在台灣的中小企業銷售裡每天都在發生。
+      大部分 AI 顧問在這個瞬間的反應，是開始解釋自己的工作有多複雜、技術有多高端，
+      或者直接問「那你們的預算大概在哪個範圍？」
+    </p>
+    <p>
+      這兩種反應都做錯了一件事：它們都把「太貴」當成一個價格問題在處理，
+      而不是把它當成一個<strong>診斷問題</strong>。
+    </p>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- SECTION 2: DSE 三層深挖 -->
+  <section class="section">
+    <div class="section-eyebrow">
+      <div class="eyebrow-line"></div>
+      <div class="eyebrow-text">DSE · 三層分析</div>
+      <div class="eyebrow-line"></div>
+    </div>
+    <h2>從表面問題到第一性原理</h2>
+    <p>用 DSE 的三層迭代，把「太貴」這個現象一層一層剝開。</p>
+
+    <div class="dse-stack">
+      <div class="dse-layer l1">
+        <div class="dse-number l1-color">Layer 1<br>表面問題</div>
+        <div class="dse-content">
+          <strong>客戶覺得報價超出預算，顧問不知道如何應對</strong>
+          <p>
+            表面上是一個價格協商問題。顧問的第一反應是「要不要打折」或「要怎麼解釋價格的合理性」。
+            但停在這層，解法只有兩個出口：讓價，或者失去這個客戶。
+          </p>
+        </div>
+      </div>
+      <div class="dse-layer l2">
+        <div class="dse-number l2-color">Layer 2<br>背後真問題</div>
+        <div class="dse-content">
+          <strong>客戶無法量化 ROI，所以用價格作為唯一的決策錨點</strong>
+          <p>
+            「太貴」不是真正的反對意見，而是一個決策停滯信號。
+            客戶大腦在問的是：「如果我付這個錢，我確定能拿回什麼？」
+            當這個問題沒有清晰答案，所有的數字都會顯得「太高」。
+            這是感知問題，不是預算問題。
+          </p>
+        </div>
+      </div>
+      <div class="dse-layer l3">
+        <div class="dse-number l3-color">Layer 3<br>第一性原理</div>
+        <div class="dse-content">
+          <strong>定價的本質是「讓客戶相信這個改變值得承擔風險」</strong>
+          <p>
+            所有的價格異議，都是信任缺口的代理信號。
+            當客戶看不見自己的現狀損失，他就無法比較「繼續痛」vs「付錢改變」哪個成本更高。
+            顧問的工作不是說服客戶「這個服務值這個價」，
+            而是幫客戶看清楚「不改變，代價是什麼」。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- SECTION 3: 三種太貴 -->
+  <section class="section">
+    <div class="section-eyebrow">
+      <div class="eyebrow-line"></div>
+      <div class="eyebrow-text">診斷解碼</div>
+      <div class="eyebrow-line"></div>
+    </div>
+    <h2>「太貴了」的三種真實含義</h2>
+    <p>
+      在實戰裡，「太貴」包含三種完全不同的心理狀態，需要三種完全不同的應對方式。
+      搞錯類型，回應就是噪音。
+    </p>
+
+    <div class="meaning-cards">
+      <div class="meaning-card type-a">
+        <div class="meaning-card-type">類型 A</div>
+        <h4>「我沒看到價值」</h4>
+        <p>
+          這是最常見的類型。客戶不是真的沒錢，他是沒辦法在腦海裡形成「付這個錢之後，我的日子會長什麼樣子」的清晰畫面。
+          所以他用「太貴」作為停頓，等待你給他那個畫面。
+        </p>
+        <p><strong>真正的問題：</strong>ROI 沒有具體化。他在等一個「你幫我解決的是什麼痛」的清晰陳述。</p>
+        <div class="signal">辨識信號：「預算不夠」後面跟著「你們能做什麼樣的調整？」</div>
+      </div>
+
+      <div class="meaning-card type-b">
+        <div class="meaning-card-type">類型 B</div>
+        <h4>「我沒有決策權」</h4>
+        <p>
+          你面前這個人，其實不是拍板的人。他用「太貴」作為緩衝，因為他需要去說服上面的人，
+          但他自己也不確定該怎麼說——所以他把問題丟給你，看你能不能給他一個「好說的理由」。
+        </p>
+        <p><strong>真正的問題：</strong>他需要的不是降價，而是一份讓他能拿去說服老闆的材料。</p>
+        <div class="signal">辨識信號：「我需要跟上面確認一下」「這個要公司討論過才能決定」</div>
+      </div>
+
+      <div class="meaning-card type-c">
+        <div class="meaning-card-type">類型 C</div>
+        <h4>「我在測試你的底線」</h4>
+        <p>
+          這類客戶其實打算買，只是在試探顧問有沒有談判空間。他知道這類服務有議價空間，
+          習慣性地說「太貴」是他的談判第一招，不代表他真的不認可價值。
+        </p>
+        <p><strong>真正的問題：</strong>他需要一個「有面子的讓步」或「有理由的加值」，而不是單純砍價。</p>
+        <div class="signal">辨識信號：說完「太貴」後態度依然友好、繼續詢問細節</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- SECTION 4: 轉折框架 -->
+  <section class="section">
+    <div class="section-eyebrow">
+      <div class="eyebrow-line"></div>
+      <div class="eyebrow-text">框架重構</div>
+      <div class="eyebrow-line"></div>
+    </div>
+    <h2>從「我的價格」到「你的損失」</h2>
+    <p>
+      傳統銷售話術的邏輯是「強調產品的價值」——把服務說得多好、技術多先進。
+      但這個框架有一個根本缺陷：它讓客戶在心裡做「服務好壞 vs 價格高低」的比對，
+      而這個比對對顧問永遠不利，因為「值不值」是主觀的。
+    </p>
+    <p>
+      更有效的框架是：<span class="highlight">把對話從「服務好在哪裡」轉移到「不改變的成本是多少」</span>。
+    </p>
+
+    <div class="pull-quote">
+      <p>
+        人的大腦對損失的厭惡感，是對同等收益的 2.5 倍。
+        讓客戶計算「繼續痛要花多少錢」，比讓他計算「你有多值」更能驅動決策。
+      </p>
+    </div>
+
+    <div class="framework-grid">
+      <div class="framework-item">
+        <div class="framework-label ember">原始框架（無效）</div>
+        <p>
+          <strong>「我們的系統可以幫你節省 30% 時間。」</strong><br>
+          客戶聽到的是一個抽象數字，大腦無法產生緊迫感。
+          「30%」沒有重量。
+        </p>
+      </div>
+      <div class="framework-item">
+        <div class="framework-label teal">重構框架（有效）</div>
+        <p>
+          <strong>「你現在每個月在這個流程上花幾個人工？如果一個人工 5 萬，三個人，就是 15 萬。你現在的成本是 180 萬/年。」</strong><br>
+          客戶大腦在計算的，是現在正在流失的東西。
+        </p>
+      </div>
+      <div class="framework-item">
+        <div class="framework-label gold">原始框架（無效）</div>
+        <p>
+          <strong>「我們服務過很多同類型的客戶，效果都很好。」</strong><br>
+          「別人」的成功對這個客戶沒有感知重量。
+          他在意的是他自己。
+        </p>
+      </div>
+      <div class="framework-item">
+        <div class="framework-label slate">重構框架（有效）</div>
+        <p>
+          <strong>「你們行業的競爭對手，如果在未來 6 個月上了 AI，你的業務員開始流失客戶，那時候的補救成本是多少？」</strong><br>
+          把未來的損失拉回現在，讓「等待」的成本變得可見。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- SECTION 5: 多元角度 -->
+  <section class="section">
+    <div class="section-eyebrow">
+      <div class="eyebrow-line"></div>
+      <div class="eyebrow-text">多元視角</div>
+      <div class="eyebrow-line"></div>
+    </div>
+    <h2>同一個「太貴」，三個人眼中的世界</h2>
+
+    <div class="perspective-grid">
+      <div class="perspective">
+        <h4>顧問的視角</h4>
+        <p>
+          「我花了幾個月研究、幾十個小時準備，對方說一句太貴就想打發——他根本不了解我的工作量。」
+        </p>
+        <p>
+          這個情緒是真實的，但它讓顧問把能量放在「解釋自己」，而不是「理解客戶」。
+          工作量從來不是客戶的問題——他的問題永遠是「我付了之後，我的問題有沒有解決」。
+        </p>
+      </div>
+
+      <div class="perspective teal">
+        <h4>客戶的視角</h4>
+        <p>
+          「AI 顧問我也不是第一次看了，上次找的那家，說是能幫我自動化，最後系統裝好但員工根本不會用，白花了。」
+        </p>
+        <p>
+          台灣中小企業老闆的「太貴」，很多時候背後藏著一次沒說出口的失敗經驗。
+          他不是在砍你的價，他在問「你能保證我這次不會白花？」
+        </p>
+      </div>
+
+      <div class="perspective gold">
+        <h4>市場的視角</h4>
+        <p>
+          2024-2026 年，AI 顧問服務的市場正在發生一個分化：
+          「便宜工具顧問」（幫你開 ChatGPT 帳號）vs「決策品質顧問」（幫你改變思維模型）。
+        </p>
+        <p>
+          前者的競爭是價格戰，後者的競爭是信任建立。
+          說「太貴」的客戶，通常是你還沒讓他理解你屬於哪個類別。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- SECTION 6: 實戰 Playbook -->
+  <section class="section">
+    <div class="section-eyebrow">
+      <div class="eyebrow-line"></div>
+      <div class="eyebrow-text">實戰 Playbook</div>
+      <div class="eyebrow-line"></div>
+    </div>
+    <h2>聽到「太貴」，接下來的三步</h2>
+
+    <div class="playbook">
+      <div class="playbook-title">操作框架 · 三步定錨</div>
+
+      <div class="playbook-step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h5>先診斷，不要先辯護</h5>
+          <p>
+            聽到「太貴」，第一個動作不是解釋，而是問一個問題確認類型。
+            不同類型需要完全不同的應對，混淆類型只會讓客戶覺得你沒有在聽他說話。
+          </p>
+          <div class="example">
+            「我理解。在我們繼續討論之前，我想先確認一下——你說的預算問題，是指這個金額超出了你目前的現金安排，還是你對這個投資回報還不夠確定？」
+          </div>
+        </div>
+      </div>
+
+      <div class="playbook-step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h5>把現狀的成本說出來</h5>
+          <p>
+            根據診斷結果，如果是「類型 A — 看不到價值」，不要講你的服務有多好。
+            換一個方向：算出他現在每個月因為這個問題在損失什麼。
+            損失必須有具體數字，才能讓大腦感受到重量。
+          </p>
+          <div class="example">
+            「我問你一個問題：你們現在這個流程，一個月大概要花幾個人、幾個小時在處理？——好，如果一個員工的月薪 4 萬，加上管理成本，這個流程一年在消耗你大約多少資源？」
+          </div>
+        </div>
+      </div>
+
+      <div class="playbook-step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h5>把決策的時間成本擺上桌</h5>
+          <p>
+            等待也是有成本的。如果客戶說「讓我再想想」，幫他把「等待決策」的成本算出來。
+            不是用來施壓，而是讓他看到「拖延」並非免費選項。
+          </p>
+          <div class="example">
+            「當然，這個決策你一定要想清楚再做。我只是想讓你知道，如果你的競爭對手在接下來三個月上線 AI 流程，你的回補速度大概是多長時間？這個時間差，對你的業務影響大嗎？」
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- SECTION 7: 核心洞見 -->
+  <div class="takeaway-box">
+    <div class="takeaway-label">探索萃取 · 四個核心命題</div>
+    <ol>
+      <li>
+        <strong>「太貴」永遠是一個診斷信號，不是議價邀請。</strong>
+        第一步是辨別類型（價值感知 / 決策授權 / 測試底線），而不是開始解釋或打折。
+      </li>
+      <li>
+        <strong>人對損失的敏感度是對收益的 2.5 倍。</strong>
+        不要說「我的服務能給你帶來什麼」，要說「你現在每個月因為這個問題在損失多少」。讓「不改變」變得昂貴。
+      </li>
+      <li>
+        <strong>台灣中小企業老闆的「太貴」，有一半藏著過去的失敗記憶。</strong>
+        他們需要的不是更低的價格，而是一個「這次不會白花」的具體保證或里程碑設計。
+      </li>
+      <li>
+        <strong>AI 顧問最貴的不是月費，是進入錯誤的位置。</strong>
+        如果你被放在「工具顧問」的框架裡，任何價格都顯得貴。如果你在「決策夥伴」的位置，價格討論的維度就完全不同了。
+      </li>
+    </ol>
+  </div>
+
+  <!-- OPEN QUESTION -->
+  <div class="open-question">
+    <div class="open-question-label">開放洞見</div>
+    <h3>
+      如果你的客戶說「太貴」，
+      你最後一次有把他現在的損失算給他看嗎——
+      還是你只是說了一遍你的服務有多好？
+    </h3>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="main">
+    <div class="footer-brand">MUSEON</div>
+    <div class="footer-meta">
+      探索報告 · 2026.03.23 &nbsp;|&nbsp;
+      DSE × Storytelling × Aesthetic &nbsp;|&nbsp;
+      主題：AI 顧問定價心理學
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
