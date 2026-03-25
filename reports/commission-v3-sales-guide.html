@@ -295,12 +295,16 @@
 <section>
   <h2>產品定價</h2>
   <table>
-    <thead><tr><th>項目</th><th>金額</th><th>說明</th></tr></thead>
+    <thead><tr><th>項目</th><th>基準價格</th><th>說明</th></tr></thead>
     <tbody>
-      <tr><td>設定費</td><td style="font-weight:600;">NT$ 24,000</td><td>一次性，新客簽約時收</td></tr>
-      <tr><td>月費</td><td style="font-weight:600;">NT$ 6,000/月</td><td>每月持續收取</td></tr>
+      <tr><td>設定費</td><td style="font-weight:600;">NT$ 24,000</td><td>一次性，新客簽約時收（市場調整時會變更）</td></tr>
+      <tr><td>月費</td><td style="font-weight:600;">NT$ 6,000/月</td><td>每月持續收取（市場調整時會變更）</td></tr>
     </tbody>
   </table>
+  <div class="card highlight" style="margin-top:20px;">
+    <strong style="color:var(--ember);">百分比制：未來無需重新談獎金</strong>
+    <p style="color:var(--slate); font-size:14px; margin-top:4px;">無論售價如何調整，你的獎金永遠以百分比計算。價格上調 → 獎金自動增加。價格下調 → 獎金自動減少。相對性原則始終保持，無需重新簽約或談判。</p>
+  </div>
 </section>
 
 <!-- 四個等級 -->
@@ -380,6 +384,7 @@
 <!-- 收入模擬 -->
 <section>
   <h2>收入模擬 — 你一年能賺多少？</h2>
+  <div class="warning-box"><strong>以下金額以當前基準售價（設定費 $24,000、月費 $6,000）計算。</strong> 若售價調整，所有金額按百分比等比例變動。</div>
 
   <h3>穩定型：每月簽 4 案，客戶零流失</h3>
   <div class="income-chart">
@@ -455,10 +460,10 @@
     <thead><tr><th>角色</th><th>獎勵</th></tr></thead>
     <tbody>
       <tr><td>引薦的客戶</td><td>免 1 個月月租（公司吸收）</td></tr>
-      <tr><td>你（負責業務）</td><td><strong>$3,000 引薦獎金</strong> + 正常新案獎金 + 月費分潤照常</td></tr>
+      <tr><td>你（負責業務）</td><td><strong>引薦獎金（設定費 × 12.5%）</strong> + 正常新案獎金 + 月費分潤照常</td></tr>
     </tbody>
   </table>
-  <p style="font-size:14px; color:var(--slate);">引薦帶來的新客照常算你的案件（+1 分）。引薦獎金 $3,000 是額外的，不影響積分。</p>
+  <p style="font-size:14px; color:var(--slate);">引薦帶來的新客照常算你的案件（+1 分）。引薦獎金（設定費 × 12.5%）是額外的，不影響積分。隨售價自動調整。</p>
 </section>
 
 <!-- 客戶流失 -->
@@ -523,7 +528,7 @@
 
   <details class="faq-item">
     <summary>Q：升級後，之前的客戶分潤也跟著升嗎？</summary>
-    <p>是的。全客戶跟著等級走。以月費 $6,000 為例，你從銀牌（8.33%）升金牌（16.67%），所有客戶的月費分潤從 $500 跳到 $1,000。若月費調整，分潤會自動跟著百分比浮動。</p>
+    <p>是的。全客戶跟著等級走。你從銀牌（月費 × 8.33%）升金牌（月費 × 16.67%），所有客戶的月費分潤自動升級。百分比不變，售價調整時金額自動跟著浮動。</p>
   </details>
 
   <details class="faq-item">
@@ -533,7 +538,7 @@
 
   <details class="faq-item">
     <summary>Q：銅牌也有月租分潤嗎？</summary>
-    <p>是的！月費 × 3.33% / 客戶 / 月。只要你有活躍客戶就有被動收入，不管你是什麼等級。以月費 $6,000 為例，銅牌每位客戶每月 $200。</p>
+    <p>是的！月費 × 3.33% / 客戶 / 月。只要你有活躍客戶就有被動收入，不管你是什麼等級。百分比制確保售價調整時自動跟著變動。</p>
   </details>
 
   <details class="faq-item">
@@ -543,7 +548,7 @@
 
   <details class="faq-item">
     <summary>Q：引薦客戶算不算我的案件？</summary>
-    <p>引薦帶來的新客戶照常計入你的新案積分（+1 分）。額外的引薦獎金（設定費 × 12.5%，基準售價下約 $3,000）是一次性獎勵，不計入積分。</p>
+    <p>引薦帶來的新客戶照常計入你的新案積分（+1 分）。額外的引薦獎金（設定費 × 12.5%）是一次性獎勵，不計入積分。售價調整時引薦獎金自動跟著變。</p>
   </details>
 
   <details class="faq-item">
@@ -556,7 +561,7 @@
 </div>
 
 <div class="footer">
-  MUSEON &copy; 2026 &middot; v3.0 雙軸積分制 &middot; 最後更新 2026-03-24
+  MUSEON &copy; 2026 &middot; v3.1 雙軸積分制（全百分比制） &middot; 最後更新 2026-03-25
 </div>
 
 </body>
