@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>財寶府庫 × 品牌戰略會議紀錄 — 2026.03.27</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Outfit:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ember: #C4502A;
+      --ember-light: #E0714D;
+      --ember-dark: #9A3A1C;
+      --teal: #2A7A6E;
+      --gold: #B8923A;
+      --ink: #12121A;
+      --slate: #5A5A6E;
+      --mist: #9898A8;
+      --border: #E2E0DA;
+      --parchment: #F7F5F0;
+      --snow: #FDFCFA;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--parchment);
+      color: var(--ink);
+      font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    /* ─── Header ─────────────────────────────────────────── */
+    .hero {
+      background: var(--ink);
+      padding: 64px 48px 56px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse at 80% 50%, rgba(196,80,42,0.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(196,80,42,0.15);
+      border: 1px solid rgba(196,80,42,0.35);
+      border-radius: 4px;
+      padding: 4px 12px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ember-light);
+      margin-bottom: 24px;
+    }
+
+    .hero-tag .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--ember-light);
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 46px;
+      font-weight: 600;
+      color: var(--snow);
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--ember-light);
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      color: #9898A8;
+      font-weight: 300;
+      margin-bottom: 40px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 28px;
+    }
+
+    .hero-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .hero-meta-item .label {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #5A5A6E;
+      font-weight: 600;
+    }
+
+    .hero-meta-item .value {
+      font-size: 14px;
+      color: #BBBBC8;
+      font-weight: 400;
+    }
+
+    /* ─── Layout ─────────────────────────────────────────── */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 56px 32px;
+    }
+
+    .section {
+      margin-bottom: 52px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-icon {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+
+    .section-icon.ember { background: rgba(196,80,42,0.1); }
+    .section-icon.teal  { background: rgba(42,122,110,0.1); }
+    .section-icon.gold  { background: rgba(184,146,58,0.1); }
+    .section-icon.ink   { background: rgba(18,18,26,0.07); }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    /* ─── Card ────────────────────────────────────────────── */
+    .card {
+      background: var(--snow);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px 28px;
+      margin-bottom: 16px;
+    }
+
+    .card:last-child { margin-bottom: 0; }
+
+    .card-title {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 15px;
+      color: var(--ink);
+      line-height: 1.8;
+    }
+
+    /* ─── Executive Summary ───────────────────────────────── */
+    .exec-summary {
+      background: var(--snow);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--ember);
+      border-radius: 0 10px 10px 0;
+      padding: 28px 32px;
+      font-size: 16px;
+      line-height: 1.9;
+      color: var(--ink);
+    }
+
+    /* ─── Attendee Tags ───────────────────────────────────── */
+    .attendees {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 0;
+    }
+
+    .attendee-tag {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--snow);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 8px 14px;
+    }
+
+    .attendee-avatar {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .attendee-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .attendee-role {
+      font-size: 11px;
+      color: var(--slate);
+    }
+
+    /* ─── Key Points List ─────────────────────────────────── */
+    .points-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .points-list li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .point-bullet {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      margin-top: 9px;
+      flex-shrink: 0;
+    }
+
+    .point-bullet.ember { background: var(--ember); }
+    .point-bullet.teal  { background: var(--teal); }
+    .point-bullet.gold  { background: var(--gold); }
+
+    .points-list li p {
+      font-size: 15px;
+      color: var(--ink);
+      line-height: 1.8;
+    }
+
+    .points-list li strong {
+      color: var(--ember-dark);
+      font-weight: 600;
+    }
+
+    /* ─── Insight Quote ───────────────────────────────────── */
+    .insight-quote {
+      background: linear-gradient(135deg, rgba(184,146,58,0.06) 0%, rgba(42,122,110,0.04) 100%);
+      border: 1px solid rgba(184,146,58,0.25);
+      border-radius: 10px;
+      padding: 24px 28px;
+      margin-bottom: 16px;
+    }
+
+    .insight-quote blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px;
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .insight-quote .attribution {
+      font-size: 12px;
+      color: var(--gold);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .insight-quote .analysis {
+      margin-top: 12px;
+      font-size: 14px;
+      color: var(--slate);
+      line-height: 1.75;
+      border-top: 1px solid rgba(184,146,58,0.15);
+      padding-top: 12px;
+    }
+
+    /* ─── Decision Grid ───────────────────────────────────── */
+    .decision-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .decision-card {
+      background: var(--snow);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 22px;
+    }
+
+    .decision-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      margin-bottom: 10px;
+    }
+
+    .badge-fast {
+      background: rgba(196,80,42,0.1);
+      color: var(--ember);
+    }
+
+    .badge-slow {
+      background: rgba(42,122,110,0.1);
+      color: var(--teal);
+    }
+
+    .badge-key {
+      background: rgba(184,146,58,0.1);
+      color: var(--gold);
+    }
+
+    .decision-card h4 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    .decision-card p {
+      font-size: 13px;
+      color: var(--slate);
+      line-height: 1.7;
+    }
+
+    /* ─── Action Items ────────────────────────────────────── */
+    .action-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .action-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 16px;
+      background: var(--snow);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 20px;
+    }
+
+    .action-number {
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      background: var(--ember);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .action-text {
+      font-size: 14px;
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    .action-text strong {
+      font-weight: 600;
+    }
+
+    .action-owner {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      padding: 3px 8px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .owner-cai   { background: rgba(196,80,42,0.1); color: var(--ember-dark); }
+    .owner-zeal  { background: rgba(42,122,110,0.1); color: var(--teal); }
+    .owner-sp1   { background: rgba(184,146,58,0.1); color: #8B6E25; }
+    .owner-sp3   { background: rgba(18,18,26,0.07); color: var(--slate); }
+    .owner-all   { background: rgba(18,18,26,0.07); color: var(--slate); }
+
+    /* ─── Pricing Block ───────────────────────────────────── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .pricing-card {
+      background: var(--snow);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px 20px;
+      text-align: center;
+    }
+
+    .pricing-card.featured {
+      border-color: var(--ember);
+      box-shadow: 0 0 0 1px rgba(196,80,42,0.2);
+    }
+
+    .pricing-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .pricing-amount {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--ember);
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+
+    .pricing-unit {
+      font-size: 11px;
+      color: var(--mist);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* ─── Timeline ────────────────────────────────────────── */
+    .timeline {
+      position: relative;
+      padding-left: 24px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 24px;
+    }
+
+    .timeline-item:last-child { margin-bottom: 0; }
+
+    .timeline-dot {
+      position: absolute;
+      left: -24px;
+      top: 6px;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      background: var(--snow);
+    }
+
+    .timeline-dot.active {
+      border-color: var(--ember);
+      background: var(--ember);
+    }
+
+    .timeline-dot.teal-dot {
+      border-color: var(--teal);
+      background: var(--teal);
+    }
+
+    .timeline-dot.gold-dot {
+      border-color: var(--gold);
+      background: var(--gold);
+    }
+
+    .timeline-period {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-bottom: 4px;
+    }
+
+    .timeline-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .timeline-desc {
+      font-size: 13px;
+      color: var(--slate);
+      line-height: 1.7;
+    }
+
+    /* ─── Strategy Matrix ─────────────────────────────────── */
+    .matrix-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .matrix-cell {
+      background: var(--snow);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 22px;
+    }
+
+    .matrix-cell h4 {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .matrix-cell ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .matrix-cell ul li {
+      font-size: 13px;
+      color: var(--slate);
+      line-height: 1.6;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .matrix-cell ul li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--mist);
+    }
+
+    /* ─── Highlight Pills ─────────────────────────────────── */
+    .pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .pill-ember { background: rgba(196,80,42,0.1); color: var(--ember-dark); border: 1px solid rgba(196,80,42,0.2); }
+    .pill-teal  { background: rgba(42,122,110,0.1); color: var(--teal); border: 1px solid rgba(42,122,110,0.2); }
+    .pill-gold  { background: rgba(184,146,58,0.1); color: #8B6E25; border: 1px solid rgba(184,146,58,0.2); }
+
+    /* ─── Philosophical Framework ─────────────────────────── */
+    .framework-chain {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      background: var(--snow);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .chain-node {
+      flex: 1;
+      text-align: center;
+      padding: 18px 12px;
+      border-right: 1px solid var(--border);
+    }
+
+    .chain-node:last-child { border-right: none; }
+
+    .chain-char {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--ember);
+      display: block;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .chain-label {
+      font-size: 11px;
+      color: var(--slate);
+    }
+
+    /* ─── Footer ──────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px;
+      text-align: center;
+    }
+
+    footer .museon-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--mist);
+    }
+
+    footer .museon-badge strong {
+      color: var(--ember);
+      font-weight: 600;
+    }
+
+    /* ─── Responsive ──────────────────────────────────────── */
+    @media (max-width: 680px) {
+      .hero { padding: 40px 24px 36px; }
+      .hero h1 { font-size: 32px; }
+      .container { padding: 36px 20px; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .matrix-2col { grid-template-columns: 1fr; }
+      .decision-grid { grid-template-columns: 1fr; }
+      .action-item { grid-template-columns: auto 1fr; }
+      .action-owner { display: none; }
+      .framework-chain { flex-wrap: wrap; }
+      .chain-node { border-right: none; border-bottom: 1px solid var(--border); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── Hero Header ──────────────────────────────────────── -->
+<header class="hero">
+  <div class="hero-tag">
+    <span class="dot"></span>
+    Meeting Intelligence · MUSEON
+  </div>
+  <h1>財寶府庫 × 品牌戰略<br><em>七個月推進計畫對焦會</em></h1>
+  <p class="hero-sub">從靈性社群到永續商會——品牌定位、銷售複製與國際佈局深度推演</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <span class="label">日期</span>
+      <span class="value">2026 年 3 月 27 日</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="label">主辦</span>
+      <span class="value">蔡董（財寶府庫）</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="label">參與人數</span>
+      <span class="value">7 位</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="label">會議性質</span>
+      <span class="value">七個月計畫情境推演</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="label">Generated by</span>
+      <span class="value">MUSEON meeting-intelligence</span>
+    </div>
+  </div>
+</header>
+
+<!-- ─── Container ────────────────────────────────────────── -->
+<main class="container">
+
+  <!-- 1. 執行摘要 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon ember">🧭</div>
+      <h2 class="section-title">執行摘要</h2>
+    </div>
+    <div class="exec-summary">
+      本次會議是財寶府庫品牌顧問團隊的第三次深度對焦，核心任務是將七個月推進計畫攤開做情境推演，確認里程碑與節奏是否符合蔡董的期待。討論從「跨宗教品牌定位」延伸至「銷售複製機制」、「會員分級經營」、「新加坡合作夥伴」，最終聚焦於一個關鍵共識：<strong>先求「快」建立銷售一致性，再求「穩」完成白皮書與國際佈局。</strong>周顧問提出《大學》德→人→土→財的循環框架，完整詮釋了財寶府庫「基金管理平台」的底層哲學。
+    </div>
+  </section>
+
+  <!-- 2. 出席人員 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon ink">👥</div>
+      <h2 class="section-title">出席人員</h2>
+    </div>
+    <div class="attendees">
+      <div class="attendee-tag">
+        <div class="attendee-avatar" style="background: #C4502A;">蔡</div>
+        <div>
+          <div class="attendee-name">蔡董</div>
+          <div class="attendee-role">財寶府庫 創辦人</div>
+        </div>
+      </div>
+      <div class="attendee-tag">
+        <div class="attendee-avatar" style="background: #2A7A6E;">周</div>
+        <div>
+          <div class="attendee-name">周逸達</div>
+          <div class="attendee-role">企管顧問（Zeal）</div>
+        </div>
+      </div>
+      <div class="attendee-tag">
+        <div class="attendee-avatar" style="background: #5A5A6E;">顧</div>
+        <div>
+          <div class="attendee-name">顧問 A（Speaker 1）</div>
+          <div class="attendee-role">訪談 / 白皮書規劃</div>
+        </div>
+      </div>
+      <div class="attendee-tag">
+        <div class="attendee-avatar" style="background: #8B6E25;">顧</div>
+        <div>
+          <div class="attendee-name">顧問 B（Speaker 3）</div>
+          <div class="attendee-role">時程 / 計畫管理</div>
+        </div>
+      </div>
+      <div class="attendee-tag">
+        <div class="attendee-avatar" style="background: #9898A8;">其</div>
+        <div>
+          <div class="attendee-name">Speaker 5, 6, 7</div>
+          <div class="attendee-role">顧問團隊成員</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. 哲學框架 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon gold">📜</div>
+      <h2 class="section-title">品牌哲學基礎</h2>
+    </div>
+
+    <div class="insight-quote">
+      <blockquote>「有德才有人，有人才有土，有土才有財，有財必有用——用回德上，循環不息。」</blockquote>
+      <div class="attribution">— 孔子《大學》，周逸達顧問詮釋</div>
+      <div class="analysis">
+        周顧問以儒家《大學》的德人土財循環，完整建立財寶府庫的哲學底座：
+        「財寶府庫不是宗教機構，是『幫有錢人把錢用得有德』的基金管理平台。」
+        會員繳款→交給財寶府庫管理→用於領導他人/照顧他人/教會他人（德的三件事）→口碑→更多有福者加入。
+        此框架打破了「宗教vs商業」的邊界，讓財寶府庫得以超宗教存在。
+      </div>
+    </div>
+
+    <div class="framework-chain">
+      <div class="chain-node">
+        <span class="chain-char">德</span>
+        <span class="chain-label">行善積德<br>領導/照顧/教導</span>
+      </div>
+      <div class="chain-node">
+        <span class="chain-char">人</span>
+        <span class="chain-label">人脈圈層<br>1600 名會員</span>
+      </div>
+      <div class="chain-node">
+        <span class="chain-char">土</span>
+        <span class="chain-label">資產積累<br>福德功德</span>
+      </div>
+      <div class="chain-node">
+        <span class="chain-char">財</span>
+        <span class="chain-label">財庫充盈<br>運氣飽滿</span>
+      </div>
+      <div class="chain-node" style="background: rgba(196,80,42,0.04);">
+        <span class="chain-char" style="color: var(--teal);">用</span>
+        <span class="chain-label">有財必有用<br>→ 佈施回德</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">跨宗教定位策略</div>
+      <p>財寶府庫以「宗教賦能型商會」為定位，將宗教信仰提煉為各宗教的共識——聚財有方、散財有道。成功以舊約《申命記》28章對基督徒做到成交，以佛家佈施觀對佛教徒說明，以儒家《大學》對傳統商人溝通，展示「超宗教語言」的可行性。關鍵洞見：強調「宗教是基地，商會是延伸」，淡化信仰差異，強化商業連結。</p>
+    </div>
+  </section>
+
+  <!-- 4. 產品定價 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon ember">💎</div>
+      <h2 class="section-title">產品結構</h2>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-name">小財神</div>
+        <div class="pricing-amount">19萬</div>
+        <div class="pricing-unit">NTD / 入會</div>
+      </div>
+      <div class="pricing-card featured">
+        <div class="pricing-name">中財神</div>
+        <div class="pricing-amount">88萬</div>
+        <div class="pricing-unit">NTD / 入會</div>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-name">大財神</div>
+        <div class="pricing-amount">198萬</div>
+        <div class="pricing-unit">NTD / 入會</div>
+      </div>
+    </div>
+    <div class="card" style="margin-top: 16px;">
+      <div class="card-title">月費結構</div>
+      <p>入會後每月另付 <strong>2,000 元</strong>維運費，作為公益佈施基金的管理費來源。蔡董的七成成交率是核心優勢，但銷售複製困難是首要瓶頸——本次計畫的主軸即在解決此問題。</p>
+    </div>
+  </section>
+
+  <!-- 5. 七個月計畫 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon teal">🗓️</div>
+      <h2 class="section-title">七個月推進計畫（更新版）</h2>
+    </div>
+
+    <div class="card" style="margin-bottom: 24px; border-left: 3px solid var(--gold);">
+      <div class="card-title">⚡ 本次調整：順序變更</div>
+      <p>原計畫由顧問 A 先進，本次確認改為<strong>周顧問優先進場</strong>，先建立銷售框架與一致性語言，再由顧問 A 接棒做訪談深化與白皮書撰寫。</p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot active"></div>
+        <div class="timeline-period">Month 1–2 ｜快</div>
+        <div class="timeline-title">銷售框架 × 品牌定位 × 客戶訪談啟動</div>
+        <div class="timeline-desc">
+          周顧問優先進場，建立銷售一致性語言（Sales Key）。顧問 A 同步啟動客戶訪談（10~15 位），含蔡董 10 位核心客戶 + 顧問 A 5 位外部視角。確立品牌定位語句，釐清財寶府庫的核心價值主張。
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot teal-dot"></div>
+        <div class="timeline-period">Month 3–4 ｜穩</div>
+        <div class="timeline-title">訪談彙整 × 治理框架 × 初步運營架構</div>
+        <div class="timeline-desc">
+          整合訪談結果，建立完整現況地圖（員工視角/客戶視角/經銷商視角）。定出經銷路線初稿、會員分級制度（VVVIP/BBIP/VIP）、非金錢激勵機制設計。初步運營架構在此階段可開始試行。
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot gold-dot"></div>
+        <div class="timeline-period">Month 5–6 ｜慢</div>
+        <div class="timeline-title">白皮書撰寫 × 文案落地</div>
+        <div class="timeline-desc">
+          將前四個月的所有訪談、對話、決策整理成完整白皮書。行銷文案一部分一部分先行輸出、與蔡董持續對接修潤。白皮書出版前，各維度文件已大致就緒。
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot" style="border-color: var(--slate); background: var(--snow);"></div>
+        <div class="timeline-period">Month 7 ｜國際</div>
+        <div class="timeline-title">白皮書發布 × 新加坡對接準備</div>
+        <div class="timeline-desc">
+          白皮書正式印刷，完整手冊作為對外布達工具。為新加坡夥伴（元中秀）的合資談判提供正式文件基礎。五方財庫第一座穩定後，啟動複製路徑規劃。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. 關鍵議題 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon gold">⚡</div>
+      <h2 class="section-title">關鍵討論議題</h2>
+    </div>
+
+    <div class="insight-quote">
+      <blockquote>「銷售要快，白皮書可以慢——幫我銷售的東西我立刻判斷，塑造形象的東西我可以等。」</blockquote>
+      <div class="attribution">— 蔡董，本次會議核心決策</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">議題一：銷售複製困難</div>
+      <p>蔡董個人成交率 70%，但業務團隊無法複製。根因：財寶府庫需要「人格魅力型說服」，不是標準話術可以承接的。周顧問提出解法：<strong>建立「一致性語言」（Sales Key）</strong>，包含簡報框架、故事腳本、生命歷程二次詮釋練習，讓業務「用自己的故事講財寶府庫的精神」，而非死背話術。</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">議題二：會員分級經營</div>
+      <p>周顧問提出 VIP 三維標準：①消費金額最高 ②消費頻率最高 ③轉介紹最多。滿足三項為 VVVIP。<strong>關鍵設計：轉介成功的激勵不一定是錢，因為頂端會員不缺錢——應設計「名」或「權」的獨特回饋機制</strong>（如專屬顧問席位、特定決策參與權）。類比：永康街招待所的二三四樓分層管理模式。</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">議題三：不銷而銷</div>
+      <p>頂端會員有社會地位，不適合被傳統業務說服。最有效路徑：<strong>讓現有會員的真實「神助」體驗自然口碑擴散</strong>。案例：某會員購入後兩週，意外業務自動上門，帶三位朋友來了解——此為最高效的銷售模式。經銷商亦應從「成功會員自然延伸」，非刻意招募。</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">議題四：跨行業身份轉換</div>
+      <p>財寶府庫的「武器庫」概念：讓各行各業會員得到「靈性賦能」的差異化。<strong>案例</strong>——保險業務員若能以金木水火土五行設計保單（配合命理師批命盤），即成為「靈性保險專家」，競爭者無法複製。財寶府庫提供命理師連線、資源媒合，讓每位會員在本業基礎上獲得獨特定位。</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">議題五：競爭防火牆</div>
+      <p>仿冒者一定會出現，但<strong>最終護城河是「會員素質」</strong>：1600 個各行各業的高淨值人脈圈，簽歲早已確定名單，蔡董的工作是「快速找出他們」。其次防火牆：蔡董個人資歷人脈不可複製、財寶府庫的「第一個」先發優勢、基金會 + 商會的雙軌法人結構。</p>
+    </div>
+  </section>
+
+  <!-- 7. 快 vs 慢決策矩陣 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon ember">⚖️</div>
+      <h2 class="section-title">快慢決策矩陣</h2>
+    </div>
+    <div class="matrix-2col">
+      <div class="matrix-cell">
+        <h4 style="color: var(--ember);">⚡ 優先推進（快）</h4>
+        <ul>
+          <li>銷售話術 + Sales Key 包制作</li>
+          <li>業務培訓架構（一致性語言）</li>
+          <li>核心治理框架 + 經銷路線初稿</li>
+          <li>品牌定位語句（跨宗教商會）</li>
+          <li>會員分級制度設計</li>
+          <li>格斯科技股票情報收集（蔡董個人）</li>
+        </ul>
+      </div>
+      <div class="matrix-cell">
+        <h4 style="color: var(--teal);">🌿 穩步推進（慢）</h4>
+        <ul>
+          <li>白皮書完整編撰</li>
+          <li>新加坡合資公司架構討論</li>
+          <li>五方財庫複製計畫</li>
+          <li>RWA 化 / 國際市場定位</li>
+          <li>基金會正式成立流程</li>
+          <li>家書傳承計畫（個人品牌）</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. 戰略機會 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon gold">🌐</div>
+      <h2 class="section-title">戰略機會與外部連線</h2>
+    </div>
+
+    <div class="decision-grid">
+      <div class="decision-card">
+        <div class="decision-badge badge-key">新加坡夥伴</div>
+        <h4>元中秀風水顧問公司</h4>
+        <p>彭松華彭大師，40 年風水公司，今年擬在 NASDAQ 主板掛牌。已與蔡董討論合資成立新公司，看好財寶府庫理念。第一座建成後合資擴展模式。</p>
+      </div>
+      <div class="decision-card">
+        <div class="decision-badge badge-fast">股票情報</div>
+        <h4>格斯科技（無人機電池）</h4>
+        <p>股價 19→22 NTD 當天印證。半固態電池技術（軟包/不燃不爆），無人機/軍工趨勢。即將更換董事長：沈國榮（和大工業/6 家上市公司/民進黨國策顧問）。日本採購意向中。</p>
+      </div>
+      <div class="decision-card">
+        <div class="decision-badge badge-slow">組織結構</div>
+        <h4>基金會 + 協會雙軌</h4>
+        <p>蔡董確認將成立基金會（而非僅協會）。建議：商會坐在基金會架構下，增加「事出更有名」的公信力，強化永續形象。</p>
+      </div>
+      <div class="decision-card">
+        <div class="decision-badge badge-key">身心靈大趨勢</div>
+        <h4>九紫離火運 × 產業爆發</h4>
+        <p>九紫離火運為身心靈產業大爆發時代。YouTube、房仲、裝修 KOL 皆已引入風水師合作，趨勢不可逆。財寶府庫目標成為台灣身心靈大平台，提供各行業「靈性升維武器」。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. 行動項目 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon ember">✅</div>
+      <h2 class="section-title">行動項目</h2>
+    </div>
+    <div class="action-list">
+      <div class="action-item">
+        <div class="action-number">1</div>
+        <div class="action-text">
+          <strong>修訂七個月時程表</strong>——反映本次調整（周顧問先進），重新排列里程碑優先順序後送蔡董確認
+        </div>
+        <div class="action-owner owner-sp3">顧問 B</div>
+      </div>
+      <div class="action-item">
+        <div class="action-number">2</div>
+        <div class="action-text">
+          <strong>建立 Sales Key 初稿</strong>——整理蔡董口述的品牌故事要素，製作業務使用的故事腳本框架與簡報模板
+        </div>
+        <div class="action-owner owner-zeal">周顧問</div>
+      </div>
+      <div class="action-item">
+        <div class="action-number">3</div>
+        <div class="action-text">
+          <strong>啟動客戶訪談清單</strong>——確認 10 位核心客戶（蔡董提供）+ 5 位外部客戶，排定訪談時間表
+        </div>
+        <div class="action-owner owner-sp1">顧問 A</div>
+      </div>
+      <div class="action-item">
+        <div class="action-number">4</div>
+        <div class="action-text">
+          <strong>設計會員分級激勵方案</strong>——定義 VVVIP/BBIP/VIP 三維標準，研擬「名與權」為核心的非金錢激勵機制
+        </div>
+        <div class="action-owner owner-zeal">周顧問</div>
+      </div>
+      <div class="action-item">
+        <div class="action-number">5</div>
+        <div class="action-text">
+          <strong>確認格斯科技即時股價</strong>——會後查詢格斯科技當前股價，評估入場時機與持倉邏輯
+        </div>
+        <div class="action-owner owner-cai">蔡董</div>
+      </div>
+      <div class="action-item">
+        <div class="action-number">6</div>
+        <div class="action-text">
+          <strong>新加坡夥伴後續回應</strong>——確認元中秀合資合作模式意向，討論股比與分工後告知蔡董
+        </div>
+        <div class="action-owner owner-cai">蔡董</div>
+      </div>
+      <div class="action-item">
+        <div class="action-number">7</div>
+        <div class="action-text">
+          <strong>基金會成立可行性研究</strong>——了解台灣基金會設立門檻、與商會雙軌架構的法律可行性
+        </div>
+        <div class="action-owner owner-all">全體討論</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. MUSEON 洞察 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon gold">💡</div>
+      <h2 class="section-title">MUSEON 情報洞察</h2>
+    </div>
+
+    <div class="insight-quote">
+      <blockquote>「1600 個名單，簽歲早就都點好了——我的工作是快速把他們找出來。」</blockquote>
+      <div class="attribution">— 蔡董，論競爭防火牆</div>
+      <div class="analysis">
+        此洞察揭示蔡董的深層信念：財寶府庫的「命中客戶」是命定的，不需要強行說服不屬於這個頻率的人。這與「不銷而銷」的哲學完全呼應——最好的銷售是讓命中客戶「自然找到你」。對顧問團隊而言，工作重點應該是：建立讓命中客戶「認出你」的信號系統，而非建立說服機制。
+      </div>
+    </div>
+
+    <div class="insight-quote">
+      <blockquote>「有錢的人沒有時間做這件事，我幫你做——財寶府庫就是德的基金管理平台。」</blockquote>
+      <div class="attribution">— 周逸達顧問，品牌核心主張</div>
+      <div class="analysis">
+        這句話是整場會議最具傳播力的品牌語言，值得成為核心 slogan 候選。它清楚回答了三個問題：①為什麼需要財寶府庫（時間有限/委外代管）②財寶府庫做什麼（管理如何讓錢用得有德）③對象是誰（有錢有心但無暇親力親為的人）。建議將此邏輯作為白皮書第一頁的開場定位。
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">關鍵風險識別</div>
+      <ul class="points-list" style="margin-top: 0;">
+        <li>
+          <div class="point-bullet ember"></div>
+          <p><strong>複製難度仍未解決的核心問題：</strong>蔡董七成成交率的關鍵是「人格感染力 + 信仰深度」，Sales Key 能傳遞框架，但無法傳遞蔡董本人的氣場。需要設計讓業務「借力蔡董」的機制（如帶領見面/視頻背書/線上分享會）。</p>
+        </li>
+        <li>
+          <div class="point-bullet gold"></div>
+          <p><strong>一致性維持的長期挑戰：</strong>隨著會員規模擴大，「口耳相傳的故事」容易失真。白皮書完成前，必須有「最小一致性手冊」先行落地，防止第三代傳話走樣。</p>
+        </li>
+        <li>
+          <div class="point-bullet teal"></div>
+          <p><strong>國際化時序風險：</strong>新加坡夥伴對第一座的成功高度期待。若國內市場進展慢於預期，可能影響合資談判的籌碼。建議設定第一個 milestone（如：50 位會員達成）作為對外談判的基準。</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 關鍵詞 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon ink">#</div>
+      <h2 class="section-title">本場關鍵詞</h2>
+    </div>
+    <div class="pill-group">
+      <span class="pill pill-ember">超宗教商會</span>
+      <span class="pill pill-ember">不銷而銷</span>
+      <span class="pill pill-ember">銷售一致性</span>
+      <span class="pill pill-gold">德人土財循環</span>
+      <span class="pill pill-gold">聚之有方散之有道</span>
+      <span class="pill pill-gold">基金管理平台</span>
+      <span class="pill pill-teal">VVVIP分級</span>
+      <span class="pill pill-teal">七個月白皮書</span>
+      <span class="pill pill-teal">防火牆：會員素質</span>
+      <span class="pill pill-ember">九紫離火運</span>
+      <span class="pill pill-gold">格斯科技</span>
+      <span class="pill pill-teal">新加坡元中秀</span>
+      <span class="pill pill-ember">五方財庫</span>
+      <span class="pill pill-gold">身份轉換賦能</span>
+      <span class="pill pill-teal">基金會+商會雙軌</span>
+    </div>
+  </section>
+
+</main>
+
+<!-- ─── Footer ────────────────────────────────────────────── -->
+<footer>
+  <div class="museon-badge">
+    Generated by <strong>MUSEON</strong> meeting-intelligence &nbsp;·&nbsp; 2026.03.27 &nbsp;·&nbsp; 機密文件，僅供內部使用
+  </div>
+</footer>
+
+</body>
+</html>
