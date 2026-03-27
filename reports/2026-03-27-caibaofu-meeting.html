@@ -9,284 +9,284 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Outfit:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --ember: #C4502A; --ember-light: #E0714D; --ember-dark: #9A3A1C;
-      --teal: #2A7A6E; --gold: #B8923A;
-      --ink: #12121A; --slate: #5A5A6E; --mist: #9898A8;
-      --border: #E2E0DA; --parchment: #F7F5F0; --snow: #FDFCFA;
-      --success: #2D8A6E; --warning: #C9943A;
+      --ember:#C4502A; --ember-light:#E0714D; --ember-dark:#9A3A1C;
+      --teal:#2A7A6E; --gold:#B8923A;
+      --ink:#12121A; --slate:#5A5A6E; --mist:#9898A8;
+      --border:#E2E0DA; --parchment:#F7F5F0; --snow:#FDFCFA;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: var(--parchment); color: var(--ink); font-family: 'Outfit','Noto Sans TC',sans-serif; font-size: 16px; line-height: 1.75; }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--parchment);color:var(--ink);font-family:'Outfit','Noto Sans TC',sans-serif;font-size:16px;line-height:1.75;}
 
     /* ─── Hero ─── */
-    .hero { background: var(--ink); padding: 64px 48px 52px; position: relative; overflow: hidden; }
-    .hero::before { content:''; position:absolute; top:0;left:0;right:0;bottom:0; background:radial-gradient(ellipse at 75% 40%,rgba(196,80,42,.2) 0%,transparent 60%); pointer-events:none; }
-    .hero-tag { display:inline-flex; align-items:center; gap:8px; background:rgba(196,80,42,.15); border:1px solid rgba(196,80,42,.35); border-radius:4px; padding:4px 12px; font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--ember-light); margin-bottom:20px; }
-    .hero-tag .dot { width:6px;height:6px;border-radius:50%;background:var(--ember-light); }
-    .hero h1 { font-family:'Cormorant Garamond',serif; font-size:44px; font-weight:600; color:var(--snow); line-height:1.15; margin-bottom:10px; }
-    .hero h1 em { font-style:italic; color:var(--ember-light); }
-    .hero-sub { font-size:15px; color:#9898A8; font-weight:300; margin-bottom:36px; }
-    .hero-meta { display:flex; flex-wrap:wrap; gap:28px; border-top:1px solid rgba(255,255,255,.08); padding-top:24px; }
-    .hm { display:flex; flex-direction:column; gap:3px; }
-    .hm .l { font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:#5A5A6E; font-weight:700; }
-    .hm .v { font-size:13px; color:#BBBBC8; }
-    .layers-bar { display:flex; flex-wrap:wrap; gap:8px; margin-top:24px; }
-    .layer-pill { font-size:10px; font-weight:700; letter-spacing:.06em; padding:3px 10px; border-radius:100px; border:1px solid; }
-    .lp-1 { border-color:rgba(196,80,42,.4); color:var(--ember-light); }
-    .lp-2 { border-color:rgba(184,146,58,.4); color:#D4AC55; }
-    .lp-3 { border-color:rgba(42,122,110,.4); color:#5AB5A8; }
-    .lp-4 { border-color:rgba(255,255,255,.2); color:#9898A8; }
-    .lp-5 { border-color:rgba(255,255,255,.15); color:#6A6A7E; }
+    .hero{background:var(--ink);padding:64px 48px 52px;position:relative;overflow:hidden;}
+    .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 75% 40%,rgba(196,80,42,.2) 0%,transparent 60%);pointer-events:none;}
+    .hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(196,80,42,.15);border:1px solid rgba(196,80,42,.35);border-radius:4px;padding:4px 12px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ember-light);margin-bottom:20px;}
+    .hero-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--ember-light);}
+    .hero h1{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:600;color:var(--snow);line-height:1.15;margin-bottom:10px;}
+    .hero h1 em{font-style:italic;color:var(--ember-light);}
+    .hero-sub{font-size:15px;color:#9898A8;font-weight:300;margin-bottom:36px;}
+    .hero-meta{display:flex;flex-wrap:wrap;gap:28px;border-top:1px solid rgba(255,255,255,.08);padding-top:24px;}
+    .hm{display:flex;flex-direction:column;gap:3px;}
+    .hm .l{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#5A5A6E;font-weight:700;}
+    .hm .v{font-size:13px;color:#BBBBC8;}
+    .layers-bar{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;}
+    .layer-pill{font-size:10px;font-weight:700;letter-spacing:.06em;padding:3px 10px;border-radius:100px;border:1px solid;}
+    .lp-1{border-color:rgba(196,80,42,.4);color:var(--ember-light);}
+    .lp-2{border-color:rgba(184,146,58,.4);color:#D4AC55;}
+    .lp-3{border-color:rgba(42,122,110,.4);color:#5AB5A8;}
+    .lp-4{border-color:rgba(255,255,255,.2);color:#9898A8;}
+    .lp-5{border-color:rgba(255,255,255,.15);color:#6A6A7E;}
+
+    /* ─── Sticky Nav ─── */
+    .sticky-nav{position:sticky;top:0;z-index:100;background:rgba(253,252,250,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 32px;overflow-x:auto;white-space:nowrap;scrollbar-width:none;}
+    .sticky-nav::-webkit-scrollbar{display:none;}
+    .nav-inner{display:inline-flex;align-items:center;gap:2px;height:48px;}
+    .nav-btn{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:6px;font-size:12px;font-weight:600;color:var(--slate);text-decoration:none;transition:background .15s,color .15s;white-space:nowrap;border:none;background:none;cursor:pointer;}
+    .nav-btn:hover{background:rgba(196,80,42,.08);color:var(--ember);}
+    .nav-btn.active{background:rgba(196,80,42,.1);color:var(--ember);}
+    .nav-sep{width:1px;height:18px;background:var(--border);margin:0 4px;flex-shrink:0;}
+    .nav-group-label{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mist);padding:0 6px 0 12px;}
 
     /* ─── Layout ─── */
-    .container { max-width:980px; margin:0 auto; padding:52px 32px; }
-    .section { margin-bottom:48px; }
-    .section-header { display:flex; align-items:center; gap:12px; margin-bottom:22px; padding-bottom:12px; border-bottom:1px solid var(--border); }
-    .section-icon { width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0; }
-    .si-ember { background:rgba(196,80,42,.1); } .si-teal { background:rgba(42,122,110,.1); } .si-gold { background:rgba(184,146,58,.1); } .si-ink { background:rgba(18,18,26,.07); } .si-ghost { background:rgba(152,152,168,.1); }
-    .section-title { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; color:var(--ink); }
+    .container{max-width:980px;margin:0 auto;padding:52px 32px;}
+    .section{margin-bottom:56px;scroll-margin-top:60px;}
+    .section-header{display:flex;align-items:center;gap:12px;margin-bottom:22px;padding-bottom:12px;border-bottom:1px solid var(--border);}
+    .section-icon{width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
+    .si-ember{background:rgba(196,80,42,.1);} .si-teal{background:rgba(42,122,110,.1);} .si-gold{background:rgba(184,146,58,.1);} .si-ink{background:rgba(18,18,26,.07);} .si-ghost{background:rgba(152,152,168,.1);}
+    .section-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--ink);}
 
     /* ─── Card ─── */
-    .card { background:var(--snow); border:1px solid var(--border); border-radius:10px; padding:22px 26px; margin-bottom:14px; }
-    .card:last-child { margin-bottom:0; }
-    .card-title { font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--slate); margin-bottom:10px; }
-    .card p { font-size:15px; color:var(--ink); line-height:1.85; }
+    .card{background:var(--snow);border:1px solid var(--border);border-radius:10px;padding:22px 26px;margin-bottom:14px;}
+    .card:last-child{margin-bottom:0;}
+    .card-title{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);margin-bottom:10px;}
+    .card p{font-size:15px;color:var(--ink);line-height:1.85;}
 
-    /* ─── Exec Summary (SCQA) ─── */
-    .scqa { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-    .scqa-block { background:var(--snow); border:1px solid var(--border); border-radius:10px; padding:20px 22px; }
-    .scqa-block.full { grid-column:1/-1; }
-    .scqa-label { font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; margin-bottom:8px; }
-    .sl-s { color:var(--teal); } .sl-c { color:var(--ember); } .sl-q { color:var(--gold); } .sl-a { color:var(--ink); }
-    .scqa-block p { font-size:14px; color:var(--ink); line-height:1.8; }
+    /* ─── SCQA ─── */
+    .scqa{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+    .scqa-block{background:var(--snow);border:1px solid var(--border);border-radius:10px;padding:20px 22px;}
+    .scqa-block.full{grid-column:1/-1;}
+    .scqa-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;}
+    .sl-s{color:var(--teal);} .sl-c{color:var(--ember);} .sl-q{color:var(--gold);} .sl-a{color:var(--ink);}
+    .scqa-block p{font-size:14px;color:var(--ink);line-height:1.8;}
 
     /* ─── Attendees ─── */
-    .attendees { display:flex; flex-wrap:wrap; gap:10px; }
-    .att { display:flex; align-items:center; gap:10px; background:var(--snow); border:1px solid var(--border); border-radius:8px; padding:10px 14px; }
-    .att-av { width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:white;flex-shrink:0; }
-    .att-name { font-size:13px;font-weight:600;color:var(--ink); }
-    .att-role { font-size:11px;color:var(--slate); }
+    .attendees{display:flex;flex-wrap:wrap;gap:10px;}
+    .att{display:flex;align-items:center;gap:10px;background:var(--snow);border:1px solid var(--border);border-radius:8px;padding:10px 14px;}
+    .att-av{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:white;flex-shrink:0;}
+    .att-name{font-size:13px;font-weight:600;color:var(--ink);}
+    .att-role{font-size:11px;color:var(--slate);}
 
-    /* ─── Timeline (主題分段) ─── */
-    .timeline { position:relative; padding-left:20px; }
-    .timeline::before { content:'';position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:var(--border); }
-    .tl-item { position:relative; padding-left:24px; margin-bottom:22px; }
-    .tl-item:last-child { margin-bottom:0; }
-    .tl-dot { position:absolute;left:-20px;top:5px;width:12px;height:12px;border-radius:50%;border:2px solid var(--border);background:var(--snow); }
-    .tl-dot.e { border-color:var(--ember);background:var(--ember); }
-    .tl-dot.g { border-color:var(--gold);background:var(--gold); }
-    .tl-dot.t { border-color:var(--teal);background:var(--teal); }
-    .tl-head { font-size:13px;font-weight:700;color:var(--ink);margin-bottom:4px; }
-    .tl-body { font-size:13px;color:var(--slate);line-height:1.75; }
-    .tl-body strong { color:var(--ink);font-weight:600; }
-    .tl-quote { margin-top:8px;border-left:3px solid var(--border);padding-left:12px;font-size:13px;font-style:italic;color:var(--slate); }
+    /* ─── Timeline ─── */
+    .timeline{position:relative;padding-left:20px;}
+    .timeline::before{content:'';position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:var(--border);}
+    .tl-item{position:relative;padding-left:24px;margin-bottom:22px;}
+    .tl-item:last-child{margin-bottom:0;}
+    .tl-dot{position:absolute;left:-20px;top:5px;width:12px;height:12px;border-radius:50%;border:2px solid var(--border);background:var(--snow);}
+    .tl-dot.e{border-color:var(--ember);background:var(--ember);}
+    .tl-dot.g{border-color:var(--gold);background:var(--gold);}
+    .tl-dot.t{border-color:var(--teal);background:var(--teal);}
+    .tl-head{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+    .tl-body{font-size:13px;color:var(--slate);line-height:1.75;}
+    .tl-body strong{color:var(--ink);font-weight:600;}
+    .tl-quote{margin-top:8px;border-left:3px solid var(--border);padding-left:12px;font-size:13px;font-style:italic;color:var(--slate);}
 
     /* ─── Pull Quote ─── */
-    .pull-quote { background:var(--ink); border-radius:12px; padding:40px 44px; margin-bottom:14px; }
-    .pull-quote blockquote { font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:600; font-style:italic; color:var(--snow); line-height:1.45; margin-bottom:16px; }
-    .pull-quote blockquote::before { content:'\201C'; color:var(--ember-light); font-size:48px; line-height:0; vertical-align:-18px; margin-right:4px; }
-    .pull-quote .pq-attr { font-size:12px; color:var(--mist); font-weight:600; letter-spacing:.05em; }
-    .pull-quote .pq-tension { margin-top:16px; border-top:1px solid rgba(255,255,255,.08); padding-top:16px; font-size:13px; color:#9898A8; line-height:1.7; }
+    .pull-quote{background:var(--ink);border-radius:12px;padding:40px 44px;margin-bottom:14px;}
+    .pull-quote blockquote{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;font-style:italic;color:var(--snow);line-height:1.45;margin-bottom:16px;}
+    .pull-quote blockquote::before{content:'\201C';color:var(--ember-light);font-size:48px;line-height:0;vertical-align:-18px;margin-right:4px;}
+    .pull-quote .pq-attr{font-size:12px;color:var(--mist);font-weight:600;letter-spacing:.05em;}
+    .pull-quote .pq-tension{margin-top:16px;border-top:1px solid rgba(255,255,255,.08);padding-top:16px;font-size:13px;color:#9898A8;line-height:1.7;}
 
     /* ─── DSE ─── */
-    .dse-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; }
-    .dse-card { background:var(--snow); border:1px solid var(--border); border-radius:10px; padding:20px; }
-    .dse-num { font-size:28px; font-family:'Cormorant Garamond',serif; font-weight:600; color:var(--ember); line-height:1; margin-bottom:6px; }
-    .dse-label { font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--slate); margin-bottom:8px; }
-    .dse-card p { font-size:13px; color:var(--ink); line-height:1.75; }
+    .dse-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+    .dse-card{background:var(--snow);border:1px solid var(--border);border-radius:10px;padding:20px;}
+    .dse-num{font-size:28px;font-family:'Cormorant Garamond',serif;font-weight:600;color:var(--ember);line-height:1;margin-bottom:6px;}
+    .dse-label{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);margin-bottom:8px;}
+    .dse-card p{font-size:13px;color:var(--ink);line-height:1.75;}
+
+    /* ─── 千歲 ─── */
+    .qiansui{background:linear-gradient(135deg,rgba(184,146,58,.08),rgba(196,80,42,.04));border:1px solid rgba(184,146,58,.3);border-radius:10px;padding:22px 26px;margin-bottom:14px;}
+    .qs-head{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+    .qs-head .qs-icon{font-size:22px;}
+    .qs-head h4{font-size:16px;font-weight:700;color:var(--ink);}
+    .qs-head .qs-source{font-size:11px;color:var(--gold);font-weight:600;letter-spacing:.05em;}
+    .qiansui p{font-size:14px;color:var(--ink);line-height:1.85;}
+    .qiansui ul{list-style:none;margin-top:10px;display:flex;flex-direction:column;gap:6px;}
+    .qiansui ul li{font-size:13px;color:var(--slate);padding-left:16px;position:relative;line-height:1.6;}
+    .qiansui ul li::before{content:'◆';position:absolute;left:0;color:var(--gold);font-size:8px;top:4px;}
+
+    /* ─── Sales Kit ─── */
+    .sales-kit{background:var(--ink);border-radius:12px;padding:28px 32px;}
+    .sk-head{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+    .sk-head h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--snow);}
+    .sk-badge{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(196,80,42,.25);border:1px solid rgba(196,80,42,.5);color:var(--ember-light);padding:3px 9px;border-radius:3px;}
+    .sk-sub{font-size:12px;color:#9898A8;margin-bottom:20px;line-height:1.6;}
+    .sk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+    .sk-item{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:14px 16px;}
+    .sk-item .sk-no{font-size:20px;font-family:'Cormorant Garamond',serif;font-weight:600;color:var(--ember-light);line-height:1;margin-bottom:4px;}
+    .sk-item h5{font-size:12px;font-weight:700;color:var(--snow);margin-bottom:4px;}
+    .sk-item p{font-size:11px;color:#9898A8;line-height:1.6;}
 
     /* ─── 關鍵洞見 ─── */
-    .insight-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-    .insight-card { background:var(--snow); border:1px solid var(--border); border-radius:10px; padding:20px 22px; }
-    .insight-card.highlight { border-color:var(--gold); background:linear-gradient(135deg,rgba(184,146,58,.05),rgba(42,122,110,.03)); }
-    .insight-tag { display:inline-block; font-size:10px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; padding:2px 8px; border-radius:3px; margin-bottom:10px; }
-    .it-gold { background:rgba(184,146,58,.12); color:var(--gold); }
-    .it-ember { background:rgba(196,80,42,.1); color:var(--ember); }
-    .it-teal { background:rgba(42,122,110,.1); color:var(--teal); }
-    .it-risk { background:rgba(196,64,42,.1); color:#B83A22; }
-    .insight-card h4 { font-size:15px; font-weight:700; color:var(--ink); margin-bottom:8px; line-height:1.35; }
-    .insight-card p { font-size:13px; color:var(--slate); line-height:1.75; }
-    .insight-card p strong { color:var(--ink); font-weight:600; }
-
-    /* ─── Sales Kit 特別區塊 ─── */
-    .sales-kit { background:var(--ink); border-radius:12px; padding:28px 32px; }
-    .sk-head { display:flex; align-items:center; gap:12px; margin-bottom:20px; }
-    .sk-head h3 { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; color:var(--snow); }
-    .sk-badge { font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; background:rgba(196,80,42,.25); border:1px solid rgba(196,80,42,.5); color:var(--ember-light); padding:3px 9px; border-radius:3px; }
-    .sk-sub { font-size:12px; color:#9898A8; margin-bottom:20px; line-height:1.6; }
-    .sk-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
-    .sk-item { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:8px; padding:14px 16px; }
-    .sk-item .sk-no { font-size:20px; font-family:'Cormorant Garamond',serif; font-weight:600; color:var(--ember-light); line-height:1; margin-bottom:4px; }
-    .sk-item h5 { font-size:12px; font-weight:700; color:var(--snow); margin-bottom:4px; }
-    .sk-item p { font-size:11px; color:#9898A8; line-height:1.6; }
-
-    /* ─── 千歲 特別區塊 ─── */
-    .qiansui { background:linear-gradient(135deg,rgba(184,146,58,.08),rgba(196,80,42,.04)); border:1px solid rgba(184,146,58,.3); border-radius:10px; padding:22px 26px; margin-bottom:14px; }
-    .qs-head { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
-    .qs-head .qs-icon { font-size:22px; }
-    .qs-head h4 { font-size:16px; font-weight:700; color:var(--ink); }
-    .qs-head .qs-source { font-size:11px; color:var(--gold); font-weight:600; letter-spacing:.05em; }
-    .qiansui p { font-size:14px; color:var(--ink); line-height:1.85; }
-    .qiansui ul { list-style:none; margin-top:10px; display:flex; flex-direction:column; gap:6px; }
-    .qiansui ul li { font-size:13px; color:var(--slate); padding-left:16px; position:relative; line-height:1.6; }
-    .qiansui ul li::before { content:'◆'; position:absolute; left:0; color:var(--gold); font-size:8px; top:4px; }
+    .insight-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+    .insight-card{background:var(--snow);border:1px solid var(--border);border-radius:10px;padding:20px 22px;}
+    .insight-card.highlight{border-color:var(--gold);background:linear-gradient(135deg,rgba(184,146,58,.05),rgba(42,122,110,.03));}
+    .insight-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:2px 8px;border-radius:3px;margin-bottom:10px;}
+    .it-gold{background:rgba(184,146,58,.12);color:var(--gold);}
+    .it-ember{background:rgba(196,80,42,.1);color:var(--ember);}
+    .it-teal{background:rgba(42,122,110,.1);color:var(--teal);}
+    .it-risk{background:rgba(196,64,42,.1);color:#B83A22;}
+    .insight-card h4{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.35;}
+    .insight-card p{font-size:13px;color:var(--slate);line-height:1.75;}
+    .insight-card p strong{color:var(--ink);font-weight:600;}
 
     /* ─── 決議表 ─── */
-    table { width:100%; border-collapse:collapse; font-size:13px; }
-    th { background:rgba(18,18,26,.04); font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--slate); padding:10px 14px; text-align:left; border-bottom:2px solid var(--border); }
-    td { padding:10px 14px; border-bottom:1px solid var(--border); color:var(--ink); line-height:1.6; vertical-align:top; }
-    tr:last-child td { border-bottom:none; }
-    .status { display:inline-block; font-size:10px; font-weight:700; padding:2px 8px; border-radius:3px; white-space:nowrap; }
-    .st-done { background:rgba(45,138,110,.12); color:var(--teal); }
-    .st-todo { background:rgba(196,80,42,.1); color:var(--ember); }
-    .st-hold { background:rgba(152,152,168,.12); color:var(--mist); }
-    .st-confirm { background:rgba(184,146,58,.12); color:var(--gold); }
+    table{width:100%;border-collapse:collapse;font-size:13px;}
+    th{background:rgba(18,18,26,.04);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--slate);padding:10px 14px;text-align:left;border-bottom:2px solid var(--border);}
+    td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--ink);line-height:1.6;vertical-align:top;}
+    tr:last-child td{border-bottom:none;}
+    .status{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:3px;white-space:nowrap;}
+    .st-done{background:rgba(45,138,110,.12);color:var(--teal);}
+    .st-todo{background:rgba(196,80,42,.1);color:var(--ember);}
+    .st-hold{background:rgba(152,152,168,.12);color:var(--mist);}
+    .st-confirm{background:rgba(184,146,58,.12);color:var(--gold);}
 
     /* ─── 行動清單 ─── */
-    .action-list { display:flex; flex-direction:column; gap:10px; }
-    .action-item { display:grid; grid-template-columns:28px 1fr auto auto; align-items:start; gap:14px; background:var(--snow); border:1px solid var(--border); border-radius:8px; padding:12px 16px; }
-    .action-no { width:24px;height:24px;border-radius:50%;background:var(--ember);color:white;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px; }
-    .action-body { font-size:14px; color:var(--ink); line-height:1.6; }
-    .action-body strong { font-weight:700; }
-    .action-body .ab-context { font-size:12px;color:var(--slate);margin-top:2px; }
-    .owner { font-size:11px;font-weight:700;padding:3px 8px;border-radius:4px;white-space:nowrap;margin-top:2px; }
-    .ow-cai { background:rgba(196,80,42,.1);color:var(--ember-dark); }
-    .ow-zeal { background:rgba(42,122,110,.1);color:var(--teal); }
-    .ow-a { background:rgba(184,146,58,.1);color:#8B6E25; }
-    .ow-b { background:rgba(18,18,26,.07);color:var(--slate); }
-    .ow-all { background:rgba(18,18,26,.05);color:var(--mist); }
-    .priority-tag { font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;margin-top:2px;white-space:nowrap; }
-    .pr-urgent { background:rgba(196,80,42,.12);color:var(--ember); }
-    .pr-normal { background:rgba(42,122,110,.1);color:var(--teal); }
-    .pr-long { background:rgba(152,152,168,.12);color:var(--mist); }
+    .action-list{display:flex;flex-direction:column;gap:10px;}
+    .action-item{display:grid;grid-template-columns:28px 1fr auto auto;align-items:start;gap:14px;background:var(--snow);border:1px solid var(--border);border-radius:8px;padding:12px 16px;}
+    .action-no{width:24px;height:24px;border-radius:50%;background:var(--ember);color:white;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+    .action-body{font-size:14px;color:var(--ink);line-height:1.6;}
+    .action-body strong{font-weight:700;}
+    .action-body .ab-context{font-size:12px;color:var(--slate);margin-top:2px;}
+    .owner{font-size:11px;font-weight:700;padding:3px 8px;border-radius:4px;white-space:nowrap;margin-top:2px;}
+    .ow-cai{background:rgba(196,80,42,.1);color:var(--ember-dark);}
+    .ow-zeal{background:rgba(42,122,110,.1);color:var(--teal);}
+    .ow-a{background:rgba(184,146,58,.1);color:#8B6E25;}
+    .ow-b{background:rgba(18,18,26,.07);color:var(--slate);}
+    .priority-tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;margin-top:2px;white-space:nowrap;}
+    .pr-urgent{background:rgba(196,80,42,.12);color:var(--ember);}
+    .pr-normal{background:rgba(42,122,110,.1);color:var(--teal);}
+    .pr-long{background:rgba(152,152,168,.12);color:var(--mist);}
 
     /* ─── 下一步 4宮格 ─── */
-    .next-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-    .next-cell { background:var(--snow); border:1px solid var(--border); border-radius:10px; padding:18px 20px; }
-    .next-cell h4 { font-size:12px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; margin-bottom:10px; }
-    .nc-h { color:var(--ember); border-bottom:2px solid var(--ember); padding-bottom:6px; }
-    .nc-m { color:var(--teal); border-bottom:2px solid var(--teal); padding-bottom:6px; }
-    .next-cell ul { list-style:none; display:flex; flex-direction:column; gap:6px; }
-    .next-cell ul li { font-size:13px; color:var(--slate); padding-left:14px; position:relative; line-height:1.55; }
-    .next-cell ul li::before { content:'›'; position:absolute; left:0; color:var(--mist); }
+    .next-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+    .next-cell{background:var(--snow);border:1px solid var(--border);border-radius:10px;padding:18px 20px;}
+    .next-cell h4{font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-bottom:10px;}
+    .nc-h{color:var(--ember);border-bottom:2px solid var(--ember);padding-bottom:6px;}
+    .nc-m{color:var(--teal);border-bottom:2px solid var(--teal);padding-bottom:6px;}
+    .next-cell ul{list-style:none;display:flex;flex-direction:column;gap:6px;}
+    .next-cell ul li{font-size:13px;color:var(--slate);padding-left:14px;position:relative;line-height:1.55;}
+    .next-cell ul li::before{content:'›';position:absolute;left:0;color:var(--mist);}
 
-    /* ─── 摺疊深度分析 ─── */
-    details { background:var(--snow); border:1px solid var(--border); border-radius:10px; margin-bottom:14px; overflow:hidden; }
-    details:last-child { margin-bottom:0; }
-    summary { display:flex; align-items:center; gap:12px; padding:18px 22px; cursor:pointer; user-select:none; list-style:none; font-weight:600; font-size:15px; color:var(--ink); }
-    summary::-webkit-details-marker { display:none; }
-    summary::after { content:'⌄'; margin-left:auto; color:var(--mist); font-size:18px; transition:transform .2s; }
-    details[open] > summary::after { transform:rotate(180deg); }
-    summary .s-icon { width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0; }
-    .si-roundtable { background:rgba(184,146,58,.12); }
-    .si-yang { background:rgba(196,80,42,.1); }
-    .si-yin { background:rgba(18,18,26,.08); }
-    .si-emotion { background:rgba(42,122,110,.1); }
-    .si-persona { background:rgba(152,152,168,.12); }
-    .si-memory { background:rgba(42,122,110,.08); }
-    .detail-body { padding:0 22px 22px; }
+    /* ─── 深度分析 分隔標題 ─── */
+    .depth-divider{display:flex;align-items:center;gap:14px;margin:48px 0 32px;}
+    .depth-divider::before,.depth-divider::after{content:'';flex:1;height:1px;background:var(--border);}
+    .depth-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mist);white-space:nowrap;padding:6px 16px;border:1px solid var(--border);border-radius:100px;}
 
-    /* ─── 圓桌會診 ─── */
-    .advisor { border-left:3px solid var(--gold); padding:18px 20px; margin-bottom:14px; background:rgba(184,146,58,.03); border-radius:0 8px 8px 0; }
-    .advisor:last-of-type { margin-bottom:0; }
-    .advisor-head { display:flex; align-items:baseline; gap:10px; margin-bottom:10px; }
-    .advisor-name { font-family:'Cormorant Garamond',serif; font-size:19px; font-weight:600; color:var(--ink); }
-    .advisor-school { font-size:11px; color:var(--gold); font-weight:600; letter-spacing:.05em; }
-    .advisor p { font-size:14px; color:var(--ink); line-height:1.8; margin-bottom:8px; }
-    .advisor .ev { font-size:11px; color:var(--mist); }
-    .advisor .suggest { margin-top:10px; background:rgba(184,146,58,.08); border-radius:6px; padding:10px 14px; font-size:13px; color:var(--ink); line-height:1.65; }
-    .advisor .suggest::before { content:'→ 軍師建議：'; font-weight:700; color:var(--gold); }
-    .roundtable-conflict { background:rgba(18,18,26,.03); border:1px solid var(--border); border-radius:8px; padding:16px 18px; margin-top:14px; }
-    .roundtable-conflict h5 { font-size:11px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:var(--slate); margin-bottom:10px; }
-    .roundtable-conflict ul { list-style:none; display:flex; flex-direction:column; gap:8px; }
-    .roundtable-conflict ul li { font-size:13px; color:var(--ink); line-height:1.65; padding-left:14px; position:relative; }
-    .roundtable-conflict ul li::before { content:'⚡'; position:absolute;left:0;font-size:10px;top:2px; }
+    /* ─── 圓桌 ─── */
+    .advisor{border-left:3px solid var(--gold);padding:18px 20px;margin-bottom:14px;background:rgba(184,146,58,.03);border-radius:0 8px 8px 0;}
+    .advisor:last-of-type{margin-bottom:0;}
+    .advisor-head{display:flex;align-items:baseline;gap:10px;margin-bottom:10px;}
+    .advisor-name{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:var(--ink);}
+    .advisor-school{font-size:11px;color:var(--gold);font-weight:600;letter-spacing:.05em;}
+    .advisor p{font-size:14px;color:var(--ink);line-height:1.8;margin-bottom:8px;}
+    .advisor .ev{font-size:11px;color:var(--mist);}
+    .advisor .suggest{margin-top:10px;background:rgba(184,146,58,.08);border-radius:6px;padding:10px 14px;font-size:13px;color:var(--ink);line-height:1.65;}
+    .advisor .suggest::before{content:'→ 軍師建議：';font-weight:700;color:var(--gold);}
+    .roundtable-conflict{background:rgba(18,18,26,.03);border:1px solid var(--border);border-radius:8px;padding:16px 18px;margin-top:14px;}
+    .roundtable-conflict h5{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--slate);margin-bottom:10px;}
+    .roundtable-conflict ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+    .roundtable-conflict ul li{font-size:13px;color:var(--ink);line-height:1.65;padding-left:14px;position:relative;}
+    .roundtable-conflict ul li::before{content:'⚡';position:absolute;left:0;font-size:10px;top:2px;}
 
-    /* ─── 博弈分析 ─── */
-    .yang-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px; }
-    .yang-card { background:rgba(196,80,42,.04); border:1px solid rgba(196,80,42,.15); border-radius:10px; padding:18px 20px; }
-    .yang-card h5 { font-size:13px; font-weight:700; color:var(--ember-dark); margin-bottom:8px; }
-    .yang-card p { font-size:13px; color:var(--ink); line-height:1.75; }
-    .yang-card .ev-tag { font-size:10px; color:var(--mist); margin-top:6px; }
-    .power-list { list-style:none; display:flex; flex-direction:column; gap:10px; }
-    .power-list li { font-size:13px; color:var(--ink); line-height:1.7; padding:10px 14px; background:var(--parchment); border-radius:6px; }
-    .power-list li strong { font-weight:700; }
-    .shadow-item { border-left:3px solid #2A2A38; padding:14px 16px; margin-bottom:10px; background:rgba(18,18,26,.03); border-radius:0 8px 8px 0; }
-    .shadow-item:last-child { margin-bottom:0; }
-    .shadow-type { font-size:10px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:var(--mist); margin-bottom:6px; }
-    .shadow-item p { font-size:13px; color:var(--ink); line-height:1.7; }
-    .shadow-item .sh-evidence { font-size:12px; color:var(--slate); margin-top:4px; border-left:2px solid var(--border); padding-left:10px; }
-    .shadow-item .sh-defence { font-size:12px; color:var(--teal); margin-top:6px; font-weight:600; }
-    .ev-strength { display:inline-block; font-size:9px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; padding:1px 6px; border-radius:2px; margin-left:6px; }
-    .ev-strong { background:rgba(45,138,110,.12);color:var(--teal); }
-    .ev-mid { background:rgba(184,146,58,.12);color:var(--gold); }
-    .ev-weak { background:rgba(152,152,168,.12);color:var(--mist); }
+    /* ─── 博弈 ─── */
+    .yang-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+    .yang-card{background:rgba(196,80,42,.04);border:1px solid rgba(196,80,42,.15);border-radius:10px;padding:18px 20px;}
+    .yang-card h5{font-size:13px;font-weight:700;color:var(--ember-dark);margin-bottom:8px;}
+    .yang-card p{font-size:13px;color:var(--ink);line-height:1.75;}
+    .yang-card .ev-tag{font-size:10px;color:var(--mist);margin-top:6px;}
+    .power-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:14px;}
+    .power-list li{font-size:13px;color:var(--ink);line-height:1.7;padding:10px 14px;background:var(--parchment);border-radius:6px;}
+    .power-list li strong{font-weight:700;}
+    .timing-card{background:rgba(42,122,110,.04);border:1px solid rgba(42,122,110,.15);border-radius:10px;padding:18px 20px;}
+    .timing-card h5{font-size:13px;font-weight:700;color:var(--teal);margin-bottom:8px;}
+    .timing-card p{font-size:13px;color:var(--ink);line-height:1.75;}
+    .shadow-item{border-left:3px solid #2A2A38;padding:14px 16px;margin-bottom:10px;background:rgba(18,18,26,.03);border-radius:0 8px 8px 0;}
+    .shadow-item:last-child{margin-bottom:0;}
+    .shadow-type{font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--mist);margin-bottom:6px;}
+    .shadow-item p{font-size:13px;color:var(--ink);line-height:1.7;}
+    .shadow-item .sh-evidence{font-size:12px;color:var(--slate);margin-top:6px;border-left:2px solid var(--border);padding-left:10px;}
+    .shadow-item .sh-defence{font-size:12px;color:var(--teal);margin-top:6px;font-weight:600;}
+    .ev-strength{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:1px 6px;border-radius:2px;margin-left:6px;}
+    .ev-strong{background:rgba(45,138,110,.12);color:var(--teal);}
+    .ev-mid{background:rgba(184,146,58,.12);color:var(--gold);}
+    .ev-weak{background:rgba(152,152,168,.12);color:var(--mist);}
 
     /* ─── 情緒地圖 ─── */
-    .emotion-table { width:100%; border-collapse:collapse; font-size:13px; }
-    .emotion-table th { background:rgba(42,122,110,.06); font-size:10px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:var(--teal); padding:9px 12px; text-align:left; border-bottom:2px solid rgba(42,122,110,.15); }
-    .emotion-table td { padding:9px 12px; border-bottom:1px solid var(--border); vertical-align:top; line-height:1.6; }
-    .emotion-chip { display:inline-block; font-size:11px; padding:2px 8px; border-radius:3px; font-weight:600; }
-    .ec-up { background:rgba(196,80,42,.1);color:var(--ember); }
-    .ec-down { background:rgba(45,138,110,.1);color:var(--teal); }
-    .ec-flat { background:rgba(152,152,168,.1);color:var(--mist); }
-    .ec-silent { background:rgba(18,18,26,.07);color:var(--slate); }
-    .consensus-row { display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
-    .cs-item { flex:1; min-width:200px; padding:12px 14px; border-radius:8px; font-size:13px; line-height:1.6; }
-    .cs-real { background:rgba(45,138,110,.07);border:1px solid rgba(45,138,110,.2); }
-    .cs-fake { background:rgba(196,80,42,.06);border:1px solid rgba(196,80,42,.2); }
-    .cs-real::before { content:'🟢 真共識　'; font-weight:700;color:var(--teal); }
-    .cs-fake::before { content:'🔴 表面共識　'; font-weight:700;color:var(--ember); }
+    .emotion-table{width:100%;border-collapse:collapse;font-size:13px;}
+    .emotion-table th{background:rgba(42,122,110,.06);font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--teal);padding:9px 12px;text-align:left;border-bottom:2px solid rgba(42,122,110,.15);}
+    .emotion-table td{padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.6;}
+    .emotion-chip{display:inline-block;font-size:11px;padding:2px 8px;border-radius:3px;font-weight:600;}
+    .ec-up{background:rgba(196,80,42,.1);color:var(--ember);}
+    .ec-down{background:rgba(45,138,110,.1);color:var(--teal);}
+    .ec-flat{background:rgba(152,152,168,.1);color:var(--mist);}
+    .consensus-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
+    .cs-item{flex:1;min-width:200px;padding:12px 14px;border-radius:8px;font-size:13px;line-height:1.6;}
+    .cs-real{background:rgba(45,138,110,.07);border:1px solid rgba(45,138,110,.2);}
+    .cs-fake{background:rgba(196,80,42,.06);border:1px solid rgba(196,80,42,.2);}
+    .cs-real::before{content:'🟢 真共識　';font-weight:700;color:var(--teal);}
+    .cs-fake::before{content:'🔴 表面共識　';font-weight:700;color:var(--ember);}
 
-    /* ─── 人格動態 ─── */
-    .persona-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-    .persona-card { background:var(--parchment); border:1px solid var(--border); border-radius:10px; padding:18px 20px; }
-    .persona-head { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
-    .persona-av { width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:white;flex-shrink:0; }
-    .persona-name { font-size:15px;font-weight:700;color:var(--ink); }
-    .persona-arch { font-size:11px;color:var(--slate); }
-    .persona-card ul { list-style:none; display:flex; flex-direction:column; gap:6px; }
-    .persona-card ul li { font-size:12px; color:var(--slate); padding-left:12px; position:relative; line-height:1.6; }
-    .persona-card ul li::before { content:'·'; position:absolute;left:0;color:var(--mist);font-weight:700; }
-    .persona-card ul li strong { color:var(--ink);font-weight:600; }
-    .persona-suggest { margin-top:10px; padding:9px 12px; background:rgba(42,122,110,.07); border-radius:6px; font-size:12px; color:var(--teal); line-height:1.6; font-weight:600; }
-    .dynamic-row { margin-top:14px; padding:14px 16px; background:var(--snow); border:1px solid var(--border); border-radius:8px; }
-    .dynamic-row h5 { font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--slate);margin-bottom:8px; }
-    .dynamic-row ul { list-style:none; display:flex; flex-direction:column; gap:6px; }
-    .dynamic-row ul li { font-size:13px;color:var(--ink);line-height:1.65; }
+    /* ─── 人格 ─── */
+    .persona-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+    .persona-card{background:var(--parchment);border:1px solid var(--border);border-radius:10px;padding:18px 20px;}
+    .persona-head{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+    .persona-av{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:white;flex-shrink:0;}
+    .persona-name{font-size:15px;font-weight:700;color:var(--ink);}
+    .persona-arch{font-size:11px;color:var(--slate);}
+    .persona-card ul{list-style:none;display:flex;flex-direction:column;gap:6px;}
+    .persona-card ul li{font-size:12px;color:var(--slate);padding-left:12px;position:relative;line-height:1.6;}
+    .persona-card ul li::before{content:'·';position:absolute;left:0;color:var(--mist);font-weight:700;}
+    .persona-card ul li strong{color:var(--ink);font-weight:600;}
+    .persona-suggest{margin-top:10px;padding:9px 12px;background:rgba(42,122,110,.07);border-radius:6px;font-size:12px;color:var(--teal);line-height:1.6;font-weight:600;}
+    .dynamic-row{margin-top:14px;padding:14px 16px;background:var(--snow);border:1px solid var(--border);border-radius:8px;}
+    .dynamic-row h5{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--slate);margin-bottom:8px;}
+    .dynamic-row ul{list-style:none;display:flex;flex-direction:column;gap:6px;}
+    .dynamic-row ul li{font-size:13px;color:var(--ink);line-height:1.65;}
 
     /* ─── 跨會議記憶 ─── */
-    .memory-note { font-size:13px;color:var(--slate);margin-bottom:14px;line-height:1.7; }
-    .commit-table { width:100%;border-collapse:collapse;font-size:13px; }
-    .commit-table th { font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--slate);padding:9px 12px;border-bottom:2px solid var(--border);text-align:left; }
-    .commit-table td { padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.6; }
-    .track-item { padding:12px 14px;background:var(--parchment);border-radius:7px;margin-bottom:10px;font-size:13px;color:var(--ink);line-height:1.7; }
-    .track-item:last-child { margin-bottom:0; }
-    .track-item strong { font-weight:700; }
-    .track-status { display:inline-block;font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px; }
-    .ts-new { background:rgba(196,80,42,.1);color:var(--ember); }
-    .ts-cont { background:rgba(42,122,110,.1);color:var(--teal); }
-    .ts-open { background:rgba(184,146,58,.1);color:var(--gold); }
+    .memory-note{font-size:13px;color:var(--slate);margin-bottom:14px;line-height:1.7;}
+    .commit-table{width:100%;border-collapse:collapse;font-size:13px;}
+    .commit-table th{font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--slate);padding:9px 12px;border-bottom:2px solid var(--border);text-align:left;}
+    .commit-table td{padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.6;}
+    .track-item{padding:12px 14px;background:var(--parchment);border-radius:7px;margin-bottom:10px;font-size:13px;color:var(--ink);line-height:1.7;}
+    .track-item:last-child{margin-bottom:0;}
+    .track-item strong{font-weight:700;}
+    .track-status{display:inline-block;font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;}
+    .ts-new{background:rgba(196,80,42,.1);color:var(--ember);}
+    .ts-cont{background:rgba(42,122,110,.1);color:var(--teal);}
+    .ts-open{background:rgba(184,146,58,.1);color:var(--gold);}
 
     /* ─── Footer ─── */
-    footer { border-top:1px solid var(--border); padding:28px 32px; text-align:center; }
-    .footer-badge { display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--mist); }
-    .footer-badge strong { color:var(--ember);font-weight:600; }
-    .privacy-note { margin-top:10px;font-size:11px;color:var(--mist);max-width:520px;margin-left:auto;margin-right:auto; }
+    footer{border-top:1px solid var(--border);padding:28px 32px;text-align:center;}
+    .footer-badge{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--mist);}
+    .footer-badge strong{color:var(--ember);font-weight:600;}
+    .privacy-note{margin-top:10px;font-size:11px;color:var(--mist);max-width:520px;margin-left:auto;margin-right:auto;}
 
     /* ─── Responsive ─── */
     @media(max-width:720px){
       .hero{padding:36px 20px 30px;} .hero h1{font-size:30px;} .container{padding:32px 16px;}
-      .scqa{grid-template-columns:1fr;} .dse-grid{grid-template-columns:1fr;}
-      .insight-grid{grid-template-columns:1fr;} .yang-grid{grid-template-columns:1fr;}
-      .persona-grid{grid-template-columns:1fr;} .next-grid{grid-template-columns:1fr;}
-      .sk-grid{grid-template-columns:1fr 1fr;} .action-item{grid-template-columns:24px 1fr;}
+      .scqa,.dse-grid,.insight-grid,.yang-grid,.persona-grid,.next-grid{grid-template-columns:1fr;}
+      .sk-grid{grid-template-columns:1fr 1fr;}
+      .action-item{grid-template-columns:24px 1fr;}
+      .sticky-nav{padding:0 16px;}
     }
   </style>
 </head>
 <body>
 
-<!-- ══════════════════ HERO ══════════════════ -->
+<!-- ══ Hero ══ -->
 <header class="hero">
   <div class="hero-tag"><span class="dot"></span>Meeting Intelligence · 五層全開 · MUSEON</div>
   <h1>財寶府庫 × 品牌戰略<br><em>七個月推進計畫對焦會</em></h1>
@@ -309,49 +309,57 @@
   </div>
 </header>
 
+<!-- ══ Sticky Nav ══ -->
+<nav class="sticky-nav" id="sticky-nav">
+  <div class="nav-inner">
+    <span class="nav-group-label">L1</span>
+    <a class="nav-btn" href="#attendees">出席人員</a>
+    <a class="nav-btn" href="#pullquote">核心張力</a>
+    <a class="nav-btn" href="#scqa">執行摘要</a>
+    <a class="nav-btn" href="#qiansui">千歲</a>
+    <a class="nav-btn" href="#timeline">時間軸</a>
+    <a class="nav-btn" href="#dse">DSE</a>
+    <a class="nav-btn" href="#saleskit">Sales Kit</a>
+    <a class="nav-btn" href="#insights">洞見</a>
+    <a class="nav-btn" href="#decisions">決議</a>
+    <div class="nav-sep"></div>
+    <span class="nav-group-label">深度</span>
+    <a class="nav-btn" href="#roundtable">🏛️ 圓桌</a>
+    <a class="nav-btn" href="#yang">⚔️ 陽謀</a>
+    <a class="nav-btn" href="#yin">🌑 陰謀</a>
+    <a class="nav-btn" href="#emotion">🌊 情緒</a>
+    <a class="nav-btn" href="#persona">👤 人格</a>
+    <a class="nav-btn" href="#memory">🧠 記憶</a>
+    <a class="nav-btn" href="#actions">行動清單</a>
+    <a class="nav-btn" href="#next">下一步</a>
+  </div>
+</nav>
+
 <main class="container">
 
-<!-- ══════════════════ 出席人員 ══════════════════ -->
-<section class="section">
+<!-- ══ 出席人員 ══ -->
+<section class="section" id="attendees">
   <div class="section-header"><div class="section-icon si-ink">👥</div><h2 class="section-title">出席人員</h2></div>
   <div class="attendees">
-    <div class="att">
-      <div class="att-av" style="background:#C4502A;">蔡</div>
-      <div><div class="att-name">蔡董</div><div class="att-role">財寶府庫 創辦人 · 主決策者</div></div>
-    </div>
-    <div class="att">
-      <div class="att-av" style="background:#2A7A6E;">周</div>
-      <div><div class="att-name">周逸達｜企管顧問</div><div class="att-role">Sales Key 主導 · 哲學框架設計</div></div>
-    </div>
-    <div class="att">
-      <div class="att-av" style="background:#8B6E25;">A</div>
-      <div><div class="att-name">顧問 A（Speaker 1）</div><div class="att-role">訪談規劃 · 白皮書主筆</div></div>
-    </div>
-    <div class="att">
-      <div class="att-av" style="background:#5A5A6E;">B</div>
-      <div><div class="att-name">顧問 B（Speaker 3）</div><div class="att-role">時程管理 · 計畫統籌</div></div>
-    </div>
-    <div class="att">
-      <div class="att-av" style="background:#9898A8;">+</div>
-      <div><div class="att-name">Speaker 5, 6, 7</div><div class="att-role">顧問團隊成員</div></div>
-    </div>
+    <div class="att"><div class="att-av" style="background:#C4502A;">蔡</div><div><div class="att-name">蔡董</div><div class="att-role">財寶府庫 創辦人 · 主決策者</div></div></div>
+    <div class="att"><div class="att-av" style="background:#2A7A6E;">周</div><div><div class="att-name">周逸達｜企管顧問</div><div class="att-role">Sales Key 主導 · 哲學框架設計</div></div></div>
+    <div class="att"><div class="att-av" style="background:#8B6E25;">A</div><div><div class="att-name">顧問 A（Speaker 1）</div><div class="att-role">訪談規劃 · 白皮書主筆</div></div></div>
+    <div class="att"><div class="att-av" style="background:#5A5A6E;">B</div><div><div class="att-name">顧問 B（Speaker 3）</div><div class="att-role">時程管理 · 計畫統籌</div></div></div>
+    <div class="att"><div class="att-av" style="background:#9898A8;">+</div><div><div class="att-name">Speaker 5, 6, 7</div><div class="att-role">顧問團隊成員</div></div></div>
   </div>
 </section>
 
-<!-- ══════════════════ PULL QUOTE ══════════════════ -->
-<section class="section">
+<!-- ══ Pull Quote ══ -->
+<section class="section" id="pullquote">
   <div class="pull-quote">
     <blockquote>有德才有人，有人才有土，有土才有財，有財必有用——用回德上，循環不息。財寶府庫就是幫有錢人把錢用得有德的基金管理平台。</blockquote>
     <div class="pq-attr">— 周逸達顧問 引孔子《大學》，本場最具傳播力的品牌語言</div>
-    <div class="pq-tension">
-      <strong style="color:#BBBBC8;">核心張力：</strong>蔡董的七成成交率是財寶府庫的最大資產，也是最大的複製瓶頸。
-      整場會議圍繞一個根本問題——<em style="color:#D4AC55;">「千歲已選好的 1600 人，要如何讓他們比蔡董快 10 倍地被找到？」</em>
-    </div>
+    <div class="pq-tension"><strong style="color:#BBBBC8;">核心張力：</strong>蔡董的七成成交率是財寶府庫的最大資產，也是最大的複製瓶頸。整場會議圍繞一個根本問題——<em style="color:#D4AC55;">「千歲已選好的 1600 人，要如何讓他們比蔡董快 10 倍地被找到？」</em></div>
   </div>
 </section>
 
-<!-- ══════════════════ 執行摘要 (SCQA) ══════════════════ -->
-<section class="section">
+<!-- ══ 執行摘要 SCQA ══ -->
+<section class="section" id="scqa">
   <div class="section-header"><div class="section-icon si-ember">🧭</div><h2 class="section-title">執行摘要（SCQA 框架）</h2></div>
   <div class="scqa">
     <div class="scqa-block">
@@ -373,21 +381,17 @@
   </div>
 </section>
 
-<!-- ══════════════════ 千歲 ══════════════════ -->
-<section class="section">
+<!-- ══ 千歲 ══ -->
+<section class="section" id="qiansui">
   <div class="section-header"><div class="section-icon si-gold">🏮</div><h2 class="section-title">千歲指引與神授合法性</h2></div>
   <div class="qiansui">
-    <div class="qs-head">
-      <span class="qs-icon">🏮</span>
-      <h4>千歲對財寶府庫的神授宣告</h4>
-      <span class="qs-source">蔡董轉述 · 高度可信</span>
-    </div>
+    <div class="qs-head"><span class="qs-icon">🏮</span><h4>千歲對財寶府庫的神授宣告</h4><span class="qs-source">蔡董轉述 · 高度可信</span></div>
     <p>千歲（守護神明）已明確指示財寶府庫的發展路徑，賦予整個計畫神授合法性，這是品牌敘事中最高層次的背書——超越任何世俗資歷或商業成就。</p>
     <ul>
       <li>全台灣將有<strong>五方財庫</strong>，每座各 1600 名會員——這是神諭，非商業預測</li>
       <li>1600 個名單「<strong>簽歲早就都已經點好了</strong>」——蔡董的工作是「快速找出他們」而非說服不屬於的人</li>
       <li>千歲指定財寶府庫的格局：以宗教為基地，商會為延伸，不受任何單一宗教管轄</li>
-      <li>神助（神明協助）是會員入會後真實體驗的一部分——某會員購入後兩週業務奇蹟上門，帶三位友人加入</li>
+      <li>神助（神明協助）是會員入會後真實體驗的一部分——某會員購入後兩週，業務奇蹟上門，帶三位友人加入</li>
     </ul>
   </div>
   <div class="card">
@@ -396,8 +400,8 @@
   </div>
 </section>
 
-<!-- ══════════════════ 主題時間軸 ══════════════════ -->
-<section class="section">
+<!-- ══ 主題時間軸 ══ -->
+<section class="section" id="timeline">
   <div class="section-header"><div class="section-icon si-ink">📋</div><h2 class="section-title">討論主題時間軸</h2></div>
   <div class="timeline">
     <div class="tl-item">
@@ -417,7 +421,7 @@
     <div class="tl-item">
       <div class="tl-dot e"></div>
       <div class="tl-head">主題三：七個月計畫情境推演 + 順序調整</div>
-      <div class="tl-body"><strong>關鍵調整：</strong>原計畫顧問 A 先進，本次確認改為<strong>周顧問優先進場</strong>，先建立 Sales Key 與一致性語言，再由顧問 A 接棒做訪談和白皮書。Month 1-2 聚焦銷售框架，Month 3-4 訪談彙整，Month 5-7 白皮書完成。蔡董明確表態：能幫銷售的快做，塑造形象的可以慢。</div>
+      <div class="tl-body"><strong>關鍵調整：</strong>原計畫顧問 A 先進，本次確認改為<strong>周顧問優先進場</strong>，先建立 Sales Key 與一致性語言，再由顧問 A 接棒做訪談和白皮書。蔡董明確表態：能幫銷售的快做，塑造形象的可以慢。</div>
     </div>
     <div class="tl-item">
       <div class="tl-dot g"></div>
@@ -427,20 +431,20 @@
     <div class="tl-item">
       <div class="tl-dot t"></div>
       <div class="tl-head">主題五：各行業身份轉換 × 靈性賦能</div>
-      <div class="tl-body">蔡董以保險業務員用五行設計保單為案例，說明財寶府庫如何讓各行業會員獲得「靈性加持的差異化」。同時引入新加坡合作夥伴（元中秀風水公司一條龍模式）和格斯科技股票情報，展示資源連線的商業價值。
+      <div class="tl-body">蔡董以保險業務員用五行設計保單為案例，說明財寶府庫如何讓各行業會員獲得「靈性加持的差異化」。同時引入新加坡合作夥伴（元中秀風水公司）和格斯科技股票情報，展示資源連線的商業價值。
         <div class="tl-quote">「你進到這個體系，身份就不一樣了——你是一個被賦予靈性背書的保險從業者，不再只是 sales。」—— 蔡董</div>
       </div>
     </div>
     <div class="tl-item">
       <div class="tl-dot e"></div>
       <div class="tl-head">主題六：競爭護城河 + 防火牆設計</div>
-      <div class="tl-body">蔡董預見仿冒者必來，但認為最終護城河是<strong>會員素質</strong>（千歲選定的 1600 人）和<strong>蔡董個人積累不可複製</strong>。周顧問補充：蔡董的人脈和資歷也是防火牆，仿冒者無法在短期內超越。決議：成立基金會 + 商會雙軌結構，增加制度合法性。</div>
+      <div class="tl-body">蔡董預見仿冒者必來，認為最終護城河是<strong>會員素質</strong>（千歲選定的 1600 人）。決議：成立基金會 + 商會雙軌結構，增加制度合法性。新加坡元中秀（40 年風水公司，今年擬在 NASDAQ 掛牌）已確認合資意向。</div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════ DSE 洞察 ══════════════════ -->
-<section class="section">
+<!-- ══ DSE ══ -->
+<section class="section" id="dse">
   <div class="section-header"><div class="section-icon si-ember">🔍</div><h2 class="section-title">DSE 第一性原理洞察</h2></div>
   <div class="dse-grid">
     <div class="dse-card">
@@ -456,57 +460,30 @@
     <div class="dse-card">
       <div class="dse-num">E</div>
       <div class="dse-label">商業賭注（Exposure）</div>
-      <p>若七個月計畫無法建立可複製的銷售語言，蔡董將持續扮演唯一成交者，1600 人目標可能需要 10 年以上才能達成。同時，仿冒者在這段時間內出現的風險極高——<strong>先發優勢的窗口是有限的。</strong></p>
+      <p>若七個月計畫無法建立可複製的銷售語言，蔡董將持續扮演唯一成交者，1600 人目標可能需要 10 年才能達成。同時，仿冒者在這段時間內出現的風險極高——<strong>先發優勢的窗口是有限的。</strong></p>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════ Sales Kit ══════════════════ -->
-<section class="section">
+<!-- ══ Sales Kit ══ -->
+<section class="section" id="saleskit">
   <div class="section-header"><div class="section-icon si-ember">📦</div><h2 class="section-title">Sales Kit 交付物規劃</h2></div>
   <div class="sales-kit">
-    <div class="sk-head">
-      <h3>財寶府庫 Sales Kit</h3>
-      <span class="sk-badge">周顧問優先交付 · Month 1-2</span>
-    </div>
+    <div class="sk-head"><h3>財寶府庫 Sales Kit</h3><span class="sk-badge">周顧問優先交付 · Month 1-2</span></div>
     <p class="sk-sub">核心原則：不是讓業務「背」話術，而是讓業務用自己的生命歷程「二次詮釋」財寶府庫的精神。一致性語言是骨架，個人故事是肉。千歲的神授合法性是整個敘事的頂點。</p>
     <div class="sk-grid">
-      <div class="sk-item">
-        <div class="sk-no">01</div>
-        <h5>品牌故事腳本框架</h5>
-        <p>德人土財循環 × 聚散哲學 × 千歲神授。業務學框架，用自己的故事填入。</p>
-      </div>
-      <div class="sk-item">
-        <div class="sk-no">02</div>
-        <h5>跨宗教話術指引</h5>
-        <p>基督教（申命記28）/ 佛教（布施福德）/ 道家（補氣風水）/ 儒家（大學）四套語言。</p>
-      </div>
-      <div class="sk-item">
-        <div class="sk-no">03</div>
-        <h5>千歲引用 SOP</h5>
-        <p>何時、如何、用什麼語氣引入千歲神授背書。高風險工具，需謹慎使用指引。</p>
-      </div>
-      <div class="sk-item">
-        <div class="sk-no">04</div>
-        <h5>身份轉換敘事</h5>
-        <p>幫各行業會員設計「進入財寶府庫後，你的身份如何升維」的個人化故事。</p>
-      </div>
-      <div class="sk-item">
-        <div class="sk-no">05</div>
-        <h5>成功見證 × 神助故事</h5>
-        <p>已購會員的真實「神助體驗」案例庫。這是最有力的社會證明，比任何邏輯都強。</p>
-      </div>
-      <div class="sk-item">
-        <div class="sk-no">06</div>
-        <h5>簡報框架 + 視覺素材</h5>
-        <p>5-10 頁核心簡報（會議用）+ 1 頁執行摘要（高端客戶用）。跨宗教視覺語言。</p>
-      </div>
+      <div class="sk-item"><div class="sk-no">01</div><h5>品牌故事腳本框架</h5><p>德人土財循環 × 聚散哲學 × 千歲神授。業務學框架，用自己的故事填入。</p></div>
+      <div class="sk-item"><div class="sk-no">02</div><h5>跨宗教話術指引</h5><p>基督教（申命記28）/ 佛教（布施福德）/ 道家（補氣風水）/ 儒家（大學）四套語言。</p></div>
+      <div class="sk-item"><div class="sk-no">03</div><h5>千歲引用 SOP</h5><p>何時、如何、用什麼語氣引入千歲神授背書。高風險工具，需謹慎使用指引。</p></div>
+      <div class="sk-item"><div class="sk-no">04</div><h5>身份轉換敘事</h5><p>幫各行業會員設計「進入財寶府庫後，你的身份如何升維」的個人化故事。</p></div>
+      <div class="sk-item"><div class="sk-no">05</div><h5>成功見證 × 神助故事</h5><p>已購會員的真實「神助體驗」案例庫。最有力的社會證明，比任何邏輯都強。</p></div>
+      <div class="sk-item"><div class="sk-no">06</div><h5>簡報框架 + 視覺素材</h5><p>5-10 頁核心簡報（會議用）+ 1 頁執行摘要（高端客戶用）。跨宗教視覺語言。</p></div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════ 關鍵洞見 ══════════════════ -->
-<section class="section">
+<!-- ══ 關鍵洞見 ══ -->
+<section class="section" id="insights">
   <div class="section-header"><div class="section-icon si-gold">💡</div><h2 class="section-title">關鍵洞見</h2></div>
   <div class="insight-grid">
     <div class="insight-card highlight">
@@ -522,403 +499,308 @@
     <div class="insight-card">
       <span class="insight-tag it-teal">核心洞見 #3</span>
       <h4>激勵設計：頂端客戶要的不是錢</h4>
-      <p>能購入 19-198 萬財神的客戶，其動機絕非財務回報。<strong>轉介紹的激勵應設計為「名」（頭銜/稱號）或「權」（特定決策參與、核心圈准入）</strong>。類比：永康街招待所的樓層分級——二樓是特別的，但三四樓比二樓更稀缺。稀缺感和歸屬感才是頂端客戶的真實貨幣。</p>
+      <p>能購入 19-198 萬財神的客戶，其動機絕非財務回報。<strong>轉介紹的激勵應設計為「名」（頭銜/稱號）或「權」（特定決策參與、核心圈准入）</strong>。類比：永康街招待所的樓層分級——稀缺感和歸屬感才是頂端客戶的真實貨幣。</p>
     </div>
     <div class="insight-card">
       <span class="insight-tag it-risk">風險信號 #1</span>
       <h4>先發窗口有限，仿冒者確定會出現</h4>
-      <p>蔡董清楚認知「後面一定有仿冒者」，但目前的護城河（千歲背書 + 會員素質 + 蔡董人脈）能撐多久？<strong>關鍵風險：若七個月內無法建立足夠數量的「成功見證」，仿冒者可以以更低價格切入，搶走猶豫中的命中客戶。</strong>速度比完美更重要。</p>
+      <p>蔡董清楚認知「後面一定有仿冒者」，但目前的護城河能撐多久？<strong>關鍵風險：若七個月內無法建立足夠數量的「成功見證」，仿冒者可以以更低價格切入，搶走猶豫中的命中客戶。</strong>速度比完美更重要。</p>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════ 決議紀錄 ══════════════════ -->
-<section class="section">
+<!-- ══ 決議紀錄 ══ -->
+<section class="section" id="decisions">
   <div class="section-header"><div class="section-icon si-ember">📌</div><h2 class="section-title">決議紀錄</h2></div>
   <div class="card" style="padding:0;overflow:hidden;">
     <table>
       <thead><tr><th>#</th><th>決議內容</th><th>提出者</th><th>共識程度</th><th>狀態</th></tr></thead>
       <tbody>
-        <tr><td>1</td><td>七個月計畫順序調整：<strong>周顧問優先進場</strong>，建立 Sales Key 後顧問 A 再接棒做訪談</td><td>全體討論</td><td>全體同意</td><td><span class="status st-done">確認</span></td></tr>
+        <tr><td>1</td><td>七個月計畫順序調整：<strong>周顧問優先進場</strong>，建立 Sales Key 後顧問 A 再接棒</td><td>全體討論</td><td>全體同意</td><td><span class="status st-done">確認</span></td></tr>
         <tr><td>2</td><td><strong>快做</strong>（銷售 Sales Kit）vs <strong>慢做</strong>（白皮書/國際化）並行策略確立</td><td>蔡董</td><td>全體同意</td><td><span class="status st-done">確認</span></td></tr>
-        <tr><td>3</td><td>成立<strong>基金會 + 商會雙軌</strong>法人結構（商會坐在基金會架構下）</td><td>周顧問</td><td>多數同意</td><td><span class="status st-confirm">待執行</span></td></tr>
+        <tr><td>3</td><td>成立<strong>基金會 + 商會雙軌</strong>法人結構</td><td>周顧問</td><td>多數同意</td><td><span class="status st-confirm">待執行</span></td></tr>
         <tr><td>4</td><td>客戶訪談數量：<strong>15 位</strong>（蔡董 10 + 顧問 A 5），Month 1-3 完成</td><td>顧問 A</td><td>全體同意</td><td><span class="status st-todo">啟動中</span></td></tr>
-        <tr><td>5</td><td>會員分級採<strong>VVVIP 三維標準</strong>（消費金額 / 頻率 / 轉介紹），激勵設計以「名權」為核心</td><td>周顧問</td><td>有保留</td><td><span class="status st-todo">需細化</span></td></tr>
-        <tr><td>6</td><td>新加坡元中秀合作方向<strong>有共識</strong>，但股比 / 合作模式待後續另行討論</td><td>蔡董</td><td>方向同意</td><td><span class="status st-hold">暫緩細節</span></td></tr>
+        <tr><td>5</td><td>會員分級採<strong>VVVIP 三維標準</strong>，激勵設計以「名權」為核心</td><td>周顧問</td><td>有保留</td><td><span class="status st-todo">需細化</span></td></tr>
+        <tr><td>6</td><td>新加坡元中秀合作方向<strong>有共識</strong>，股比/合作模式待後續另議</td><td>蔡董</td><td>方向同意</td><td><span class="status st-hold">暫緩細節</span></td></tr>
         <tr><td>7</td><td>格斯科技股票：蔡董分享情報，各人自行判斷，<strong>非集體決策</strong></td><td>蔡董</td><td>各自判斷</td><td><span class="status st-hold">個人決策</span></td></tr>
       </tbody>
     </table>
   </div>
-  <div style="height:4px;"></div>
-  <div class="card">
+  <div class="card" style="margin-top:14px;">
     <div class="card-title">停車場（離題但值得後續討論）</div>
-    <p>• <strong>家書 / 傳承計畫</strong>——周顧問提到生子後撰寫家書家訓，與財寶府庫「跨代傳承」理念高度呼應，建議在品牌敘事中設計「家書服務」作為高端會員附加價值<br>
-    • <strong>九紫離火運</strong>——身心靈產業大爆發背景，建議另開一場「財寶府庫 × 產業趨勢定位」專題討論<br>
+    <p>• <strong>家書 / 傳承計畫</strong>——周顧問提到生子後撰寫家書家訓，與財寶府庫「跨代傳承」理念高度呼應，建議設計「家書服務」作為高端會員附加價值<br>
+    • <strong>九紫離火運</strong>——身心靈產業大爆發背景，建議另開「財寶府庫 × 產業趨勢定位」專題討論<br>
     • <strong>五方財庫複製路徑</strong>——第一座完成後如何規劃第二座，千歲已有指示，但商業模型尚未設計</p>
   </div>
 </section>
 
-<!-- ══════════════════ 行動清單 ══════════════════ -->
-<section class="section">
+<!-- ══ 深度分析分隔 ══ -->
+<div class="depth-divider"><span class="depth-label">深度分析層 · L2 圓桌 × L3 博弈 × L4 人格 × L5 記憶</span></div>
+
+<!-- ══ 圓桌會診 ══ -->
+<section class="section" id="roundtable">
+  <div class="section-header"><div class="section-icon si-gold">🏛️</div><h2 class="section-title">L2 · 圓桌會診——九策軍師觀點</h2></div>
+  <p style="font-size:12px;color:var(--mist);margin-bottom:18px;">會議類型：商業談判 × 顧問銷售 → 召集：鬼谷子（捭闔）× 三略（上中下策）× 司馬法（治理制度）</p>
+
+  <div class="advisor">
+    <div class="advisor-head"><span class="advisor-name">鬼谷子</span><span class="advisor-school">捭闔術 · 揣摩篇</span></div>
+    <p>「財寶府庫最大的誤判是把銷售當作『推力』——但它的本質是『引力』。捭闔之術：捭者開也，闔者閉也。蔡董的 70% 成交率，是因為他知道什麼時候開（說故事）、什麼時候閉（讓千歲說話）。業務不會『閉』——他們一直在說，客戶反而關門了。」</p>
+    <p class="ev">證據強度：<span class="ev-strength ev-strong">強</span> 多處發言佐證「不銷而銷」邏輯，神助故事的傳播力遠超業務話術</p>
+    <div class="suggest">Sales Kit 中最重要的一件事不是「怎麼說」，而是「何時停止說，讓千歲說」。設計一個明確的「遞棒給千歲」的時機 SOP。</div>
+  </div>
+
+  <div class="advisor">
+    <div class="advisor-head"><span class="advisor-name">三略</span><span class="advisor-school">上策 · 資源制勝</span></div>
+    <p>「上策取勢，中策取謀，下策取力。目前計畫的問題是同時在用三策——快（取力，Sales Kit）、穩（取謀，白皮書）、遠（取勢，新加坡）。三者並行的風險是資源被分散。在有限的七個月內，蔡董的注意力是最稀缺的資源，必須明確告訴他在哪個月應該把注意力放在哪一策。」</p>
+    <p class="ev">證據強度：<span class="ev-strength ev-mid">中</span> 蔡董說了「快做跟慢做」，但沒有明確說他在哪個月做哪件事</p>
+    <div class="suggest">修訂時程表時，明確標注每個月「需要蔡董投入的時間/精力」，而不只是「團隊交付什麼」。蔡董的日曆才是整個計畫的真正排程。</div>
+  </div>
+
+  <div class="advisor">
+    <div class="advisor-head"><span class="advisor-name">司馬法</span><span class="advisor-school">仁本篇 · 制度建軍</span></div>
+    <p>「一個依賴主將個人能力的軍隊，主將一旦出征就無法作戰。財寶府庫目前的狀況正是如此——蔡董是唯一能成交的人。司馬法言：治眾如治寡，分數是也。分數，就是制度。Sales Kit 是初步的制度化，但不夠——還需要一套讓業務能自我評估、自我訓練、自我迭代的機制，否則 Sales Kit 只會被用一次就束之高閣。」</p>
+    <p class="ev">證據強度：<span class="ev-strength ev-mid">中</span> 一致性是本場核心主題，但如何維持一致性的機制尚未討論</p>
+    <div class="suggest">Sales Kit 需要附帶「使用指引」——包含自我評估問卷和固定的銷售覆盤機制，讓業務能持續迭代，而不只是把投影片背一遍。</div>
+  </div>
+
+  <div class="roundtable-conflict">
+    <h5>軍師觀點衝突 × 共識</h5>
+    <ul>
+      <li><strong>鬼谷子 vs 三略：</strong>鬼谷子主張「閉」最重要（讓千歲說話），三略主張「資源分配清晰化」最重要——建議：先解決三略（月度資源分配），再建鬼谷子（千歲遞棒 SOP）。</li>
+      <li><strong>三軍師共識：</strong>Sales Kit 若沒有配套的「使用維護機制」，6 個月後會失效。制度需要有反饋迴路才能存活。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══ 陽謀 ══ -->
+<section class="section" id="yang">
+  <div class="section-header"><div class="section-icon si-ember">⚔️</div><h2 class="section-title">L3 · 陽謀佈局分析</h2></div>
+  <ul class="power-list">
+    <li><strong>議程主導者：蔡董</strong>——透過分享格斯科技情報、新加坡合作進展和千歲宣告，隱性設定了「我的資源是豐沛的」的框架，讓顧問在無意識中對接蔡董的願景而非質疑它</li>
+    <li><strong>哲學框架設定者：周顧問</strong>——引入儒家《大學》框架，成功把財寶府庫的商業邏輯與中華文化正典掛鉤，瞬間拉高品牌學術合法性，同時建立了「思想設計師」地位</li>
+    <li><strong>時程掌控者：顧問 B</strong>——作為計畫統籌，調整「周顧問先進」的決議，實質影響了各顧問在計畫中的話語權分佈</li>
+  </ul>
+  <div class="yang-grid">
+    <div class="yang-card">
+      <h5>蔡董的陽謀佈局</h5>
+      <p>快速建立「不可複製的先發優勢」。用千歲神授 + 1600 人名單概念，把潛在仿冒者定性為「山寨版」。格斯科技情報的透露是有意識的資源共享信號——向顧問團隊展示「跟我合作有實質利益」，強化顧問的動機。</p>
+      <div class="ev-tag">證據強度：<span class="ev-strength ev-strong">強</span></div>
+    </div>
+    <div class="yang-card">
+      <h5>周顧問的陽謀佈局</h5>
+      <p>透過《大學》框架把自己的課程體系（德人土財）與財寶府庫深度綁定，成為不可替代的「思想顧問」而非一般的銷售顧問。同時在討論順序中爭取到「先進場」的位置，確立主導性。</p>
+      <div class="ev-tag">證據強度：<span class="ev-strength ev-mid">中</span></div>
+    </div>
+  </div>
+  <div class="timing-card" style="margin-top:14px;">
+    <h5>時機判斷：現在是攻還是守？</h5>
+    <p>現在是<strong>攻的時刻</strong>。仿冒者尚未出現，先發窗口仍開著；新加坡夥伴正在積極靠近；九紫離火運帶來身心靈產業大爆發。Sales Kit 和訪談的快速推進是攻的手段，基金會和白皮書是守的準備。攻守同步，以攻為主。</p>
+  </div>
+</section>
+
+<!-- ══ 陰謀 ══ -->
+<section class="section" id="yin">
+  <div class="section-header"><div class="section-icon si-ghost">🌑</div><h2 class="section-title">L3 · 陰謀辨識（隱性動態）</h2></div>
+  <p style="font-size:12px;color:var(--mist);margin-bottom:16px;">⚠️ 此分析為基於語言模式的推斷，非事實認定。所有推斷標注證據強度，供戰略參考，不可對質當事人。</p>
+
+  <div class="shadow-item">
+    <div class="shadow-type">防衛型發言偵測</div>
+    <p>蔡董在回應「七個月能否產出效果」時，用了大量的「我認為」「一定會」和千歲保證語言，快速拉高到靈性層次——這是一個典型的「用信仰封閉質疑」的防衛模式。</p>
+    <div class="sh-evidence">具體發言：「千歲也有說，以後全台灣會有五方財庫」——注意：這些發言出現在需要回答「具體如何達到 1600 人」的脈絡中，而非主動提起。<span class="ev-strength ev-mid">中</span></div>
+    <div class="sh-defence">防禦建議：顧問在對焦時間時，先說「我完全相信這個方向」，再接「所以我想讓它更快落地——具體在第一個月，我們能接觸到的第一個客戶是誰？」用信仰語言開場，再拉回執行。</div>
+  </div>
+
+  <div class="shadow-item">
+    <div class="shadow-type">資訊不對稱信號</div>
+    <p>格斯科技情報的透露時機耐人尋味——在討論「銷售速度太慢」的壓力之後，蔡董引入了股票情報話題。這可能是有意識地轉移焦點，也可能是蔡董用「我有更大的資源」來重建自己在顧問面前的主導感。</p>
+    <div class="sh-evidence">具體發言：「好，接下來格斯會有幾個行程...這些都是我認為很棒的」——這段出現在銷售複製困難的討論之後。<span class="ev-strength ev-weak">弱</span></div>
+    <div class="sh-defence">建議：不需要應對，但要留意——若蔡董在未來的會議中繼續用「股票情報」或「千歲宣告」來回應執行層面的挑戰，這個模式需要被溫和點破。</div>
+  </div>
+
+  <div class="shadow-item">
+    <div class="shadow-type">責任切割信號</div>
+    <p>顧問 A 在說明時程時，多次強調「如果中間有稍微的...沒有約成」「可能就會稍微往後」——這是一個預先埋設延誤藉口的語言模式，暗示她預期計畫會有延誤，並提前在語言上為自己建立緩衝。</p>
+    <div class="sh-evidence">具體發言：「如果這中間有稍微的，例如說嗯就是就是我們就是剛好哎沒有約成對，那那可能就會稍微的往後對」<span class="ev-strength ev-mid">中</span></div>
+    <div class="sh-defence">建議：在下次對焦時，請顧問 A 明確列出「什麼條件下這個計畫不會延誤」，讓她自己說出成功條件，比指出潛在問題更有效。</div>
+  </div>
+</section>
+
+<!-- ══ 情緒動態 ══ -->
+<section class="section" id="emotion">
+  <div class="section-header"><div class="section-icon si-teal">🌊</div><h2 class="section-title">L3 · 情緒動態與共識地圖</h2></div>
+  <table class="emotion-table">
+    <thead><tr><th>時間點</th><th>觸發事件</th><th>情緒轉折</th><th>觸發者</th></tr></thead>
+    <tbody>
+      <tr><td>開場：靈性知識分享</td><td>蔡董說糯米驅鬼補氣</td><td><span class="emotion-chip ec-up">暖場↑</span></td><td>蔡董</td></tr>
+      <tr><td>主題一：跨宗教話術</td><td>申命記成交基督徒案例</td><td><span class="emotion-chip ec-up">興奮↑</span></td><td>蔡董</td></tr>
+      <tr><td>主題二：德人土財</td><td>周顧問提出《大學》框架</td><td><span class="emotion-chip ec-up">共鳴↑</span></td><td>周顧問</td></tr>
+      <tr><td>主題三：時程推演</td><td>討論訪談和白皮書時程</td><td><span class="emotion-chip ec-flat">平穩→</span></td><td>顧問 A/B</td></tr>
+      <tr><td>主題三中段：順序調整</td><td>確認周顧問先進</td><td><span class="emotion-chip" style="background:rgba(201,148,58,.1);color:var(--warning);">微緊張</span></td><td>顧問 A</td></tr>
+      <tr><td>主題五：格斯科技</td><td>蔡董透露股票情報</td><td><span class="emotion-chip ec-up">能量↑</span></td><td>蔡董</td></tr>
+      <tr><td>結尾：下次會議安排</td><td>提到「交作業給太王」</td><td><span class="emotion-chip ec-down">自嘲放鬆↓</span></td><td>顧問 B</td></tr>
+    </tbody>
+  </table>
+  <div class="consensus-row">
+    <div class="cs-item cs-real">德人土財作為品牌哲學基礎——所有人點頭，周顧問說完後場內沉默了 3 秒後才繼續，沉默 = 消化 = 真共識</div>
+    <div class="cs-item cs-fake">「可以慢慢整合」（白皮書）——表面上所有人同意，但蔡董說「要快」，顧問 A 說「可能稍微往後」——兩者對「慢」的定義可能不同</div>
+  </div>
+</section>
+
+<!-- ══ 人格動態 ══ -->
+<section class="section" id="persona">
+  <div class="section-header"><div class="section-icon si-ghost">👤</div><h2 class="section-title">L4 · 參與者人格動態（ANIMA 推斷）</h2></div>
+  <div class="persona-grid">
+    <div class="persona-card">
+      <div class="persona-head"><div class="persona-av" style="background:#C4502A;">蔡</div><div><div class="persona-name">蔡董</div><div class="persona-arch">推斷原型：創造者 × 神聖使者</div></div></div>
+      <ul>
+        <li><strong>發言模式：</strong>故事型、靈性跳躍、案例堆疊，很少回答「如何」，擅長說「為什麼」</li>
+        <li><strong>本次角色：</strong>願景宣告者 + 資源展示者。他不是在「討論」計畫，他是在「宣告」計畫</li>
+        <li><strong>能量來源：</strong>千歲認可 + 成功案例的累積 + 1600 人的使命感</li>
+        <li><strong>壓力點：</strong>速度焦慮——「我成交七成又怎樣，還是太慢」這句話洩露了真實焦慮</li>
+      </ul>
+      <div class="persona-suggest">先接靈性框架，再問「在這個使命下，最快能落地的第一步是什麼？」他對「使命」的回應比對「計畫」更快。</div>
+    </div>
+    <div class="persona-card">
+      <div class="persona-head"><div class="persona-av" style="background:#2A7A6E;">周</div><div><div class="persona-name">周逸達</div><div class="persona-arch">推斷原型：智者 × 教師</div></div></div>
+      <ul>
+        <li><strong>發言模式：</strong>哲學框架先行，喜歡「我來補充一下」，擅長把他人的直覺說法升維成系統</li>
+        <li><strong>本次角色：</strong>框架提供者 + 主導顧問。用《大學》一舉確立了自己的核心位置</li>
+        <li><strong>能量來源：</strong>知識體系的相互印證（儒家 × 命理 × 企管三者合一）</li>
+        <li><strong>壓力點：</strong>剛有孩子，人生階段轉換帶來「傳承」視角，對財寶府庫有額外的個人共鳴</li>
+      </ul>
+      <div class="persona-suggest">給他建立框架的空間——不要急著補充細節，讓他先說完，再問「這個框架中，第一優先要做的是什麼？」</div>
+    </div>
+    <div class="persona-card">
+      <div class="persona-head"><div class="persona-av" style="background:#8B6E25;">A</div><div><div class="persona-name">顧問 A</div><div class="persona-arch">推斷原型：執行者 × 分析師</div></div></div>
+      <ul>
+        <li><strong>發言模式：</strong>時間軸、里程碑、條件句，多用「如果...那麼...」結構</li>
+        <li><strong>本次角色：</strong>計畫落地者。在本次調整中讓出了優先進場位置，但取得了白皮書主控權</li>
+        <li><strong>壓力點：</strong>訪談 15 人的工作量不小，且她預設了可能的延誤，顯示有些許焦慮</li>
+      </ul>
+      <div class="persona-suggest">幫她把工作量化、具體化，讓她看到完成的路徑而非只看到截止日——她的焦慮來自「不確定性」，消除不確定性比給鼓勵更有效。</div>
+    </div>
+    <div class="persona-card">
+      <div class="persona-head"><div class="persona-av" style="background:#5A5A6E;">B</div><div><div class="persona-name">顧問 B</div><div class="persona-arch">推斷原型：協調者 × 統籌者</div></div></div>
+      <ul>
+        <li><strong>發言模式：</strong>整合他人、推進議程、自嘲（「好害怕！」）放鬆氣氛</li>
+        <li><strong>本次角色：</strong>潤滑劑 + 記錄者。確保會議不失控，各方觀點被聽到</li>
+        <li><strong>壓力點：</strong>需要在「蔡董的靈性節奏」和「顧問團隊的執行節奏」之間做橋接，這是最難的角色</li>
+      </ul>
+      <div class="persona-suggest">顧問 B 需要被授權做「議程管理者」——下次可以明確說「B 負責今天的時間管理」，讓她有正式的打斷權。</div>
+    </div>
+  </div>
+  <div class="dynamic-row">
+    <h5>人際動態圖</h5>
+    <ul>
+      <li>蔡董 → 周顧問：高度相互認可，靈性語言頻率一致，但蔡董的「快」需求可能讓周顧問的「框架建立」過程產生時間摩擦</li>
+      <li>周顧問 ↔ 顧問 A：潛在的主導權微張力——周顧問先進讓顧問 A 退到第二位。白皮書主控是顧問 A 的底牌，需要讓她感受到這張底牌的分量</li>
+      <li>蔡董 → 顧問 A/B：信任型委託——蔡董不深入問執行細節，但期望結果。若結果不符期望，他會用靈性語言繞過而非正面衝突</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══ 跨會議記憶 ══ -->
+<section class="section" id="memory">
+  <div class="section-header"><div class="section-icon si-teal">🧠</div><h2 class="section-title">L5 · 跨會議記憶（第 1-3 場追蹤）</h2></div>
+  <p class="memory-note">這是第三次顧問對焦會議。以下依據本場對話中的歷史引用進行承諾漂移偵測。（Knowledge-Lattice 歷史結晶：前兩場無完整記錄，以本場引用線索為主。）</p>
+  <div class="card" style="padding:0;overflow:hidden;margin-bottom:14px;">
+    <table class="commit-table">
+      <thead><tr><th>承諾內容</th><th>時間</th><th>承諾人</th><th>本場狀態</th></tr></thead>
+      <tbody>
+        <tr><td>蔡董曾提新加坡風水公司（元中秀）合作意向</td><td>前場</td><td>蔡董</td><td><span class="track-status ts-cont">持續推進中</span> 今場更新：過年後再次對接，共識方向合資，細節未定</td></tr>
+        <tr><td>顧問 A 規劃七個月時程（原版）</td><td>前場</td><td>顧問 A</td><td><span class="track-status ts-new">已調整</span> 本場：周顧問先進，顧問 A 退後，時程需重新排版</td></tr>
+        <tr><td>格斯科技股票情報（過年前已提及）</td><td>數場前</td><td>蔡董</td><td><span class="track-status ts-cont">持續更新</span> 本場新增：換董事長沈國榮、日本採購意向、軍工趨勢</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="track-item"><strong>主題演進：品牌定位</strong> <span class="track-status ts-cont">收斂中</span><br>「宗教平台」→「宗教賦能型商會」→「超宗教基金管理平台 + 商會」，每場更清晰。本場新增《大學》德人土財框架，定位已足夠清晰，可進入品牌語言固化階段。</div>
+  <div class="track-item"><strong>主題演進：銷售複製問題</strong> <span class="track-status ts-open">尚未解決</span><br>已討論多場，但每次都在「框架」層面打轉（話術 / 一致性），尚未有具體的「業務如何被培訓」的操作方案。Sales Kit 是本場的承諾，需在下場確認初稿。</div>
+  <div class="track-item"><strong>新增決策：3 項</strong> 已寫入決議紀錄　｜　<strong>變更決策：1 項</strong> 顧問進場順序（顧問A→周顧問先行）</div>
+</section>
+
+<!-- ══ 行動清單 ══ -->
+<section class="section" id="actions">
   <div class="section-header"><div class="section-icon si-ember">✅</div><h2 class="section-title">行動清單</h2></div>
   <div class="action-list">
     <div class="action-item">
       <div class="action-no">1</div>
       <div class="action-body"><strong>修訂七個月時程表</strong>——反映周顧問先行的順序調整，提交蔡董確認後作為正式計畫版本<div class="ab-context">戰略背景：此為整個計畫的導航文件，需在 Week 1 內確認</div></div>
-      <div class="owner ow-b">顧問 B</div>
-      <div class="priority-tag pr-urgent">緊急</div>
+      <div class="owner ow-b">顧問 B</div><div class="priority-tag pr-urgent">緊急</div>
     </div>
     <div class="action-item">
       <div class="action-no">2</div>
-      <div class="action-body"><strong>建立 Sales Kit 初稿（六件套）</strong>——品牌故事框架、跨宗教話術四套、千歲引用 SOP、身份轉換敘事、見證案例庫、簡報框架<div class="ab-context">戰略背景：這是整個計畫「快」這條線的核心交付物，需在 Month 1 完成初稿</div></div>
-      <div class="owner ow-zeal">周顧問</div>
-      <div class="priority-tag pr-urgent">緊急</div>
+      <div class="action-body"><strong>建立 Sales Kit 初稿（六件套）</strong>——品牌故事框架、跨宗教話術四套、千歲引用 SOP、身份轉換敘事、見證案例庫、簡報框架<div class="ab-context">戰略背景：「快」這條線的核心交付物，需在 Month 1 完成初稿</div></div>
+      <div class="owner ow-zeal">周顧問</div><div class="priority-tag pr-urgent">緊急</div>
     </div>
     <div class="action-item">
       <div class="action-no">3</div>
-      <div class="action-body"><strong>建立客戶訪談清單 + 排程</strong>——蔡董提供 10 位核心客戶名單（含購入後有「神助體驗」者優先），顧問 A 另找 5 位外部視角<div class="ab-context">戰略背景：訪談結果是白皮書和 Sales Kit 的素材來源</div></div>
-      <div class="owner ow-a">顧問 A</div>
-      <div class="priority-tag pr-urgent">緊急</div>
+      <div class="action-body"><strong>建立客戶訪談清單 + 排程</strong>——蔡董提供 10 位核心客戶名單（有「神助體驗」者優先），顧問 A 另找 5 位外部視角<div class="ab-context">戰略背景：訪談結果是白皮書和 Sales Kit 的素材來源</div></div>
+      <div class="owner ow-a">顧問 A</div><div class="priority-tag pr-urgent">緊急</div>
     </div>
     <div class="action-item">
       <div class="action-no">4</div>
       <div class="action-body"><strong>提供客戶訪談名單 + 神助故事案例</strong>——特別標記有強烈神助體驗的會員，這些人是最佳 Sales Kit 素材，也是未來不銷而銷的種子<div class="ab-context">戰略背景：千歲選定名單的「已驗證者」是最寶貴資產</div></div>
-      <div class="owner ow-cai">蔡董</div>
-      <div class="priority-tag pr-urgent">緊急</div>
+      <div class="owner ow-cai">蔡董</div><div class="priority-tag pr-urgent">緊急</div>
     </div>
     <div class="action-item">
       <div class="action-no">5</div>
       <div class="action-body"><strong>設計 VVVIP 分級激勵細則</strong>——三維標準定義 + 非金錢激勵方案（名/權維度），參考永康街招待所分層模型<div class="ab-context">戰略背景：會員分級是口碑擴散系統的基礎設施</div></div>
-      <div class="owner ow-zeal">周顧問</div>
-      <div class="priority-tag pr-normal">中期</div>
+      <div class="owner ow-zeal">周顧問</div><div class="priority-tag pr-normal">中期</div>
     </div>
     <div class="action-item">
       <div class="action-no">6</div>
-      <div class="action-body"><strong>格斯科技後續追蹤</strong>——確認即時股價、沈國榮就任時程、日本採購進展，評估後告知相關會員<div class="ab-context">戰略背景：股票情報連線是財寶府庫「資源共好」模式的樣板案例</div></div>
-      <div class="owner ow-cai">蔡董</div>
-      <div class="priority-tag pr-normal">中期</div>
+      <div class="action-body"><strong>格斯科技後續追蹤</strong>——確認即時股價、沈國榮就任時程、日本採購進展，評估後告知相關會員<div class="ab-context">戰略背景：股票情報連線是「資源共好」模式的樣板案例</div></div>
+      <div class="owner ow-cai">蔡董</div><div class="priority-tag pr-normal">中期</div>
     </div>
     <div class="action-item">
       <div class="action-no">7</div>
       <div class="action-body"><strong>新加坡元中秀後續</strong>——整理上次對接結論，提出合資框架初稿（角色分工 / 股比方向），作為下次對話基礎<div class="ab-context">戰略背景：元中秀今年掛牌 NASDAQ，時間視窗有限</div></div>
-      <div class="owner ow-cai">蔡董</div>
-      <div class="priority-tag pr-long">長期</div>
+      <div class="owner ow-cai">蔡董</div><div class="priority-tag pr-long">長期</div>
     </div>
     <div class="action-item">
       <div class="action-no">8</div>
-      <div class="action-body"><strong>基金會可行性研究</strong>——了解台灣基金會設立門檻（最低資金 / 主管機關 / 設立時程），與商會雙軌的法律可行性<div class="ab-context">戰略背景：基金會賦予財寶府庫更高的社會合法性，也強化防火牆</div></div>
-      <div class="owner ow-a">顧問 A</div>
-      <div class="priority-tag pr-long">長期</div>
+      <div class="action-body"><strong>基金會可行性研究</strong>——了解台灣基金會設立門檻、與商會雙軌的法律可行性<div class="ab-context">戰略背景：基金會賦予財寶府庫更高的社會合法性，強化防火牆</div></div>
+      <div class="owner ow-a">顧問 A</div><div class="priority-tag pr-long">長期</div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════ 下一步 4宮格 ══════════════════ -->
-<section class="section">
+<!-- ══ 下一步 ══ -->
+<section class="section" id="next">
   <div class="section-header"><div class="section-icon si-teal">🗓️</div><h2 class="section-title">下次會議建議優先議程</h2></div>
   <div class="next-grid">
-    <div class="next-cell">
-      <h4 class="nc-h">HIGH · 必討論</h4>
-      <ul>
-        <li>Sales Kit 初稿審核——周顧問帶框架，蔡董確認靈性準確度</li>
-        <li>時程表最終確認——含周顧問 / 顧問 A 的介入節點</li>
-      </ul>
-    </div>
-    <div class="next-cell">
-      <h4 class="nc-h">HIGH · 蔡董決策</h4>
-      <ul>
-        <li>客戶名單提交——10 位核心客戶含神助案例</li>
-        <li>VVVIP 分級激勵方向確認</li>
-      </ul>
-    </div>
-    <div class="next-cell">
-      <h4 class="nc-m">MEDIUM · 推進中</h4>
-      <ul>
-        <li>訪談設計問卷初稿——顧問 A 提交，全體審閱</li>
-        <li>基金會設立可行性初步回報</li>
-      </ul>
-    </div>
-    <div class="next-cell">
-      <h4 class="nc-m">MEDIUM · 後台推進</h4>
-      <ul>
-        <li>格斯科技情報更新（蔡董單向通知即可）</li>
-        <li>新加坡合資框架初稿（蔡董準備後再議）</li>
-      </ul>
-    </div>
+    <div class="next-cell"><h4 class="nc-h">HIGH · 必討論</h4><ul><li>Sales Kit 初稿審核——周顧問帶框架，蔡董確認靈性準確度</li><li>時程表最終確認——含周顧問 / 顧問 A 的介入節點</li></ul></div>
+    <div class="next-cell"><h4 class="nc-h">HIGH · 蔡董決策</h4><ul><li>客戶名單提交——10 位核心客戶含神助案例</li><li>VVVIP 分級激勵方向確認</li></ul></div>
+    <div class="next-cell"><h4 class="nc-m">MEDIUM · 推進中</h4><ul><li>訪談設計問卷初稿——顧問 A 提交，全體審閱</li><li>基金會設立可行性初步回報</li></ul></div>
+    <div class="next-cell"><h4 class="nc-m">MEDIUM · 後台推進</h4><ul><li>格斯科技情報更新（蔡董單向通知即可）</li><li>新加坡合資框架初稿（蔡董準備後再議）</li></ul></div>
   </div>
-  <div style="height:10px;"></div>
-  <div class="card">
+  <div class="card" style="margin-top:14px;">
     <div class="card-title">建議會議節奏</div>
     <p>周顧問與蔡董：每 1-2 週對焦一次（Sales Kit 快速迭代期）。顧問 A 介入後：每月一次三方全員對焦。若 Sales Kit 初稿差距大，建議安排一次 2 小時工作坊，讓蔡董「說」、顧問「記」，直接錄音轉為素材。</p>
   </div>
 </section>
 
-<!-- ══════════════════ 深度分析（摺疊） ══════════════════ -->
-<section class="section">
-  <div class="section-header"><div class="section-icon si-gold">🏛️</div><h2 class="section-title">深度分析層（點擊展開）</h2></div>
-
-  <!-- L2 圓桌 -->
-  <details>
-    <summary>
-      <div class="s-icon si-roundtable">🏛️</div>
-      L2 · 圓桌會診——九策軍師觀點
-    </summary>
-    <div class="detail-body">
-      <p style="font-size:12px;color:var(--mist);margin-bottom:18px;">會議類型：商業談判 × 顧問銷售 → 召集：鬼谷子（捭闔）× 三略（上中下策）× 司馬法（治理制度）</p>
-
-      <div class="advisor">
-        <div class="advisor-head">
-          <span class="advisor-name">鬼谷子</span>
-          <span class="advisor-school">捭闔術 · 揣摩篇</span>
-        </div>
-        <p>「財寶府庫最大的誤判是把銷售當作『推力』——但它的本質是『引力』。捭闔之術：捭者開也，闔者閉也。蔡董的 70% 成交率，是因為他知道什麼時候開（說故事）、什麼時候閉（讓千歲說話）。業務不會『閉』——他們一直在說，客戶反而關門了。」</p>
-        <p class="ev">證據強度：強（多處發言佐證蔡董的「不銷而銷」邏輯，神助故事的傳播力遠超業務話術）</p>
-        <div class="suggest">Sales Kit 中最重要的一件事不是「怎麼說」，而是「何時停止說，讓千歲說」。設計一個明確的「遞棒給千歲」的時機 SOP。</div>
-      </div>
-
-      <div class="advisor">
-        <div class="advisor-head">
-          <span class="advisor-name">三略</span>
-          <span class="advisor-school">上策 · 資源制勝</span>
-        </div>
-        <p>「上策取勢，中策取謀，下策取力。目前計畫的問題是同時在用三策——快（取力，Sales Kit）、穩（取謀，白皮書）、遠（取勢，新加坡）。三者並行的風險是資源被分散。在有限的七個月內，蔡董的注意力是最稀缺的資源，必須明確告訴他在哪個月應該把注意力放在哪一策。」</p>
-        <p class="ev">證據強度：中（蔡董本人說了「快做跟慢做」，但沒有明確說他在哪個月做哪件事）</p>
-        <div class="suggest">建議顧問 B 在修訂時程表時，明確標注每個月「需要蔡董投入的時間/精力」，而不只是「團隊交付什麼」。蔡董的日曆才是整個計畫的真正排程。</div>
-      </div>
-
-      <div class="advisor">
-        <div class="advisor-head">
-          <span class="advisor-name">司馬法</span>
-          <span class="advisor-school">仁本篇 · 制度建軍</span>
-        </div>
-        <p>「一個依賴主將個人能力的軍隊，主將一旦出征就無法作戰。財寶府庫目前的狀況正是如此——蔡董是唯一能成交的人。司馬法言：治眾如治寡，分數是也。分數，就是制度。Sales Kit 是初步的制度化，但不夠——還需要一套讓業務能自我評估、自我訓練、自我迭代的機制，否則 Sales Kit 只會被用一次就束之高閣。」</p>
-        <p class="ev">證據強度：中（一致性是本場核心主題，但如何維持一致性的機制尚未討論）</p>
-        <div class="suggest">Sales Kit 需要附帶「使用指引」——包含自我評估問卷（我講完這段話，客戶的反應是什麼？）和固定的銷售覆盤機制，讓業務能持續迭代，而不只是把投影片背一遍。</div>
-      </div>
-
-      <div class="roundtable-conflict">
-        <h5>軍師觀點衝突 × 共識</h5>
-        <ul>
-          <li><strong>鬼谷子 vs 三略：</strong>鬼谷子主張「閉」最重要（讓千歲說話），三略主張「資源分配清晰化」最重要——衝突點：前者是銷售技術問題，後者是管理問題。你可能兩個都需要，但先後順序不同。建議：先解決三略（月度資源分配），再建鬼谷子（千歲遞棒 SOP）。</li>
-          <li><strong>三軍師共識：</strong>Sales Kit 若沒有配套的「使用維護機制」，6 個月後會失效。制度需要有反饋迴路才能存活。</li>
-        </ul>
-      </div>
-    </div>
-  </details>
-
-  <!-- L3 陽謀 -->
-  <details>
-    <summary>
-      <div class="s-icon si-yang">⚔️</div>
-      L3 · 陽謀佈局分析
-    </summary>
-    <div class="detail-body">
-      <ul class="power-list" style="margin-bottom:16px;">
-        <li><strong>議程主導者：</strong>蔡董——透過分享格斯科技情報、新加坡合作進展和千歲宣告，隱性設定了「我的資源是豐沛的」的框架，讓顧問在無意識中對接蔡董的願景而非質疑它</li>
-        <li><strong>哲學框架設定者：</strong>周顧問——引入儒家《大學》框架，成功把財寶府庫的商業邏輯與中華文化正典掛鉤，瞬間拉高了品牌的學術合法性。此舉同時建立了周顧問自己在此計畫中的「思想設計師」地位</li>
-        <li><strong>時程掌控者：</strong>顧問 B——作為計畫統籌，調整「周顧問先進」的決議，實質影響了各顧問在計畫中的話語權分佈</li>
-      </ul>
-
-      <div class="yang-grid">
-        <div class="yang-card">
-          <h5>蔡董的陽謀佈局</h5>
-          <p>快速建立「不可複製的先發優勢」。用千歲神授 + 1600 人名單概念，把潛在仿冒者定性為「山寨版」。同時，格斯科技情報的透露是一個有意識的資源共享信號——向顧問團隊展示「跟我合作有實質利益」，強化顧問的動機。</p>
-          <div class="ev-tag">證據強度：<span class="ev-strength ev-strong">強</span> 多處發言佐證</div>
-        </div>
-        <div class="yang-card">
-          <h5>周顧問的陽謀佈局</h5>
-          <p>透過《大學》框架把自己的課程體系（德人土財）與財寶府庫深度綁定，成為不可替代的「思想顧問」而非一般的銷售顧問。同時，在討論順序中爭取到「先進場」的位置，確立自己在計畫中的主導性。</p>
-          <div class="ev-tag">證據強度：<span class="ev-strength ev-mid">中</span> 單處行為推斷</div>
-        </div>
-      </div>
-
-      <div class="yang-card" style="margin-top:14px;background:rgba(42,122,110,.04);border-color:rgba(42,122,110,.15);">
-        <h5 style="color:var(--teal);">時機判斷：現在是攻還是守？</h5>
-        <p>現在是<strong>攻的時刻</strong>。仿冒者尚未出現，先發窗口仍開著；新加坡夥伴正在積極靠近；九紫離火運帶來身心靈產業大爆發。但蔡董已意識到「速度太慢」是最大風險——Sales Kit 和訪談的快速推進是攻的手段，基金會和白皮書是守的準備。攻守同步，以攻為主。</p>
-      </div>
-    </div>
-  </details>
-
-  <!-- L3 陰謀 -->
-  <details>
-    <summary>
-      <div class="s-icon si-yin">🌑</div>
-      L3 · 陰謀辨識（隱性動態）
-    </summary>
-    <div class="detail-body">
-      <p style="font-size:12px;color:var(--mist);margin-bottom:16px;">⚠️ 此分析為基於語言模式的推斷，非事實認定。所有推斷標注證據強度，供戰略參考，不可對質當事人。</p>
-
-      <div class="shadow-item">
-        <div class="shadow-type">防衛型發言偵測</div>
-        <p>蔡董在回應「七個月能否產出效果」時，用了大量的「我認為」「一定會」和千歲保證語言，快速拉高到靈性層次——這是一個典型的「用信仰封閉質疑」的防衛模式。</p>
-        <div class="sh-evidence">具體發言：「因為你跟他說什麼資源可以很錯的」「千歲也有說，以後全台灣會有五方財庫」——注意：這些發言出現在需要回答「具體如何達到 1600 人」的脈絡中，而非主動提起。<span class="ev-strength ev-mid">中</span></div>
-        <div class="sh-defence">防禦建議：顧問在對焦時間時，可以先說「我完全相信這個方向」，再接「所以我想讓它更快落地——具體在第一個月，我們能接觸到的第一個客戶是誰？」用信仰語言開場，再拉回執行。</div>
-      </div>
-
-      <div class="shadow-item">
-        <div class="shadow-type">資訊不對稱信號</div>
-        <p>格斯科技情報的透露時機耐人尋味——在討論「銷售速度太慢」的壓力之後，蔡董引入了股票情報話題。這可能是有意識地轉移焦點，也可能是蔡董用「我有更大的資源」來重建自己在顧問面前的主導感。</p>
-        <div class="sh-evidence">具體發言：「好，接下來格斯會有幾個行程...這些都是我認為很棒的」——這段出現在銷售複製困難的討論之後。<span class="ev-strength ev-weak">弱</span></div>
-        <div class="sh-defence">建議：不需要應對，但要留意——若蔡董在未來的會議中繼續用「股票情報」或「千歲宣告」來回應執行層面的挑戰，這個模式需要被溫和點破。</div>
-      </div>
-
-      <div class="shadow-item">
-        <div class="shadow-type">責任切割信號</div>
-        <p>顧問 A 在說明時程時，多次強調「如果中間有稍微的...沒有約成」「可能就會稍微往後」——這是一個預先埋設延誤藉口的語言模式，暗示她預期計畫會有延誤，並提前在語言上為自己建立緩衝。</p>
-        <div class="sh-evidence">具體發言：「如果這中間有稍微的，例如說嗯就是就是我們就是剛好哎沒有約成對，那那可能就會稍微的往後對」<span class="ev-strength ev-mid">中</span></div>
-        <div class="sh-defence">建議：在下次對焦時，請顧問 A 明確列出「什麼條件下這個計畫不會延誤」，讓她自己說出成功條件，比指出潛在問題更有效。</div>
-      </div>
-    </div>
-  </details>
-
-  <!-- L3 情緒 -->
-  <details>
-    <summary>
-      <div class="s-icon si-emotion">🌊</div>
-      L3 · 情緒動態與共識地圖
-    </summary>
-    <div class="detail-body">
-      <table class="emotion-table">
-        <thead><tr><th>時間點</th><th>觸發事件</th><th>情緒轉折</th><th>觸發者</th></tr></thead>
-        <tbody>
-          <tr><td>開場：靈性知識分享</td><td>蔡董說糯米驅鬼補氣</td><td><span class="emotion-chip ec-up">暖場↑</span></td><td>蔡董</td></tr>
-          <tr><td>主題一：跨宗教話術</td><td>申命記成交基督徒案例</td><td><span class="emotion-chip ec-up">興奮↑</span></td><td>蔡董</td></tr>
-          <tr><td>主題二：德人土財</td><td>周顧問提出《大學》框架</td><td><span class="emotion-chip ec-up">共鳴↑</span></td><td>周顧問</td></tr>
-          <tr><td>主題三：時程推演</td><td>討論訪談和白皮書時程</td><td><span class="emotion-chip ec-flat">平穩→</span></td><td>顧問 A/B</td></tr>
-          <tr><td>主題三中段：順序調整</td><td>確認周顧問先進</td><td><span class="emotion-chip ec-down">輕微緊張</span></td><td>顧問 A</td></tr>
-          <tr><td>主題五：格斯科技</td><td>蔡董透露股票情報</td><td><span class="emotion-chip ec-up">能量↑</span></td><td>蔡董</td></tr>
-          <tr><td>結尾：下次會議安排</td><td>提到「交作業給太王」</td><td><span class="emotion-chip ec-down">自嘲放鬆↓</span></td><td>顧問 B</td></tr>
-        </tbody>
-      </table>
-      <div class="consensus-row" style="margin-top:16px;">
-        <div class="cs-item cs-real">德人土財作為品牌哲學基礎——所有人點頭，周顧問說完後場內沉默了 3 秒後才繼續，沉默 = 消化 = 真共識</div>
-        <div class="cs-item cs-fake">「可以慢慢整合」（白皮書）——表面上所有人同意，但蔡董說「要快」，顧問 A 說「可能稍微往後」——兩者對「慢」的定義可能不同</div>
-      </div>
-    </div>
-  </details>
-
-  <!-- L4 人格 -->
-  <details>
-    <summary>
-      <div class="s-icon si-persona">👤</div>
-      L4 · 參與者人格動態（ANIMA 推斷）
-    </summary>
-    <div class="detail-body">
-      <div class="persona-grid">
-        <div class="persona-card">
-          <div class="persona-head">
-            <div class="persona-av" style="background:#C4502A;">蔡</div>
-            <div>
-              <div class="persona-name">蔡董</div>
-              <div class="persona-arch">推斷原型：創造者 × 神聖使者</div>
-            </div>
-          </div>
-          <ul>
-            <li><strong>發言模式：</strong>故事型、靈性跳躍、案例堆疊，很少回答「如何」，擅長說「為什麼」</li>
-            <li><strong>本次角色：</strong>願景宣告者 + 資源展示者。他不是在「討論」計畫，他是在「宣告」計畫</li>
-            <li><strong>能量來源：</strong>千歲認可 + 成功案例的累積 + 1600 人的使命感</li>
-            <li><strong>壓力點：</strong>速度焦慮——「我成交七成又怎樣，還是太慢」這句話洩露了真實焦慮</li>
-          </ul>
-          <div class="persona-suggest">與蔡董溝通技巧：先接靈性框架，再問「在這個使命下，最快能落地的第一步是什麼？」他對「使命」的回應比對「計畫」更快。</div>
-        </div>
-
-        <div class="persona-card">
-          <div class="persona-head">
-            <div class="persona-av" style="background:#2A7A6E;">周</div>
-            <div>
-              <div class="persona-name">周逸達</div>
-              <div class="persona-arch">推斷原型：智者 × 教師</div>
-            </div>
-          </div>
-          <ul>
-            <li><strong>發言模式：</strong>哲學框架先行，喜歡「我來補充一下」，擅長把他人的直覺說法升維成系統</li>
-            <li><strong>本次角色：</strong>框架提供者 + 主導顧問。用《大學》一舉確立了自己的核心位置</li>
-            <li><strong>能量來源：</strong>知識體系的相互印證（儒家 × 命理 × 企管三者合一）</li>
-            <li><strong>壓力點：</strong>剛有孩子，人生階段轉換帶來「傳承」視角，這讓他對財寶府庫有額外的個人共鳴</li>
-          </ul>
-          <div class="persona-suggest">周顧問最有效的溝通方式是「給他建立框架的空間」——不要急著補充細節，讓他先說完，再問「這個框架中，第一優先要做的是什麼？」</div>
-        </div>
-
-        <div class="persona-card">
-          <div class="persona-head">
-            <div class="persona-av" style="background:#8B6E25;">A</div>
-            <div>
-              <div class="persona-name">顧問 A</div>
-              <div class="persona-arch">推斷原型：執行者 × 分析師</div>
-            </div>
-          </div>
-          <ul>
-            <li><strong>發言模式：</strong>時間軸、里程碑、條件句，多用「如果...那麼...」結構</li>
-            <li><strong>本次角色：</strong>計畫落地者。在本次調整中讓出了優先進場位置，但取得了白皮書主控權</li>
-            <li><strong>壓力點：</strong>訪談 15 人的工作量不小，且她預設了可能的延誤，顯示她對計畫完成有些許焦慮</li>
-          </ul>
-          <div class="persona-suggest">與顧問 A 合作：幫她把工作量化、具體化，讓她看到完成的路徑而非只看到截止日——她的焦慮來自「不確定性」，消除不確定性比給鼓勵更有效。</div>
-        </div>
-
-        <div class="persona-card">
-          <div class="persona-head">
-            <div class="persona-av" style="background:#5A5A6E;">B</div>
-            <div>
-              <div class="persona-name">顧問 B</div>
-              <div class="persona-arch">推斷原型：協調者 × 統籌者</div>
-            </div>
-          </div>
-          <ul>
-            <li><strong>發言模式：</strong>整合他人、推進議程、自嘲（「好害怕！」）放鬆氣氛</li>
-            <li><strong>本次角色：</strong>潤滑劑 + 記錄者。確保會議不失控，各方觀點被聽到</li>
-            <li><strong>壓力點：</strong>需要在「蔡董的靈性節奏」和「顧問團隊的執行節奏」之間做橋接，這是最難的角色</li>
-          </ul>
-          <div class="persona-suggest">顧問 B 需要被授權做「議程管理者」而非只是「記錄者」——下次會議可以明確說「B 負責今天的時間管理」，讓她有正式的打斷權。</div>
-        </div>
-      </div>
-
-      <div class="dynamic-row">
-        <h5>人際動態圖</h5>
-        <ul>
-          <li>蔡董 → 周顧問：高度相互認可，兩人在靈性語言上頻率一致，但蔡董的「快」需求可能讓周顧問的「框架建立」過程產生時間摩擦</li>
-          <li>周顧問 ↔ 顧問 A：潛在的主導權微張力——周顧問先進讓顧問 A 退到第二位。目前表面和諧，但白皮書主控是顧問 A 的底牌，需要讓她感受到這張底牌的分量</li>
-          <li>蔡董 → 顧問 A/B：信任型委託——蔡董不深入問執行細節，但期望結果。若結果不符期望，他會用靈性語言繞過而非正面衝突</li>
-        </ul>
-      </div>
-    </div>
-  </details>
-
-  <!-- L5 跨會議記憶 -->
-  <details>
-    <summary>
-      <div class="s-icon si-memory">🧠</div>
-      L5 · 跨會議記憶（第 1-3 場追蹤）
-    </summary>
-    <div class="detail-body">
-      <p class="memory-note">這是第三次顧問對焦會議。以下依據本場對話中的歷史引用進行承諾漂移偵測。（Knowledge-Lattice 歷史結晶：前兩場無完整記錄，以本場引用線索為主。）</p>
-
-      <div style="margin-bottom:16px;">
-        <table class="commit-table">
-          <thead><tr><th>承諾內容</th><th>時間</th><th>承諾人</th><th>本場狀態</th></tr></thead>
-          <tbody>
-            <tr><td>蔡董曾提新加坡風水公司（元中秀）合作意向</td><td>前場</td><td>蔡董</td><td><span class="track-status ts-cont">持續推進中</span>——今場更新：過年後再次對接，共識方向合資，細節未定</td></tr>
-            <tr><td>顧問 A 規劃七個月時程（原版）</td><td>前場</td><td>顧問 A</td><td><span class="track-status ts-new">調整</span>——本場調整：周顧問先進，顧問 A 退後，整體時程需重新排版</td></tr>
-            <tr><td>格斯科技股票情報（過年前已提及）</td><td>數場前</td><td>蔡董</td><td><span class="track-status ts-cont">持續更新</span>——本場新增：換董事長（沈國榮）、日本採購意向、無人機軍工趨勢</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="track-item"><strong>主題演進追蹤：品牌定位</strong> <span class="track-status ts-cont">收斂中</span><br>趨勢：從「宗教平台」→「宗教賦能型商會」→「超宗教基金管理平台 + 商會」，每場更清晰。本場新增《大學》德人土財框架，定位已足夠清晰，可進入品牌語言固化階段。</div>
-      <div class="track-item"><strong>主題演進追蹤：銷售複製問題</strong> <span class="track-status ts-open">尚未解決</span><br>已討論多場，但每次都在「框架」層面打轉（話術 / 一致性），尚未有具體的「業務如何被培訓」的操作方案。Sales Kit 是本場的承諾，需在下場確認初稿。</div>
-      <div class="track-item"><strong>新增決策：3 項</strong> → 已寫入本報告決議紀錄<br><strong>變更決策：1 項</strong> → 顧問進場順序（顧問A→周顧問先行）</div>
-    </div>
-  </details>
-</section>
-
 </main>
 
-<!-- ══════════════════ FOOTER ══════════════════ -->
 <footer>
-  <div class="footer-badge">
-    Generated by <strong>MUSEON</strong> meeting-intelligence v1.0 &nbsp;·&nbsp; 五層全開 &nbsp;·&nbsp; 2026.03.27
-  </div>
-  <p class="privacy-note">⚠️ 隱私聲明：博弈分析（陽謀/陰謀）與人格動態分析僅供決策者參考，不應直接分享給被分析者。推斷部分以「可能」「推斷」標記，非事實認定。</p>
+  <div class="footer-badge">Generated by <strong>MUSEON</strong> meeting-intelligence v1.0 &nbsp;·&nbsp; 五層全開 &nbsp;·&nbsp; 2026.03.27</div>
+  <p class="privacy-note">⚠️ 隱私聲明：博弈分析與人格動態分析僅供決策者參考，不應直接分享給被分析者。推斷部分以「可能」「推測」標記，非事實認定。</p>
 </footer>
 
+<script>
+  // Highlight active nav button on scroll
+  const sections = document.querySelectorAll('.section[id]');
+  const navBtns = document.querySelectorAll('.nav-btn');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navBtns.forEach(btn => {
+          btn.classList.toggle('active', btn.getAttribute('href') === '#' + entry.target.id);
+        });
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
 </body>
 </html>
