@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BNI 合作夥伴策略表 — Feng × MUSEON</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Outfit:wght@400;500;600&family=IBM+Plex+Mono:wght@400;600&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --ember:        #C4502A;
+      --ember-light:  #E0714D;
+      --ember-dark:   #9A3A1C;
+      --teal:         #2A7A6E;
+      --gold:         #B8923A;
+      --ink:          #12121A;
+      --slate:        #5A5A6E;
+      --mist:         #9898A8;
+      --border:       #E2E0DA;
+      --parchment:    #F7F5F0;
+      --snow:         #FDFCFA;
+    }
+
+    body {
+      font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+      background: var(--parchment);
+      color: var(--ink);
+      min-height: 100vh;
+      padding: 48px 24px 64px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* ── Header ── */
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(196, 80, 42, 0.10);
+      color: var(--ember-dark);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 100px;
+      padding: 4px 12px;
+      margin-bottom: 16px;
+    }
+
+    .header h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 38px;
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .header h1 em {
+      color: var(--ember);
+      font-style: italic;
+    }
+
+    .principle-bar {
+      display: inline-block;
+      background: var(--ember);
+      color: #fff;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 17px;
+      font-weight: 600;
+      font-style: italic;
+      letter-spacing: 0.02em;
+      padding: 10px 28px;
+      border-radius: 6px;
+      margin-top: 12px;
+    }
+
+    .principle-bar span {
+      color: rgba(255,255,255,0.75);
+      font-weight: 400;
+      margin: 0 6px;
+    }
+
+    .meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .meta-chip {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--slate);
+    }
+
+    .meta-chip .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--teal);
+      flex-shrink: 0;
+    }
+
+    /* ── Table ── */
+    .table-card {
+      background: var(--snow);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(18,18,26,0.06), 0 4px 16px rgba(18,18,26,0.04);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    thead tr {
+      background: var(--ink);
+    }
+
+    thead th {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.70);
+      padding: 14px 16px;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    thead th:first-child {
+      width: 44px;
+      text-align: center;
+      color: rgba(255,255,255,0.40);
+    }
+
+    thead th.col-type  { width: 14%; }
+    thead th.col-match { width: 12%; }
+    thead th.col-give  { width: 19%; }
+    thead th.col-get   { width: 19%; }
+    thead th.col-hook  { width: 24%; }
+
+    tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 180ms ease;
+    }
+
+    tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    tbody tr:hover {
+      background: rgba(196, 80, 42, 0.03);
+    }
+
+    tbody tr:nth-child(even) {
+      background: rgba(247, 245, 240, 0.60);
+    }
+
+    tbody tr:nth-child(even):hover {
+      background: rgba(196, 80, 42, 0.04);
+    }
+
+    td {
+      padding: 16px 16px;
+      font-size: 14px;
+      color: var(--ink);
+      line-height: 1.65;
+      vertical-align: top;
+    }
+
+    td:first-child {
+      text-align: center;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--mist);
+      vertical-align: middle;
+    }
+
+    /* Type cell */
+    .type-cell {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--ink);
+    }
+
+    /* Match badge */
+    .match-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(42, 122, 110, 0.10);
+      color: var(--teal);
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 3px 10px;
+      white-space: nowrap;
+    }
+
+    .match-badge .check {
+      font-size: 11px;
+    }
+
+    .match-sub {
+      display: block;
+      font-size: 12px;
+      color: var(--slate);
+      margin-top: 4px;
+      line-height: 1.5;
+    }
+
+    /* Give / Get */
+    .give-text {
+      color: var(--ink);
+      font-size: 13.5px;
+    }
+
+    .get-text {
+      color: var(--ink);
+      font-size: 13.5px;
+    }
+
+    /* Hook cell */
+    .hook-cell {
+      font-size: 13.5px;
+      color: var(--ember-dark);
+      font-style: italic;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.55;
+    }
+
+    /* ── Footer note ── */
+    .footer-note {
+      margin-top: 28px;
+      background: rgba(196, 80, 42, 0.06);
+      border: 1.5px solid rgba(196, 80, 42, 0.20);
+      border-radius: 8px;
+      padding: 16px 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .footer-icon {
+      font-size: 18px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .footer-note p {
+      font-size: 14px;
+      color: var(--ink);
+      line-height: 1.7;
+    }
+
+    .footer-note strong {
+      color: var(--ember);
+    }
+
+    /* ── Colophon ── */
+    .colophon {
+      margin-top: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    .colophon-left {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ember);
+      letter-spacing: 0.04em;
+    }
+
+    .colophon-right {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: var(--mist);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Print optimisation ── */
+    @media print {
+      body {
+        padding: 20px;
+        background: #fff;
+      }
+      .table-card {
+        box-shadow: none;
+        border: 1px solid #ccc;
+      }
+      tbody tr:hover {
+        background: transparent;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header h1 { font-size: 26px; }
+      .principle-bar { font-size: 14px; padding: 8px 16px; }
+      td, thead th { padding: 12px 10px; }
+      .hook-cell { font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="badge">BNI Strategy · 2026</div>
+      <h1>合作夥伴策略表<br><em>Feng × AI 數位員工服務</em></h1>
+      <div class="principle-bar">
+        同情境<span>·</span>不同賽道<span>·</span>互為經銷 — BNI 合作夥伴篩選原則
+      </div>
+      <div class="meta-row">
+        <div class="meta-chip"><span class="dot"></span>目標客群：20 人以下中小企業主、二代接班</div>
+        <div class="meta-chip"><span class="dot" style="background:var(--gold)"></span>服務核心：AI 數位員工導入企業</div>
+        <div class="meta-chip"><span class="dot" style="background:var(--ember)"></span>共 10 類合作夥伴</div>
+      </div>
+    </header>
+
+    <!-- Table -->
+    <div class="table-card">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th class="col-type">合作夥伴類型</th>
+            <th class="col-match">客群重疊</th>
+            <th class="col-give">我能給他什麼</th>
+            <th class="col-get">他能給我什麼</th>
+            <th class="col-hook">談合作切入點</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td>01</td>
+            <td><div class="type-cell">人力資源顧問<br>/ 獵頭公司</div></td>
+            <td>
+              <span class="match-badge"><span class="check">✓</span>高度重疊</span>
+              <span class="match-sub">企業主找人的時候</span>
+            </td>
+            <td class="give-text">AI 補位方案，幫他的客戶降招聘壓力、縮短空窗期</td>
+            <td class="get-text">正在擴編的企業主名單，招聘需求即 AI 需求前兆</td>
+            <td class="hook-cell">「你在找人，我讓他先不急著找人」——聯合提案切入</td>
+          </tr>
+
+          <tr>
+            <td>02</td>
+            <td><div class="type-cell">會計師<br>/ 記帳士</div></td>
+            <td>
+              <span class="match-badge"><span class="check">✓</span>高度重疊</span>
+              <span class="match-sub">每個老闆都有</span>
+            </td>
+            <td class="give-text">財務流程自動化建議，幫他服務更多客戶、提升附加價值</td>
+            <td class="get-text">了解老闆財務痛點，且天然具備信任背書</td>
+            <td class="hook-cell">「老闆帳務壓力大，我有辦法」——報稅季後黃金窗口跟進</td>
+          </tr>
+
+          <tr>
+            <td>03</td>
+            <td><div class="type-cell">保險<br>/ 財務顧問</div></td>
+            <td>
+              <span class="match-badge"><span class="check">✓</span>高度重疊</span>
+              <span class="match-sub">同一老闆的口袋名單</span>
+            </td>
+            <td class="give-text">AI 風控分析工具，輔助財務規劃、強化顧問說服力</td>
+            <td class="get-text">老闆的財務焦慮直接對應 AI 決策需求</td>
+            <td class="hook-cell">「你幫他管風險，我幫他少犯錯」——雙重保障聯合銷售</td>
+          </tr>
+
+          <tr>
+            <td>04</td>
+            <td><div class="type-cell">ERP / POS<br>/ 進銷存系統商</div></td>
+            <td>
+              <span class="match-badge"><span class="check">✓</span>高度重疊</span>
+              <span class="match-sub">已有系統的企業</span>
+            </td>
+            <td class="give-text">AI 層疊加在既有系統上，升級客戶黏著度與服務价值</td>
+            <td class="get-text">系統導入時順帶帶入 AI 數位員工，共享安裝場次</td>
+            <td class="hook-cell">「你的系統有數據，我讓數據開口說話」——功能延伸提案</td>
+          </tr>
+
+          <tr>
+            <td>05</td>
+            <td><div class="type-cell">商業律師<br>/ 法務顧問</div></td>
+            <td>
+              <span class="match-badge"><span class="check">✓</span>高度重疊</span>
+              <span class="match-sub">合約、勞資、公司設立</span>
+            </td>
+            <td class="give-text">AI 合約初審工具，提高律師產能、讓客戶感受更快回覆</td>
+            <td class="get-text">新設公司、轉型期企業主，正是導入 AI 的黃金時機</td>
+            <td class="hook-cell">「你幫他建制度，我讓制度跑起來」——建構期聯合進場</td>
+          </tr>
+
+          <tr>
+            <td>06</td>
+            <td><div class="type-cell">室內裝修<br>/ 工程公司</div></td>
+            <td>
+              <span class="match-badge"><span class="check">✓</span>中度重疊</span>
+              <span class="match-sub">開新據點的老闆</span>
+            </td>
+            <td class="give-text">空間規劃後的數位員工配置建議，讓新據點從開張就高效</td>
+            <td class="get-text">正在展店、擴張的企業主，是 AI 導入的高需求場景</td>
+            <td class="hook-cell">「他剛裝修好，我幫他配數位員工」——開幕前後最佳切入點</td>
+          </tr>
+
+          <tr>
+            <td>07</td>
+            <td><div class="type-cell">企業教育訓練<br>/ 培訓機構</div></td>
+            <td>
+              <span class="match-badge"><span class="check">✓</span>高度重疊</span>
+              <span class="match-sub">在乎員工能力的老闆</span>
+            </td>
+            <td class="give-text">AI 輔助學習工具，延伸培訓效果、提高課後應用率</td>
+            <td class="get-text">正在投資員工能力的企業，是 AI 增效的理想土壤</td>
+            <td class="hook-cell">「你教人，我讓學到的東西不會忘」——培訓後落地方案</td>
+          </tr>
+
+          <tr>
+            <td>08</td>
+            <td><div class="type-cell">顧問型業務<br>/ 銷售教練</div></td>
+            <td>
+              <span class="match-badge"><span class="check">✓</span>高度重疊</span>
+              <span class="match-sub">想提升業績的老闆</span>
+            </td>
+            <td class="give-text">AI 銷售輔助工具，放大教練成果、讓學員跑得更快</td>
+            <td class="get-text">已在用顧問服務的客戶，是 AI 工具的進階採購候選</td>
+            <td class="hook-cell">「你給策略，我讓策略有執行力」——方法論 × 工具力融合</td>
+          </tr>
+
+          <tr>
+            <td>09</td>
+            <td><div class="type-cell">廣告行銷<br>/ 品牌顧問</div></td>
+            <td>
+              <span class="match-badge"><span class="check">✓</span>高度重疊</span>
+              <span class="match-sub">要做行銷的中小企業主</span>
+            </td>
+            <td class="give-text">AI 內容生成工具，降低行銷成本、讓品牌聲量可複製</td>
+            <td class="get-text">正在做品牌升級的老闆，已有預算意願</td>
+            <td class="hook-cell">「你設計品牌，我讓品牌聲音量產」——內容力 × 執行力聯手</td>
+          </tr>
+
+          <tr>
+            <td>10</td>
+            <td><div class="type-cell">數位轉型顧問<br>/ IT 服務商</div></td>
+            <td>
+              <span class="match-badge"><span class="check">✓</span>高度重疊</span>
+              <span class="match-sub">企業數位化需求</span>
+            </td>
+            <td class="give-text">互補的 AI 決策層，補足 IT 做不到的人腦替代功能</td>
+            <td class="get-text">正在做數位轉型的企業主，是 AI 員工最自然的下一步</td>
+            <td class="hook-cell">「你搭基礎設施，我放 AI 員工進去跑」——基建完成後的最佳接棒</td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Footer note -->
+    <div class="footer-note">
+      <div class="footer-icon">🔍</div>
+      <p>
+        <strong>填每格前問自己：</strong>
+        這個人的客戶名單，跟我想服務的 <strong>20 人以下企業主</strong> 是不是同一批人？<br>
+        答案是「是」→ 值得深談。答案是「不確定」→ 先問他服務哪種規模的公司再決定。
+      </p>
+    </div>
+
+    <!-- Colophon -->
+    <div class="colophon">
+      <div class="colophon-left">MUSEON × Feng — BNI 合作夥伴策略</div>
+      <div class="colophon-right">Generated 2026-03-31 · For Internal Use</div>
+    </div>
+
+  </div>
+</body>
+</html>
