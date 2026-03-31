@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MUSEON Meeting Intelligence — 2026-03-31</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,600&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ember:#C4502A;--ember-light:#E0714D;--ember-dark:#9A3A1C;
+  --teal:#2A7A6E;--gold:#B8923A;
+  --ink:#12121A;--slate:#5A5A6E;--mist:#9898A8;
+  --border:#E2E0DA;--parchment:#F7F5F0;--snow:#FDFCFA;
+  --deep-ink:#0E0E16;--surface:#16161F;
+  --success:#2D8A6E;--warning:#C9943A;--error:#C4402A;--info:#2A6A8A;
+}
+html{font-size:16px;scroll-behavior:smooth}
+body{
+  font-family:'Outfit','Noto Sans TC',sans-serif;
+  background:var(--parchment);color:var(--ink);
+  line-height:1.75;-webkit-font-smoothing:antialiased;
+}
+.page{max-width:920px;margin:0 auto;padding:48px 40px 64px}
+@media(max-width:768px){.page{padding:32px 24px 48px}}
+@media(max-width:640px){.page{padding:24px 16px 40px}}
+
+/* Brand Mark */
+.brand-mark{display:flex;align-items:center;gap:10px;margin-bottom:48px}
+.brand-mark .logo{
+  font-family:'Cormorant Garamond',serif;font-weight:700;font-size:22px;
+  color:var(--ember);letter-spacing:0.04em;
+}
+.brand-mark .tag{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;
+  color:var(--ember-dark);background:rgba(196,80,42,0.1);
+  padding:3px 10px;border-radius:100px;letter-spacing:0.08em;text-transform:uppercase;
+}
+
+/* Header */
+.hero{margin-bottom:48px;padding-bottom:32px;border-bottom:1px solid var(--border)}
+.hero h1{
+  font-family:'Cormorant Garamond',serif;font-weight:600;font-size:42px;
+  line-height:1.15;color:var(--ink);margin-bottom:12px;
+}
+.hero .subtitle{font-size:18px;color:var(--slate);font-weight:300;margin-bottom:24px}
+.meta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px}
+.meta-item{padding:16px;background:var(--snow);border:1px solid var(--border);border-radius:10px}
+.meta-item .label{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;
+  color:var(--mist);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;
+}
+.meta-item .value{font-size:15px;font-weight:500;color:var(--ink)}
+
+/* Section */
+.section{margin-bottom:48px}
+.section-header{
+  font-family:'Cormorant Garamond',serif;font-weight:600;font-size:28px;
+  line-height:1.3;color:var(--ink);margin-bottom:24px;
+  padding-bottom:12px;border-bottom:2px solid var(--ember);
+  display:flex;align-items:center;gap:12px;
+}
+.section-header .num{
+  font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;
+  color:var(--ember-dark);background:rgba(196,80,42,0.1);
+  padding:4px 12px;border-radius:100px;letter-spacing:0.06em;
+}
+
+/* Cards */
+.card{
+  background:var(--snow);border:1px solid var(--border);border-radius:10px;
+  padding:24px;margin-bottom:16px;
+  box-shadow:0 1px 3px rgba(18,18,26,0.06),0 4px 12px rgba(18,18,26,0.04);
+  transition:transform 200ms ease,box-shadow 200ms ease;
+}
+.card:hover{transform:translateY(-2px);box-shadow:0 2px 6px rgba(18,18,26,0.08),0 8px 20px rgba(18,18,26,0.06)}
+.card h3{
+  font-family:'Cormorant Garamond',serif;font-weight:600;font-size:20px;
+  color:var(--ink);margin-bottom:12px;
+}
+.card h4{font-size:15px;font-weight:600;color:var(--ember-dark);margin:16px 0 8px}
+.card p,.card li{font-size:15px;line-height:1.75;color:var(--ink)}
+.card ul{padding-left:20px;margin:8px 0}
+.card li{margin-bottom:6px}
+
+/* Highlight box */
+.highlight-box{
+  background:rgba(196,80,42,0.06);border-left:3px solid var(--ember);
+  padding:16px 20px;border-radius:0 8px 8px 0;margin:16px 0;
+}
+.highlight-box p{font-size:14px;color:var(--ember-dark);font-weight:500}
+
+/* Decision badge */
+.badge{
+  display:inline-block;font-family:'IBM Plex Mono',monospace;
+  font-size:11px;font-weight:600;letter-spacing:0.08em;
+  padding:3px 10px;border-radius:100px;margin-right:8px;
+}
+.badge-agreed{background:rgba(42,122,110,0.12);color:var(--teal)}
+.badge-pending{background:rgba(184,146,58,0.15);color:var(--gold)}
+.badge-caution{background:rgba(196,64,42,0.12);color:var(--error)}
+
+/* Tables */
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}
+th{
+  font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.06em;color:var(--slate);
+  text-align:left;padding:10px 14px;border-bottom:2px solid var(--border);
+  background:var(--parchment);
+}
+td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--ink);vertical-align:top}
+tr:nth-child(even) td{background:rgba(247,245,240,0.5)}
+tr:hover td{background:rgba(196,80,42,0.04)}
+
+/* Details / Summary */
+details{margin-bottom:16px}
+details summary{
+  font-family:'Cormorant Garamond',serif;font-weight:600;font-size:28px;
+  line-height:1.3;color:var(--ink);cursor:pointer;
+  padding:12px 0;border-bottom:2px solid var(--ember);
+  display:flex;align-items:center;gap:12px;
+  list-style:none;
+}
+details summary::-webkit-details-marker{display:none}
+details summary::before{
+  content:'';display:inline-block;width:8px;height:8px;
+  border-right:2px solid var(--ember);border-bottom:2px solid var(--ember);
+  transform:rotate(-45deg);transition:transform 250ms ease;flex-shrink:0;
+}
+details[open] summary::before{transform:rotate(45deg)}
+details summary .num{
+  font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;
+  color:var(--ember-dark);background:rgba(196,80,42,0.1);
+  padding:4px 12px;border-radius:100px;letter-spacing:0.06em;
+}
+details .details-body{padding-top:24px}
+
+/* Persona card */
+.persona-card{
+  display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:16px;
+}
+@media(max-width:640px){.persona-card{grid-template-columns:1fr}}
+.persona-card .person{
+  background:var(--snow);border:1px solid var(--border);border-radius:10px;
+  padding:24px;
+}
+.persona-card .person h4{
+  font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;
+  color:var(--ember);margin-bottom:12px;
+}
+.persona-card .person .archetype{
+  font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;
+  color:var(--teal);margin-bottom:12px;letter-spacing:0.04em;
+}
+
+/* Quote */
+.strategist-quote{
+  background:var(--snow);border:1px solid var(--border);border-radius:10px;
+  padding:24px;margin-bottom:20px;position:relative;
+}
+.strategist-quote .name{
+  font-family:'Cormorant Garamond',serif;font-weight:700;font-size:18px;
+  color:var(--ember);margin-bottom:4px;
+}
+.strategist-quote .role{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;
+  color:var(--mist);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px;
+}
+.strategist-quote blockquote{
+  font-size:15px;color:var(--ink);line-height:1.8;
+  border-left:3px solid var(--gold);padding-left:16px;margin:12px 0;
+  font-style:italic;
+}
+.strategist-quote .advice{
+  background:rgba(42,122,110,0.06);border-radius:6px;padding:12px 16px;margin-top:12px;
+}
+.strategist-quote .advice-label{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;
+  color:var(--teal);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;
+}
+.strategist-quote .advice p{font-size:14px;color:var(--teal)}
+
+/* Emotion timeline */
+.emotion-item{
+  display:flex;gap:16px;align-items:flex-start;margin-bottom:16px;
+  padding:12px 16px;background:var(--snow);border-radius:8px;border:1px solid var(--border);
+}
+.emotion-item .time{
+  font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;
+  color:var(--slate);white-space:nowrap;min-width:60px;padding-top:2px;
+}
+.emotion-item .desc{font-size:14px;line-height:1.7;color:var(--ink)}
+.emotion-tag{
+  display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10px;
+  font-weight:600;padding:2px 8px;border-radius:100px;margin-left:6px;vertical-align:middle;
+}
+.tag-high{background:rgba(42,122,110,0.12);color:var(--teal)}
+.tag-anxiety{background:rgba(196,64,42,0.1);color:var(--error)}
+.tag-neutral{background:rgba(152,152,168,0.15);color:var(--slate)}
+.tag-surprise{background:rgba(184,146,58,0.15);color:var(--gold)}
+
+/* Footer */
+.footer{
+  margin-top:64px;padding-top:24px;border-top:1px solid var(--border);
+  text-align:center;
+}
+.footer p{font-size:12px;color:var(--mist);line-height:1.8}
+.footer .brand{
+  font-family:'Cormorant Garamond',serif;font-weight:700;font-size:16px;
+  color:var(--ember);letter-spacing:0.04em;
+}
+
+/* Action item */
+.action-row{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px}
+.action-row .owner{
+  font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;
+  color:var(--snow);background:var(--ember);padding:3px 10px;border-radius:100px;
+  white-space:nowrap;flex-shrink:0;
+}
+.action-row .task{font-size:14px;color:var(--ink);line-height:1.7}
+.action-row .deadline{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--mist);
+  white-space:nowrap;flex-shrink:0;margin-left:auto;padding-top:3px;
+}
+
+/* Yang-mou card */
+.yang-card{
+  background:linear-gradient(135deg,var(--deep-ink) 0%,#1a1a2e 100%);
+  border-radius:10px;padding:24px;margin-bottom:16px;color:#e0ddd8;
+}
+.yang-card h4{
+  font-family:'Cormorant Garamond',serif;font-weight:600;font-size:18px;
+  color:var(--gold);margin-bottom:12px;
+}
+.yang-card p,.yang-card li{font-size:14px;line-height:1.8;color:#c8c5be}
+.yang-card ul{padding-left:20px;margin:8px 0}
+.yang-card li{margin-bottom:6px}
+
+/* Fade in animation */
+@keyframes fadeInUp{
+  from{opacity:0;transform:translateY(12px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.page>*{animation:fadeInUp 400ms ease-out both}
+.page>*:nth-child(2){animation-delay:80ms}
+.page>*:nth-child(3){animation-delay:160ms}
+.page>*:nth-child(4){animation-delay:240ms}
+.page>*:nth-child(5){animation-delay:320ms}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- Brand Mark -->
+<div class="brand-mark">
+  <span class="logo">MUSEON</span>
+  <span class="tag">Meeting Intelligence</span>
+</div>
+
+<!-- Hero / Header -->
+<div class="hero">
+  <h1>內部策略會議戰情報告</h1>
+  <p class="subtitle">「透過對話累積，讓 AI 比你更懂你的客戶」—— 殺手級應用定位確立</p>
+  <div class="meta-grid">
+    <div class="meta-item">
+      <div class="label">Date</div>
+      <div class="value">2026-03-31</div>
+    </div>
+    <div class="meta-item">
+      <div class="label">Duration</div>
+      <div class="value">1 小時 11 分鐘</div>
+    </div>
+    <div class="meta-item">
+      <div class="label">Participants</div>
+      <div class="value">士維、逸達（Zeal）</div>
+    </div>
+    <div class="meta-item">
+      <div class="label">Type</div>
+      <div class="value">內部策略會議</div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 1: Executive Summary -->
+<div class="section">
+  <div class="section-header">
+    <span class="num">01</span>
+    執行摘要
+  </div>
+
+  <div class="card">
+    <p>本次會議確立了 MUSEON 殺手級應用的核心定位——<strong>「透過對話累積，讓 AI 比你更懂你的客戶」</strong>。六大議題中，最關鍵的共識是：MUSEON 不做傳統 CRM，而是做<strong>「AI 時代的戰略決策 + 組織管理系統」</strong>，以算命師實測案例為銷售示範原型。</p>
+
+    <div class="highlight-box">
+      <p>核心轉折：逸達用算命師案例讓士維「親身體驗」了 MUSEON 的核心價值——從觀察對話→分析人格→生成策略→指導行為→成功簽約，完整閉環。這比任何投影片都有說服力。</p>
+    </div>
+
+    <h4>本次會議的三個重大收穫</h4>
+    <ul>
+      <li><strong>殺手級應用定義收斂</strong>：人物分析 + 策略生成 + 團隊基準點，不再發散到手機殼/App</li>
+      <li><strong>CRM 路線重大共識</strong>：不做傳統後台，用對話產生動態前端——逸達守住核心主張，士維得到視覺安心感</li>
+      <li><strong>商業模式具體化</strong>：美業案 50-60 萬、三段收費 40/30/30、MUSEON 必須進入每個案子累積訓練資料</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Section 2: Six Topics + Decisions + Actions -->
+<div class="section">
+  <div class="section-header">
+    <span class="num">02</span>
+    六大議題 · 決議 · 行動
+  </div>
+
+  <!-- Topic 1 -->
+  <div class="card">
+    <h3>一、殺手級應用定義與優化</h3>
+    <p style="font-size:13px;color:var(--mist);margin-bottom:12px;font-family:'IBM Plex Mono',monospace">00:00 – 08:00</p>
+    <ul>
+      <li>Feng 回饋 Demo Paper：方向正確，但定價和行動計畫感受不深</li>
+      <li>Feng 有意往個人品牌化發展，將去 Shack 做個人品牌</li>
+      <li>殺手級應用核心：控制 AI Agent 的「大腦指揮層」，不是外觀（手機殼）而是核心思維工具</li>
+      <li>士維建議兩功能：(1) 多位上師模式 (2) 開放 2-3 人使用權限</li>
+      <li>逸達分析市場：AI Agent 整合技術已被大廠吸收，退燒快</li>
+    </ul>
+    <div class="highlight-box">
+      <p>定位收斂：殺手級 = 在腦的部分（思維引擎），不在手的部分（工具介面）</p>
+    </div>
+  </div>
+
+  <!-- Topic 2 -->
+  <div class="card">
+    <h3>二、AI 工具型 vs MUSEON 型差異化</h3>
+    <p style="font-size:13px;color:var(--mist);margin-bottom:12px;font-family:'IBM Plex Mono',monospace">08:00 – 16:00</p>
+    <ul>
+      <li>海巡自媒體方向：市場已有很多人做，開源 Skill 不構成殺手級門檻</li>
+      <li>MUSEON 差異化：單向觀察（觀察→分析→回報），其他 AI 是雙向對話但品質不穩</li>
+      <li>API 開放：近兩年不太可能（因雙向溝通的複雜度）</li>
+      <li>替代方案：論壇模式（用戶達 100 人後考慮）</li>
+      <li>手機應用不是殺手級，是基礎建設之上的延伸</li>
+    </ul>
+  </div>
+
+  <!-- Topic 3 -->
+  <div class="card">
+    <h3>三、群組敏感詞偵測與資料安全</h3>
+    <p style="font-size:13px;color:var(--mist);margin-bottom:12px;font-family:'IBM Plex Mono',monospace">16:00 – 24:00</p>
+    <ul>
+      <li>敏感詞偵測機制：惡意 / 注入攻擊關鍵字全數設為敏感詞</li>
+      <li>觸發流程：群組出現敏感詞 → 通知逸達確認 → 決定放行，與權限無關</li>
+      <li>白名單機制：認定的 User ID 發言免確認</li>
+      <li>企業服務白名單：僅限公司內部人員</li>
+      <li>目標欄位設定：深入追蹤客戶，讓 AI 在客戶群組中有銷售企圖心</li>
+    </ul>
+  </div>
+
+  <!-- Topic 4 -->
+  <div class="card">
+    <h3>四、算命師案例與 MUSEON 子體應用</h3>
+    <p style="font-size:13px;color:var(--mist);margin-bottom:12px;font-family:'IBM Plex Mono',monospace">24:00 – 40:00</p>
+    <ul>
+      <li><strong>實測成功案例</strong>：3-4 次聊天 → 人格分析 → 策略指導 → 照指導互動 → 順利簽約</li>
+      <li>應用場景一：業務談判（對客戶做人格分析後精準溝通）</li>
+      <li>應用場景二：談戀愛（分析對象內容，生成策略與行為模式）</li>
+      <li>應用場景三：員工管理（排程圖/對話 → 人格分析 → 獎金/組織策略模擬）</li>
+      <li>LINE 群組場景：官方帳號背景觀察記錄，對方完全不知道</li>
+      <li>LINE 帳號模式翻轉：從一帳號千客 → 一聊天室一機器人的客製化一對一</li>
+    </ul>
+    <div class="highlight-box">
+      <p>全場最高能量段：士維聽到算命師案例後笑場——「你們在嗎？我有在聽我在笑」。這是逸達用敘事代替論證的經典示範。</p>
+    </div>
+  </div>
+
+  <!-- Topic 5 -->
+  <div class="card">
+    <h3>五、CRM 系統與前端展示</h3>
+    <p style="font-size:13px;color:var(--mist);margin-bottom:12px;font-family:'IBM Plex Mono',monospace">40:00 – 54:00</p>
+    <ul>
+      <li>逸達主張：不需要傳統 CRM 後台，向量+數據資料庫整合即可</li>
+      <li>哲學觀點：「AI 時代——它記得你，你不需要管它怎麼記」</li>
+      <li>士維堅持：一定要有前端（連說 5 次），99% 的人是視覺動物</li>
+      <li><strong>重大妥協</strong>：用對話產生動態前端（HTML），不是固定後台</li>
+      <li>CRM 重新定義：戰略決策系統 + 組織內部管理系統</li>
+      <li>防火牆：綁定 OneMuse 方法論（七心同心圓＋八方位），別人無法複製</li>
+      <li>Demo 策略：讓客戶聊一聊 → 直接出可視覺化的分析網頁</li>
+    </ul>
+    <div class="highlight-box">
+      <p>這場博弈的精妙之處：逸達同意「有前端」但堅持「對話產生的動態前端」——士維得到視覺安心感，逸達守住「不做傳統 CRM 後台」的核心主張。雙方都贏。</p>
+    </div>
+  </div>
+
+  <!-- Topic 6 -->
+  <div class="card">
+    <h3>六、美業成本、雅竹 PM 角色與新加坡行程</h3>
+    <p style="font-size:13px;color:var(--mist);margin-bottom:12px;font-family:'IBM Plex Mono',monospace">54:00 – 1:11:00</p>
+    <ul>
+      <li>美業成本：瓜瓜案約 50-60 萬（UI/UX + 系統），三段收費 40/30/30</li>
+      <li>報價方式：固定費用，不談比例（因為比較便宜）</li>
+      <li>補助：業主自行申請，與 MUSEON 無關，照收</li>
+      <li>雅竹 PM：飾品推進能力強，但缺軟體工程經驗（未爆彈）</li>
+      <li>Nelson 案：目前是他第二順位，兩案在手（鋼鐵+電腦系統），15-20 萬</li>
+      <li>MUSEON 進入策略：30 幾萬讓逸達進去就變便宜，核心目的是拿訓練資料</li>
+      <li>新加坡 8 月 BMI 年會：逸達建議目標不明確就不去，要有精準角度</li>
+      <li>每週例會確定：禮拜一下午四點到五點半</li>
+    </ul>
+  </div>
+
+  <!-- Decisions Table -->
+  <div class="card" style="margin-top:32px">
+    <h3>決議一覽</h3>
+    <table>
+      <thead>
+        <tr><th style="width:40%">決議事項</th><th style="width:30%">狀態</th><th>備註</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>殺手級應用：人物分析 + 策略生成 + 團隊基準點</td>
+          <td><span class="badge badge-agreed">全體同意</span></td>
+          <td>核心定位確立</td>
+        </tr>
+        <tr>
+          <td>每週例會：週一 16:00 – 17:30</td>
+          <td><span class="badge badge-agreed">全體同意</span></td>
+          <td>前 20 分鐘快速，後段深入討論</td>
+        </tr>
+        <tr>
+          <td>美業案成本 50-60 萬，三段收費 40/30/30</td>
+          <td><span class="badge badge-agreed">全體同意</span></td>
+          <td>固定費用，不談比例</td>
+        </tr>
+        <tr>
+          <td>補助與 MUSEON 無關，照報照收</td>
+          <td><span class="badge badge-agreed">全體同意</span></td>
+          <td>業主自行處理</td>
+        </tr>
+        <tr>
+          <td>MUSEON 必須進入每個案子做訓練</td>
+          <td><span class="badge badge-agreed">全體同意</span></td>
+          <td>30 幾萬讓逸達進去 = 拿資料</td>
+        </tr>
+        <tr>
+          <td>動態前端（對話產生 HTML），不做固定 CRM 後台</td>
+          <td><span class="badge badge-agreed">重大妥協</span></td>
+          <td>士維得到視覺，逸達守住核心</td>
+        </tr>
+        <tr>
+          <td>雅竹擔任美業 PM</td>
+          <td><span class="badge badge-caution">有保留</span></td>
+          <td>缺軟體工程經驗，需設定決策邊界</td>
+        </tr>
+        <tr>
+          <td>新加坡 BMI 8 月行程</td>
+          <td><span class="badge badge-pending">待確認</span></td>
+          <td>逸達建議目標不明確就不去</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Action Items -->
+  <div class="card" style="margin-top:16px">
+    <h3>行動項目</h3>
+    <div style="margin-top:16px">
+      <div class="action-row">
+        <span class="owner">士維</span>
+        <span class="task">下午跟逸達報告美業報價金額</span>
+        <span class="deadline">2026-03-31</span>
+      </div>
+      <div class="action-row">
+        <span class="owner">士維</span>
+        <span class="task">下午 1 點跟 Nelson 開會追蹤案件進度</span>
+        <span class="deadline">2026-03-31</span>
+      </div>
+      <div class="action-row">
+        <span class="owner">士維</span>
+        <span class="task">更新官網一頁式版本</span>
+        <span class="deadline">近期</span>
+      </div>
+      <div class="action-row">
+        <span class="owner">逸達</span>
+        <span class="task">準備 Demo 用算命師案例流程（至少 3 種場景）</span>
+        <span class="deadline">近期</span>
+      </div>
+      <div class="action-row">
+        <span class="owner">逸達</span>
+        <span class="task">處理新加坡行程決策</span>
+        <span class="deadline">2026-04 前</span>
+      </div>
+      <div class="action-row">
+        <span class="owner">士維</span>
+        <span class="task">8 月 BMI 年會行程確認</span>
+        <span class="deadline">待定</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 3: Strategist Roundtable (Collapsible) -->
+<details>
+  <summary>
+    <span class="num">03</span>
+    圓桌會診 — 三位軍師
+  </summary>
+  <div class="details-body">
+
+    <div class="strategist-quote">
+      <div class="name">孫子</div>
+      <div class="role">全勝 · 不戰而屈人之兵</div>
+      <blockquote>
+        「這場會議最有價值的不是定了殺手級應用是什麼，而是逸達用算命師案例讓士維『親身體驗』了 MUSEON 的核心價值——這比任何 PPT 都有效。但風險在於：你們把 Demo 路徑釘在『人格分析 + 談戀愛』場景上，客戶如果不是這種人設就接不住。」
+      </blockquote>
+      <div class="advice">
+        <div class="advice-label">建議</div>
+        <p>準備至少 3 種不同場景的 Demo 腳本——業務談判、員工管理、客戶經營。讓每個客戶都能在其中一個場景中看到自己。</p>
+      </div>
+    </div>
+
+    <div class="strategist-quote">
+      <div class="name">六韜</div>
+      <div class="role">組織 · 將在外君命有所不受</div>
+      <blockquote>
+        「雅竹的 PM 角色是今天最大的未爆彈。士維自己都說『缺軟體工程經驗』，但你們把 8 個群組 8 個角度的美業案交給她？如果她在技術細節上判斷失誤，代價不是修 Bug，是客戶信任崩盤。」
+      </blockquote>
+      <div class="advice">
+        <div class="advice-label">建議</div>
+        <p>給雅竹明確的決策邊界——飾品推進、客戶溝通她全權處理；技術規格、系統架構相關的決定必須回報逸達確認。邊界不清 = 事後救火。</p>
+      </div>
+    </div>
+
+    <div class="strategist-quote">
+      <div class="name">鬼谷子</div>
+      <div class="role">捭闔 · 因其言聽其辭</div>
+      <blockquote>
+        「逸達在『要不要前端』這題上做了一個精彩的退讓——同意有前端，但堅持是對話產生的動態前端，不是固定的後台。這不是妥協，是把主場拉回來。士維得到了他要的『視覺安心感』，逸達守住了『不做傳統 CRM 後台』的核心主張。」
+      </blockquote>
+      <div class="advice">
+        <div class="advice-label">建議</div>
+        <p>下一步的 Demo 必須讓客戶「看到」這個動態前端是怎麼從對話中長出來的。如果只說「我們不做傳統 CRM」但客戶看不到替代品，他們會以為你們什麼都沒有。</p>
+      </div>
+    </div>
+
+  </div>
+</details>
+
+<!-- Section 4: Game Theory Analysis (Collapsible) -->
+<details>
+  <summary>
+    <span class="num">04</span>
+    博弈分析 — 陽謀佈局 · 情緒動態
+  </summary>
+  <div class="details-body">
+
+    <!-- 陽謀佈局 -->
+    <div class="yang-card">
+      <h4>陽謀佈局</h4>
+      <ul>
+        <li><strong>議程主導權</strong>：逸達全程引導議程——殺手級定義 → CRM 路線 → 成本收束，士維在每個議題上是回應者而非發起者</li>
+        <li><strong>前端博弈的精妙退讓</strong>：士維連說 5 次「一定要有前端」，逸達讀到這是非理性需求（安心感），選擇用不同形式滿足而非正面對抗——同意有，但改變前端的定義</li>
+        <li><strong>成本收束策略</strong>：逸達直接說「總金額已知，你只要給我成本就好」，快速收束避免士維陷入數字細節的焦慮迴圈</li>
+        <li><strong>算命師案例的說服力設計</strong>：不是解釋 MUSEON 能做什麼，而是讓士維「看見」完整的價值閉環——這是陽謀：讓對方自己得出結論</li>
+      </ul>
+    </div>
+
+    <!-- 情緒動態 -->
+    <div class="card">
+      <h3>情緒動態時間軸</h3>
+      <div style="margin-top:16px">
+        <div class="emotion-item">
+          <span class="time">00:28</span>
+          <div class="desc">殺手級應用討論 — 士維興奮（「殺手級應用跟就是不會碰鴻海」），方向認同帶來能量 <span class="emotion-tag tag-high">HIGH</span></div>
+        </div>
+        <div class="emotion-item">
+          <span class="time">00:31</span>
+          <div class="desc">逸達演示算命師案例 — 士維笑場（「你們在嗎？我有在聽我在笑」）<strong>全場情緒最高點</strong> <span class="emotion-tag tag-high">PEAK</span></div>
+        </div>
+        <div class="emotion-item">
+          <span class="time">00:47</span>
+          <div class="desc">前端討論 — 士維焦慮期（「一定要一定要一定要有前端」），對無形產品的不安感浮現 <span class="emotion-tag tag-anxiety">ANXIETY</span></div>
+        </div>
+        <div class="emotion-item">
+          <span class="time">00:56</span>
+          <div class="desc">逸達突然跳題到成本 — 士維措手不及（「突然跳題」）<span class="emotion-tag tag-surprise">SURPRISE</span></div>
+        </div>
+        <div class="emotion-item">
+          <span class="time">01:03</span>
+          <div class="desc">PM 報酬討論 — 回歸務實理性，雙方節奏平穩 <span class="emotion-tag tag-neutral">NEUTRAL</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</details>
+
+<!-- Section 5: Persona Dynamics (Collapsible) -->
+<details>
+  <summary>
+    <span class="num">05</span>
+    人格動態 — 士維 vs 逸達
+  </summary>
+  <div class="details-body">
+
+    <div class="persona-card">
+      <div class="person">
+        <h4>士維</h4>
+        <div class="archetype">震（行動/執行）+ 坤（記憶/積累）</div>
+        <h4 style="font-family:'Outfit',sans-serif;font-size:14px;color:var(--slate)">發言模式</h4>
+        <p>執行導向，習慣從具體案例出發，需要「看得見的東西」才安心。「ok好」的口頭禪頻率極高（每個議題至少 3 次），但真正消化需要時間。</p>
+        <h4 style="font-family:'Outfit',sans-serif;font-size:14px;color:var(--slate);margin-top:16px">本次會議角色</h4>
+        <p>問題提出者 + 細節確認者。在前端議題上展現了罕見的堅持力，這代表他對「客戶看到什麼」有深刻的前線體感。</p>
+        <h4 style="font-family:'Outfit',sans-serif;font-size:14px;color:var(--slate);margin-top:16px">關鍵觀察</h4>
+        <p>士維在算命師案例段落的笑場，是整場最重要的訊號——他不只是理解了，他是<em>感受到了</em>。這個體驗會影響他未來的銷售敘事。</p>
+      </div>
+      <div class="person">
+        <h4>逸達（Zeal）</h4>
+        <div class="archetype">巽（好奇/探索）+ 乾（身份/使命）</div>
+        <h4 style="font-family:'Outfit',sans-serif;font-size:14px;color:var(--slate)">發言模式</h4>
+        <p>戰略主導型，善用具體案例引導對方理解抽象概念。在士維理解卡住時會切換到「說故事模式」——算命師案例是整場最有效的溝通工具。</p>
+        <h4 style="font-family:'Outfit',sans-serif;font-size:14px;color:var(--slate);margin-top:16px">本次會議角色</h4>
+        <p>議程推動者 + 視野擴展者。全程控制議程節奏，在需要收束時果斷跳題（如成本討論），在需要展開時用案例打開想像。</p>
+        <h4 style="font-family:'Outfit',sans-serif;font-size:14px;color:var(--slate);margin-top:16px">關鍵觀察</h4>
+        <p>前端議題的退讓策略是本場的博弈精華——不正面對抗士維的焦慮，而是重新定義「前端」這個詞的含義。結果：雙贏。</p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:24px">
+      <h3>人際動態分析</h3>
+      <div class="highlight-box">
+        <p><strong>士維 ↔ 逸達 = 互補型信任同盟</strong></p>
+      </div>
+      <ul>
+        <li><strong>分工模式</strong>：士維負責前線執行 + 客戶接觸，逸達負責戰略方向 + 系統能力</li>
+        <li><strong>溝通模式</strong>：逸達用敘事（案例/故事）帶動士維的理解，士維用實戰反饋（Feng 回饋/客戶反映）校正逸達的方向</li>
+        <li><strong>張力點</strong>：「可見 vs 不可見」——士維需要看見才安心，逸達認為看不見才是核心。前端議題的博弈完美展示了這個張力的建設性解法</li>
+        <li><strong>信任指標</strong>：士維願意當場笑場、逸達願意做出退讓——這只發生在高信任度的關係中</li>
+      </ul>
+    </div>
+
+  </div>
+</details>
+
+<!-- Footer -->
+<div class="footer">
+  <p class="brand">MUSEON</p>
+  <p>Meeting Intelligence Report · Generated 2026-03-31</p>
+  <p style="margin-top:4px">Powered by MUSEON Analysis Engine</p>
+</div>
+
+</div>
+</body>
+</html>
