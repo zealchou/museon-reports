@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>霏翔運動｜會議情報報告 0416</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Serif+TC:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500&display=swap');
+
+  :root {
+    --ember: #C4502A;
+    --ember-light: #E06B42;
+    --ember-dark: #A03D1F;
+    --parchment: #F7F2EA;
+    --parchment-dark: #EDE5D8;
+    --navy: #181737;
+    --navy-light: #2D2B5A;
+    --fog-gold: #b6853d;
+    --fog-gold-light: #D4A85A;
+    --text-dark: #1A1A2E;
+    --text-mid: #4A4A5E;
+    --text-light: #8A8AA0;
+    --white: #FFFFFF;
+    --border: rgba(196,80,42,0.15);
+    --shadow: 0 4px 24px rgba(24,23,55,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--parchment);
+    color: var(--text-dark);
+    line-height: 1.7;
+  }
+
+  .report-header {
+    background: var(--navy);
+    padding: 48px 60px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .report-header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(196,80,42,0.15) 0%, transparent 60%);
+  }
+  .report-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--ember), var(--fog-gold), var(--ember));
+  }
+  .header-inner { position: relative; max-width: 940px; margin: 0 auto; }
+
+  .report-badge {
+    display: inline-block;
+    background: rgba(196,80,42,0.2);
+    border: 1px solid rgba(196,80,42,0.4);
+    color: var(--ember-light);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+  }
+  .report-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 44px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .report-subtitle {
+    font-size: 15px;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 32px;
+  }
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 20px 24px;
+  }
+  .meta-item label {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 5px;
+  }
+  .meta-item value {
+    font-size: 14px;
+    color: var(--white);
+    font-weight: 500;
+    display: block;
+  }
+
+  .main-content {
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 44px 20px 70px;
+  }
+
+  .section { margin-bottom: 36px; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-number {
+    width: 36px; height: 36px;
+    background: var(--ember);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; font-weight: 700;
+    font-family: 'Cormorant Garamond', serif;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+  .section-tag {
+    margin-left: auto;
+    font-size: 10px;
+    color: var(--text-light);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  .card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: var(--shadow);
+    margin-bottom: 16px;
+  }
+  .card-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ember);
+    margin-bottom: 16px;
+  }
+
+  .scqa-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .scqa-item {
+    background: var(--parchment);
+    border-radius: 12px;
+    padding: 18px;
+    border-left: 3px solid var(--ember);
+  }
+  .scqa-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--ember);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .scqa-content { font-size: 13.5px; line-height: 1.65; }
+
+  .action-list { list-style: none; }
+  .action-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--parchment-dark);
+  }
+  .action-item:last-child { border-bottom: none; }
+  .action-dot {
+    width: 8px; height: 8px;
+    background: var(--fog-gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+  .action-text { font-size: 13.5px; line-height: 1.65; flex: 1; }
+  .action-owner {
+    font-size: 11px;
+    color: var(--text-light);
+    white-space: nowrap;
+    padding-left: 8px;
+    margin-top: 2px;
+  }
+
+  .perspective-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .perspective-card {
+    background: var(--parchment);
+    border-radius: 12px;
+    padding: 18px;
+  }
+  .perspective-role {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--fog-gold);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .perspective-content { font-size: 13.5px; line-height: 1.65; }
+
+  .quote-block {
+    border-left: 3px solid var(--fog-gold);
+    padding: 14px 20px;
+    background: rgba(182,133,61,0.05);
+    border-radius: 0 8px 8px 0;
+    margin: 14px 0;
+  }
+  .quote-text { font-size: 14px; font-style: italic; line-height: 1.75; }
+  .quote-speaker { font-size: 11px; color: var(--text-light); margin-top: 6px; }
+
+  .game-table { width: 100%; border-collapse: collapse; }
+  .game-table th {
+    background: var(--navy);
+    color: var(--white);
+    padding: 10px 16px;
+    font-size: 12px;
+    letter-spacing: 0.8px;
+    text-align: left;
+    font-weight: 500;
+  }
+  .game-table th:first-child { border-radius: 8px 0 0 0; }
+  .game-table th:last-child { border-radius: 0 8px 0 0; }
+  .game-table td {
+    padding: 13px 16px;
+    font-size: 13.5px;
+    border-bottom: 1px solid var(--parchment-dark);
+    color: var(--text-dark);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+  .game-table tr:nth-child(even) td { background: var(--parchment); }
+  .tag-s {
+    display: inline-block;
+    background: rgba(196,80,42,0.1);
+    color: var(--ember-dark);
+    font-size: 10px;
+    padding: 1px 8px;
+    border-radius: 8px;
+    font-weight: 700;
+  }
+  .tag-h {
+    display: inline-block;
+    background: rgba(24,23,55,0.08);
+    color: var(--navy);
+    font-size: 10px;
+    padding: 1px 8px;
+    border-radius: 8px;
+    font-weight: 700;
+  }
+
+  .insight-box {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    border-radius: 16px;
+    padding: 30px;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+  .insight-box::before {
+    content: 'KEY';
+    position: absolute;
+    right: 24px; top: 20px;
+    font-size: 56px;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    opacity: 0.06;
+    color: var(--white);
+  }
+  .insight-box .card-title { color: var(--fog-gold-light); }
+  .insight-text { font-size: 14.5px; line-height: 1.85; color: rgba(255,255,255,0.85); }
+  .insight-highlight { color: var(--fog-gold-light); font-weight: 600; }
+
+  .persona-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .persona-card {
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .persona-header { padding: 22px 20px; }
+  .persona-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .persona-role { font-size: 11px; color: rgba(255,255,255,0.5); letter-spacing: 0.5px; }
+  .persona-body { padding: 20px; }
+  .persona-trait { margin-bottom: 12px; }
+  .trait-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--ember);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .trait-value { font-size: 13px; line-height: 1.6; }
+  .strategy-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+  .strategy-tag {
+    background: var(--parchment-dark);
+    color: var(--text-mid);
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+
+  .timeline { position: relative; padding-left: 26px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px; top: 8px; bottom: 8px;
+    width: 2px;
+    background: var(--border);
+  }
+  .timeline-item { position: relative; margin-bottom: 22px; }
+  .timeline-dot {
+    position: absolute;
+    left: -22px; top: 6px;
+    width: 10px; height: 10px;
+    background: var(--ember);
+    border-radius: 50%;
+    border: 2px solid var(--parchment);
+  }
+  .timeline-time { font-size: 11px; color: var(--text-light); margin-bottom: 4px; }
+  .timeline-content { font-size: 13.5px; line-height: 1.65; }
+
+  .risk-card {
+    background: var(--parchment);
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 10px;
+  }
+  .risk-card:last-child { margin-bottom: 0; }
+  .risk-badge {
+    display: inline-block;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    color: white;
+    margin-right: 8px;
+  }
+  .risk-title { font-size: 14px; font-weight: 700; display: inline; }
+  .risk-body { font-size: 13.5px; line-height: 1.65; margin-top: 8px; }
+
+  .report-footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+  .report-footer strong { color: rgba(255,255,255,0.65); }
+
+  @media (max-width: 720px) {
+    .report-header { padding: 32px 24px; }
+    .report-title { font-size: 30px; }
+    .meta-grid { grid-template-columns: 1fr 1fr; }
+    .scqa-grid, .perspective-grid, .persona-grid { grid-template-columns: 1fr; }
+    .main-content { padding: 28px 16px 48px; }
+    .game-table { font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="report-header">
+  <div class="header-inner">
+    <div class="report-badge">MUSEON · Meeting Intelligence Report</div>
+    <h1 class="report-title">霏翔運動｜顧問會談情報</h1>
+    <p class="report-subtitle">五層深度分析 · 人格動態 · 博弈解碼 · 戰略優先序</p>
+    <div class="meta-grid">
+      <div class="meta-item">
+        <label>會議日期</label>
+        <value>2026 年 4 月 16 日</value>
+      </div>
+      <div class="meta-item">
+        <label>音檔時長</label>
+        <value>32 分 44 秒</value>
+      </div>
+      <div class="meta-item">
+        <label>參與者</label>
+        <value>比比、達哥、j</value>
+      </div>
+      <div class="meta-item">
+        <label>會議性質</label>
+        <value>首次顧問諮詢</value>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="main-content">
+
+<!-- LAYER 1 -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-number">1</div>
+    <h2 class="section-title">結構摘要</h2>
+    <span class="section-tag">SCQA · Pyramid Principle</span>
+  </div>
+
+  <div class="card">
+    <div class="card-title">SCQA 框架解構</div>
+    <div class="scqa-grid">
+      <div class="scqa-item">
+        <div class="scqa-label">S — 情境</div>
+        <div class="scqa-content">霏翔運動為兒童體能教育業者。比比原為主力教練，約一年前退出教學現場，改由教練全面負責課程。目前家長口碑尚可、預收款充足，表面穩定。</div>
+      </div>
+      <div class="scqa-item">
+        <div class="scqa-label">C — 衝突</div>
+        <div class="scqa-content">教練接手後來店率明顯下滑（比比自己上課時約五六成穩定）。教練與家長的互動停留在課後分享影片層次，缺乏深度關係建立。教練間幾乎無交集，彼此不認同對方做法。</div>
+      </div>
+      <div class="scqa-item">
+        <div class="scqa-label">Q — 核心問題</div>
+        <div class="scqa-content">老闆的「關係型服務能力」如何系統化複製給教練？在數據不透明的情況下，顧問如何精準切入？教練心態問題如何優先處理？</div>
+      </div>
+      <div class="scqa-item" style="border-left-color: var(--fog-gold);">
+        <div class="scqa-label" style="color: var(--fog-gold);">A — 方向</div>
+        <div class="scqa-content">三步驟：① 先數據可視化——從點名系統調出到課頻率與間隔；② 建立教練–家長觀察互動 SOP；③ 教育訓練從「心態突破」開始（認知 → 心態 → 技能模板），而非直接給技能清單。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">決議事項 / 行動清單</div>
+    <ul class="action-list">
+      <li class="action-item">
+        <div class="action-dot"></div>
+        <div class="action-text">從網路點名系統調出各學員到課頻率與間隔天數，建立數據底稿</div>
+        <div class="action-owner">比比 · 本週</div>
+      </li>
+      <li class="action-item">
+        <div class="action-dot"></div>
+        <div class="action-text">比比親自下場觀察一次教練上課，記錄教練與家長互動的頻率與深度</div>
+        <div class="action-owner">比比 · 2 週內</div>
+      </li>
+      <li class="action-item">
+        <div class="action-dot"></div>
+        <div class="action-text">整理自己過去與家長互動的 SOP（未文字化部分全部寫下來），作為下次顧問會議的輸入素材</div>
+        <div class="action-owner">比比 · 2 週內</div>
+      </li>
+      <li class="action-item">
+        <div class="action-dot"></div>
+        <div class="action-text">設計教練–家長互動記錄表（可先用 Google 表單），讓後續互動有系統可追蹤</div>
+        <div class="action-owner">達哥協助 · 2 週</div>
+      </li>
+      <li class="action-item">
+        <div class="action-dot"></div>
+        <div class="action-text">教練心態教育訓練計畫（三層：認知突破 → 心態調整 → 技能 SOP），在 5 月培訓前準備</div>
+        <div class="action-owner">達哥規劃</div>
+      </li>
+      <li class="action-item">
+        <div class="action-dot"></div>
+        <div class="action-text">5 月 6–8 號培訓（3 整天，台北新一區）：達哥確認地點細節後傳給比比</div>
+        <div class="action-owner">達哥 · 下月傳</div>
+      </li>
+      <li class="action-item">
+        <div class="action-dot"></div>
+        <div class="action-text">j 整理本次錄音傳給達哥；另建立數位主管專屬群組</div>
+        <div class="action-owner">j · 本週</div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- LAYER 2 -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-number">2</div>
+    <h2 class="section-title">圓桌多角度診斷</h2>
+    <span class="section-tag">Multi-Perspective Analysis</span>
+  </div>
+
+  <div class="card">
+    <div class="card-title">四視角交叉分析</div>
+    <div class="perspective-grid">
+      <div class="perspective-card">
+        <div class="perspective-role">業務策略師</div>
+        <div class="perspective-content">核心問題是「關係資本的不可複製性」。比比把客留率建立在個人魅力上，而非系統機制。一旦她退出現場，關係就斷鏈。顧問切入的優先順序正確：先數據化，再談策略，否則任何建議都是在黑暗中開槍。</div>
+      </div>
+      <div class="perspective-card">
+        <div class="perspective-role">組織發展顧問</div>
+        <div class="perspective-content">教練間「幾乎無交集」是更深的風險——沒有集體智慧，沒有互相學習，出問題只能靠老闆救火。達哥點出要先修復教練關係再辦大型活動，方向正確。文化傳承的關鍵不是訓練，是老闆身先士卒的現在進行式示範。</div>
+      </div>
+      <div class="perspective-card">
+        <div class="perspective-role">財務風險評估師</div>
+        <div class="perspective-content">預收款高聽起來是好事，但若來店率持續下滑，這些預收款將成為退款壓力。比比說「想降低預收款」——直覺對了。用高預收款掩蓋低完課率，只是推遲爆炸的時間點，而不是解決問題。</div>
+      </div>
+      <div class="perspective-card">
+        <div class="perspective-role">家長體驗研究員</div>
+        <div class="perspective-content">家長帶孩子來的動機多元：有被情緒推銷來的（心不甘，黏著度脆弱）、有真心認同的（超級擁護者）。超級擁護者是口碑機器，但需要老師主動設計「家長可分享的素材」——打卡牆、孩子得獎照等。達哥這個切點非常精準。</div>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <div class="quote-text">「你從頭到尾都要去思考，就算我是單次活動也好，家長為什麼要幫我分享？他要分享什麼……你沒有設計就沒了，那你就會輸給有設計的。」</div>
+      <div class="quote-speaker">— 達哥（00:16:00 附近）</div>
+    </div>
+  </div>
+</div>
+
+<!-- LAYER 3 -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-number">3</div>
+    <h2 class="section-title">博弈解碼</h2>
+    <span class="section-tag">Game Theory · Shadow Layer</span>
+  </div>
+
+  <div class="card">
+    <div class="card-title">明謀 · 暗謀對照表</div>
+    <table class="game-table">
+      <thead>
+        <tr>
+          <th style="width:11%">角色</th>
+          <th>表面立場 <span class="tag-s">明謀</span></th>
+          <th>深層動機 <span class="tag-h">暗謀</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>比比</strong><br><small style="color:var(--text-light)">業主</small></td>
+          <td>我想解決來店率問題，建立 SOP，改善教練管理。</td>
+          <td>她需要的是「被許可」與「被確認」——確認焦慮是合理的，問題是可解的。潛台詞：「告訴我我沒做錯，只是流程缺失。」同時在評估顧問是否真的能幫到她——這是一次隱性的試水溫。</td>
+        </tr>
+        <tr>
+          <td><strong>達哥</strong><br><small style="color:var(--text-light)">顧問</small></td>
+          <td>提供策略方向，引導比比自己想清楚。</td>
+          <td>首次會議，核心目標是「讓比比看見問題的真正位置」並建立信任，而非給一堆方案。他在測試比比的接受度、行動力，以及「是否值得長期輔導」。整場他掌握節奏，讓比比說出結論。</td>
+        </tr>
+        <tr>
+          <td><strong>教練們</strong><br><small style="color:var(--text-light)">（未出席）</small></td>
+          <td>「都好啊，沒問題。」</td>
+          <td>高機率是自我保護。教練不知道「什麼叫做到位」，或心理安全感不夠不敢說問題。表面和諧的背後是老闆與教練之間缺乏真實的對話空間。</td>
+        </tr>
+        <tr>
+          <td><strong>j</strong><br><small style="color:var(--text-light)">協調者</small></td>
+          <td>中性提問，協助會議收攏。</td>
+          <td>扮演「翻譯器兼保護者」——把比比的散漫表達整理成達哥能接的問題，也在防止比比被顧問節奏壓垮。發問「何時顧問介入最合適」是在確認服務邊界，為後續合作鋪路。</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="insight-box">
+    <div class="card-title">關鍵洞見：老闆最常見的盲點</div>
+    <p class="insight-text">
+      這場會議最重要的博弈不在桌面，而在比比自己的內心。<br><br>
+      她說「我自己其實都能做到，有做到」——這句話暴露了<span class="insight-highlight">老闆最常見的盲點：以為自己做的事，員工也應該知道怎麼做，或理所當然能學會。</span><br><br>
+      達哥在 00:27:42 點破核心：「你去要求他們做，他們就會覺得你自己都不做，我幹嘛做？」<br><br>
+      這是企業文化傳承的核心矛盾——<span class="insight-highlight">領導者把「自己曾經做到」誤認為「仍在示範」</span>。對員工來說，看不到老闆現在的行為，過去的故事就只是一個遙遠的標準，而不是可以跟隨的方向。
+    </p>
+  </div>
+</div>
+
+<!-- LAYER 4 -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-number">4</div>
+    <h2 class="section-title">人格動態分析</h2>
+    <span class="section-tag">Character Dynamics</span>
+  </div>
+
+  <div class="persona-grid">
+    <div class="persona-card">
+      <div class="persona-header" style="background: linear-gradient(135deg,#C4502A,#A03D1F);">
+        <div class="persona-name">比比</div>
+        <div class="persona-role">業主 · 兒童體能教育</div>
+      </div>
+      <div class="persona-body">
+        <div class="persona-trait">
+          <div class="trait-label">人格類型</div>
+          <div class="trait-value">實踐型創業者<br><small style="color:var(--text-light)">情感驅動，系統思維弱</small></div>
+        </div>
+        <div class="persona-trait">
+          <div class="trait-label">核心焦慮</div>
+          <div class="trait-value">「每天看著這些人數，真的是頭皮發麻」——用感覺管理，無數字底層</div>
+        </div>
+        <div class="persona-trait">
+          <div class="trait-label">溝通特徵</div>
+          <div class="trait-value">思維跳躍、一次拋多問題、需對方主動整理脈絡；遇到好問題會停頓反思</div>
+        </div>
+        <div class="persona-trait">
+          <div class="trait-label">決策盲點</div>
+          <div class="trait-value">「我能做到 ≠ 可複製給他人」；以為口頭問候等於真正關心</div>
+        </div>
+        <div class="persona-trait">
+          <div class="trait-label">壓力反應</div>
+          <div class="trait-value">接受顧問節奏、點頭認同頻率高，行動轉化率需後續追蹤</div>
+        </div>
+        <div class="strategy-tags">
+          <span class="strategy-tag">口碑型老闆</span>
+          <span class="strategy-tag">人際敏感</span>
+          <span class="strategy-tag">系統化弱</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="persona-card">
+      <div class="persona-header" style="background: linear-gradient(135deg,#181737,#2D2B5A);">
+        <div class="persona-name">達哥</div>
+        <div class="persona-role">顧問 · MUSEON</div>
+      </div>
+      <div class="persona-body">
+        <div class="persona-trait">
+          <div class="trait-label">顧問風格</div>
+          <div class="trait-value">蘇格拉底式引導——不給答案，給框架，讓客戶說出結論</div>
+        </div>
+        <div class="persona-trait">
+          <div class="trait-label">核心技法</div>
+          <div class="trait-value">「剝洋蔥」式提問：表面問題 → 行為現象 → 動機分析 → 制度設計</div>
+        </div>
+        <div class="persona-trait">
+          <div class="trait-label">情緒管理</div>
+          <div class="trait-value">高穩定度，對比比的跳躍思維保持節奏，適時拉回核心議題</div>
+        </div>
+        <div class="persona-trait">
+          <div class="trait-label">本次策略</div>
+          <div class="trait-value">首次建立信任，不急著交付解法——先讓比比意識到問題的深度與根源</div>
+        </div>
+        <div class="persona-trait">
+          <div class="trait-label">洞見密度</div>
+          <div class="trait-value">高——流失率三類型、家長行銷設計、企業文化傳承矛盾，全數命中核心</div>
+        </div>
+        <div class="strategy-tags">
+          <span class="strategy-tag">引導型顧問</span>
+          <span class="strategy-tag">人性診斷精準</span>
+          <span class="strategy-tag">系統思考者</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="persona-card">
+      <div class="persona-header" style="background: linear-gradient(135deg,#b6853d,#8a6030);">
+        <div class="persona-name">j</div>
+        <div class="persona-role">協調者 · 顧問側翼</div>
+      </div>
+      <div class="persona-body">
+        <div class="persona-trait">
+          <div class="trait-label">角色定位</div>
+          <div class="trait-value">「翻譯器兼保護者」——把比比的發散內容整理成顧問能接的問題</div>
+        </div>
+        <div class="persona-trait">
+          <div class="trait-label">溝通特徵</div>
+          <div class="trait-value">謹慎觀察、低調，在關鍵節點才介入，問題方向多指向「下一步操作」</div>
+        </div>
+        <div class="persona-trait">
+          <div class="trait-label">關鍵發言</div>
+          <div class="trait-value">「什麼樣的情況下，比較適合讓顧問做介入？」——精準讀懂比比真實需求</div>
+        </div>
+        <div class="persona-trait">
+          <div class="trait-label">動機判讀</div>
+          <div class="trait-value">可能身兼業務拓展角色，本次在評估顧問服務是否值得繼續深化合作</div>
+        </div>
+        <div class="persona-trait">
+          <div class="trait-label">會議貢獻</div>
+          <div class="trait-value">最後收攏動作精準：確認培訓時間、群組建立、錄音整理，讓會議有具體出口</div>
+        </div>
+        <div class="strategy-tags">
+          <span class="strategy-tag">橋梁型人格</span>
+          <span class="strategy-tag">低調觀察者</span>
+          <span class="strategy-tag">問題精準</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top: 16px;">
+    <div class="card-title">互動動態時間軸</div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">00:00–06:00｜破冰期</div>
+        <div class="timeline-content">比比主導，拋出核心困境（來店率 + 預收款問題），達哥沉默聆聽後以提問介入。張力在「比比只說表面現象，達哥在等她說出深層根因」。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">06:00–14:00｜診斷挖掘期</div>
+        <div class="timeline-content">達哥開始剝洋蔥：獎金機制 → 教練心態三類型 → 家長互動深度。比比逐漸從「我有問題」轉向「我知道問題在哪了」。這是本次會議的認知轉折點。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">14:00–20:00｜方案建構期</div>
+        <div class="timeline-content">討論曝光度、家長行銷設計、教練關係問題。j 在 16:45 加入觀察，適時補充視角。達哥提出「家長自己分享才是真行銷」，這是本場最強的商業洞見。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">20:00–29:00｜文化掃雷期</div>
+        <div class="timeline-content">比比說「最卡的是如何切入跟教練聊困難」——達哥給出心法：從讚美而非批評切入，以績效為由頭聊。接著深挖文化傳承問題：老闆不在示範，員工憑什麼效法？</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot" style="background: var(--fog-gold);"></div>
+        <div class="timeline-time">29:00–32:44｜收攏期</div>
+        <div class="timeline-content">比比確認「比較有方向了，知道從哪個方向著手」，j 整理行動項，達哥確認 5/6–8 培訓，j 說明後續群組建立計畫。會議以清楚的下一步收場，雙方關係良好。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LAYER 5 -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-number">5</div>
+    <h2 class="section-title">戰略雷達</h2>
+    <span class="section-tag">Strategic Intelligence · Priority Queue</span>
+  </div>
+
+  <div class="card">
+    <div class="card-title">三大風險訊號</div>
+    <div class="risk-card" style="border-left: 3px solid var(--ember);">
+      <div>
+        <span class="risk-badge" style="background: var(--ember);">高風險</span>
+        <span class="risk-title">老闆不在現場 = 文化真空</span>
+      </div>
+      <div class="risk-body">比比坦承已停止許多互動行為，卻要求教練做到——這是文化傳承的致命矛盾。若不先修正示範層，任何SOP訓練都是空中樓閣。員工看的是老闆現在在做什麼，不是過去曾做什麼。</div>
+    </div>
+    <div class="risk-card" style="border-left: 3px solid var(--fog-gold);">
+      <div>
+        <span class="risk-badge" style="background: var(--fog-gold);">中風險</span>
+        <span class="risk-title">教練說「都好」= 系統性問題</span>
+      </div>
+      <div class="risk-body">每次問都說沒問題，但學員不來。代表心理安全感不足（怕被罵），或定義不清楚（不知道什麼叫「有問題」）。兩者都需要老闆主動創造安全對話空間，而非用獎懲制度強迫表態。</div>
+    </div>
+    <div class="risk-card" style="border-left: 3px solid var(--navy);">
+      <div>
+        <span class="risk-badge" style="background: var(--navy);">機會訊號</span>
+        <span class="risk-title">家長黏著度尚存 = 可救的窗口</span>
+      </div>
+      <div class="risk-body">「以前自己上課時，家長黏著度一直很高」——這批家長有情感基礎，只是關係在教練接手後沒有被延續。若在三個月內重建連結機制（深度互動SOP + 家長可分享素材），流失可以逆轉。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">顧問行動優先序</div>
+    <table class="game-table">
+      <thead>
+        <tr>
+          <th style="width:8%">優先</th>
+          <th>行動項目</th>
+          <th>為什麼這個順序</th>
+          <th style="width:14%">時間框架</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>P0</strong></td>
+          <td>調出每位學員到課頻率數據，建立可視化底稿</td>
+          <td>沒有數字，一切策略都是在感覺上建立，顧問無法精準介入</td>
+          <td>本週完成</td>
+        </tr>
+        <tr>
+          <td><strong>P1</strong></td>
+          <td>比比親自觀察一次教練上課（含課後互動）</td>
+          <td>診斷需要第一手現場數據，感覺不算，比比的眼睛才是最佳感測器</td>
+          <td>2 週內</td>
+        </tr>
+        <tr>
+          <td><strong>P2</strong></td>
+          <td>比比整理自己未文字化的 SOP（家長互動部分）</td>
+          <td>這是教練訓練的素材來源，必須先存在才能傳承</td>
+          <td>2 週內</td>
+        </tr>
+        <tr>
+          <td><strong>P3</strong></td>
+          <td>教練心態教育訓練（5 月培訓主軸）</td>
+          <td>技能不是核心問題，心態才是——先解決「知道為什麼要做」才有用</td>
+          <td>5 月培訓</td>
+        </tr>
+        <tr>
+          <td><strong>P4</strong></td>
+          <td>大型家長黏著活動策劃</td>
+          <td>教練關係與文化必須先修復，否則活動只會讓家長看見內部問題</td>
+          <td>Q3 之後</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-title">達哥框架：學員流失率三類型</div>
+    <div class="perspective-grid">
+      <div class="perspective-card" style="border-left: 3px solid var(--ember);">
+        <div class="perspective-role" style="color: var(--ember);">類型 A · 報名後不來</div>
+        <div class="perspective-content">問題根源在銷售端——可能是被情緒推銷而非真心認同。應對：改善銷售篩選品質，讓真心認同的家長報名。</div>
+      </div>
+      <div class="perspective-card" style="border-left: 3px solid var(--fog-gold);">
+        <div class="perspective-role" style="color: var(--fog-gold);">類型 B · 來一兩次後消失</div>
+        <div class="perspective-content">問題在課程前期體驗——家長的期望與實際感受有落差。應對：強化前三堂的期望管理與互動設計。</div>
+      </div>
+      <div class="perspective-card" style="border-left: 3px solid var(--navy);">
+        <div class="perspective-role" style="color: var(--navy);">類型 C · 上到一半後停</div>
+        <div class="perspective-content">問題在教練關係——某個時間點教練行為讓家長不舒服，但說不出口，就靠「不來」解決。應對：定期到課頻率監控 + 教練互動記錄。</div>
+      </div>
+    </div>
+    <div class="quote-block">
+      <div class="quote-text">「不來三種不來的原因是不一樣的。你要去觀察這個不來的頻率跟次數是怎麼發生的，你才會大概知道說問題在哪裡。」</div>
+      <div class="quote-speaker">— 達哥（00:07:16 附近）</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<footer class="report-footer">
+  <strong>MUSEON Meeting Intelligence</strong> · 霏翔運動顧問會談 2026.04.16<br>
+  五層深度情報分析 · 僅供顧問端使用 · 機密文件
+</footer>
+
+</body>
+</html>
