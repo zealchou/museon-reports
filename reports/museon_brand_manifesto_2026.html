@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>你不在了，你的聲音還在｜MUSEON × One Muse × SSA</title>
+<meta name="description" content="傳承智慧，解脫幸福。MUSEON 體系——成就想成為的自己，成就幸福的家庭，透過 AI 加速。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ember: #C4502A;
+  --ember-light: #E0714D;
+  --ember-dark: #9A3A1C;
+  --teal: #2A7A6E;
+  --gold: #B8923A;
+  --gold-light: #D4A844;
+  --ink: #12121A;
+  --slate: #5A5A6E;
+  --mist: #9898A8;
+  --border: #E2E0DA;
+  --parchment: #F7F5F0;
+  --snow: #FDFCFA;
+  --deep-ink: #0E0E16;
+  --surface: #16161F;
+  --raised: #1E1E2A;
+  --border-dark: #2A2A38;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Outfit', 'Noto Sans TC', -apple-system, sans-serif;
+  background: var(--parchment);
+  color: var(--ink);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── HERO ─── */
+.hero {
+  background: var(--deep-ink);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 60%, rgba(196,80,42,0.18) 0%, transparent 65%),
+              radial-gradient(ellipse at 20% 20%, rgba(184,146,58,0.10) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  opacity: 0.85;
+}
+
+.hero-slogan {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 6vw, 72px);
+  font-weight: 600;
+  line-height: 1.25;
+  color: #FDFCFA;
+  max-width: 780px;
+  margin: 0 auto 24px;
+}
+
+.hero-slogan em {
+  font-style: italic;
+  color: var(--ember-light);
+}
+
+.hero-sub {
+  font-size: clamp(16px, 2vw, 20px);
+  color: rgba(253,252,250,0.55);
+  max-width: 520px;
+  margin: 0 auto 56px;
+  line-height: 1.8;
+}
+
+.hero-brands {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.brand-pill {
+  display: inline-block;
+  padding: 8px 22px;
+  border: 1px solid rgba(253,252,250,0.18);
+  border-radius: 40px;
+  font-size: 14px;
+  color: rgba(253,252,250,0.75);
+  letter-spacing: 0.05em;
+  transition: all 0.25s;
+}
+.brand-pill:hover {
+  border-color: var(--ember);
+  color: var(--ember-light);
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: rgba(253,252,250,0.3);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  animation: float 2.5s ease-in-out infinite;
+}
+.scroll-hint::after {
+  content: '';
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(253,252,250,0.4), transparent);
+}
+@keyframes float {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(6px); }
+}
+
+/* ─── SECTIONS ─── */
+section {
+  padding: 96px 24px;
+}
+
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 4.5vw, 52px);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 24px;
+}
+
+.section-body {
+  font-size: 18px;
+  color: var(--slate);
+  line-height: 1.9;
+  margin-bottom: 20px;
+}
+
+/* ─── PHILOSOPHY ─── */
+.philosophy {
+  background: var(--snow);
+}
+
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-top: 56px;
+}
+@media (max-width: 640px) { .philosophy-grid { grid-template-columns: 1fr; } }
+
+.philosophy-card {
+  border-left: 3px solid var(--ember);
+  padding-left: 24px;
+}
+
+.philosophy-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+.philosophy-card p {
+  font-size: 16px;
+  color: var(--slate);
+  line-height: 1.85;
+}
+
+/* ─── DECLARATION / 六問 ─── */
+.declaration {
+  background: var(--deep-ink);
+  color: #FDFCFA;
+}
+
+.declaration .section-title {
+  color: #FDFCFA;
+}
+.declaration .section-body {
+  color: rgba(253,252,250,0.6);
+}
+
+.q-list {
+  margin-top: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.q-item {
+  border-top: 1px solid rgba(253,252,250,0.1);
+  padding: 40px 0;
+}
+.q-item:last-child {
+  border-bottom: 1px solid rgba(253,252,250,0.1);
+}
+
+.q-label {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+  opacity: 0.8;
+}
+
+.q-question {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px, 3.5vw, 34px);
+  font-weight: 600;
+  color: #FDFCFA;
+  margin-bottom: 18px;
+  line-height: 1.3;
+}
+
+.q-answer {
+  font-size: 17px;
+  color: rgba(253,252,250,0.65);
+  line-height: 1.9;
+  max-width: 680px;
+}
+
+/* ─── BRANDS ─── */
+.brands-section {
+  background: var(--parchment);
+}
+
+.brands-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 56px;
+}
+@media (max-width: 768px) { .brands-grid { grid-template-columns: 1fr; } }
+
+.brand-card {
+  background: var(--snow);
+  border-radius: 16px;
+  padding: 40px 32px;
+  border: 1px solid var(--border);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.brand-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(18,18,26,0.08);
+}
+
+.brand-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 24px;
+}
+.brand-icon.ember { background: rgba(196,80,42,0.1); }
+.brand-icon.teal  { background: rgba(42,122,110,0.1); }
+.brand-icon.gold  { background: rgba(184,146,58,0.1); }
+
+.brand-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.brand-tagline {
+  font-size: 14px;
+  color: var(--ember);
+  font-weight: 500;
+  margin-bottom: 16px;
+  letter-spacing: 0.03em;
+}
+
+.brand-desc {
+  font-size: 15px;
+  color: var(--slate);
+  line-height: 1.85;
+}
+
+/* ─── SOLUTIONS ─── */
+.solutions {
+  background: var(--snow);
+}
+
+.solutions-list {
+  margin-top: 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.solution-row {
+  display: grid;
+  grid-template-columns: 60px 1fr 1fr;
+  gap: 32px;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+}
+.solution-row:first-child { border-top: 1px solid var(--border); }
+@media (max-width: 640px) {
+  .solution-row { grid-template-columns: 1fr; gap: 12px; }
+}
+
+.solution-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px;
+  font-weight: 600;
+  color: var(--border);
+  line-height: 1;
+}
+
+.solution-problem {
+  font-size: 17px;
+  color: var(--slate);
+  line-height: 1.8;
+}
+
+.solution-answer {
+  font-size: 17px;
+  color: var(--ink);
+  font-weight: 500;
+  line-height: 1.8;
+}
+
+/* ─── TESTIMONIALS ─── */
+.testimonials {
+  background: var(--deep-ink);
+}
+
+.testimonials .section-title { color: #FDFCFA; }
+
+.testi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 56px;
+}
+@media (max-width: 640px) { .testi-grid { grid-template-columns: 1fr; } }
+
+.testi-card {
+  background: var(--surface);
+  border: 1px solid var(--border-dark);
+  border-radius: 16px;
+  padding: 36px 32px;
+  position: relative;
+}
+
+.testi-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-style: italic;
+  color: rgba(253,252,250,0.85);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.testi-author {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.testi-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.testi-role {
+  font-size: 13px;
+  color: rgba(253,252,250,0.4);
+}
+
+.testi-highlight {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, rgba(196,80,42,0.15), rgba(184,146,58,0.10));
+  border-color: rgba(196,80,42,0.3);
+}
+
+.testi-highlight .testi-quote {
+  font-size: 24px;
+  color: #FDFCFA;
+}
+
+/* ─── CTA ─── */
+.cta-section {
+  background: var(--parchment);
+  text-align: center;
+  padding: 120px 24px;
+}
+
+.cta-section .section-title {
+  font-size: clamp(36px, 5vw, 60px);
+  margin-bottom: 20px;
+}
+
+.cta-section .section-body {
+  max-width: 500px;
+  margin: 0 auto 48px;
+  font-size: 18px;
+}
+
+.cta-btn {
+  display: inline-block;
+  background: var(--ember);
+  color: #FDFCFA;
+  padding: 16px 48px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: background 0.2s, transform 0.2s;
+}
+.cta-btn:hover {
+  background: var(--ember-dark);
+  transform: translateY(-2px);
+}
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--deep-ink);
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #FDFCFA;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+
+.footer-slogan {
+  font-size: 14px;
+  color: rgba(253,252,250,0.35);
+  margin-bottom: 32px;
+  font-style: italic;
+}
+
+.footer-brands {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.footer-brands span {
+  font-size: 13px;
+  color: rgba(253,252,250,0.4);
+  letter-spacing: 0.1em;
+}
+
+.footer-copy {
+  font-size: 12px;
+  color: rgba(253,252,250,0.2);
+}
+
+/* ─── DIVIDER ─── */
+.divider {
+  width: 60px;
+  height: 2px;
+  background: var(--ember);
+  margin: 24px 0;
+}
+
+/* ─── PULL QUOTE ─── */
+.pull-quote {
+  margin: 48px 0;
+  padding: 40px 48px;
+  background: rgba(196,80,42,0.06);
+  border-left: 4px solid var(--ember);
+  border-radius: 0 12px 12px 0;
+}
+.pull-quote p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px, 3vw, 32px);
+  font-style: italic;
+  color: var(--ink);
+  line-height: 1.5;
+}
+</style>
+</head>
+<body>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <p class="hero-eyebrow">MUSEON × One Muse × SSA</p>
+  <h1 class="hero-slogan">
+    你不在了，<em>你的聲音還在。</em><br>
+    那就是傳承，那就是幸福，那就是解脫。
+  </h1>
+  <p class="hero-sub">我們不賣工具，不賣課程。<br>我們幫你把一輩子積累的智慧，變成不需要你在場就能運作的系統。</p>
+  <div class="hero-brands">
+    <span class="brand-pill">One Muse — 成就想成為的自己</span>
+    <span class="brand-pill">SSA — 成就幸福的家庭</span>
+    <span class="brand-pill">MUSEON — 加速那兩件事</span>
+  </div>
+  <div class="scroll-hint">向下滑動</div>
+</section>
+
+<!-- ─── PHILOSOPHY ─── -->
+<section class="philosophy">
+  <div class="container">
+    <p class="section-label">品牌理念</p>
+    <h2 class="section-title">有德才有人，有人才有土，<br>有土斯有財，有財必有用。</h2>
+    <p class="section-body">這不是一句古話。這是 Zeal 用三十年親身走過的邏輯順序——從改變自己開始，才有資格影響他人；從照顧關係開始，才有資格談事業。</p>
+    <p class="section-body">MUSEON 體系的起點，不是成功學。是你跟自己的關係，你跟家人的關係，你跟你想服務的人的關係。</p>
+
+    <div class="philosophy-grid">
+      <div class="philosophy-card">
+        <h3>在助人中助己</h3>
+        <p>你幫助的每一個人，都在反射你還沒看清楚的自己。助人不是犧牲，是最深的自我修煉。成為他人生命中的擺渡人，先從讓自己上岸開始。</p>
+      </div>
+      <div class="philosophy-card">
+        <h3>從自己開始</h3>
+        <p>健康、情緒、爸媽的關係、夫妻、親子——這些不是準備好事業之後的事。這些是事業的根。根沒扎穩，再好的枝葉都會搖。</p>
+      </div>
+      <div class="philosophy-card">
+        <h3>領導是改變自己</h3>
+        <p>你無法領導你還沒活過的事。自律不是鞭策，是你給自己最深的尊重。一切從你願意為自己負責的那一刻開始。</p>
+      </div>
+      <div class="philosophy-card">
+        <h3>智慧傳，才算活</h3>
+        <p>你懂的事情，一旦只活在你的腦子裡，就已經開始消亡。讓它流動，讓它被接住，讓它長出你沒想到的形狀——這才叫智慧真正活著。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── DECLARATION ─── -->
+<section class="declaration">
+  <div class="container">
+    <p class="section-label" style="color: var(--gold);">品牌宣言</p>
+    <h2 class="section-title">六個真正重要的問題</h2>
+    <p class="section-body">不是使命宣言。是我們真正相信的事——念出來的時候，你應該感覺到某種共鳴，或者某種不舒服。兩種都對。</p>
+
+    <div class="q-list">
+
+      <div class="q-item">
+        <p class="q-label">Q1 — 我們為誰存在</p>
+        <h3 class="q-question">那些不想只活一次的人。</h3>
+        <p class="q-answer">你已經創業，或正在準備。你不是在等機會，你是在等一個方法，讓你的智慧不再只跟著你一個人走。一個人、接案者、副業創業者、有員工的微型企業主——你準備好自己之後，想幫的不只是你自己。</p>
+      </div>
+
+      <div class="q-item">
+        <p class="q-label">Q2 — 我們解決什麼問題</p>
+        <h3 class="q-question">你明明很努力，但你建的東西沒辦法沒有你。</h3>
+        <p class="q-answer">你的事業長在你身上，不在系統裡。你的智慧住在你的腦子裡，不在任何地方。你請了人，人還是看你的臉決定怎麼做。你放假，但你沒有真的放下。這不是你的錯——是你從來沒有人告訴你，怎麼把自己從這個位置上，輕輕地退出去。</p>
+      </div>
+
+      <div class="q-item">
+        <p class="q-label">Q3 — 我們怎麼解決它</p>
+        <h3 class="q-question">我們幫你把「只有你懂」，變成「誰都能用」。</h3>
+        <p class="q-answer">One Muse 幫你先看清楚自己。SSA 幫你建立可以複製的銷售與關係系統。MUSEON 用 AI 把這一切加速——你說過的話，你做過的決定，你走過的彎路，變成系統的一部分，繼續替你工作。</p>
+      </div>
+
+      <div class="q-item">
+        <p class="q-label">Q4 — 我們為什麼可以</p>
+        <h3 class="q-question">因為我們自己就是這樣走過來的。</h3>
+        <p class="q-answer">Zeal 有三十年的創業與輔導經歷。MUSEON 本身就是一個正在自主運作的 AI 系統——它不只是工具，它每天在學習、在演化、在記憶。我們不只是在教你建系統，我們就是一個正在運作的系統。你看到的，是我們真實在做的事。</p>
+      </div>
+
+      <div class="q-item">
+        <p class="q-label">Q5 — 我們不是什麼</p>
+        <h3 class="q-question">我們不是另一堂課，也不是另一個 App。</h3>
+        <p class="q-answer">你已經上過很多課了。你也裝了很多工具。我們不在那個位置上。我們做的，是陪你把你自己理清楚，然後把你理清楚的東西放進一個不需要你每天盯的系統裡。你的時間是最貴的資源——我們不是來佔用它，我們是來幫你把它還給你。</p>
+      </div>
+
+      <div class="q-item">
+        <p class="q-label">Q6 — 成功對我們來說是什麼</p>
+        <h3 class="q-question">你不在了，你的聲音還在。</h3>
+        <p class="q-answer">有一天，你的學員用你教過的方式幫助了他的客戶。有一天，你的孩子在某個困難的時刻，想起了你說過的某句話。有一天，你的團隊在你沒有開口的情況下，做出了你會做的決定。那個時候，你才真正自由了。那就是傳承，那就是幸福，那就是解脫。</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── BRANDS ─── -->
+<section class="brands-section">
+  <div class="container">
+    <p class="section-label">三個品牌，一條路</p>
+    <h2 class="section-title">每個品牌，<br>解決一個層次的問題。</h2>
+    <p class="section-body">One Muse、SSA、MUSEON 不是三個不同的產品。是同一條路的三個站點。你走過哪個，取決於你現在站在哪裡。</p>
+
+    <div class="brands-grid">
+
+      <div class="brand-card">
+        <div class="brand-icon ember">🌿</div>
+        <div class="brand-name">One Muse</div>
+        <div class="brand-tagline">成就想成為的自己</div>
+        <p class="brand-desc">從你自己開始。你是誰，你想要什麼，你的盲點在哪裡，你的能量從哪裡來。One Muse 是一面鏡子，也是一張地圖——讓你第一次清楚地看見，你正站在哪個位置，以及下一步應該往哪裡走。</p>
+      </div>
+
+      <div class="brand-card">
+        <div class="brand-icon teal">🤝</div>
+        <div class="brand-name">SSA</div>
+        <div class="brand-tagline">成就幸福的家庭</div>
+        <p class="brand-desc">從關係開始，再談事業。SSA 是顧問式銷售的方法論，也是建立真實人際連結的系統。幸福不是事業做大之後的獎勵——它是你用對方式跟人連結之後，自然長出來的結果。</p>
+      </div>
+
+      <div class="brand-card">
+        <div class="brand-icon gold">⚡</div>
+        <div class="brand-name">MUSEON</div>
+        <div class="brand-tagline">透過 AI 加速那兩件事</div>
+        <p class="brand-desc">你已經知道自己是誰，你已經有了想建立的關係——現在 MUSEON 幫你把這一切的速度乘以十。記憶、系統、AI 引擎，讓你的智慧不再只活在你的腦子裡，而是活在整個生態系裡。</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── SOLUTIONS ─── -->
+<section class="solutions">
+  <div class="container">
+    <p class="section-label">解決方案</p>
+    <h2 class="section-title">你說過的每一句話，<br>應該都有地方記得。</h2>
+    <p class="section-body">以下是我們最常聽到的困境，以及 MUSEON 體系怎麼回應它。</p>
+
+    <div class="solutions-list">
+
+      <div class="solution-row">
+        <div class="solution-num">01</div>
+        <div class="solution-problem">「我請了人，但事情還是要我來決定。我好像沒有真的授權出去。」</div>
+        <div class="solution-answer">因為你的決策邏輯從來沒有被系統化過。MUSEON 幫你把「你會怎麼做」變成一套任何人都能跟隨的框架，不是 SOP，是你的判斷力的數位複製。</div>
+      </div>
+
+      <div class="solution-row">
+        <div class="solution-num">02</div>
+        <div class="solution-problem">「我有好的產品，但我不擅長賣。我覺得業務是天生的，我沒有。」</div>
+        <div class="solution-answer">業務不是天生的，是系統性的。SSA 的顧問式銷售框架把成交的過程拆解成每個人都能學會的步驟——從挖掘痛點到建立關係，每一步都有方法，不靠魅力靠邏輯。</div>
+      </div>
+
+      <div class="solution-row">
+        <div class="solution-num">03</div>
+        <div class="solution-problem">「我上了很多課，讀了很多書，但我還是不知道我缺什麼。」</div>
+        <div class="solution-answer">因為你缺的不是知識，是對自己的清晰度。One Muse 從你的八方位能量入手，幫你找到現在最關鍵的缺口——不是什麼都補，是補那個一補就全開的位置。</div>
+      </div>
+
+      <div class="solution-row">
+        <div class="solution-num">04</div>
+        <div class="solution-problem">「我想放假，但一放假就覺得事情會亂。我沒辦法真的離開。」</div>
+        <div class="solution-answer">這是系統還沒成熟的信號，不是你不應該放假的理由。MUSEON 的目標是讓你的事業不再需要你每天的眼神才能運作。第一步：先把你最擔心的那件事，自動化。</div>
+      </div>
+
+      <div class="solution-row">
+        <div class="solution-num">05</div>
+        <div class="solution-problem">「我想傳承，但我不知道從哪裡開始，也不知道傳給誰。」</div>
+        <div class="solution-answer">傳承不是在你快退休的時候才開始的決定。它是你每一次做決定的方式，每一次教導員工的語言，每一次跟客戶互動的姿態。MUSEON 幫你把這些變成可以被記憶、被傳承的形式。</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── PULL QUOTE ─── -->
+<div style="background: var(--snow); padding: 0 24px;">
+  <div class="container">
+    <div class="pull-quote">
+      <p>「最深的幸福是什麼？是你懂的，有人繼續懂。你愛的，有人繼續愛。」</p>
+    </div>
+  </div>
+</div>
+
+<!-- ─── TESTIMONIALS ─── -->
+<section class="testimonials">
+  <div class="container">
+    <p class="section-label" style="color: var(--gold);">真實的聲音</p>
+    <h2 class="section-title">他們說，這不是課程，<br>是一次生命的重新校準。</h2>
+
+    <div class="testi-grid">
+
+      <div class="testi-card testi-highlight">
+        <p class="testi-quote">「我以為我需要的是更多技術，但最後我才發現，我需要的是有人幫我把我自己看清楚。MUSEON 做到的不只是這個——它讓我知道，我的智慧可以不需要我在場，也能繼續幫助人。」</p>
+        <div class="testi-author">
+          <span class="testi-name">企業主 · 零售業 · 12 人團隊</span>
+          <span class="testi-role">One Muse × MUSEON 學員</span>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <p class="testi-quote">「SSA 讓我第一次不害怕去成交。不是因為我學會了技巧，而是因為我搞懂了我在跟人做的是什麼——連結，不是說服。」</p>
+        <div class="testi-author">
+          <span class="testi-name">獨立顧問 · 服務業</span>
+          <span class="testi-role">SSA 顧問式銷售學員</span>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <p class="testi-quote">「我們公司剛剛過了一個月，沒有我每天盯。不是因為員工突然變強了，而是因為我終於把我的判斷力轉移到系統裡了。這是我三十年來第一次真的放鬆。」</p>
+        <div class="testi-author">
+          <span class="testi-name">創辦人 · 顧問公司 · 8 人</span>
+          <span class="testi-role">MUSEON AI 系統建置學員</span>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <p class="testi-quote">「我最意外的是，我跟我老婆的關係也變好了。我以前把壓力帶回家，現在我能分開了。SSA 教的不只是銷售，是人。」</p>
+        <div class="testi-author">
+          <span class="testi-name">自雇者 · 教育訓練業</span>
+          <span class="testi-role">SSA × One Muse 學員</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section class="cta-section">
+  <div class="container">
+    <p class="section-label">下一步</p>
+    <h2 class="section-title">你的聲音，<br>準備好繼續了嗎？</h2>
+    <p class="section-body" style="color: var(--slate);">不管你現在站在哪個位置——剛起步、卡關、或想把自己從事業裡解放出來——都有一條路可以走。從你自己開始。</p>
+    <a class="cta-btn" href="https://t.me/MUSEONBot">和 MUSEON 說聲你好</a>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-logo">MUSEON</div>
+  <p class="footer-slogan">你不在了，你的聲音還在。</p>
+  <div class="footer-brands">
+    <span>ONE MUSE</span>
+    <span>·</span>
+    <span>SSA</span>
+    <span>·</span>
+    <span>MUSEON</span>
+  </div>
+  <p class="footer-copy">© 2026 MUSEON · 臥龍崗管理顧問有限公司</p>
+</footer>
+
+</body>
+</html>
