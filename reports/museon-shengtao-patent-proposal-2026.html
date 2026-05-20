@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MUSEON × 聖島國際專利事務所 — 智慧型知識管理合作提案</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Outfit:wght@300;400;500;600&family=Noto+Sans+TC:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --ember: #C4502A; --ember-light: #E0714D; --ember-dark: #9A3A1C;
+  --teal: #2A7A6E; --gold: #B8923A;
+  --ink: #12121A; --slate: #5A5A6E; --mist: #9898A8;
+  --border: #E2E0DA; --parchment: #F7F5F0; --snow: #FDFCFA;
+  --deep-ink: #0E0E16; --surface: #16161F; --raised: #1E1E2A;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--parchment); color: var(--ink); font-family: 'Outfit','Noto Sans TC',sans-serif; font-size: 16px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+.container { max-width: 860px; margin: 0 auto; padding: 0 48px; }
+@media (max-width: 768px) { .container { padding: 0 24px; } }
+@media (max-width: 480px) { .container { padding: 0 16px; } }
+
+/* Hero */
+.hero { background: var(--deep-ink); color: #fff; padding: 88px 0 72px; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 60% 40%, rgba(196,80,42,.22) 0%, transparent 70%); pointer-events: none; }
+.eyebrow { font-family: 'IBM Plex Mono',monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--ember-light); margin-bottom: 18px; }
+.hero h1 { font-family: 'Cormorant Garamond',serif; font-size: clamp(30px,5vw,50px); font-weight: 600; line-height: 1.18; color: #fff; margin-bottom: 14px; }
+.hero h1 em { font-style: italic; color: var(--ember-light); }
+.hero-sub { font-size: 17px; color: rgba(255,255,255,.72); max-width: 560px; margin-top: 12px; }
+.hero-meta { margin-top: 28px; display: flex; gap: 24px; flex-wrap: wrap; }
+.hero-meta span { font-family: 'IBM Plex Mono',monospace; font-size: 11px; letter-spacing: .1em; color: rgba(255,255,255,.45); }
+.badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(42,122,110,.2); border: 1px solid rgba(42,122,110,.4); border-radius: 6px; padding: 7px 16px; margin-top: 28px; font-size: 13px; color: #5bbfb0; }
+.badge::before { content: '🔒'; }
+
+/* Sections */
+section { padding: 64px 0; }
+section + section { border-top: 1px solid var(--border); }
+.label { font-family: 'IBM Plex Mono',monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--ember); margin-bottom: 12px; }
+h2 { font-family: 'Cormorant Garamond',serif; font-size: clamp(24px,4vw,36px); font-weight: 600; line-height: 1.22; color: var(--ink); margin-bottom: 18px; }
+h2 em { font-style: italic; color: var(--ember); }
+p { color: var(--slate); margin-bottom: 14px; }
+
+/* Cards */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(230px,1fr)); gap: 18px; margin-top: 28px; }
+.card { background: var(--snow); border: 1px solid var(--border); border-radius: 10px; padding: 26px; transition: box-shadow .2s,transform .2s; }
+.card:hover { box-shadow: 0 8px 28px rgba(0,0,0,.07); transform: translateY(-2px); }
+.card-icon { font-size: 22px; margin-bottom: 12px; }
+.card h3 { font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+.card p { font-size: 14px; margin: 0; }
+
+/* Feature list */
+.fl { list-style: none; margin-top: 28px; }
+.fl li { display: flex; gap: 16px; padding: 22px 0; border-bottom: 1px solid var(--border); }
+.fl li:last-child { border-bottom: none; }
+.fl-num { font-family: 'Cormorant Garamond',serif; font-size: 30px; font-weight: 600; color: var(--ember); opacity: .35; min-width: 32px; line-height: 1; }
+.fl-body h4 { font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.fl-body p { font-size: 14px; margin: 0; }
+
+/* Use cases */
+.uc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 28px; }
+@media (max-width: 620px) { .uc-grid { grid-template-columns: 1fr; } }
+.uc { background: var(--snow); border: 1px solid var(--border); border-radius: 10px; padding: 22px; }
+.uc .tag { display: inline-block; background: rgba(196,80,42,.1); color: var(--ember-dark); border-radius: 4px; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; padding: 3px 10px; margin-bottom: 10px; }
+.uc h4 { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 7px; }
+.uc p { font-size: 13px; margin: 0; }
+.uc .result { margin-top: 12px; padding: 9px 13px; background: rgba(42,122,110,.08); border-left: 3px solid var(--teal); border-radius: 0 6px 6px 0; font-size: 13px; color: var(--teal); font-weight: 500; }
+
+/* Timeline */
+.timeline { margin-top: 28px; }
+.phase { display: flex; gap: 22px; padding: 26px 0; border-bottom: 1px solid var(--border); }
+.phase:last-child { border-bottom: none; }
+.pdot { min-width: 40px; display: flex; flex-direction: column; align-items: center; }
+.pcircle { width: 40px; height: 40px; border-radius: 50%; background: var(--ember); color: #fff; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono',monospace; font-size: 13px; font-weight: 500; }
+.pline { width: 1px; flex: 1; background: var(--border); margin-top: 8px; min-height: 20px; }
+.pbody h4 { font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+.pbody .wk { font-size: 11px; color: var(--mist); font-family: 'IBM Plex Mono',monospace; margin-bottom: 10px; }
+.pbody ul { padding-left: 18px; }
+.pbody li { font-size: 14px; color: var(--slate); margin-bottom: 4px; }
+
+/* Table */
+.pt { width: 100%; border-collapse: collapse; margin-top: 28px; font-size: 14px; }
+.pt th { background: var(--deep-ink); color: #fff; padding: 13px 18px; text-align: left; font-weight: 500; }
+.pt th:first-child { border-radius: 8px 0 0 0; } .pt th:last-child { border-radius: 0 8px 0 0; }
+.pt td { padding: 13px 18px; border-bottom: 1px solid var(--border); color: var(--slate); }
+.pt tr:last-child td { border-bottom: none; }
+.pt tr:hover td { background: var(--snow); }
+.price { font-family: 'IBM Plex Mono',monospace; font-weight: 600; color: var(--ember); }
+
+/* Protect strip */
+.protect { display: flex; align-items: flex-start; gap: 12px; background: rgba(42,122,110,.07); border: 1px solid rgba(42,122,110,.2); border-radius: 8px; padding: 16px 20px; margin-top: 24px; }
+.protect-icon { font-size: 20px; margin-top: 2px; }
+.protect p { font-size: 13px; color: #2a7a6e; margin: 0; font-weight: 500; line-height: 1.6; }
+
+/* Blockquote */
+.bq { border-left: 4px solid var(--ember); padding: 14px 22px; margin: 24px 0; background: rgba(196,80,42,.05); border-radius: 0 8px 8px 0; }
+.bq p { color: var(--ink); font-size: 16px; font-style: italic; margin: 0; }
+
+/* CTA */
+.cta { background: var(--deep-ink); border-radius: 14px; padding: 56px; text-align: center; margin-top: 56px; position: relative; overflow: hidden; }
+.cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(196,80,42,.18) 0%, transparent 70%); pointer-events: none; }
+.cta h2 { color: #fff; font-size: clamp(22px,4vw,34px); margin-bottom: 12px; }
+.cta p { color: rgba(255,255,255,.65); max-width: 480px; margin: 0 auto 26px; }
+.cta-btn { display: inline-flex; gap: 10px; align-items: center; background: var(--ember); color: #fff; padding: 13px 30px; border-radius: 8px; font-size: 15px; font-weight: 600; text-decoration: none; transition: background .2s; }
+.cta-btn:hover { background: var(--ember-light); }
+
+/* Footer */
+footer { background: var(--deep-ink); color: rgba(255,255,255,.38); text-align: center; padding: 28px 0; margin-top: 80px; font-size: 12px; }
+footer strong { color: var(--ember-light); }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow">合作策略提案 · Confidential · 2026-05-20</div>
+    <h1>MUSEON × <em>聖島國際專利事務所</em></h1>
+    <p class="hero-sub">以智慧型知識管理系統，加速專利業務從先前技術檢索、侵權分析到客戶交付的全流程效率</p>
+    <div class="hero-meta">
+      <span>提案版本 v1.0</span>
+      <span>提案方 MUSEON 管理顧問</span>
+      <span>機密文件 — 請勿轉發</span>
+    </div>
+    <div class="badge">本方案支援本地端部署，所有資料完全保留於事務所內部環境</div>
+  </div>
+</section>
+
+<!-- 01 背景 -->
+<section>
+  <div class="container">
+    <div class="label">01 — 我們看見的挑戰</div>
+    <h2>專利事務所面臨的三個<em>知識管理斷點</em></h2>
+    <p>聖島國際專利事務所的業務橫跨申請、侵權分析、無效宣告、專利佈局與技術移轉。隨著案件量與技術多樣性的提升，三個核心問題正在消耗事務所最寶貴的資源——專業師的時間與注意力。</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">📚</div>
+        <h3>知識存取效率低</h3>
+        <p>歷年案件知識、技術報告、法院判決分散存放，新進師資難以快速找到可參考的先例與內部知識，每次都需重新摸索。</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔍</div>
+        <h3>先前技術檢索耗時</h3>
+        <p>每件申請案的 Prior Art 分析平均耗費 4–8 小時，跨語言（英日韓）、跨資料庫的比對，大量佔用高薪師資人力。</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📄</div>
+        <h3>客戶報告產出緩慢</h3>
+        <p>技術分析報告、侵權意見書的初稿撰寫高度重複，但每份都需客製化說明，大量消耗師資心力，影響交件時效。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 解法 -->
+<section>
+  <div class="container">
+    <div class="label">02 — MUSEON 的解法</div>
+    <h2>不只是工具，是事務所的<em>第二大腦</em></h2>
+    <p>MUSEON 是一套可本地端部署的智慧型知識管理與業務加速平台。所有資料處理均在事務所自有環境中執行，客戶機密與案件資訊完全不外流，符合法律事務所對資訊安全的嚴格要求。</p>
+
+    <div class="bq">
+      <p>「MUSEON 不是讓工程師操作的技術工具——它是讓法律專業人士在對話中完成複雜分析的智慧工作夥伴。」</p>
+    </div>
+
+    <ul class="fl">
+      <li>
+        <div class="fl-num">01</div>
+        <div class="fl-body">
+          <h4>內部知識庫智慧索引</h4>
+          <p>將歷年案件文件、判決、技術報告建立智慧索引，師資可用自然語言提問——如「找所有關於 OLED 驅動電路的侵權見解」——秒速取得相關先例，不再翻找舊資料夾。</p>
+        </div>
+      </li>
+      <li>
+        <div class="fl-num">02</div>
+        <div class="fl-body">
+          <h4>Prior Art 初篩加速</h4>
+          <p>整合 USPTO、EPO、TIPO、J-PlatPat 資料源，依申請案技術摘要自動比對先前技術，輸出結構化比對清單，讓師資聚焦在高價值判斷，而非重複性資料蒐集。</p>
+        </div>
+      </li>
+      <li>
+        <div class="fl-num">03</div>
+        <div class="fl-body">
+          <h4>客戶報告初稿快速生成</h4>
+          <p>依標準格式自動產出技術分析、侵權初步意見、專利佈局建議的結構性初稿，師資只需補充判斷與專業簽名，交付時間可縮短 40–60%。</p>
+        </div>
+      </li>
+      <li>
+        <div class="fl-num">04</div>
+        <div class="fl-body">
+          <h4>案件管理與期限追蹤</h4>
+          <p>追蹤各案件期限（答辯期、審查意見回覆期），自動提醒相關師資，減少逾期風險，同時提供案件進度的整體視圖，讓所內管理更透明。</p>
+        </div>
+      </li>
+      <li>
+        <div class="fl-num">05</div>
+        <div class="fl-body">
+          <h4>多語言技術翻譯輔助</h4>
+          <p>支援英文、日文、韓文、中文的技術文件翻譯，保留專利術語準確性，並可依事務所既有術語表進行一致性校正，避免譯名混亂。</p>
+        </div>
+      </li>
+    </ul>
+
+    <div class="protect">
+      <div class="protect-icon">🔒</div>
+      <p>本地端部署架構：系統完全安裝於事務所自有伺服器或工作站，所有文件處理、分析運算均在內部環境執行，不連接任何外部雲端服務，完全符合涉密業務的資訊安全要求。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 03 應用場景 -->
+<section>
+  <div class="container">
+    <div class="label">03 — 實際應用場景</div>
+    <h2>從日常作業到策略佈局，<em>全程支援</em></h2>
+
+    <div class="uc-grid">
+      <div class="uc">
+        <span class="tag">申請作業</span>
+        <h4>新申請案技術分析</h4>
+        <p>工程師提供技術說明後，系統自動搜尋相關先前技術、標記潛在核駁風險，並建議申請項修改方向。</p>
+        <div class="result">備案準備時間：8 小時 → 3 小時</div>
+      </div>
+      <div class="uc">
+        <span class="tag">侵權鑑定</span>
+        <h4>侵權初步判斷報告</h4>
+        <p>上傳產品規格與目標專利，系統逐項對應技術特徵，輸出結構化侵權元素比對表，加速初步鑑定流程。</p>
+        <div class="result">初稿產出時間縮短約 50%</div>
+      </div>
+      <div class="uc">
+        <span class="tag">客戶服務</span>
+        <h4>專利佈局策略建議</h4>
+        <p>依客戶技術領域與競爭對手專利地圖，分析佈局空白點，為業務洽談提供視覺化分析支援，提升提案說服力。</p>
+        <div class="result">業務提案質量顯著提升</div>
+      </div>
+      <div class="uc">
+        <span class="tag">知識傳承</span>
+        <h4>師資知識沉澱系統</h4>
+        <p>資深師資的判斷邏輯與先例知識系統化沉澱，新進師資可快速參考過往案件處理思路，縮短學習曲線。</p>
+        <div class="result">新進師資上手時間縮短約 40%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 導入計畫 -->
+<section>
+  <div class="container">
+    <div class="label">04 — 導入計畫</div>
+    <h2>三個階段，<em>從環境建置到全面上線</em></h2>
+
+    <div class="timeline">
+      <div class="phase">
+        <div class="pdot"><div class="pcircle">P1</div><div class="pline"></div></div>
+        <div class="pbody">
+          <h4>基礎建置 — 環境安裝與知識庫建立</h4>
+          <div class="wk">第 1–3 週</div>
+          <ul>
+            <li>本地端環境安裝與安全設定（可完全離線運作）</li>
+            <li>歷年案件文件批次匯入與索引建立</li>
+            <li>事務所術語表與報告格式客製化</li>
+            <li>3–5 位核心師資使用培訓</li>
+          </ul>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="pdot"><div class="pcircle">P2</div><div class="pline"></div></div>
+        <div class="pbody">
+          <h4>試行導入 — 選定案件類型深度試用</h4>
+          <div class="wk">第 4–8 週</div>
+          <ul>
+            <li>選定 2–3 種案件類型（如 IDS 案、快速答辯案）優先導入</li>
+            <li>收集師資回饋，持續調整分析流程與輸出格式</li>
+            <li>建立效益量測基準（時間節省、品質評分）</li>
+            <li>Prior Art 檢索模組整合測試</li>
+          </ul>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="pdot"><div class="pcircle">P3</div></div>
+        <div class="pbody">
+          <h4>全面上線 — 全事務所推廣與功能擴展</h4>
+          <div class="wk">第 9–16 週</div>
+          <ul>
+            <li>全體師資與助理培訓（含自主操作手冊）</li>
+            <li>案件期限管理系統整合</li>
+            <li>多語言翻譯模組啟用</li>
+            <li>客製化報告模板庫建立</li>
+            <li>每季效益複盤與功能持續迭代</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 合作條件 -->
+<section>
+  <div class="container">
+    <div class="label">05 — 合作條件</div>
+    <h2>透明定價，<em>三種合作模式</em></h2>
+
+    <table class="pt">
+      <thead>
+        <tr>
+          <th>合作模式</th>
+          <th>適合對象</th>
+          <th>服務內容</th>
+          <th>費用</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>評估試行</strong></td>
+          <td>尚在評估階段的事務所</td>
+          <td>P1 建置 + 8 週試行 + 效益量測報告</td>
+          <td class="price">專案報價</td>
+        </tr>
+        <tr>
+          <td><strong>年度授權</strong></td>
+          <td>決定長期導入</td>
+          <td>完整功能 + 季度功能更新 + 技術支援 SLA</td>
+          <td class="price">年費制</td>
+        </tr>
+        <tr>
+          <td><strong>深度客製</strong></td>
+          <td>有特殊業務或系統整合需求</td>
+          <td>功能開發 + 既有系統整合 + 專屬 SLA</td>
+          <td class="price">另行議定</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="card-grid" style="margin-top: 24px;">
+      <div class="card">
+        <div class="card-icon">🏠</div>
+        <h3>本地端部署</h3>
+        <p>系統完全安裝於事務所環境，不依賴外部服務，資料主權與隱私完全保留。</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔐</div>
+        <h3>資料不外流</h3>
+        <p>客戶案件資料、分析結果均存放於事務所自有設備，可配置防火牆完全隔離。</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🛠</div>
+        <h3>持續技術支援</h3>
+        <p>導入後提供 3 個月密集支援期，後續每季系統更新，確保功能持續優化。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="container">
+  <div class="cta">
+    <h2>準備好開始<em>第一次對話</em>了嗎？</h2>
+    <p>我們建議從一場 60 分鐘的需求訪談開始——深入了解聖島的業務流程與優先導入方向，再提供客製化的試行方案與費用估算。</p>
+    <a href="mailto:zeal.chou@gmail.com" class="cta-btn">預約訪談 →</a>
+  </div>
+</div>
+
+<footer>
+  <p>MUSEON 管理顧問 · <strong>機密文件</strong> · 本提案僅供聖島國際專利事務所內部評估使用</p>
+  <p style="margin-top: 6px;">© 2026 MUSEON. 未經授權禁止轉發或複製。</p>
+</footer>
+
+</body>
+</html>
