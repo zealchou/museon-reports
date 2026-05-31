@@ -9,8 +9,8 @@
 
   body {
     font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
-    background: #0E0E16;
-    color: #F7F5F0;
+    background: #F5F3EE;
+    color: #1A1A2E;
     overflow: hidden;
   }
 
@@ -33,11 +33,12 @@
 
   .slide.active { display: flex; }
 
-  /* ===== 封面 ===== */
+  /* ===== 封面（保留深色，視覺重點頁）===== */
   .slide-cover {
-    background: linear-gradient(135deg, #0E0E16 0%, #16161F 50%, #1a1225 100%);
+    background: linear-gradient(135deg, #1A1A2E 0%, #1F1A3A 50%, #2A1533 100%);
     align-items: center;
     text-align: center;
+    color: #1A1A2E;
   }
 
   .slide-cover .subtitle-tag {
@@ -63,7 +64,7 @@
 
   .slide-cover .desc {
     font-size: 20px;
-    color: #9898A8;
+    color: #6A6878;
     margin-bottom: 48px;
     line-height: 1.6;
   }
@@ -75,23 +76,23 @@
   }
 
   .meta-item { text-align: center; }
-  .meta-item .label { font-size: 12px; color: #5A5A6E; letter-spacing: 2px; margin-bottom: 6px; }
-  .meta-item .value { font-size: 16px; color: #B8923A; font-weight: 600; }
+  .meta-item .label { font-size: 15px; color: #6A6878; letter-spacing: 2px; margin-bottom: 6px; }
+  .meta-item .value { font-size: 17px; color: #B8923A; font-weight: 600; }
 
-  /* ===== 通用版型 ===== */
-  .slide-standard { background: #0E0E16; }
+  /* ===== 通用版型（淺色）===== */
+  .slide-standard { background: #F5F3EE; }
 
   .slide-number {
     position: absolute;
     top: 28px;
     right: 40px;
-    font-size: 12px;
-    color: #2A2A38;
+    font-size: 13px;
+    color: #B8B4AC;
     letter-spacing: 2px;
   }
 
   .slide-tag {
-    font-size: 11px;
+    font-size: 13px;
     letter-spacing: 3px;
     color: #C4502A;
     margin-bottom: 16px;
@@ -99,10 +100,11 @@
   }
 
   h2 {
-    font-size: 38px;
+    font-size: 36px;
     font-weight: 700;
-    margin-bottom: 36px;
+    margin-bottom: 32px;
     line-height: 1.2;
+    color: #1A1A2E;
   }
 
   h2 .accent { color: #C4502A; }
@@ -112,25 +114,26 @@
   .card-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
 
   .card {
-    background: #16161F;
-    border: 1px solid #2A2A38;
+    background: #FFFFFF;
+    border: 1px solid #D8D4CC;
     border-radius: 12px;
     padding: 24px;
     position: relative;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
   }
 
   .card-icon { font-size: 26px; margin-bottom: 14px; }
 
   .card h3 {
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 600;
     margin-bottom: 10px;
-    color: #F7F5F0;
+    color: #1A1A2E;
   }
 
   .card p, .card li {
-    font-size: 13px;
-    color: #9898A8;
+    font-size: 15px;
+    color: #6A6878;
     line-height: 1.7;
   }
 
@@ -144,113 +147,117 @@
   .stat-row { display: flex; gap: 24px; margin-bottom: 32px; }
 
   .stat-card {
-    background: #16161F;
-    border: 1px solid #2A2A38;
+    background: #FFFFFF;
+    border: 1px solid #D8D4CC;
     border-radius: 10px;
     padding: 22px 24px;
     flex: 1;
     text-align: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
   }
 
   .stat-num { font-size: 40px; font-weight: 700; color: #C4502A; line-height: 1; margin-bottom: 6px; }
-  .stat-label { font-size: 12px; color: #9898A8; }
+  .stat-label { font-size: 14px; color: #6A6878; }
 
   .flow-row { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
 
   .flow-step {
-    background: #16161F;
-    border: 1px solid #2A2A38;
+    background: #FFFFFF;
+    border: 1px solid #D8D4CC;
     border-radius: 10px;
     padding: 18px 20px;
     flex: 1;
     text-align: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
   }
 
-  .flow-step .step-num { font-size: 10px; color: #C4502A; letter-spacing: 2px; margin-bottom: 6px; }
-  .flow-step .step-title { font-size: 15px; font-weight: 600; }
-  .flow-step .step-desc { font-size: 12px; color: #9898A8; margin-top: 5px; }
+  .flow-step .step-num { font-size: 11px; color: #C4502A; letter-spacing: 2px; margin-bottom: 6px; }
+  .flow-step .step-title { font-size: 16px; font-weight: 600; color: #1A1A2E; }
+  .flow-step .step-desc { font-size: 14px; color: #6A6878; margin-top: 5px; }
 
-  .flow-arrow { color: #2A2A38; font-size: 20px; }
+  .flow-arrow { color: #C0BDB5; font-size: 20px; }
 
   .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
 
   .tech-tag {
-    background: rgba(42, 122, 110, 0.15);
-    border: 1px solid rgba(42, 122, 110, 0.4);
+    background: rgba(42, 122, 110, 0.1);
+    border: 1px solid rgba(42, 122, 110, 0.35);
     color: #2A7A6E;
     padding: 4px 12px;
     border-radius: 20px;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 500;
   }
 
-  .tech-tag.red { background: rgba(196, 80, 42, 0.1); border-color: rgba(196, 80, 42, 0.3); color: #E0714D; }
-  .tech-tag.gold { background: rgba(184, 146, 58, 0.1); border-color: rgba(184, 146, 58, 0.3); color: #B8923A; }
+  .tech-tag.red { background: rgba(196, 80, 42, 0.08); border-color: rgba(196, 80, 42, 0.3); color: #C4502A; }
+  .tech-tag.gold { background: rgba(184, 146, 58, 0.1); border-color: rgba(184, 146, 58, 0.3); color: #8A6820; }
 
   .arch-box {
-    background: #16161F;
-    border: 1px solid #2A2A38;
+    background: #FFFFFF;
+    border: 1px solid #D8D4CC;
     border-radius: 12px;
     padding: 18px 22px;
     margin-bottom: 12px;
     display: flex;
     align-items: center;
     gap: 18px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
   }
 
   .arch-box .arch-icon { font-size: 22px; width: 40px; flex-shrink: 0; text-align: center; }
-  .arch-box .arch-title { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
-  .arch-box .arch-desc { font-size: 12px; color: #9898A8; line-height: 1.6; }
+  .arch-box .arch-title { font-size: 16px; font-weight: 600; margin-bottom: 4px; color: #1A1A2E; }
+  .arch-box .arch-desc { font-size: 14px; color: #6A6878; line-height: 1.6; }
 
-  .arch-connector { text-align: center; color: #2A2A38; font-size: 16px; margin: -4px 0; }
+  .arch-connector { text-align: center; color: #C0BDB5; font-size: 16px; margin: -4px 0; }
 
   .compare-table { width: 100%; border-collapse: collapse; }
   .compare-table th {
-    background: #16161F;
+    background: #EEEBe4;
     padding: 12px 18px;
     text-align: left;
-    font-size: 12px;
-    color: #5A5A6E;
+    font-size: 14px;
+    color: #888896;
     letter-spacing: 1px;
-    border-bottom: 1px solid #2A2A38;
+    border-bottom: 1px solid #D8D4CC;
   }
-  .compare-table td { padding: 12px 18px; font-size: 13px; border-bottom: 1px solid #1a1a26; vertical-align: top; }
-  .compare-table td:first-child { color: #9898A8; width: 110px; }
-  .compare-table td.old { color: #5A5A6E; }
+  .compare-table td { padding: 12px 18px; font-size: 15px; border-bottom: 1px solid #EAE6DE; vertical-align: top; color: #1A1A2E; }
+  .compare-table td:first-child { color: #6A6878; width: 110px; }
+  .compare-table td.old { color: #6A6878; }
   .compare-table td.new { color: #2A7A6E; font-weight: 500; }
 
   .highlight-box {
-    background: rgba(196, 80, 42, 0.08);
+    background: rgba(196, 80, 42, 0.06);
     border: 1px solid rgba(196, 80, 42, 0.25);
     border-radius: 10px;
     padding: 18px 22px;
     margin-top: 20px;
   }
-  .highlight-box .hl-label { font-size: 10px; color: #C4502A; letter-spacing: 2px; margin-bottom: 6px; }
-  .highlight-box p { font-size: 14px; color: #F7F5F0; line-height: 1.7; }
+  .highlight-box .hl-label { font-size: 12px; color: #C4502A; letter-spacing: 2px; margin-bottom: 6px; }
+  .highlight-box p { font-size: 16px; color: #1A1A2E; line-height: 1.7; }
 
   .security-badge {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: rgba(42, 122, 110, 0.12);
+    background: rgba(42, 122, 110, 0.1);
     border: 1px solid rgba(42, 122, 110, 0.35);
     color: #2A7A6E;
     padding: 4px 12px;
     border-radius: 6px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
   }
 
   .question-card {
-    background: #16161F;
+    background: #FFFFFF;
     border: 1px solid #C4502A;
     border-radius: 14px;
     padding: 28px 32px;
     text-align: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
   }
-  .question-card h3 { font-size: 22px; font-weight: 700; margin-bottom: 16px; line-height: 1.4; }
-  .question-card p { font-size: 15px; color: #9898A8; line-height: 1.7; }
+  .question-card h3 { font-size: 22px; font-weight: 700; margin-bottom: 16px; line-height: 1.4; color: #1A1A2E; }
+  .question-card p { font-size: 16px; color: #6A6878; line-height: 1.7; }
 
   .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 
@@ -265,9 +272,9 @@
   }
 
   .nav-btn {
-    background: #16161F;
-    border: 1px solid #2A2A38;
-    color: #9898A8;
+    background: #FFFFFF;
+    border: 1px solid #D8D4CC;
+    color: #6A6878;
     width: 38px;
     height: 38px;
     border-radius: 50%;
@@ -277,10 +284,11 @@
     align-items: center;
     justify-content: center;
     transition: all 0.2s;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
   }
   .nav-btn:hover { background: #C4502A; border-color: #C4502A; color: white; }
 
-  .nav-counter { font-size: 12px; color: #5A5A6E; }
+  .nav-counter { font-size: 13px; color: #9898B0; }
 
   .progress-bar {
     position: fixed;
@@ -309,7 +317,7 @@
       </div>
       <div class="meta-item">
         <div class="label">提案階段</div>
-        <div class="value">初步規劃 · 不含報價</div>
+        <div class="value">初步規劃</div>
       </div>
       <div class="meta-item">
         <div class="label">提案日期</div>
@@ -436,7 +444,7 @@
     <div class="two-col">
       <div>
         <div class="card" style="margin-bottom: 18px;">
-          <h3 style="color: #9898A8; font-size: 14px; margin-bottom: 10px;">過去的解法：加人</h3>
+          <h3 style="color: #6A6878; font-size: 14px; margin-bottom: 10px;">過去的解法：加人</h3>
           <ul>
             <li>業績成長 → 招更多行政人員</li>
             <li>多開一間分校 → 再配置一組人力</li>
@@ -458,7 +466,7 @@
       <div>
         <div class="card" style="height: 100%;">
           <h3>業界趨勢</h3>
-          <p style="margin: 14px 0; font-size: 13px; color: #9898A8; line-height: 1.8;">台灣補教業龍頭與連鎖品牌，已開始部署 AI 客服處理招生諮詢與課程查詢。率先導入的業者，在招生轉換率和顧客滿意度上，都出現可量化的提升。</p>
+          <p style="margin: 14px 0; font-size: 15px; color: #6A6878; line-height: 1.8;">台灣補教業龍頭與連鎖品牌，已開始部署 AI 客服處理招生諮詢與課程查詢。率先導入的業者，在招生轉換率和顧客滿意度上，都出現可量化的提升。</p>
           <div class="tech-tags">
             <span class="tech-tag">24/7 招生回覆</span>
             <span class="tech-tag">自動報名流程</span>
@@ -491,7 +499,7 @@
       <div class="flow-arrow">→</div>
       <div class="flow-step" style="border-color: #C4502A;">
         <div class="step-num" style="color: #C4502A;">LAYER 3</div>
-        <div class="step-title" style="color: #F7F5F0;">數位員工</div>
+        <div class="step-title" style="color: #1A1A2E;">數位員工</div>
         <div class="step-desc">有角色定位、懂業務脈絡、<br>自主完成特定崗位工作</div>
       </div>
     </div>
@@ -630,16 +638,16 @@
           <h3>現在的問題</h3>
           <p>家長下班後發問，隔天才收到回覆。這段 8–12 小時空窗期，對方可能已看了競爭對手。</p>
         </div>
-        <div class="card" style="margin-bottom: 14px; border-color: #2A2A38;">
-          <h3 style="color: #9898A8; margin-bottom: 10px;">家長 21:30 詢問：</h3>
-          <p style="font-size: 14px; color: #F7F5F0; font-style: italic;">"請問你們的英文課適合國小三年級嗎？週六有課嗎？"</p>
-          <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #2A2A38;">
-            <p style="font-size: 12px; color: #9898A8;">傳統流程：等到隔天早上才有人回覆，可能已看了競爭對手</p>
+        <div class="card" style="margin-bottom: 14px; border-color: #D8D4CC;">
+          <h3 style="color: #6A6878; margin-bottom: 10px;">家長 21:30 詢問：</h3>
+          <p style="font-size: 14px; color: #1A1A2E; font-style: italic;">"請問你們的英文課適合國小三年級嗎？週六有課嗎？"</p>
+          <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #D8D4CC;">
+            <p style="font-size: 14px; color: #6A6878;">傳統流程：等到隔天早上才有人回覆，可能已看了競爭對手</p>
           </div>
         </div>
         <div class="card accent-teal">
           <h3 style="color: #2A7A6E; margin-bottom: 10px;">數位員工 21:30:05 自動回覆：</h3>
-          <p style="font-size: 14px; color: #F7F5F0; font-style: italic;">"您好！我們有專為國小 2-4 年級設計的英文課程……週六上午 09:00-11:00 有兩個位置，是否幫您預約免費試聽？"</p>
+          <p style="font-size: 14px; color: #1A1A2E; font-style: italic;">"您好！我們有專為國小 2-4 年級設計的英文課程……週六上午 09:00-11:00 有兩個位置，是否幫您預約免費試聽？"</p>
         </div>
       </div>
       <div>
@@ -711,11 +719,11 @@
       <div>
         <div class="card accent-gold" style="margin-bottom: 16px;">
           <h3>自動點名與缺課通知</h3>
-          <p style="font-size: 13px; color: #9898A8; margin-top: 8px; line-height: 1.7;">學生到課情形自動記錄，缺課時主動通知家長，無需老師下課後逐一傳訊。出缺席紀錄即時同步，月底統計一鍵完成。</p>
+          <p style="font-size: 15px; color: #6A6878; margin-top: 8px; line-height: 1.7;">學生到課情形自動記錄，缺課時主動通知家長，無需老師下課後逐一傳訊。出缺席紀錄即時同步，月底統計一鍵完成。</p>
         </div>
         <div class="card accent-gold">
           <h3>排課衝突偵測</h3>
-          <p style="font-size: 13px; color: #9898A8; margin-top: 8px; line-height: 1.7;">新增課程或師資調整時，系統自動檢查時間衝突，提供最佳排課建議，避免人工排課出錯的問題。</p>
+          <p style="font-size: 15px; color: #6A6878; margin-top: 8px; line-height: 1.7;">新增課程或師資調整時，系統自動檢查時間衝突，提供最佳排課建議，避免人工排課出錯的問題。</p>
         </div>
       </div>
       <div>
@@ -723,31 +731,31 @@
           <h3>老師每週可回收的時間</h3>
           <div style="margin-top: 18px; display: flex; flex-direction: column; gap: 12px;">
             <div style="display: flex; align-items: center; gap: 14px;">
-              <div style="width: 72px; font-size: 12px; color: #9898A8; text-align: right; flex-shrink: 0;">點名整理</div>
+              <div style="width: 72px; font-size: 14px; color: #6A6878; text-align: right; flex-shrink: 0;">點名整理</div>
               <div style="flex: 1; background: #1a1a26; border-radius: 4px; height: 22px; position: relative;">
                 <div style="background: #B8923A; height: 100%; width: 70%; border-radius: 4px;"></div>
-                <span style="position: absolute; right: 8px; top: 3px; font-size: 11px; color: #9898A8;">~3.5h/週</span>
+                <span style="position: absolute; right: 8px; top: 3px; font-size: 13px; color: #6A6878;">~3.5h/週</span>
               </div>
             </div>
             <div style="display: flex; align-items: center; gap: 14px;">
-              <div style="width: 72px; font-size: 12px; color: #9898A8; text-align: right; flex-shrink: 0;">缺課通知</div>
+              <div style="width: 72px; font-size: 14px; color: #6A6878; text-align: right; flex-shrink: 0;">缺課通知</div>
               <div style="flex: 1; background: #1a1a26; border-radius: 4px; height: 22px; position: relative;">
                 <div style="background: #B8923A; height: 100%; width: 40%; border-radius: 4px;"></div>
-                <span style="position: absolute; right: 8px; top: 3px; font-size: 11px; color: #9898A8;">~2h/週</span>
+                <span style="position: absolute; right: 8px; top: 3px; font-size: 13px; color: #6A6878;">~2h/週</span>
               </div>
             </div>
             <div style="display: flex; align-items: center; gap: 14px;">
-              <div style="width: 72px; font-size: 12px; color: #9898A8; text-align: right; flex-shrink: 0;">家長問答</div>
+              <div style="width: 72px; font-size: 14px; color: #6A6878; text-align: right; flex-shrink: 0;">家長問答</div>
               <div style="flex: 1; background: #1a1a26; border-radius: 4px; height: 22px; position: relative;">
                 <div style="background: #C4502A; height: 100%; width: 50%; border-radius: 4px;"></div>
-                <span style="position: absolute; right: 8px; top: 3px; font-size: 11px; color: #9898A8;">~2.5h/週</span>
+                <span style="position: absolute; right: 8px; top: 3px; font-size: 13px; color: #6A6878;">~2.5h/週</span>
               </div>
             </div>
             <div style="display: flex; align-items: center; gap: 14px;">
-              <div style="width: 72px; font-size: 12px; color: #9898A8; text-align: right; flex-shrink: 0;">月報統計</div>
+              <div style="width: 72px; font-size: 14px; color: #6A6878; text-align: right; flex-shrink: 0;">月報統計</div>
               <div style="flex: 1; background: #1a1a26; border-radius: 4px; height: 22px; position: relative;">
                 <div style="background: #B8923A; height: 100%; width: 30%; border-radius: 4px;"></div>
-                <span style="position: absolute; right: 8px; top: 3px; font-size: 11px; color: #9898A8;">~4h/月</span>
+                <span style="position: absolute; right: 8px; top: 3px; font-size: 13px; color: #6A6878;">~4h/月</span>
               </div>
             </div>
           </div>
@@ -837,16 +845,16 @@
           <h3>部署選項</h3>
           <table style="width: 100%; border-collapse: collapse; margin-top: 12px;">
             <tr>
-              <td style="padding: 10px 0; border-bottom: 1px solid #2A2A38; font-size: 13px; color: #9898A8; width: 90px;">本地伺服器</td>
-              <td style="padding: 10px 0; border-bottom: 1px solid #2A2A38; font-size: 13px; color: #F7F5F0;">資料完全不離校，最高安全等級</td>
+              <td style="padding: 10px 0; border-bottom: 1px solid #D8D4CC; font-size: 15px; color: #6A6878; width: 90px;">本地伺服器</td>
+              <td style="padding: 10px 0; border-bottom: 1px solid #D8D4CC; font-size: 15px; color: #1A1A2E;">資料完全不離校，最高安全等級</td>
             </tr>
             <tr>
-              <td style="padding: 10px 0; border-bottom: 1px solid #2A2A38; font-size: 13px; color: #9898A8;">私有雲</td>
-              <td style="padding: 10px 0; border-bottom: 1px solid #2A2A38; font-size: 13px; color: #F7F5F0;">雲端彈性 + 資料主權保留</td>
+              <td style="padding: 10px 0; border-bottom: 1px solid #D8D4CC; font-size: 15px; color: #6A6878;">私有雲</td>
+              <td style="padding: 10px 0; border-bottom: 1px solid #D8D4CC; font-size: 15px; color: #1A1A2E;">雲端彈性 + 資料主權保留</td>
             </tr>
             <tr>
-              <td style="padding: 10px 0; font-size: 13px; color: #9898A8;">混合架構</td>
-              <td style="padding: 10px 0; font-size: 13px; color: #F7F5F0;">敏感資料本地，AI 運算雲端</td>
+              <td style="padding: 10px 0; font-size: 15px; color: #6A6878;">混合架構</td>
+              <td style="padding: 10px 0; font-size: 15px; color: #1A1A2E;">敏感資料本地，AI 運算雲端</td>
             </tr>
           </table>
         </div>
@@ -889,17 +897,17 @@
     <div class="card-grid card-grid-3">
       <div class="card">
         <h3 style="font-size: 14px;">傳輸加密（TLS 1.3）</h3>
-        <p style="font-size: 12px;">所有資料傳輸全程 TLS 1.3 加密，確保家長與系統之間的對話不被截聽或竄改。</p>
+        <p style="font-size: 14px;">所有資料傳輸全程 TLS 1.3 加密，確保家長與系統之間的對話不被截聽或竄改。</p>
         <div class="tech-tags"><span class="tech-tag">TLS 1.3</span></div>
       </div>
       <div class="card">
         <h3 style="font-size: 14px;">儲存加密（AES-256）</h3>
-        <p style="font-size: 12px;">資料庫靜態加密，即便儲存媒介遺失，資料也無法被第三方讀取。</p>
+        <p style="font-size: 14px;">資料庫靜態加密，即便儲存媒介遺失，資料也無法被第三方讀取。</p>
         <div class="tech-tags"><span class="tech-tag">AES-256</span></div>
       </div>
       <div class="card">
         <h3 style="font-size: 14px;">操作稽核日誌（Audit Log）</h3>
-        <p style="font-size: 12px;">所有系統操作留下完整紀錄，查看誰在什麼時間做了什麼，符合個資法規範。</p>
+        <p style="font-size: 14px;">所有系統操作留下完整紀錄，查看誰在什麼時間做了什麼，符合個資法規範。</p>
         <div class="tech-tags"><span class="tech-tag">Compliance Log</span></div>
       </div>
     </div>
@@ -1015,19 +1023,19 @@
           <h3>行政人力節省</h3>
           <table style="width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px;">
             <tr>
-              <td style="padding: 8px 0; color: #9898A8; border-bottom: 1px solid #2A2A38;">估算行政人員</td>
-              <td style="padding: 8px 0; text-align: right; border-bottom: 1px solid #2A2A38;">8 人（4 分校 × 2）</td>
+              <td style="padding: 8px 0; color: #6A6878; border-bottom: 1px solid #D8D4CC;">估算行政人員</td>
+              <td style="padding: 8px 0; text-align: right; border-bottom: 1px solid #D8D4CC;">8 人（4 分校 × 2）</td>
             </tr>
             <tr>
-              <td style="padding: 8px 0; color: #9898A8; border-bottom: 1px solid #2A2A38;">每人月薪（估）</td>
-              <td style="padding: 8px 0; text-align: right; border-bottom: 1px solid #2A2A38;">35,000 元</td>
+              <td style="padding: 8px 0; color: #6A6878; border-bottom: 1px solid #D8D4CC;">每人月薪（估）</td>
+              <td style="padding: 8px 0; text-align: right; border-bottom: 1px solid #D8D4CC;">35,000 元</td>
             </tr>
             <tr>
-              <td style="padding: 8px 0; color: #9898A8; border-bottom: 1px solid #2A2A38;">可自動化比例</td>
-              <td style="padding: 8px 0; text-align: right; border-bottom: 1px solid #2A2A38;">40–60%</td>
+              <td style="padding: 8px 0; color: #6A6878; border-bottom: 1px solid #D8D4CC;">可自動化比例</td>
+              <td style="padding: 8px 0; text-align: right; border-bottom: 1px solid #D8D4CC;">40–60%</td>
             </tr>
             <tr>
-              <td style="padding: 8px 0; color: #9898A8;">年度可釋放價值</td>
+              <td style="padding: 8px 0; color: #6A6878;">年度可釋放價值</td>
               <td style="padding: 8px 0; text-align: right; color: #C4502A; font-weight: 600; font-size: 16px;">134–202 萬</td>
             </tr>
           </table>
@@ -1036,19 +1044,19 @@
           <h3>招生轉換提升</h3>
           <table style="width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px;">
             <tr>
-              <td style="padding: 8px 0; color: #9898A8; border-bottom: 1px solid #2A2A38;">每月諮詢量（估）</td>
-              <td style="padding: 8px 0; text-align: right; border-bottom: 1px solid #2A2A38;">200 組家長</td>
+              <td style="padding: 8px 0; color: #6A6878; border-bottom: 1px solid #D8D4CC;">每月諮詢量（估）</td>
+              <td style="padding: 8px 0; text-align: right; border-bottom: 1px solid #D8D4CC;">200 組家長</td>
             </tr>
             <tr>
-              <td style="padding: 8px 0; color: #9898A8; border-bottom: 1px solid #2A2A38;">轉換率提升（估）</td>
-              <td style="padding: 8px 0; text-align: right; border-bottom: 1px solid #2A2A38;">+10% → 20 人</td>
+              <td style="padding: 8px 0; color: #6A6878; border-bottom: 1px solid #D8D4CC;">轉換率提升（估）</td>
+              <td style="padding: 8px 0; text-align: right; border-bottom: 1px solid #D8D4CC;">+10% → 20 人</td>
             </tr>
             <tr>
-              <td style="padding: 8px 0; color: #9898A8; border-bottom: 1px solid #2A2A38;">每位學生年學費</td>
-              <td style="padding: 8px 0; text-align: right; border-bottom: 1px solid #2A2A38;">30,000 元</td>
+              <td style="padding: 8px 0; color: #6A6878; border-bottom: 1px solid #D8D4CC;">每位學生年學費</td>
+              <td style="padding: 8px 0; text-align: right; border-bottom: 1px solid #D8D4CC;">30,000 元</td>
             </tr>
             <tr>
-              <td style="padding: 8px 0; color: #9898A8;">年度增加營收</td>
+              <td style="padding: 8px 0; color: #6A6878;">年度增加營收</td>
               <td style="padding: 8px 0; text-align: right; color: #2A7A6E; font-weight: 600; font-size: 16px;">72 萬</td>
             </tr>
           </table>
@@ -1060,20 +1068,20 @@
             <h3>綜合效益估算</h3>
             <div style="margin-top: 18px;">
               <div style="margin-bottom: 18px;">
-                <div style="font-size: 12px; color: #9898A8; margin-bottom: 6px;">年度可節省 / 增加價值</div>
+                <div style="font-size: 14px; color: #6A6878; margin-bottom: 6px;">年度可節省 / 增加價值</div>
                 <div style="font-size: 44px; font-weight: 700; color: #C4502A;">200–274 萬</div>
               </div>
-              <div style="height: 1px; background: #2A2A38; margin-bottom: 18px;"></div>
+              <div style="height: 1px; background: #D8D4CC; margin-bottom: 18px;"></div>
               <ul style="list-style: none; padding: 0;">
-                <li style="font-size: 13px; padding: 8px 0; border-bottom: 1px solid #1a1a26; color: #9898A8;">行政工時釋放 <span style="color: #C4502A; float: right;">134–202 萬</span></li>
-                <li style="font-size: 13px; padding: 8px 0; border-bottom: 1px solid #1a1a26; color: #9898A8;">招生轉換提升 <span style="color: #2A7A6E; float: right;">72 萬</span></li>
-                <li style="font-size: 13px; padding: 8px 0; color: #9898A8;">續班率改善 <span style="color: #B8923A; float: right;">待實際數據評估</span></li>
+                <li style="font-size: 15px; padding: 8px 0; border-bottom: 1px solid #EAE6DE; color: #6A6878;">行政工時釋放 <span style="color: #C4502A; float: right;">134–202 萬</span></li>
+                <li style="font-size: 15px; padding: 8px 0; border-bottom: 1px solid #EAE6DE; color: #6A6878;">招生轉換提升 <span style="color: #2A7A6E; float: right;">72 萬</span></li>
+                <li style="font-size: 15px; padding: 8px 0; color: #6A6878;">續班率改善 <span style="color: #B8923A; float: right;">待實際數據評估</span></li>
               </ul>
             </div>
           </div>
           <div class="highlight-box">
             <div class="hl-label">說明</div>
-            <p style="font-size: 12px;">以上為框架估算，實際數字需依白老師真實數據調整。我們可以在下次會議前，用貴校的實際資料跑更精準的試算。</p>
+            <p style="font-size: 14px;">以上為框架估算，實際數字需依白老師真實數據調整。我們可以在下次會議前，用貴校的實際資料跑更精準的試算。</p>
           </div>
         </div>
       </div>
@@ -1089,27 +1097,27 @@
       <div style="position: absolute; top: 28px; left: 60px; right: 60px; height: 2px; background: linear-gradient(90deg, #C4502A 25%, #B8923A 50%, #2A7A6E 75%, rgba(42,122,110,0.3) 100%); z-index: 0;"></div>
       <div style="flex: 1; text-align: center; padding: 0 14px; position: relative; z-index: 1;">
         <div style="width: 56px; height: 56px; border-radius: 50%; background: #C4502A; margin: 0 auto 18px; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 700;">1</div>
-        <div style="font-size: 10px; color: #C4502A; letter-spacing: 2px; margin-bottom: 6px;">1–2 個月</div>
+        <div style="font-size: 12px; color: #C4502A; letter-spacing: 2px; margin-bottom: 6px;">1–2 個月</div>
         <div style="font-size: 15px; font-weight: 600; margin-bottom: 8px;">快速啟動</div>
-        <div style="font-size: 13px; color: #9898A8; line-height: 1.6;">個人工作 Agent 上線，讓負責人先感受到 AI 效果</div>
+        <div style="font-size: 15px; color: #6A6878; line-height: 1.6;">個人工作 Agent 上線，讓負責人先感受到 AI 效果</div>
       </div>
       <div style="flex: 1; text-align: center; padding: 0 14px; position: relative; z-index: 1;">
         <div style="width: 56px; height: 56px; border-radius: 50%; background: #B8923A; margin: 0 auto 18px; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 700;">2</div>
-        <div style="font-size: 10px; color: #B8923A; letter-spacing: 2px; margin-bottom: 6px;">2–4 個月</div>
+        <div style="font-size: 12px; color: #B8923A; letter-spacing: 2px; margin-bottom: 6px;">2–4 個月</div>
         <div style="font-size: 15px; font-weight: 600; margin-bottom: 8px;">全面行政化</div>
-        <div style="font-size: 13px; color: #9898A8; line-height: 1.6;">招生 + 行政 Agent 全面導入，4 間分校統一服務標準</div>
+        <div style="font-size: 15px; color: #6A6878; line-height: 1.6;">招生 + 行政 Agent 全面導入，4 間分校統一服務標準</div>
       </div>
       <div style="flex: 1; text-align: center; padding: 0 14px; position: relative; z-index: 1;">
         <div style="width: 56px; height: 56px; border-radius: 50%; background: #2A7A6E; margin: 0 auto 18px; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 700;">3</div>
-        <div style="font-size: 10px; color: #2A7A6E; letter-spacing: 2px; margin-bottom: 6px;">4–8 個月</div>
+        <div style="font-size: 12px; color: #2A7A6E; letter-spacing: 2px; margin-bottom: 6px;">4–8 個月</div>
         <div style="font-size: 15px; font-weight: 600; margin-bottom: 8px;">教務與分析</div>
-        <div style="font-size: 13px; color: #9898A8; line-height: 1.6;">教務 Agent + 校務分析儀表板，讓管理者有即時數據</div>
+        <div style="font-size: 15px; color: #6A6878; line-height: 1.6;">教務 Agent + 校務分析儀表板，讓管理者有即時數據</div>
       </div>
       <div style="flex: 1; text-align: center; padding: 0 14px; position: relative; z-index: 1;">
-        <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(42,122,110,0.3); border: 2px dashed rgba(42,122,110,0.5); margin: 0 auto 18px; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 700; color: #9898A8;">4</div>
-        <div style="font-size: 10px; color: #5A5A6E; letter-spacing: 2px; margin-bottom: 6px;">8 個月後</div>
+        <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(42,122,110,0.3); border: 2px dashed rgba(42,122,110,0.5); margin: 0 auto 18px; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 700; color: #6A6878;">4</div>
+        <div style="font-size: 12px; color: #9898B0; letter-spacing: 2px; margin-bottom: 6px;">8 個月後</div>
         <div style="font-size: 15px; font-weight: 600; margin-bottom: 8px;">智慧校務系統</div>
-        <div style="font-size: 13px; color: #9898A8; line-height: 1.6;">多 Agent 協作，新分校複製只需 2 週</div>
+        <div style="font-size: 15px; color: #6A6878; line-height: 1.6;">多 Agent 協作，新分校複製只需 2 週</div>
       </div>
     </div>
     <div class="highlight-box">
@@ -1127,7 +1135,7 @@
       <div>
         <div class="card accent-left" style="margin-bottom: 18px;">
           <h3>MVP 目標：個人工作 Agent</h3>
-          <p style="font-size: 13px; color: #9898A8; margin-top: 8px; line-height: 1.7;">讓負責人或您指定的一位關鍵成員，先體驗有 AI 助理輔助工作的一個月。感受差異後，再決定如何展開全面導入。</p>
+          <p style="font-size: 15px; color: #6A6878; margin-top: 8px; line-height: 1.7;">讓負責人或您指定的一位關鍵成員，先體驗有 AI 助理輔助工作的一個月。感受差異後，再決定如何展開全面導入。</p>
         </div>
         <div class="card">
           <h3>第一個月可以做到的事</h3>
@@ -1148,28 +1156,28 @@
               <div style="width: 28px; height: 28px; border-radius: 50%; background: #C4502A; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; font-weight: 700;">1</div>
               <div>
                 <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">確認使用場景</div>
-                <div style="font-size: 12px; color: #9898A8;">哪個工作痛點最想先解決？由白老師的團隊決定優先項。</div>
+                <div style="font-size: 14px; color: #6A6878;">哪個工作痛點最想先解決？由白老師的團隊決定優先項。</div>
               </div>
             </div>
             <div style="display: flex; gap: 12px; align-items: flex-start;">
               <div style="width: 28px; height: 28px; border-radius: 50%; background: #B8923A; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; font-weight: 700;">2</div>
               <div>
                 <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">提供基礎資料</div>
-                <div style="font-size: 12px; color: #9898A8;">課程表、常見問題集、招生話術——讓 AI 學習您的業務。</div>
+                <div style="font-size: 14px; color: #6A6878;">課程表、常見問題集、招生話術——讓 AI 學習您的業務。</div>
               </div>
             </div>
             <div style="display: flex; gap: 12px; align-items: flex-start;">
               <div style="width: 28px; height: 28px; border-radius: 50%; background: #2A7A6E; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; font-weight: 700;">3</div>
               <div>
                 <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">試跑與調整</div>
-                <div style="font-size: 12px; color: #9898A8;">第一週密集調教，第二週放手讓它跑，第三、四週評估效果。</div>
+                <div style="font-size: 14px; color: #6A6878;">第一週密集調教，第二週放手讓它跑，第三、四週評估效果。</div>
               </div>
             </div>
             <div style="display: flex; gap: 12px; align-items: flex-start;">
-              <div style="width: 28px; height: 28px; border-radius: 50%; background: #16161F; border: 1px solid #2A2A38; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; font-weight: 700; color: #9898A8;">4</div>
+              <div style="width: 28px; height: 28px; border-radius: 50%; background: #FFFFFF; border: 1px solid #D8D4CC; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; font-weight: 700; color: #6A6878;">4</div>
               <div>
                 <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">評估 + 決定下一步</div>
-                <div style="font-size: 12px; color: #9898A8;">一個月後，有了真實數據，再決定是否進入 Phase 2。</div>
+                <div style="font-size: 14px; color: #6A6878;">一個月後，有了真實數據，再決定是否進入 Phase 2。</div>
               </div>
             </div>
           </div>
@@ -1232,7 +1240,7 @@
         <p>第一階段不含報價壓力——我們想讓您先看到真實效果，再決定是否要繼續合作。</p>
       </div>
     </div>
-    <div style="text-align: center; margin-top: 22px; color: #5A5A6E; font-size: 12px;">
+    <div style="text-align: center; margin-top: 22px; color: #9898B0; font-size: 12px;">
       MUSEON × 白老師國際語言中心｜補教業數位員工導入提案 2026.05.31
     </div>
   </div>
