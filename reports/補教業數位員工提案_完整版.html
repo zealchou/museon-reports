@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>補教業數位員工導入提案</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+    background: #0E0E16;
+    color: #F7F5F0;
+    overflow: hidden;
+  }
+
+  .slide-container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+  }
+
+  .slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    padding: 60px 80px;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .slide.active { display: flex; }
+
+  /* ===== 封面 ===== */
+  .slide-cover {
+    background: linear-gradient(135deg, #0E0E16 0%, #16161F 50%, #1a1225 100%);
+    align-items: center;
+    text-align: center;
+  }
+
+  .slide-cover .subtitle-tag {
+    background: rgba(196, 80, 42, 0.2);
+    border: 1px solid #C4502A;
+    color: #E0714D;
+    padding: 6px 20px;
+    border-radius: 20px;
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-bottom: 32px;
+  }
+
+  .slide-cover h1 {
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #F7F5F0, #B8923A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .slide-cover .desc {
+    font-size: 20px;
+    color: #9898A8;
+    margin-bottom: 48px;
+    line-height: 1.6;
+  }
+
+  .slide-cover .meta-row {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+  }
+
+  .meta-item { text-align: center; }
+  .meta-item .label { font-size: 12px; color: #5A5A6E; letter-spacing: 2px; margin-bottom: 6px; }
+  .meta-item .value { font-size: 16px; color: #B8923A; font-weight: 600; }
+
+  /* ===== 通用版型 ===== */
+  .slide-standard { background: #0E0E16; }
+
+  .slide-number {
+    position: absolute;
+    top: 28px;
+    right: 40px;
+    font-size: 12px;
+    color: #2A2A38;
+    letter-spacing: 2px;
+  }
+
+  .slide-tag {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #C4502A;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 36px;
+    line-height: 1.2;
+  }
+
+  h2 .accent { color: #C4502A; }
+
+  .card-grid { display: grid; gap: 18px; }
+  .card-grid-2 { grid-template-columns: 1fr 1fr; }
+  .card-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+  .card {
+    background: #16161F;
+    border: 1px solid #2A2A38;
+    border-radius: 12px;
+    padding: 24px;
+    position: relative;
+  }
+
+  .card-icon { font-size: 26px; margin-bottom: 14px; }
+
+  .card h3 {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #F7F5F0;
+  }
+
+  .card p, .card li {
+    font-size: 13px;
+    color: #9898A8;
+    line-height: 1.7;
+  }
+
+  .card ul { list-style: none; padding: 0; }
+  .card ul li::before { content: '· '; color: #C4502A; font-weight: 700; }
+
+  .card.accent-left { border-left: 3px solid #C4502A; }
+  .card.accent-teal { border-left: 3px solid #2A7A6E; }
+  .card.accent-gold { border-left: 3px solid #B8923A; }
+
+  .stat-row { display: flex; gap: 24px; margin-bottom: 32px; }
+
+  .stat-card {
+    background: #16161F;
+    border: 1px solid #2A2A38;
+    border-radius: 10px;
+    padding: 22px 24px;
+    flex: 1;
+    text-align: center;
+  }
+
+  .stat-num { font-size: 40px; font-weight: 700; color: #C4502A; line-height: 1; margin-bottom: 6px; }
+  .stat-label { font-size: 12px; color: #9898A8; }
+
+  .flow-row { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+
+  .flow-step {
+    background: #16161F;
+    border: 1px solid #2A2A38;
+    border-radius: 10px;
+    padding: 18px 20px;
+    flex: 1;
+    text-align: center;
+  }
+
+  .flow-step .step-num { font-size: 10px; color: #C4502A; letter-spacing: 2px; margin-bottom: 6px; }
+  .flow-step .step-title { font-size: 15px; font-weight: 600; }
+  .flow-step .step-desc { font-size: 12px; color: #9898A8; margin-top: 5px; }
+
+  .flow-arrow { color: #2A2A38; font-size: 20px; }
+
+  .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+
+  .tech-tag {
+    background: rgba(42, 122, 110, 0.15);
+    border: 1px solid rgba(42, 122, 110, 0.4);
+    color: #2A7A6E;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 500;
+  }
+
+  .tech-tag.red { background: rgba(196, 80, 42, 0.1); border-color: rgba(196, 80, 42, 0.3); color: #E0714D; }
+  .tech-tag.gold { background: rgba(184, 146, 58, 0.1); border-color: rgba(184, 146, 58, 0.3); color: #B8923A; }
+
+  .arch-box {
+    background: #16161F;
+    border: 1px solid #2A2A38;
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .arch-box .arch-icon { font-size: 22px; width: 40px; flex-shrink: 0; text-align: center; }
+  .arch-box .arch-title { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .arch-box .arch-desc { font-size: 12px; color: #9898A8; line-height: 1.6; }
+
+  .arch-connector { text-align: center; color: #2A2A38; font-size: 16px; margin: -4px 0; }
+
+  .compare-table { width: 100%; border-collapse: collapse; }
+  .compare-table th {
+    background: #16161F;
+    padding: 12px 18px;
+    text-align: left;
+    font-size: 12px;
+    color: #5A5A6E;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #2A2A38;
+  }
+  .compare-table td { padding: 12px 18px; font-size: 13px; border-bottom: 1px solid #1a1a26; vertical-align: top; }
+  .compare-table td:first-child { color: #9898A8; width: 110px; }
+  .compare-table td.old { color: #5A5A6E; }
+  .compare-table td.new { color: #2A7A6E; font-weight: 500; }
+
+  .highlight-box {
+    background: rgba(196, 80, 42, 0.08);
+    border: 1px solid rgba(196, 80, 42, 0.25);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-top: 20px;
+  }
+  .highlight-box .hl-label { font-size: 10px; color: #C4502A; letter-spacing: 2px; margin-bottom: 6px; }
+  .highlight-box p { font-size: 14px; color: #F7F5F0; line-height: 1.7; }
+
+  .security-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(42, 122, 110, 0.12);
+    border: 1px solid rgba(42, 122, 110, 0.35);
+    color: #2A7A6E;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .question-card {
+    background: #16161F;
+    border: 1px solid #C4502A;
+    border-radius: 14px;
+    padding: 28px 32px;
+    text-align: center;
+  }
+  .question-card h3 { font-size: 22px; font-weight: 700; margin-bottom: 16px; line-height: 1.4; }
+  .question-card p { font-size: 15px; color: #9898A8; line-height: 1.7; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+  .nav {
+    position: fixed;
+    bottom: 28px;
+    right: 36px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    z-index: 100;
+  }
+
+  .nav-btn {
+    background: #16161F;
+    border: 1px solid #2A2A38;
+    color: #9898A8;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+  .nav-btn:hover { background: #C4502A; border-color: #C4502A; color: white; }
+
+  .nav-counter { font-size: 12px; color: #5A5A6E; }
+
+  .progress-bar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    background: #C4502A;
+    transition: width 0.3s ease;
+    z-index: 100;
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+<div class="slide-container">
+
+  <!-- 01: 封面 -->
+  <div class="slide slide-cover active" data-slide="1">
+    <div class="subtitle-tag">MUSEON × 白老師國際語言中心</div>
+    <h1>補教業數位員工<br>導入提案</h1>
+    <p class="desc">讓 AI 承擔重複工作，讓人專注高價值服務<br>建立可複製、可擴充的校務智慧系統</p>
+    <div class="meta-row">
+      <div class="meta-item">
+        <div class="label">提案對象</div>
+        <div class="value">白老師國際語言中心</div>
+      </div>
+      <div class="meta-item">
+        <div class="label">提案階段</div>
+        <div class="value">初步規劃 · 不含報價</div>
+      </div>
+      <div class="meta-item">
+        <div class="label">提案日期</div>
+        <div class="value">2026.05.31</div>
+      </div>
+    </div>
+    <div class="slide-number">01 / 21</div>
+  </div>
+
+  <!-- 02: 提案目的 -->
+  <div class="slide slide-standard" data-slide="2">
+    <div class="slide-number">02 / 21</div>
+    <div class="slide-tag">WHY WE'RE HERE</div>
+    <h2>我們來這裡的<span class="accent">目的</span></h2>
+    <div class="card-grid card-grid-3">
+      <div class="card accent-left">
+        <div class="card-icon">⚙️</div>
+        <h3>降低人力依賴</h3>
+        <p>把每天重複的行政工作——查詢、提醒、回覆——交給數位員工自動處理，讓人力聚焦在無法被取代的地方。</p>
+      </div>
+      <div class="card accent-teal">
+        <div class="card-icon">⭐</div>
+        <h3>提升服務品質</h3>
+        <p>家長半夜發問也能即時回覆，招生諮詢 24 小時不間斷，服務品質不再受制於班表與人力。</p>
+      </div>
+      <div class="card accent-gold">
+        <div class="card-icon">🔄</div>
+        <h3>建立可複製系統</h3>
+        <p>把老師的經驗、校務的 SOP、招生的話術，轉化成可傳承、可快速複製到新分校的知識資產。</p>
+      </div>
+    </div>
+    <div class="highlight-box">
+      <div class="hl-label">核心主張</div>
+      <p>數位員工不是要取代老師，而是接管那些讓優秀老師疲於奔命的瑣碎工作——讓您的團隊可以把精力放在真正重要的事情上。</p>
+    </div>
+  </div>
+
+  <!-- 03: 現況概覽 -->
+  <div class="slide slide-standard" data-slide="3">
+    <div class="slide-number">03 / 21</div>
+    <div class="slide-tag">CURRENT STATUS</div>
+    <h2>白老師的<span class="accent">現況規模</span></h2>
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="stat-num">4</div>
+        <div class="stat-label">分校</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">800+</div>
+        <div class="stat-label">在籍學生</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">40+</div>
+        <div class="stat-label">創校年數</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">∞</div>
+        <div class="stat-label">累積師長經驗</div>
+      </div>
+    </div>
+    <div class="card-grid card-grid-2">
+      <div class="card">
+        <h3>🟡 現有優勢</h3>
+        <ul>
+          <li>40 年品牌積累，在地信任度高</li>
+          <li>多分校運營，規模化基礎成熟</li>
+          <li>教學口碑與師資經驗豐富</li>
+          <li>學生來源相對穩定</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🔴 待突破瓶頸</h3>
+        <ul>
+          <li>行政工作高度依賴人工處理</li>
+          <li>跨分校資訊難以即時整合</li>
+          <li>招生回應速度受限於上班時間</li>
+          <li>老師經驗留在人腦，難以傳承</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04: 三大挑戰 -->
+  <div class="slide slide-standard" data-slide="4">
+    <div class="slide-number">04 / 21</div>
+    <div class="slide-tag">PAIN POINTS</div>
+    <h2>補教業的<span class="accent">三大挑戰</span></h2>
+    <div class="card-grid" style="grid-template-columns: 1fr; gap: 14px;">
+      <div class="card accent-left">
+        <div style="display: flex; align-items: flex-start; gap: 18px;">
+          <div style="font-size: 30px; flex-shrink: 0;">💰</div>
+          <div>
+            <h3>人力成本持續攀升</h3>
+            <p>一位行政人員每月平均花費 60% 以上的時間在回覆重複查詢、整理點名表、處理繳費通知。這些工作不需要人的判斷力，卻佔用了最有價值的人力資源。<br><br><strong style="color: #C4502A;">估算：</strong>4 間分校 × 2 位行政 × 60% 時間浪費 = 相當於每年 80–120 萬的人力成本花在可自動化的工作上。</p>
+          </div>
+        </div>
+      </div>
+      <div class="card accent-teal">
+        <div style="display: flex; align-items: flex-start; gap: 18px;">
+          <div style="font-size: 30px; flex-shrink: 0;">🎯</div>
+          <div>
+            <h3>服務品質難以標準化</h3>
+            <p>家長的問題在下班後、週末發送，等到隔天才有人回覆——這段空窗期，競爭對手可能已經成交。招生窗口、課程說明的話術也因人而異，品質不穩定。</p>
+          </div>
+        </div>
+      </div>
+      <div class="card accent-gold">
+        <div style="display: flex; align-items: flex-start; gap: 18px;">
+          <div style="font-size: 30px; flex-shrink: 0;">🧠</div>
+          <div>
+            <h3>40 年經驗無法有效傳承</h3>
+            <p>老師的招生技巧、課程設計邏輯、處理特殊學生的方式，都存在個人腦袋裡。一旦老師離職，這些寶貴知識就跟著帶走，新人需要重新摸索數年。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05: 數位轉型趨勢 -->
+  <div class="slide slide-standard" data-slide="5">
+    <div class="slide-number">05 / 21</div>
+    <div class="slide-tag">MARKET TREND</div>
+    <h2>補教業的<span class="accent">下一步</span></h2>
+    <div class="two-col">
+      <div>
+        <div class="card" style="margin-bottom: 18px;">
+          <h3 style="color: #9898A8; font-size: 14px; margin-bottom: 10px;">過去的解法：加人</h3>
+          <ul>
+            <li>業績成長 → 招更多行政人員</li>
+            <li>多開一間分校 → 再配置一組人力</li>
+            <li>成本線性增長，擴張越多壓力越大</li>
+            <li>人才招募與培訓成本不斷升高</li>
+          </ul>
+        </div>
+        <div style="text-align: center; color: #C4502A; font-size: 26px; margin: 6px 0;">↓</div>
+        <div class="card accent-teal">
+          <h3 style="color: #2A7A6E; font-size: 14px; margin-bottom: 10px;">現在的解法：加數位員工</h3>
+          <ul>
+            <li>業績成長 → 擴充 Agent 能力即可</li>
+            <li>多開分校 → 系統複製，邊際成本趨近零</li>
+            <li>成本不隨規模線性增長</li>
+            <li>7 × 24 小時運作，不請假、不跳槽</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="height: 100%;">
+          <h3>業界趨勢</h3>
+          <p style="margin: 14px 0; font-size: 13px; color: #9898A8; line-height: 1.8;">台灣補教業龍頭與連鎖品牌，已開始部署 AI 客服處理招生諮詢與課程查詢。率先導入的業者，在招生轉換率和顧客滿意度上，都出現可量化的提升。</p>
+          <div class="tech-tags">
+            <span class="tech-tag">24/7 招生回覆</span>
+            <span class="tech-tag">自動報名流程</span>
+            <span class="tech-tag red">AI 排課最佳化</span>
+            <span class="tech-tag gold">家長溝通自動化</span>
+            <span class="tech-tag">跨分校整合</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 06: 什麼是數位員工 -->
+  <div class="slide slide-standard" data-slide="6">
+    <div class="slide-number">06 / 21</div>
+    <div class="slide-tag">DEFINITION</div>
+    <h2>什麼是<span class="accent">數位員工</span>？</h2>
+    <div class="flow-row" style="margin-bottom: 28px;">
+      <div class="flow-step">
+        <div class="step-num">LAYER 1</div>
+        <div class="step-title">LLM 大語言模型</div>
+        <div class="step-desc">理解語言的 AI 大腦<br>（如 GPT、Claude）</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="step-num">LAYER 2</div>
+        <div class="step-title">Agent 智能代理</div>
+        <div class="step-desc">有記憶、會規劃、<br>能執行多步驟任務</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step" style="border-color: #C4502A;">
+        <div class="step-num" style="color: #C4502A;">LAYER 3</div>
+        <div class="step-title" style="color: #F7F5F0;">數位員工</div>
+        <div class="step-desc">有角色定位、懂業務脈絡、<br>自主完成特定崗位工作</div>
+      </div>
+    </div>
+    <div class="card-grid card-grid-3">
+      <div class="card">
+        <div class="card-icon">🧩</div>
+        <h3>有明確崗位</h3>
+        <p>招生專員、行政助理、教務管理員——每個數位員工有專屬的職責範圍，不是萬能的聊天機器人。</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🧠</div>
+        <h3>懂你的業務</h3>
+        <p>學校的課程、師資、規定、招生話術，都可以教給數位員工，讓它用跟真人一樣的知識回覆。</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3>自主完成工作</h3>
+        <p>不只是回答問題，還能主動發送提醒、追蹤名單、更新紀錄——真正承擔工作，不只是輔助工具。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 07: AI vs 傳統客服 -->
+  <div class="slide slide-standard" data-slide="7">
+    <div class="slide-number">07 / 21</div>
+    <div class="slide-tag">COMPARISON</div>
+    <h2>數位員工 vs<span class="accent"> 傳統 AI 工具</span></h2>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>比較維度</th>
+          <th>傳統客服機器人 / FAQ Bot</th>
+          <th style="color: #2A7A6E;">MUSEON 數位員工</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>理解能力</td>
+          <td class="old">只能比對關鍵字，問法稍微不同就答錯</td>
+          <td class="new">理解語意與意圖，問法怎麼換都能正確回覆</td>
+        </tr>
+        <tr>
+          <td>任務類型</td>
+          <td class="old">只能回答問題，無法主動執行工作</td>
+          <td class="new">可以主動發提醒、查資料、更新紀錄、追蹤名單</td>
+        </tr>
+        <tr>
+          <td>記憶能力</td>
+          <td class="old">每次對話從零開始，不記得之前說了什麼</td>
+          <td class="new">記住每位家長的狀況和對話歷史，延續脈絡</td>
+        </tr>
+        <tr>
+          <td>客製化</td>
+          <td class="old">固定話術，調整困難，需要大量程式設定</td>
+          <td class="new">可以用自然語言「教」它你的業務，快速適應</td>
+        </tr>
+        <tr>
+          <td>跨系統整合</td>
+          <td class="old">通常只是獨立工具，無法跟現有系統互動</td>
+          <td class="new">可串接現有的管理系統、Line、Telegram</td>
+        </tr>
+        <tr>
+          <td>學習能力</td>
+          <td class="old">固定版本，需要工程師更新才能改變</td>
+          <td class="new">可以不斷補充新知識，越用越懂你的業務</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 08: 四大場景 -->
+  <div class="slide slide-standard" data-slide="8">
+    <div class="slide-number">08 / 21</div>
+    <div class="slide-tag">USE CASES</div>
+    <h2>補習班可以導入的<span class="accent">四大場景</span></h2>
+    <div class="card-grid card-grid-2">
+      <div class="card accent-left">
+        <div style="display: flex; gap: 14px; align-items: center; margin-bottom: 14px;">
+          <div style="font-size: 26px;">📣</div>
+          <h3 style="margin-bottom: 0;">招生 Agent</h3>
+        </div>
+        <ul>
+          <li>即時回覆招生諮詢（24 小時）</li>
+          <li>自動追蹤潛在家長名單</li>
+          <li>預約試聽課程、發送確認通知</li>
+          <li>統計各管道招生轉換率</li>
+        </ul>
+      </div>
+      <div class="card accent-teal">
+        <div style="display: flex; gap: 14px; align-items: center; margin-bottom: 14px;">
+          <div style="font-size: 26px;">📋</div>
+          <h3 style="margin-bottom: 0;">行政 Agent</h3>
+        </div>
+        <ul>
+          <li>課程時間、師資查詢即時回覆</li>
+          <li>自動發送繳費提醒與截止通知</li>
+          <li>假單處理與補課安排自動化</li>
+          <li>家長常見問題 FAQ 處理</li>
+        </ul>
+      </div>
+      <div class="card accent-gold">
+        <div style="display: flex; gap: 14px; align-items: center; margin-bottom: 14px;">
+          <div style="font-size: 26px;">📚</div>
+          <h3 style="margin-bottom: 0;">教務 Agent</h3>
+        </div>
+        <ul>
+          <li>排課衝突自動偵測與建議</li>
+          <li>點名紀錄整理與缺課追蹤</li>
+          <li>家長出缺席通知自動發送</li>
+          <li>學習進度定期彙整回報</li>
+        </ul>
+      </div>
+      <div class="card" style="border-left: 3px solid #9898A8;">
+        <div style="display: flex; gap: 14px; align-items: center; margin-bottom: 14px;">
+          <div style="font-size: 26px;">📊</div>
+          <h3 style="margin-bottom: 0;">校務分析 Agent</h3>
+        </div>
+        <ul>
+          <li>各分校招生數據即時彙整</li>
+          <li>續班率分析與流失預警</li>
+          <li>課程滿班率與排課最佳化</li>
+          <li>月報、週報自動生成</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 09: 招生 Agent 深入 -->
+  <div class="slide slide-standard" data-slide="9">
+    <div class="slide-number">09 / 21</div>
+    <div class="slide-tag">SCENARIO DEEP DIVE</div>
+    <h2>招生 Agent<span class="accent">：把空窗期變成成交機會</span></h2>
+    <div class="two-col">
+      <div>
+        <div class="card accent-left" style="margin-bottom: 14px;">
+          <h3>現在的問題</h3>
+          <p>家長下班後發問，隔天才收到回覆。這段 8–12 小時空窗期，對方可能已看了競爭對手。</p>
+        </div>
+        <div class="card" style="margin-bottom: 14px; border-color: #2A2A38;">
+          <h3 style="color: #9898A8; margin-bottom: 10px;">家長 21:30 詢問：</h3>
+          <p style="font-size: 14px; color: #F7F5F0; font-style: italic;">"請問你們的英文課適合國小三年級嗎？週六有課嗎？"</p>
+          <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #2A2A38;">
+            <p style="font-size: 12px; color: #9898A8;">傳統流程：等到隔天早上才有人回覆，可能已看了競爭對手</p>
+          </div>
+        </div>
+        <div class="card accent-teal">
+          <h3 style="color: #2A7A6E; margin-bottom: 10px;">數位員工 21:30:05 自動回覆：</h3>
+          <p style="font-size: 14px; color: #F7F5F0; font-style: italic;">"您好！我們有專為國小 2-4 年級設計的英文課程……週六上午 09:00-11:00 有兩個位置，是否幫您預約免費試聽？"</p>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <h3>招生流程自動化四步驟</h3>
+          <div style="margin-top: 16px; display: flex; flex-direction: column; gap: 10px;">
+            <div class="flow-step" style="text-align: left; padding: 12px 16px;">
+              <div class="step-num">STEP 1</div>
+              <div class="step-title" style="font-size: 13px;">家長透過 Line / Telegram 詢問</div>
+            </div>
+            <div class="arch-connector">↓</div>
+            <div class="flow-step" style="text-align: left; padding: 12px 16px; border-color: #C4502A;">
+              <div class="step-num">STEP 2</div>
+              <div class="step-title" style="font-size: 13px;">數位員工即時回覆 + 了解需求</div>
+            </div>
+            <div class="arch-connector">↓</div>
+            <div class="flow-step" style="text-align: left; padding: 12px 16px;">
+              <div class="step-num">STEP 3</div>
+              <div class="step-title" style="font-size: 13px;">自動預約試聽 + 加入追蹤名單</div>
+            </div>
+            <div class="arch-connector">↓</div>
+            <div class="flow-step" style="text-align: left; padding: 12px 16px;">
+              <div class="step-num">STEP 4</div>
+              <div class="step-title" style="font-size: 13px;">試聽前提醒 + 試聽後跟進</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 10: 行政 Agent -->
+  <div class="slide slide-standard" data-slide="10">
+    <div class="slide-number">10 / 21</div>
+    <div class="slide-tag">SCENARIO DEEP DIVE</div>
+    <h2>行政 Agent<span class="accent">：讓行政人員做有意義的事</span></h2>
+    <div class="card-grid card-grid-3" style="margin-bottom: 22px;">
+      <div class="card accent-teal">
+        <div class="card-icon">💬</div>
+        <h3>即時問答</h3>
+        <p>課程費用、上課時間、師資介紹，全部秒回——不用等到上班時間，家長問完立刻知道。</p>
+        <div class="tech-tags"><span class="tech-tag">FAQ 自動化</span></div>
+      </div>
+      <div class="card accent-teal">
+        <div class="card-icon">🔔</div>
+        <h3>繳費提醒</h3>
+        <p>根據繳費截止日自動計算，在適當時機主動發送提醒，欠費催繳無需行政人員逐一追蹤。</p>
+        <div class="tech-tags"><span class="tech-tag">排程自動化</span></div>
+      </div>
+      <div class="card accent-teal">
+        <div class="card-icon">📅</div>
+        <h3>請假補課</h3>
+        <p>家長發訊息告知請假，系統自動記錄並查詢補課選項，直接回覆可補課的時間讓家長選擇。</p>
+        <div class="tech-tags"><span class="tech-tag">流程自動化</span></div>
+      </div>
+    </div>
+    <div class="highlight-box">
+      <div class="hl-label">釋放的時間用在哪裡？</div>
+      <p>行政人員把從重複查詢省下的時間，轉投入在無法被自動化的事：深度陪伴有狀況的家長、協助老師準備教學資源、主動進行在籍學生的關係維護。這才是人才真正發揮價值的地方。</p>
+    </div>
+  </div>
+
+  <!-- 11: 教務 Agent -->
+  <div class="slide slide-standard" data-slide="11">
+    <div class="slide-number">11 / 21</div>
+    <div class="slide-tag">SCENARIO DEEP DIVE</div>
+    <h2>教務 Agent<span class="accent">：讓老師專注在教學本身</span></h2>
+    <div class="two-col">
+      <div>
+        <div class="card accent-gold" style="margin-bottom: 16px;">
+          <h3>自動點名與缺課通知</h3>
+          <p style="font-size: 13px; color: #9898A8; margin-top: 8px; line-height: 1.7;">學生到課情形自動記錄，缺課時主動通知家長，無需老師下課後逐一傳訊。出缺席紀錄即時同步，月底統計一鍵完成。</p>
+        </div>
+        <div class="card accent-gold">
+          <h3>排課衝突偵測</h3>
+          <p style="font-size: 13px; color: #9898A8; margin-top: 8px; line-height: 1.7;">新增課程或師資調整時，系統自動檢查時間衝突，提供最佳排課建議，避免人工排課出錯的問題。</p>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="height: 100%;">
+          <h3>老師每週可回收的時間</h3>
+          <div style="margin-top: 18px; display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <div style="width: 72px; font-size: 12px; color: #9898A8; text-align: right; flex-shrink: 0;">點名整理</div>
+              <div style="flex: 1; background: #1a1a26; border-radius: 4px; height: 22px; position: relative;">
+                <div style="background: #B8923A; height: 100%; width: 70%; border-radius: 4px;"></div>
+                <span style="position: absolute; right: 8px; top: 3px; font-size: 11px; color: #9898A8;">~3.5h/週</span>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <div style="width: 72px; font-size: 12px; color: #9898A8; text-align: right; flex-shrink: 0;">缺課通知</div>
+              <div style="flex: 1; background: #1a1a26; border-radius: 4px; height: 22px; position: relative;">
+                <div style="background: #B8923A; height: 100%; width: 40%; border-radius: 4px;"></div>
+                <span style="position: absolute; right: 8px; top: 3px; font-size: 11px; color: #9898A8;">~2h/週</span>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <div style="width: 72px; font-size: 12px; color: #9898A8; text-align: right; flex-shrink: 0;">家長問答</div>
+              <div style="flex: 1; background: #1a1a26; border-radius: 4px; height: 22px; position: relative;">
+                <div style="background: #C4502A; height: 100%; width: 50%; border-radius: 4px;"></div>
+                <span style="position: absolute; right: 8px; top: 3px; font-size: 11px; color: #9898A8;">~2.5h/週</span>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <div style="width: 72px; font-size: 12px; color: #9898A8; text-align: right; flex-shrink: 0;">月報統計</div>
+              <div style="flex: 1; background: #1a1a26; border-radius: 4px; height: 22px; position: relative;">
+                <div style="background: #B8923A; height: 100%; width: 30%; border-radius: 4px;"></div>
+                <span style="position: absolute; right: 8px; top: 3px; font-size: 11px; color: #9898A8;">~4h/月</span>
+              </div>
+            </div>
+          </div>
+          <div class="highlight-box" style="margin-top: 18px;">
+            <div class="hl-label">可回收到真正教學的時間</div>
+            <p>每週約 <strong style="color: #C4502A; font-size: 22px;">8 小時</strong> 可被數位員工承接</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 12: 校務分析 Agent -->
+  <div class="slide slide-standard" data-slide="12">
+    <div class="slide-number">12 / 21</div>
+    <div class="slide-tag">SCENARIO DEEP DIVE</div>
+    <h2>校務分析 Agent<span class="accent">：讓數據說話</span></h2>
+    <div class="card-grid card-grid-2">
+      <div class="card">
+        <div class="card-icon">📈</div>
+        <h3>招生漏斗分析</h3>
+        <p>追蹤每個詢問從「第一次聯繫 → 試聽 → 報名 → 正式入學」的轉換率，找出哪個環節流失最多，針對性改善。</p>
+        <div class="tech-tags"><span class="tech-tag gold">轉換率優化</span></div>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚠️</div>
+        <h3>續班預警系統</h3>
+        <p>系統自動分析出缺席頻率、繳費延遲、家長回應率等指標，提前 2-4 週預測哪些學生有流失風險，讓老師主動介入關懷。</p>
+        <div class="tech-tags"><span class="tech-tag red">流失風險預測</span></div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🏫</div>
+        <h3>跨分校數據整合</h3>
+        <p>4 間分校的招生人數、課程滿班率、師資配置效率，即時彙整在同一個儀表板，不用再等月底手動統計。</p>
+        <div class="tech-tags"><span class="tech-tag">即時儀表板</span></div>
+      </div>
+      <div class="card">
+        <div class="card-icon">📊</div>
+        <h3>自動報表生成</h3>
+        <p>週報、月報、季報自動生成，包含關鍵指標變化趨勢和異常提醒，老闆每早打開就能看到完整的校務健康狀況。</p>
+        <div class="tech-tags"><span class="tech-tag gold">自動化報告</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 13: AI Server 架構 -->
+  <div class="slide slide-standard" data-slide="13">
+    <div class="slide-number">13 / 21</div>
+    <div class="slide-tag">TECHNICAL ARCHITECTURE</div>
+    <h2>AI Server<span class="accent"> 部署架構</span></h2>
+    <div class="two-col">
+      <div>
+        <div class="arch-box" style="border-color: #C4502A;">
+          <div class="arch-icon">👨‍👩‍👧</div>
+          <div>
+            <div class="arch-title">使用者端（家長 / 老師 / 管理員）</div>
+            <div class="arch-desc">Line / Telegram / 網頁介面 → 訊息傳輸層（TLS 加密）</div>
+          </div>
+        </div>
+        <div class="arch-connector">↕</div>
+        <div class="arch-box">
+          <div class="arch-icon">🔀</div>
+          <div>
+            <div class="arch-title">API Gateway（請求路由層）</div>
+            <div class="arch-desc">Nginx 反向代理 · 負載均衡器 · JWT 身份驗證 · Rate Limiting 防止濫用 · 請求日誌與監控</div>
+          </div>
+        </div>
+        <div class="arch-connector">↕</div>
+        <div class="arch-box" style="border-color: #2A7A6E;">
+          <div class="arch-icon">🤖</div>
+          <div>
+            <div class="arch-title">AI Agent 執行層（核心）</div>
+            <div class="arch-desc">招生 Agent / 行政 Agent / 教務 Agent 各司其職，角色隔離，互不干擾，沙箱式執行環境</div>
+          </div>
+        </div>
+        <div class="arch-connector">↕</div>
+        <div class="arch-box">
+          <div class="arch-icon">🗄️</div>
+          <div>
+            <div class="arch-title">資料存儲層（私有部署）</div>
+            <div class="arch-desc">向量資料庫（長期記憶）+ 結構化資料庫（學生/課程/財務）· 全部部署於貴校可控環境，資料不外傳</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom: 16px;">
+          <h3>部署選項</h3>
+          <table style="width: 100%; border-collapse: collapse; margin-top: 12px;">
+            <tr>
+              <td style="padding: 10px 0; border-bottom: 1px solid #2A2A38; font-size: 13px; color: #9898A8; width: 90px;">本地伺服器</td>
+              <td style="padding: 10px 0; border-bottom: 1px solid #2A2A38; font-size: 13px; color: #F7F5F0;">資料完全不離校，最高安全等級</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px 0; border-bottom: 1px solid #2A2A38; font-size: 13px; color: #9898A8;">私有雲</td>
+              <td style="padding: 10px 0; border-bottom: 1px solid #2A2A38; font-size: 13px; color: #F7F5F0;">雲端彈性 + 資料主權保留</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px 0; font-size: 13px; color: #9898A8;">混合架構</td>
+              <td style="padding: 10px 0; font-size: 13px; color: #F7F5F0;">敏感資料本地，AI 運算雲端</td>
+            </tr>
+          </table>
+        </div>
+        <div class="highlight-box">
+          <div class="hl-label">核心承諾</div>
+          <p>學生個資、家長聯絡方式、教材內容，<strong style="color: #2A7A6E;">永遠留在您可控的環境內</strong>，不經過任何第三方 AI 服務直接存取您的原始資料。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 14: 資料安全設計 -->
+  <div class="slide slide-standard" data-slide="14">
+    <div class="slide-number">14 / 21</div>
+    <div class="slide-tag">DATA SECURITY</div>
+    <h2>資料安全<span class="accent">設計原則</span></h2>
+    <div class="card-grid card-grid-2" style="margin-bottom: 18px;">
+      <div class="card accent-teal">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px;">
+          <h3>資料主權（Data Sovereignty）</h3>
+          <span class="security-badge">🔒 核心原則</span>
+        </div>
+        <p>學生資料、家長個資、財務紀錄都儲存在您自己的環境中——本地伺服器或私有雲。AI 在您的圍牆內工作，不把您的資料傳出去分析。</p>
+        <div class="tech-tags" style="margin-top: 14px;">
+          <span class="tech-tag">On-Premise Storage</span>
+          <span class="tech-tag">Private Cloud</span>
+        </div>
+      </div>
+      <div class="card accent-teal">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px;">
+          <h3>身份與存取控管（IAM）</h3>
+          <span class="security-badge">🛡️ RBAC</span>
+        </div>
+        <p>每位使用者有專屬帳號與角色權限。行政人員看不到財務報表，老師看不到其他班級的家長聯絡資料——Role-Based Access Control 確保敏感資訊不越界。</p>
+        <div class="tech-tags" style="margin-top: 14px;">
+          <span class="tech-tag">Role-Based Access Control</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-grid card-grid-3">
+      <div class="card">
+        <h3 style="font-size: 14px;">傳輸加密（TLS 1.3）</h3>
+        <p style="font-size: 12px;">所有資料傳輸全程 TLS 1.3 加密，確保家長與系統之間的對話不被截聽或竄改。</p>
+        <div class="tech-tags"><span class="tech-tag">TLS 1.3</span></div>
+      </div>
+      <div class="card">
+        <h3 style="font-size: 14px;">儲存加密（AES-256）</h3>
+        <p style="font-size: 12px;">資料庫靜態加密，即便儲存媒介遺失，資料也無法被第三方讀取。</p>
+        <div class="tech-tags"><span class="tech-tag">AES-256</span></div>
+      </div>
+      <div class="card">
+        <h3 style="font-size: 14px;">操作稽核日誌（Audit Log）</h3>
+        <p style="font-size: 12px;">所有系統操作留下完整紀錄，查看誰在什麼時間做了什麼，符合個資法規範。</p>
+        <div class="tech-tags"><span class="tech-tag">Compliance Log</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 15: 安全技術 -->
+  <div class="slide slide-standard" data-slide="15">
+    <div class="slide-number">15 / 21</div>
+    <div class="slide-tag">SECURITY TECHNOLOGY</div>
+    <h2>Agent 採用的<span class="accent">六大安全機制</span></h2>
+    <div class="two-col">
+      <div>
+        <div class="arch-box" style="margin-bottom: 12px;">
+          <div class="arch-icon">🧱</div>
+          <div>
+            <div class="arch-title">沙箱隔離（Sandbox Isolation）</div>
+            <div class="arch-desc">每個 Agent 運行在獨立執行環境中，招生 Agent 的操作範圍被嚴格限制，無法存取教務或財務資料。即使單一 Agent 出問題，也不會影響其他功能。</div>
+          </div>
+        </div>
+        <div class="arch-box" style="margin-bottom: 12px;">
+          <div class="arch-icon">🔑</div>
+          <div>
+            <div class="arch-title">零信任存取（Zero-Trust Architecture）</div>
+            <div class="arch-desc">任何請求都需要驗證身份，不假設內部網路是安全的。每次操作都驗證：你是誰、你有沒有權限、這個請求合不合理。</div>
+          </div>
+        </div>
+        <div class="arch-box">
+          <div class="arch-icon">📋</div>
+          <div>
+            <div class="arch-title">個資去識別化（Data Anonymization）</div>
+            <div class="arch-desc">AI 在進行統計分析時，使用去識別化資料而非原始個資——分析結果有意義，但即使被截取，也看不出是哪位學生或家長的資料。</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="arch-box" style="margin-bottom: 12px;">
+          <div class="arch-icon">🔍</div>
+          <div>
+            <div class="arch-title">即時威脅偵測（Anomaly Detection）</div>
+            <div class="arch-desc">系統持續監控異常行為——短時間大量查詢、非正常時段操作、試圖存取越權資料——自動觸發警報並封鎖可疑請求。</div>
+          </div>
+        </div>
+        <div class="arch-box" style="margin-bottom: 12px;">
+          <div class="arch-icon">♻️</div>
+          <div>
+            <div class="arch-title">資料保留政策（Retention Policy）</div>
+            <div class="arch-desc">依照貴校需求設定資料保留週期，過期資料自動安全刪除，確保不保留不必要的個資，符合個資法第五條規定。</div>
+          </div>
+        </div>
+        <div class="arch-box">
+          <div class="arch-icon">💾</div>
+          <div>
+            <div class="arch-title">容災備份（Disaster Recovery）</div>
+            <div class="arch-desc">定時快照備份，Recovery Point Objective (RPO) 設計為 &lt; 1 小時，確保系統即使遇到硬體故障，也能在極短時間內恢復正常運作。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 16: 導入效益 -->
+  <div class="slide slide-standard" data-slide="16">
+    <div class="slide-number">16 / 21</div>
+    <div class="slide-tag">IMPACT OVERVIEW</div>
+    <h2>導入後的<span class="accent">可見效益</span></h2>
+    <div class="card-grid card-grid-3" style="margin-bottom: 22px;">
+      <div class="card accent-left">
+        <div class="card-icon">⏱️</div>
+        <h3>節省重複工時</h3>
+        <p>估計每位行政人員每週可節省 6-10 小時的重複性工作時間，讓人力投入在無法被自動化的高價值任務。</p>
+      </div>
+      <div class="card accent-teal">
+        <div class="card-icon">⚡</div>
+        <h3>招生回應速度</h3>
+        <p>回覆時間從平均 4-8 小時縮短到 15 秒以內，24 小時不間斷，招生窗口永不關門。</p>
+      </div>
+      <div class="card accent-gold">
+        <div class="card-icon">📊</div>
+        <h3>決策品質提升</h3>
+        <p>即時數據取代月底統計，管理者能在第一時間看到招生趨勢與潛在問題，提前做出應對。</p>
+      </div>
+    </div>
+    <div class="card-grid card-grid-2">
+      <div class="card">
+        <h3>短期效益（1-3 個月）</h3>
+        <ul>
+          <li>招生諮詢回覆時間大幅縮短</li>
+          <li>行政人員重複性工作顯著減少</li>
+          <li>家長服務滿意度提升</li>
+          <li>資料整合更即時、更準確</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>長期效益（6 個月以上）</h3>
+        <ul>
+          <li>40 年經驗知識化，可傳承複製</li>
+          <li>新分校擴張成本大幅降低</li>
+          <li>品牌服務品質標準化</li>
+          <li>數據驅動決策，持續優化競爭力</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 17: ROI 試算 -->
+  <div class="slide slide-standard" data-slide="17">
+    <div class="slide-number">17 / 21</div>
+    <div class="slide-tag">ROI ESTIMATION</div>
+    <h2>效益<span class="accent">試算框架</span>（參考值）</h2>
+    <div class="two-col">
+      <div>
+        <div class="card accent-left" style="margin-bottom: 16px;">
+          <h3>行政人力節省</h3>
+          <table style="width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px;">
+            <tr>
+              <td style="padding: 8px 0; color: #9898A8; border-bottom: 1px solid #2A2A38;">估算行政人員</td>
+              <td style="padding: 8px 0; text-align: right; border-bottom: 1px solid #2A2A38;">8 人（4 分校 × 2）</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: #9898A8; border-bottom: 1px solid #2A2A38;">每人月薪（估）</td>
+              <td style="padding: 8px 0; text-align: right; border-bottom: 1px solid #2A2A38;">35,000 元</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: #9898A8; border-bottom: 1px solid #2A2A38;">可自動化比例</td>
+              <td style="padding: 8px 0; text-align: right; border-bottom: 1px solid #2A2A38;">40–60%</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: #9898A8;">年度可釋放價值</td>
+              <td style="padding: 8px 0; text-align: right; color: #C4502A; font-weight: 600; font-size: 16px;">134–202 萬</td>
+            </tr>
+          </table>
+        </div>
+        <div class="card accent-teal">
+          <h3>招生轉換提升</h3>
+          <table style="width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px;">
+            <tr>
+              <td style="padding: 8px 0; color: #9898A8; border-bottom: 1px solid #2A2A38;">每月諮詢量（估）</td>
+              <td style="padding: 8px 0; text-align: right; border-bottom: 1px solid #2A2A38;">200 組家長</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: #9898A8; border-bottom: 1px solid #2A2A38;">轉換率提升（估）</td>
+              <td style="padding: 8px 0; text-align: right; border-bottom: 1px solid #2A2A38;">+10% → 20 人</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: #9898A8; border-bottom: 1px solid #2A2A38;">每位學生年學費</td>
+              <td style="padding: 8px 0; text-align: right; border-bottom: 1px solid #2A2A38;">30,000 元</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: #9898A8;">年度增加營收</td>
+              <td style="padding: 8px 0; text-align: right; color: #2A7A6E; font-weight: 600; font-size: 16px;">72 萬</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <h3>綜合效益估算</h3>
+            <div style="margin-top: 18px;">
+              <div style="margin-bottom: 18px;">
+                <div style="font-size: 12px; color: #9898A8; margin-bottom: 6px;">年度可節省 / 增加價值</div>
+                <div style="font-size: 44px; font-weight: 700; color: #C4502A;">200–274 萬</div>
+              </div>
+              <div style="height: 1px; background: #2A2A38; margin-bottom: 18px;"></div>
+              <ul style="list-style: none; padding: 0;">
+                <li style="font-size: 13px; padding: 8px 0; border-bottom: 1px solid #1a1a26; color: #9898A8;">行政工時釋放 <span style="color: #C4502A; float: right;">134–202 萬</span></li>
+                <li style="font-size: 13px; padding: 8px 0; border-bottom: 1px solid #1a1a26; color: #9898A8;">招生轉換提升 <span style="color: #2A7A6E; float: right;">72 萬</span></li>
+                <li style="font-size: 13px; padding: 8px 0; color: #9898A8;">續班率改善 <span style="color: #B8923A; float: right;">待實際數據評估</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="highlight-box">
+            <div class="hl-label">說明</div>
+            <p style="font-size: 12px;">以上為框架估算，實際數字需依白老師真實數據調整。我們可以在下次會議前，用貴校的實際資料跑更精準的試算。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 18: 導入路線圖 -->
+  <div class="slide slide-standard" data-slide="18">
+    <div class="slide-number">18 / 21</div>
+    <div class="slide-tag">IMPLEMENTATION ROADMAP</div>
+    <h2>四階段<span class="accent">導入路線圖</span></h2>
+    <div style="display: flex; gap: 0; margin-bottom: 32px; position: relative;">
+      <div style="position: absolute; top: 28px; left: 60px; right: 60px; height: 2px; background: linear-gradient(90deg, #C4502A 25%, #B8923A 50%, #2A7A6E 75%, rgba(42,122,110,0.3) 100%); z-index: 0;"></div>
+      <div style="flex: 1; text-align: center; padding: 0 14px; position: relative; z-index: 1;">
+        <div style="width: 56px; height: 56px; border-radius: 50%; background: #C4502A; margin: 0 auto 18px; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 700;">1</div>
+        <div style="font-size: 10px; color: #C4502A; letter-spacing: 2px; margin-bottom: 6px;">1–2 個月</div>
+        <div style="font-size: 15px; font-weight: 600; margin-bottom: 8px;">快速啟動</div>
+        <div style="font-size: 13px; color: #9898A8; line-height: 1.6;">個人工作 Agent 上線，讓負責人先感受到 AI 效果</div>
+      </div>
+      <div style="flex: 1; text-align: center; padding: 0 14px; position: relative; z-index: 1;">
+        <div style="width: 56px; height: 56px; border-radius: 50%; background: #B8923A; margin: 0 auto 18px; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 700;">2</div>
+        <div style="font-size: 10px; color: #B8923A; letter-spacing: 2px; margin-bottom: 6px;">2–4 個月</div>
+        <div style="font-size: 15px; font-weight: 600; margin-bottom: 8px;">全面行政化</div>
+        <div style="font-size: 13px; color: #9898A8; line-height: 1.6;">招生 + 行政 Agent 全面導入，4 間分校統一服務標準</div>
+      </div>
+      <div style="flex: 1; text-align: center; padding: 0 14px; position: relative; z-index: 1;">
+        <div style="width: 56px; height: 56px; border-radius: 50%; background: #2A7A6E; margin: 0 auto 18px; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 700;">3</div>
+        <div style="font-size: 10px; color: #2A7A6E; letter-spacing: 2px; margin-bottom: 6px;">4–8 個月</div>
+        <div style="font-size: 15px; font-weight: 600; margin-bottom: 8px;">教務與分析</div>
+        <div style="font-size: 13px; color: #9898A8; line-height: 1.6;">教務 Agent + 校務分析儀表板，讓管理者有即時數據</div>
+      </div>
+      <div style="flex: 1; text-align: center; padding: 0 14px; position: relative; z-index: 1;">
+        <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(42,122,110,0.3); border: 2px dashed rgba(42,122,110,0.5); margin: 0 auto 18px; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 700; color: #9898A8;">4</div>
+        <div style="font-size: 10px; color: #5A5A6E; letter-spacing: 2px; margin-bottom: 6px;">8 個月後</div>
+        <div style="font-size: 15px; font-weight: 600; margin-bottom: 8px;">智慧校務系統</div>
+        <div style="font-size: 13px; color: #9898A8; line-height: 1.6;">多 Agent 協作，新分校複製只需 2 週</div>
+      </div>
+    </div>
+    <div class="highlight-box">
+      <div class="hl-label">原則</div>
+      <p>每一個階段必須讓白老師的團隊真正感受到效果，才會進入下一階段。沒有強迫升級，沒有綁定合約——我們的目標是讓您每個階段都覺得值得繼續。</p>
+    </div>
+  </div>
+
+  <!-- 19: 第一階段建議 -->
+  <div class="slide slide-standard" data-slide="19">
+    <div class="slide-number">19 / 21</div>
+    <div class="slide-tag">FIRST STEP</div>
+    <h2>我們建議從<span class="accent">這裡開始</span></h2>
+    <div class="two-col">
+      <div>
+        <div class="card accent-left" style="margin-bottom: 18px;">
+          <h3>MVP 目標：個人工作 Agent</h3>
+          <p style="font-size: 13px; color: #9898A8; margin-top: 8px; line-height: 1.7;">讓負責人或您指定的一位關鍵成員，先體驗有 AI 助理輔助工作的一個月。感受差異後，再決定如何展開全面導入。</p>
+        </div>
+        <div class="card">
+          <h3>第一個月可以做到的事</h3>
+          <ul style="margin-top: 10px;">
+            <li>整理並回覆重複性 Line 訊息</li>
+            <li>自動整理每日重要待辦事項</li>
+            <li>查詢特定學生的出缺席紀錄</li>
+            <li>自動生成每週校務簡報草稿</li>
+            <li>回覆標準招生問題（FAQ）</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="height: 100%;">
+          <h3>啟動所需的事項</h3>
+          <div style="margin-top: 16px; display: flex; flex-direction: column; gap: 14px;">
+            <div style="display: flex; gap: 12px; align-items: flex-start;">
+              <div style="width: 28px; height: 28px; border-radius: 50%; background: #C4502A; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; font-weight: 700;">1</div>
+              <div>
+                <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">確認使用場景</div>
+                <div style="font-size: 12px; color: #9898A8;">哪個工作痛點最想先解決？由白老師的團隊決定優先項。</div>
+              </div>
+            </div>
+            <div style="display: flex; gap: 12px; align-items: flex-start;">
+              <div style="width: 28px; height: 28px; border-radius: 50%; background: #B8923A; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; font-weight: 700;">2</div>
+              <div>
+                <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">提供基礎資料</div>
+                <div style="font-size: 12px; color: #9898A8;">課程表、常見問題集、招生話術——讓 AI 學習您的業務。</div>
+              </div>
+            </div>
+            <div style="display: flex; gap: 12px; align-items: flex-start;">
+              <div style="width: 28px; height: 28px; border-radius: 50%; background: #2A7A6E; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; font-weight: 700;">3</div>
+              <div>
+                <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">試跑與調整</div>
+                <div style="font-size: 12px; color: #9898A8;">第一週密集調教，第二週放手讓它跑，第三、四週評估效果。</div>
+              </div>
+            </div>
+            <div style="display: flex; gap: 12px; align-items: flex-start;">
+              <div style="width: 28px; height: 28px; border-radius: 50%; background: #16161F; border: 1px solid #2A2A38; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; font-weight: 700; color: #9898A8;">4</div>
+              <div>
+                <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">評估 + 決定下一步</div>
+                <div style="font-size: 12px; color: #9898A8;">一個月後，有了真實數據，再決定是否進入 Phase 2。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 20: 未來擴充藍圖 -->
+  <div class="slide slide-standard" data-slide="20">
+    <div class="slide-number">20 / 21</div>
+    <div class="slide-tag">VISION</div>
+    <h2>三年後的<span class="accent">白老師</span></h2>
+    <div class="card-grid card-grid-3" style="margin-bottom: 22px;">
+      <div class="card accent-left">
+        <div class="card-icon">🏫</div>
+        <h3>快速複製分校</h3>
+        <p>開新分校不再需要從零招募行政團隊。AI 系統帶著白老師 40 年的知識與話術，2 週內讓新分校達到與既有分校相同的服務水準。</p>
+      </div>
+      <div class="card accent-teal">
+        <div class="card-icon">🌐</div>
+        <h3>多 Agent 自主協作</h3>
+        <p>招生、行政、教務 Agent 互相協調——新家長從詢問到報名，全程由多個 AI 無縫接力，人只需要在關鍵決策點介入。</p>
+      </div>
+      <div class="card accent-gold">
+        <div class="card-icon">📖</div>
+        <h3>知識資產永久傳承</h3>
+        <p>白老師 40 年的教學心法、招生技巧、師資培育方式，全部結構化儲存。即使核心老師退休，下一代也能站在巨人肩膀上繼續服務。</p>
+      </div>
+    </div>
+    <div class="highlight-box">
+      <div class="hl-label">長遠思考</div>
+      <p>補教業的競爭，未來不是比誰的老師厲害——而是比誰更懂得把老師的智慧轉化成可以規模化的系統。白老師有 40 年的積累，現在需要的只是一個讓這些積累得以複製的方式。</p>
+    </div>
+  </div>
+
+  <!-- 21: 討論與下一步 -->
+  <div class="slide slide-standard" data-slide="21">
+    <div class="slide-number">21 / 21</div>
+    <div class="slide-tag">NEXT STEP</div>
+    <h2>今天<span class="accent">最重要的一個問題</span></h2>
+    <div class="question-card" style="margin-bottom: 26px;">
+      <h3>"您的團隊每天花最多時間的一件重複性工作是什麼？"</h3>
+      <p>這個答案，就是我們建議的第一個導入場景。找到這個點，我們就能給您一個最具體的第一步建議。</p>
+    </div>
+    <div class="card-grid card-grid-3">
+      <div class="card">
+        <div class="card-icon">💬</div>
+        <h3>今天可以做的決定</h3>
+        <p>確定哪一個工作場景最值得先試，我們可以在兩週內跑一個小型原型讓您看到效果。</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📅</div>
+        <h3>下一次會議</h3>
+        <p>帶著您的痛點數據（每天花多少時間在哪些工作上），我們可以跑一個更精準的 ROI 試算。</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🤝</div>
+        <h3>我們的承諾</h3>
+        <p>第一階段不含報價壓力——我們想讓您先看到真實效果，再決定是否要繼續合作。</p>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 22px; color: #5A5A6E; font-size: 12px;">
+      MUSEON × 白老師國際語言中心｜補教業數位員工導入提案 2026.05.31
+    </div>
+  </div>
+
+</div>
+
+<div class="nav">
+  <button class="nav-btn" onclick="prevSlide()">←</button>
+  <span class="nav-counter" id="navCounter">1 / 21</span>
+  <button class="nav-btn" onclick="nextSlide()">→</button>
+</div>
+
+<script>
+let current = 1;
+const total = 21;
+
+function showSlide(n) {
+  document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+  document.querySelector('[data-slide="' + n + '"]').classList.add('active');
+  document.getElementById('navCounter').textContent = n + ' / ' + total;
+  document.getElementById('progressBar').style.width = ((n / total) * 100) + '%';
+  current = n;
+}
+
+function nextSlide() { if (current < total) showSlide(current + 1); }
+function prevSlide() { if (current > 1) showSlide(current - 1); }
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') nextSlide();
+  if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') prevSlide();
+});
+
+showSlide(1);
+</script>
+</body>
+</html>
