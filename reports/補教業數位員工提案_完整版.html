@@ -220,10 +220,14 @@
     letter-spacing: 1px;
     border-bottom: 1px solid #D8D4CC;
   }
-  .compare-table td { padding: 12px 18px; font-size: 22px; border-bottom: 1px solid #EAE6DE; vertical-align: top; color: #1A1A2E; }
-  .compare-table td:first-child { color: #6A6878; width: 110px; }
-  .compare-table td.old { color: #6A6878; }
-  .compare-table td.new { color: #2A7A6E; font-weight: 500; }
+  .compare-table td { padding: 14px 18px; font-size: 22px; border-bottom: 1px solid #EAE6DE; vertical-align: top; color: #1A1A2E; }
+  .compare-table td:first-child { color: #4A4A5E; width: 120px; font-weight: 600; background: #F0EDE6; }
+  .compare-table td.old { color: #8A5050; background: #FFF4F2; }
+  .compare-table td.old::before { content: "✗ "; color: #C4502A; font-weight: 700; }
+  .compare-table td.new { color: #1A5A50; background: #F0FAF8; font-weight: 500; }
+  .compare-table td.new::before { content: "✓ "; color: #2A7A6E; font-weight: 700; }
+  .compare-table th:nth-child(2) { color: #8A5050; }
+  .compare-table th:nth-child(3) { color: #1A5A50; }
 
   .highlight-box {
     background: rgba(196, 80, 42, 0.06);
@@ -309,7 +313,7 @@
   <div class="slide slide-cover active" data-slide="1">
     <div class="subtitle-tag">MUSEON × 白老師國際語言中心</div>
     <h1>補教業數位員工<br>導入提案</h1>
-    <p class="desc">讓 AI 承擔重複工作，讓人專注高價值服務<br>建立可複製、可擴充的校務智慧系統</p>
+    <p class="desc">讓數位員工承擔重複工作，讓人專注高價值服務<br>建立可複製、可擴充的校務智慧系統</p>
     <div class="meta-row">
       <div class="meta-item">
         <div class="label">提案對象</div>
@@ -321,7 +325,7 @@
       </div>
       <div class="meta-item">
         <div class="label">提案日期</div>
-        <div class="value">2026.05.31</div>
+        <div class="value">2026.06.05</div>
       </div>
     </div>
     <div class="slide-number">01 / 21</div>
@@ -526,7 +530,7 @@
   <div class="slide slide-standard" data-slide="7">
     <div class="slide-number">07 / 21</div>
     <div class="slide-tag">COMPARISON</div>
-    <h2>數位員工 vs<span class="accent"> 傳統 AI 工具</span></h2>
+    <h2>數位員工 MUSEON vs<span class="accent"> 傳統 AI 工具</span></h2>
     <table class="compare-table">
       <thead>
         <tr>
@@ -1109,25 +1113,25 @@
         <div style="width: 56px; height: 56px; border-radius: 50%; background: #C4502A; margin: 0 auto 18px; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 700;">1</div>
         <div style="font-size: 22px; color: #C4502A; letter-spacing: 2px; margin-bottom: 6px;">1–2 個月</div>
         <div style="font-size: 22px; font-weight: 600; margin-bottom: 8px;">快速啟動</div>
-        <div style="font-size: 22px; color: #6A6878; line-height: 1.6;">個人工作 Agent 上線，讓負責人先感受到 AI 效果</div>
+        <div style="font-size: 22px; color: #6A6878; line-height: 1.6;">個人工作 Museon 上線，讓負責人先感受到 AI 效果</div>
       </div>
       <div style="flex: 1; text-align: center; padding: 0 14px; position: relative; z-index: 1;">
         <div style="width: 56px; height: 56px; border-radius: 50%; background: #B8923A; margin: 0 auto 18px; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 700;">2</div>
         <div style="font-size: 22px; color: #B8923A; letter-spacing: 2px; margin-bottom: 6px;">2–4 個月</div>
         <div style="font-size: 22px; font-weight: 600; margin-bottom: 8px;">全面行政化</div>
-        <div style="font-size: 22px; color: #6A6878; line-height: 1.6;">招生 + 行政 Agent 全面導入，4 間分校統一服務標準</div>
+        <div style="font-size: 22px; color: #6A6878; line-height: 1.6;">招生 + 行政 Museon 全面導入，4 間分校統一服務標準</div>
       </div>
       <div style="flex: 1; text-align: center; padding: 0 14px; position: relative; z-index: 1;">
         <div style="width: 56px; height: 56px; border-radius: 50%; background: #2A7A6E; margin: 0 auto 18px; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 700;">3</div>
         <div style="font-size: 22px; color: #2A7A6E; letter-spacing: 2px; margin-bottom: 6px;">4–8 個月</div>
         <div style="font-size: 22px; font-weight: 600; margin-bottom: 8px;">教務與分析</div>
-        <div style="font-size: 22px; color: #6A6878; line-height: 1.6;">教務 Agent + 校務分析儀表板，讓管理者有即時數據</div>
+        <div style="font-size: 22px; color: #6A6878; line-height: 1.6;">教務 Museon + 校務分析儀表板，讓管理者有即時數據</div>
       </div>
       <div style="flex: 1; text-align: center; padding: 0 14px; position: relative; z-index: 1;">
         <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(42,122,110,0.3); border: 2px dashed rgba(42,122,110,0.5); margin: 0 auto 18px; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 700; color: #6A6878;">4</div>
         <div style="font-size: 22px; color: #9898B0; letter-spacing: 2px; margin-bottom: 6px;">8 個月後</div>
         <div style="font-size: 22px; font-weight: 600; margin-bottom: 8px;">智慧校務系統</div>
-        <div style="font-size: 22px; color: #6A6878; line-height: 1.6;">多 Agent 協作，新分校複製只需 2 週</div>
+        <div style="font-size: 22px; color: #6A6878; line-height: 1.6;">多 Museon 協作，新分校複製只需 2 週</div>
       </div>
     </div>
     <div class="highlight-box">
@@ -1144,7 +1148,7 @@
     <div class="two-col">
       <div>
         <div class="card accent-left" style="margin-bottom: 18px;">
-          <h3>MVP 目標：個人工作 Agent</h3>
+          <h3>MVP 目標：個人工作 Museon</h3>
           <p style="font-size: 22px; color: #6A6878; margin-top: 8px; line-height: 1.7;">讓負責人或您指定的一位關鍵成員，先體驗有 AI 助理輔助工作的一個月。感受差異後，再決定如何展開全面導入。</p>
         </div>
         <div class="card">
@@ -1259,7 +1263,7 @@
       </div>
     </div>
     <div style="text-align: center; margin-top: 22px; color: #9898B0; font-size: 22px;">
-      MUSEON × 白老師國際語言中心｜補教業數位員工導入提案 2026.05.31
+      MUSEON × 白老師國際語言中心｜補教業數位員工導入提案 2026.06.05
     </div>
   </div>
 
