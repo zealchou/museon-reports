@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>家庭主婦 × Museon — 雙向交集 DSE 報告</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Outfit:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ember: #C4502A;
+    --ember-light: #E0714D;
+    --teal: #2A7A6E;
+    --gold: #B8923A;
+    --ink: #12121A;
+    --slate: #5A5A6E;
+    --mist: #9898A8;
+    --border: #E2E0DA;
+    --parchment: #F7F5F0;
+    --snow: #FDFCFA;
+    --success: #2D8A6E;
+    --warning: #C9943A;
+    --error: #C4402A;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+    background: var(--parchment);
+    color: var(--ink);
+    line-height: 1.75;
+    font-size: 16px;
+  }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, #12121A 0%, #1a0e08 60%, #2A1A10 100%);
+    padding: 80px 48px 64px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(196,80,42,0.18) 0%, transparent 70%);
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(196,80,42,0.2);
+    border: 1px solid rgba(196,80,42,0.4);
+    color: var(--ember-light);
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    padding: 6px 16px; border-radius: 20px;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px; font-weight: 600;
+    color: #FDFCFA; line-height: 1.2;
+    margin-bottom: 16px; position: relative;
+  }
+  .hero h1 span { color: var(--ember-light); }
+  .hero-sub {
+    color: rgba(253,252,250,0.65);
+    font-size: 15px; max-width: 560px; margin: 0 auto 32px;
+    position: relative;
+  }
+  .hero-meta {
+    display: flex; gap: 32px; justify-content: center; flex-wrap: wrap;
+    position: relative;
+  }
+  .hero-meta-item { color: rgba(253,252,250,0.5); font-size: 12px; letter-spacing: 1px; }
+  .hero-meta-item strong { color: rgba(253,252,250,0.85); display: block; font-size: 18px; letter-spacing: 0; }
+
+  /* Layout */
+  .container { max-width: 960px; margin: 0 auto; padding: 0 32px; }
+
+  /* Section */
+  section { padding: 64px 0; }
+  section + section { border-top: 1px solid var(--border); }
+  .section-label {
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--ember); margin-bottom: 8px; font-weight: 600;
+  }
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px; font-weight: 600; margin-bottom: 8px;
+  }
+  h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+  .section-intro { color: var(--slate); margin-bottom: 40px; max-width: 640px; }
+
+  /* Cards */
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+  .card {
+    background: var(--snow);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    transition: box-shadow 0.2s;
+  }
+  .card:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.07); }
+  .card-number {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: var(--ember); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; margin-bottom: 12px;
+  }
+  .card-title { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+  .card-desc { font-size: 14px; color: var(--slate); line-height: 1.6; }
+  .card-source { font-size: 11px; color: var(--mist); margin-top: 10px; }
+
+  /* Barrier cards */
+  .barrier-card {
+    background: var(--snow);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--warning);
+    border-radius: 0 12px 12px 0;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+  }
+
+  /* Intersection Matrix */
+  .matrix { width: 100%; border-collapse: collapse; }
+  .matrix th {
+    background: var(--ink); color: var(--snow);
+    padding: 12px 16px; text-align: left; font-size: 13px; font-weight: 500;
+  }
+  .matrix th:first-child { border-radius: 8px 0 0 0; }
+  .matrix th:last-child { border-radius: 0 8px 0 0; }
+  .matrix td {
+    padding: 14px 16px; font-size: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .matrix tr:nth-child(even) td { background: rgba(247,245,240,0.5); }
+  .matrix tr:hover td { background: rgba(196,80,42,0.04); }
+
+  .badge {
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 3px 10px; border-radius: 20px;
+    font-size: 12px; font-weight: 500;
+  }
+  .badge-high { background: rgba(45,138,110,0.12); color: var(--success); }
+  .badge-med { background: rgba(201,148,58,0.12); color: var(--warning); }
+  .badge-low { background: rgba(196,64,42,0.12); color: var(--error); }
+  .badge-critical { background: rgba(45,138,110,0.15); color: var(--success); border: 1px solid rgba(45,138,110,0.3); }
+
+  /* Museon function pill */
+  .func-pill {
+    display: inline-block;
+    background: rgba(42,122,110,0.1);
+    color: var(--teal);
+    border: 1px solid rgba(42,122,110,0.25);
+    padding: 2px 8px; border-radius: 12px;
+    font-size: 12px; margin: 2px;
+  }
+
+  /* Verdict box */
+  .verdict {
+    background: linear-gradient(135deg, var(--ink) 0%, #1E1020 100%);
+    border-radius: 16px; padding: 40px 48px;
+    color: var(--snow); position: relative; overflow: hidden;
+  }
+  .verdict::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--ember), var(--gold), var(--teal));
+  }
+  .verdict h3 { font-size: 22px; color: var(--snow); margin-bottom: 16px; }
+  .verdict p { color: rgba(253,252,250,0.75); margin-bottom: 12px; font-size: 15px; }
+  .verdict-score {
+    display: flex; gap: 24px; margin-top: 24px; flex-wrap: wrap;
+  }
+  .verdict-score-item { text-align: center; }
+  .verdict-score-item .score {
+    font-size: 40px; font-weight: 700;
+    font-family: 'Cormorant Garamond', serif;
+    line-height: 1;
+  }
+  .verdict-score-item .score-label { font-size: 12px; color: rgba(253,252,250,0.5); margin-top: 4px; }
+  .score-green { color: #6DC8B0; }
+  .score-amber { color: #E8C06E; }
+  .score-red { color: #E07060; }
+
+  /* Risk/Strength 2col */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
+  .strength-box {
+    background: rgba(45,138,110,0.06);
+    border: 1px solid rgba(45,138,110,0.2);
+    border-radius: 12px; padding: 24px;
+  }
+  .risk-box {
+    background: rgba(196,80,42,0.06);
+    border: 1px solid rgba(196,80,42,0.2);
+    border-radius: 12px; padding: 24px;
+  }
+  .strength-box h3 { color: var(--success); margin-bottom: 12px; }
+  .risk-box h3 { color: var(--ember); margin-bottom: 12px; }
+  ul { padding-left: 20px; }
+  li { margin-bottom: 8px; font-size: 14px; line-height: 1.6; }
+  .strength-box li::marker { color: var(--success); }
+  .risk-box li::marker { color: var(--ember); }
+
+  /* Action list */
+  .action-list { list-style: none; padding: 0; }
+  .action-list li {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 16px 0; border-bottom: 1px solid var(--border);
+  }
+  .action-list li:last-child { border-bottom: none; }
+  .action-num {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--ember); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .action-text strong { display: block; font-size: 15px; margin-bottom: 4px; }
+  .action-text span { font-size: 13px; color: var(--slate); }
+
+  /* Footer */
+  .footer {
+    background: var(--ink); color: rgba(253,252,250,0.4);
+    text-align: center; padding: 32px; font-size: 13px;
+  }
+  .footer span { color: var(--ember); }
+
+  /* Highlight callout */
+  .callout {
+    background: rgba(184,146,58,0.08);
+    border: 1px solid rgba(184,146,58,0.25);
+    border-radius: 10px; padding: 18px 22px;
+    margin: 24px 0; font-size: 14px; color: var(--ink);
+  }
+  .callout strong { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-badge">DSE 雙向交集研究報告</div>
+  <h1>家庭主婦 <span>×</span> Museon<br>課程架構真實需求驗證</h1>
+  <p class="hero-sub">結合外部市場研究（台灣家庭主婦 AI 痛點）與 Museon 內部功能盤點，交叉驗證「手機就是我的員工」課程設計是否命中真實需求</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item"><strong>6</strong>課程模組</div>
+    <div class="hero-meta-item"><strong>5</strong>台灣真實痛點</div>
+    <div class="hero-meta-item"><strong>35+</strong>Museon 可用功能</div>
+    <div class="hero-meta-item"><strong>2026-05-31</strong>驗證日期</div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- Part 1: 外部 DSE -->
+<section>
+  <div class="section-label">Part 1 — 外部研究</div>
+  <h2>台灣家庭主婦的真實需求圖譜</h2>
+  <p class="section-intro">來源：TWNIC 2025、兒福聯盟調查、Yahoo 職場媽媽調查、換日線、媽媽寶寶雜誌等多源驗證</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-number">P1</div>
+      <div class="card-title">孩子教育焦慮 — 最深的時間黑洞</div>
+      <div class="card-desc">81.9% 台灣家長認為「孩子出了問題都怪爸媽沒教好」。陪功課、選補習、擔心 AI 時代落後——三重壓力集中在媽媽身上。</div>
+      <div class="card-source">來源：兒福聯盟 2025 育兒焦慮調查</div>
+    </div>
+    <div class="card">
+      <div class="card-number">P2</div>
+      <div class="card-title">物價壓力下的家庭財務困境</div>
+      <div class="card-desc">98.8% 家庭對物價上漲「非常有感」，58.8% 每月固定有補習才藝費。媽媽是家庭財務的實際守門人，卻缺乏高效工具。</div>
+      <div class="card-source">來源：兒福聯盟 2025 家庭財務調查</div>
+    </div>
+    <div class="card">
+      <div class="card-number">P3</div>
+      <div class="card-title">時間赤字 — 沒有屬於自己的時間</div>
+      <div class="card-desc">86% 職場媽媽表示無法兼顧家庭與事業。即使全職在家，時間也被瑣碎家務、接送、備課切割殆盡。</div>
+      <div class="card-source">來源：Yahoo/聯合報職場媽媽調查</div>
+    </div>
+    <div class="card">
+      <div class="card-number">P4</div>
+      <div class="card-title">家務選擇疲勞 — 每天「今天吃什麼」</div>
+      <div class="card-desc">菜單規劃、採購清單、備料流程高度重複。部分媽媽已開始用 AI 規劃三餐，但「不知道怎麼問」仍是主要障礙。</div>
+      <div class="card-source">來源：Vocus AI 體驗課報告</div>
+    </div>
+    <div class="card">
+      <div class="card-number">P5</div>
+      <div class="card-title">知道 AI 存在、不知 AI 能幫什麼</div>
+      <div class="card-desc">43% 台灣民眾已使用生成式 AI，但 40 歲以上族群 AI 素養顯著偏低。「知道 ChatGPT 但不知從哪裡開始」是普遍心聲。</div>
+      <div class="card-source">來源：TWNIC 2025 台灣網路報告</div>
+    </div>
+  </div>
+
+  <h3 style="margin-top: 40px; margin-bottom: 16px;">三個學習障礙（為什麼學不下去）</h3>
+  <div class="barrier-card">
+    <strong>障礙 1：「學不會」的恐懼 > 學會的動力</strong>
+    <p style="font-size:14px; color:var(--slate); margin-top:6px;">66.8% 的核心恐懼是「害怕跟不上技術變化、學不會」。課程語言太技術、進度太快，第一週就會大量流失。</p>
+  </div>
+  <div class="barrier-card">
+    <strong>障礙 2：沒有「為我設計」的感覺</strong>
+    <p style="font-size:14px; color:var(--slate); margin-top:6px;">台灣現有 AI 課程幾乎全數以職場人士、企業主管為目標。家庭主婦找不到「幫我管家、陪孩子、省錢」的課程。</p>
+  </div>
+  <div class="barrier-card">
+    <strong>障礙 3：零碎時間 + 高打擾環境 = 完課率趨近於零</strong>
+    <p style="font-size:14px; color:var(--slate); margin-top:6px;">生活時間被切割成「接送前 20 分鐘、孩子午睡 45 分鐘」等碎片。長達 1-2 小時的線性課程完全不符合可用時間型態。</p>
+  </div>
+
+  <div class="callout">
+    <strong>關鍵洞見：</strong>台灣家庭主婦對 AI 的真實需求，不是「學 AI」，而是「用 AI 解決每天讓我焦慮的具體問題」——孩子的作業、家裡的晚餐、有限的錢、沒人替換的時間。<br><br>
+    <strong>獲客真相：</strong>口碑社群是唯一有效管道，口碑推薦佔決策因子 36.2%，遠勝廣告。「媽媽帶媽媽」的社群傳播設計不是加分項，是冷啟動的必要條件。
+  </div>
+</section>
+
+<!-- Part 2: 內部 DSE -->
+<section>
+  <div class="section-label">Part 2 — 內部盤點</div>
+  <h2>Museon 對家庭主婦的功能矩陣</h2>
+  <p class="section-intro">109 個 native skill 中，約 35-40 個直接適合或部分適合家庭主婦使用場景</p>
+
+  <h3 style="margin-bottom: 16px;">核心必用功能包（Top 10）</h3>
+  <table class="matrix" style="margin-bottom: 32px;">
+    <tr>
+      <th>#</th>
+      <th>功能名稱</th>
+      <th>家庭主婦應用場景</th>
+      <th>對應痛點</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td><strong>Daily Pilot</strong></td>
+      <td>晨間規劃、家務排程、周回顧</td>
+      <td><span class="badge badge-high">P3 時間</span></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><strong>Finance Pilot</strong></td>
+      <td>家庭記帳、月度預算、支出分析</td>
+      <td><span class="badge badge-high">P2 財務</span></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><strong>Relationship Dynamics</strong></td>
+      <td>家庭成員互動分析、親子溝通優化</td>
+      <td><span class="badge badge-high">P1 教育</span></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><strong>ANIMA Individual</strong></td>
+      <td>為家人建檔、孩子互動歷史追蹤</td>
+      <td><span class="badge badge-high">P1 教育</span></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><strong>Resonance</strong></td>
+      <td>情緒調適、壓力管理、心理承接</td>
+      <td><span class="badge badge-high">P3 時間</span></td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td><strong>DHARMA</strong></td>
+      <td>面對卡點、信念轉化、人生決策</td>
+      <td><span class="badge badge-high">P3+P5</span></td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td><strong>Energy Reading</strong></td>
+      <td>個人能量分析、家庭能量調諧</td>
+      <td><span class="badge badge-med">P3 自我</span></td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td><strong>Human Design Blueprint</strong></td>
+      <td>個人與孩子的天賦分析</td>
+      <td><span class="badge badge-high">P1 教育</span></td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td><strong>Text Alchemy</strong></td>
+      <td>日常溝通文案、家事說明、紀錄整理</td>
+      <td><span class="badge badge-high">P4 家務</span></td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td><strong>Decision Tracker</strong></td>
+      <td>家庭決策記錄、購買決策分析</td>
+      <td><span class="badge badge-med">P2 財務</span></td>
+    </tr>
+  </table>
+
+  <div class="callout">
+    <strong>重要發現：</strong>Museon 沒有原生「家務管理排程」功能——這是課程模組 2「AI 管家務」的核心示範場景。需要用 Text Alchemy + Daily Pilot 組合，或直接示範 ChatGPT/Claude 的 prompt 流程，而非 Museon 獨有優勢。這是課程設計需要注意的功能定位邊界。
+  </div>
+</section>
+
+<!-- Part 3: 交集驗證 -->
+<section>
+  <div class="section-label">Part 3 — 交集驗證</div>
+  <h2>課程架構 × 真實需求 交集矩陣</h2>
+  <p class="section-intro">逐模組驗證「手機就是我的員工」課程設計的需求命中率</p>
+
+  <table class="matrix">
+    <tr>
+      <th>課程模組</th>
+      <th>命中的真實痛點</th>
+      <th>Museon 對應功能</th>
+      <th>交集評估</th>
+    </tr>
+    <tr>
+      <td>
+        <strong>模組 1</strong><br>手機獲利術
+        <div style="font-size:12px;color:var(--mist);margin-top:4px;">我能靠手機賺到錢嗎？</div>
+      </td>
+      <td>
+        P2 物價財務壓力<br>P3 時間赤字
+        <div style="font-size:12px;color:var(--slate);margin-top:4px;">「想有副收入但不知從何開始」是 P2+P3 複合痛點</div>
+      </td>
+      <td>
+        <span class="func-pill">Finance Pilot</span>
+        <span class="func-pill">Daily Pilot</span>
+        <span class="func-pill">Text Alchemy</span>
+      </td>
+      <td><span class="badge badge-high">高 ✓</span></td>
+    </tr>
+    <tr>
+      <td>
+        <strong>模組 2</strong><br>AI 管家務
+        <div style="font-size:12px;color:var(--mist);margin-top:4px;">家務怎麼不再讓我崩潰？</div>
+      </td>
+      <td>
+        P4 家務選擇疲勞<br>P3 時間赤字
+        <div style="font-size:12px;color:var(--slate);margin-top:4px;">「今天吃什麼」是高頻高消耗的決策</div>
+      </td>
+      <td>
+        <span class="func-pill">Text Alchemy</span>
+        <span class="func-pill">Daily Pilot</span>
+        <div style="font-size:12px;color:var(--warning);margin-top:6px;">⚠️ 無原生家務管理功能</div>
+      </td>
+      <td><span class="badge badge-med">中 ⚠</span></td>
+    </tr>
+    <tr>
+      <td>
+        <strong>模組 3</strong><br>孩子情緒急救
+        <div style="font-size:12px;color:var(--mist);margin-top:4px;">孩子又哭又鬧，我怎麼辦？</div>
+      </td>
+      <td>
+        P1 孩子教育焦慮 ★最強
+        <div style="font-size:12px;color:var(--slate);margin-top:4px;">81.9% 認為「孩子出問題都怪爸媽」——情緒最重的模組命中最深的痛點</div>
+      </td>
+      <td>
+        <span class="func-pill">Relationship Dynamics</span>
+        <span class="func-pill">ANIMA Individual</span>
+        <span class="func-pill">Resonance</span>
+      </td>
+      <td><span class="badge badge-critical">最強 ★</span></td>
+    </tr>
+    <tr>
+      <td>
+        <strong>模組 4</strong><br>AI 守護自己
+        <div style="font-size:12px;color:var(--mist);margin-top:4px;">怎麼知道什麼時候該休息？</div>
+      </td>
+      <td>
+        P3 時間赤字<br>P5 AI 素養落差
+        <div style="font-size:12px;color:var(--slate);margin-top:4px;">「媽媽自己的事」第一次被照顧——情緒轉折點設計精準</div>
+      </td>
+      <td>
+        <span class="func-pill">Resonance</span>
+        <span class="func-pill">DHARMA</span>
+        <span class="func-pill">Energy Reading</span>
+        <span class="func-pill">Daily Pilot</span>
+      </td>
+      <td><span class="badge badge-high">高 ✓</span></td>
+    </tr>
+    <tr>
+      <td>
+        <strong>模組 5</strong><br>不看臉色計畫
+        <div style="font-size:12px;color:var(--mist);margin-top:4px;">讓自己不再依賴老公收入</div>
+      </td>
+      <td>
+        P2 財務困境<br>P3 時間赤字
+        <div style="font-size:12px;color:var(--slate);margin-top:4px;">情緒強度最高。技能×AI加速=選擇權的設計邏輯對應真實需求</div>
+      </td>
+      <td>
+        <span class="func-pill">Finance Pilot</span>
+        <span class="func-pill">Text Alchemy</span>
+        <span class="func-pill">Daily Pilot</span>
+      </td>
+      <td><span class="badge badge-high">高 ✓</span></td>
+    </tr>
+    <tr>
+      <td>
+        <strong>模組 6</strong><br>姊妹圈裂變
+        <div style="font-size:12px;color:var(--mist);margin-top:4px;">讓身邊的姊妹也因我而變好</div>
+      </td>
+      <td>
+        口碑社群獲客 ★完美吻合
+        <div style="font-size:12px;color:var(--slate);margin-top:4px;">研究結論：口碑佔決策 36.2%，「媽媽帶媽媽」是唯一有效冷啟動路徑</div>
+      </td>
+      <td>
+        <span class="func-pill">Relationship Dynamics</span>
+        <span class="func-pill">Text Alchemy</span>
+        <span class="func-pill">ANIMA Individual</span>
+      </td>
+      <td><span class="badge badge-critical">最強 ★</span></td>
+    </tr>
+  </table>
+</section>
+
+<!-- Part 4: 綜合評估 -->
+<section>
+  <div class="section-label">Part 4 — 綜合評估</div>
+  <h2>架構驗證結論</h2>
+  <p class="section-intro">課程整體設計的強點、弱點與補強方向</p>
+
+  <div class="verdict" style="margin-bottom: 40px;">
+    <h3>整體命中率評估</h3>
+    <p>課程架構整體命中台灣家庭主婦真實需求約 <strong style="color:#6DC8B0;">75–80%</strong>。六個模組中有 4 個高度吻合，1 個最強（模組 3），1 個需要補強（模組 2）。</p>
+    <p>最大的驗證結論：<strong style="color:#E8C06E;">「姊妹圈裂變」不只是課程內容，它是整個銷售策略的唯一成立基礎</strong>——台灣媽媽的口碑社群決策特性使這個模組從「加分」升格為「必要條件」。</p>
+    <div class="verdict-score">
+      <div class="verdict-score-item">
+        <div class="score score-green">★★</div>
+        <div class="score-label">最強模組<br>3 + 6</div>
+      </div>
+      <div class="verdict-score-item">
+        <div class="score score-green">4/6</div>
+        <div class="score-label">高度吻合<br>模組數</div>
+      </div>
+      <div class="verdict-score-item">
+        <div class="score score-amber">1</div>
+        <div class="score-label">需要補強<br>模組 2</div>
+      </div>
+      <div class="verdict-score-item">
+        <div class="score score-green">35+</div>
+        <div class="score-label">Museon 可用<br>功能數</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="strength-box">
+      <h3>強點（已命中）</h3>
+      <ul>
+        <li><strong>模組 3 孩子情緒急救</strong> — 81.9% 台灣家長的核心焦慮，完全吻合。這是情感連結最強的模組。</li>
+        <li><strong>模組 6 姊妹圈裂變</strong> — 口碑 36.2% 決策佔比，課程設計提前在購買行為時就讓裂變發生（揪團定價）。</li>
+        <li><strong>模組 4 AI 守護自己</strong> — Museon 有 Resonance + DHARMA + Energy Reading 三重功能支撐，是最完整的交集。</li>
+        <li><strong>零碎時間設計</strong> — 每個模組獨立可帶走成果，吻合「碎片時間完課率」障礙的解法。</li>
+        <li><strong>語氣設計</strong> —「你沒有問題，你只是沒有工具」精準化解「學不會的恐懼」障礙。</li>
+      </ul>
+    </div>
+    <div class="risk-box">
+      <h3>弱點（需補強）</h3>
+      <ul>
+        <li><strong>模組 2 家務排程</strong> — Museon 無原生家務管理功能。需明確定位：示範的是 ChatGPT/Claude 通用能力，而非 Museon 獨有功能。</li>
+        <li><strong>模組 5 變現路徑</strong> — Finance Pilot 是記帳工具，不是「找收入機會」工具。需要設計具體的 Prompt 流程讓 AI 扮演「副業顧問」角色。</li>
+        <li><strong>96,000 漏斗銜接</strong> — 文件已識別地雷（信任爆破裝置），但課程結尾如何「自然帶出 8,800 工作坊」仍需具體設計。</li>
+        <li><strong>男性老師形象風險</strong> — 文件已提出解法（學員成為主角），需確保所有示範題目都是學員的真實問題，而非老師準備的完美題目。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Part 5: 建議 -->
+<section>
+  <div class="section-label">Part 5 — 補強建議</div>
+  <h2>課程設計微調方向</h2>
+  <p class="section-intro">基於雙向交集分析，優先處理的 4 個行動項</p>
+
+  <ul class="action-list">
+    <li>
+      <div class="action-num">1</div>
+      <div class="action-text">
+        <strong>模組 2 重新定位：把「Museon 示範」改為「AI 工具示範」</strong>
+        <span>明確告訴學員：家務排程這件事用 ChatGPT 或 Museon 都可以做，重點是「怎麼說給 AI 聽」。設計一個可複用的家務 Prompt 模板作為帶走資源，而非強調 Museon 獨有功能。這樣更誠實，也更不會在功能邊界上踩到信任問題。</span>
+      </div>
+    </li>
+    <li>
+      <div class="action-num">2</div>
+      <div class="action-text">
+        <strong>模組 5 補設「副業顧問 Prompt 流程」</strong>
+        <span>設計一個 3 步驟的 AI 副業探索流程：① 技能盤點問句 → ② 機會匹配問句 → ③ 30 天行動計畫生成。這個流程可以搭配 Finance Pilot 的記帳功能，形成「找到收入方向 → 追蹤第一筆收入」的完整閉環，讓 Museon 在這個模組有更清晰的角色。</span>
+      </div>
+    </li>
+    <li>
+      <div class="action-num">3</div>
+      <div class="action-text">
+        <strong>課程前置收集 30 個真實問題（解決「即興砸場」死因）</strong>
+        <span>研究發現「示範題目要選最混亂、最情緒化的版本」是對的。建議在招生期就發問卷，收集「你這個月最煩的一件事」。課前篩出 5 個最具代表性的問題作為各模組示範素材庫，讓 Museon 示範命中率從即興提升到精準。</span>
+      </div>
+    </li>
+    <li>
+      <div class="action-num">4</div>
+      <div class="action-text">
+        <strong>模組 3 × 模組 4 對調順序（心理設計優化）</strong>
+        <span>目前順序：家務 → 孩子情緒 → 守護自己。建議考慮：家務 → 守護自己 → 孩子情緒。理由：先讓媽媽感覺「AI 關心我」（模組 4），再處理「孩子的問題」（模組 3），情感連結會更深，而且避免「前半部都在解決別人的問題」的疲勞感。不過這涉及課程設計哲學，Dobby 作為課程主理人最終決策。</span>
+      </div>
+    </li>
+  </ul>
+</section>
+
+</div><!-- /container -->
+
+<div style="background: var(--ink); padding: 48px 32px;">
+  <div style="max-width: 960px; margin: 0 auto; text-align: center;">
+    <div style="font-family: 'Cormorant Garamond', serif; font-size: 28px; color: #FDFCFA; margin-bottom: 12px;">整體評估</div>
+    <p style="color: rgba(253,252,250,0.65); max-width: 600px; margin: 0 auto; font-size: 15px; line-height: 1.8;">
+      課程架構的核心方向是對的。「不用懂科技，只要夠煩，AI 就有用」這句定位詞精準命中台灣媽媽的 P5（知道 AI 存在但不知能幫什麼），也化解了「學不會」的學習障礙。<br><br>
+      最大的驗證是：模組 6 的姊妹圈裂變設計，從研究角度看，這不是「加分」——是整個冷啟動計畫成立的唯一前提。
+    </p>
+  </div>
+</div>
+
+<div class="footer">
+  <span>MUSEON</span> DSE 雙向交集研究 · 2026-05-31 · 外部研究 × 內部功能盤點驗證
+</div>
+
+</body>
+</html>
